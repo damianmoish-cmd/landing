@@ -3,35 +3,39 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>Bezdrátová sluchátka Pro – kompatibilní model</title>
-<meta name="description" content="Bezdrátová sluchátka s ANC. Platba dobírkou. Doručení 2–3 dny.">
-
-<!-- Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-J103ET7DD3"></script>
-<script>
-window.dataLayer = window.dataLayer || [];
-function gtag(){dataLayer.push(arguments);}
-gtag('js', new Date());
-gtag('config', 'G-J103ET7DD3');
-</script>
+<title>Bezdrátová sluchátka Pro – совместимая модель</title>
+<meta name="description" content="Bezdrátová sluchátka с ANC. Оплата при получении. Доставка 2–3 дня.">
 
 <style>
-body{margin:0;font-family:Arial;background:#000;color:#fff}
-section{max-width:1100px;margin:auto;padding:70px 20px}
-.hero{text-align:center}
-.btn{padding:14px 36px;border-radius:30px;margin:10px;display:inline-block;text-decoration:none}
-.primary{background:#fff;color:#000}
-.outline{border:2px solid #fff;color:#fff}
-.lang{position:fixed;top:15px;right:15px}
-.lang button{margin-left:5px}
-.price{font-size:34px}
+body{margin:0;font-family:-apple-system,BlinkMacSystemFont,Arial,sans-serif;background:#000;color:#fff;}
+section{max-width:1100px;margin:auto;padding:70px 20px;}
+h1{font-size:36px;margin-bottom:15px;}
+h2{font-size:26px;margin-bottom:25px;}
+p{opacity:.85;margin-bottom:15px;}
+.hero{text-align:center;}
+.hero img{max-width:260px;margin:40px auto;display:block;transition: transform .4s;}
+.hero img:hover{transform: scale(1.05);}
+.btn{display:inline-block;padding:14px 36px;border-radius:30px;text-decoration:none;font-weight:500;margin:10px;transition:.3s;}
+.btn-primary{background:#fff;color:#000;}
+.btn-primary:hover{background:#ddd;}
+.btn-outline{border:2px solid #fff;color:#fff;}
+.btn-outline:hover{background:#fff;color:#000;}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:25px;}
+.card{background:#111;padding:25px;border-radius:16px;}
+.gallery{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:20px;}
+.gallery img{width:100%;border-radius:14px;background:#111;}
+.price{font-size:34px;margin:20px 0;}
+footer{text-align:center;padding:40px 20px;font-size:13px;opacity:.6;}
+footer a{color:#fff;opacity:.7;margin:0 5px;}
+.lang{position:fixed;top:15px;right:15px;}
+.lang button{margin-left:5px;padding:5px 10px;border-radius:8px;border:none;cursor:pointer;}
+@media(max-width:600px){h1{font-size:28px;}h2{font-size:22px;}.price{font-size:26px;}}
 </style>
 
 <script>
 function setLang(lang){
   document.querySelectorAll('[data-lang]').forEach(el=>{
-    el.style.display = el.dataset.lang === lang ? 'block' : 'none';
+    el.style.display = el.dataset-lang===lang ? 'block':'none';
   });
 }
 </script>
@@ -51,35 +55,139 @@ function setLang(lang){
   <p data-lang="cz">Kompatibilní model s aktivním potlačením hluku</p>
   <p data-lang="ru">Совместимая модель с активным шумоподавлением</p>
 
-  <img src="airpods1.jpg" width="260">
+  <img src="airpods1.jpg" alt="Sluchátka">
 
-  <a href="order.html" class="btn primary" onclick="gtag('event','order_click')">
-    Objednat
-  </a>
+  <a href="order.html" class="btn btn-primary">Objednat</a>
 
-  <a href="https://wa.me/420702846018" class="btn outline">WhatsApp</a>
-  <a href="https://t.me/Appledestroyer1" class="btn outline">Telegram</a>
+  <a href="https://wa.me/420702846018" class="btn btn-outline">WhatsApp</a>
+  <a href="https://t.me/Appledestroyer1" class="btn btn-outline">Telegram</a>
 </section>
 
 <section>
-  <div data-lang="cz">
-    <h2>Cena</h2>
-    <div class="price">1 099 Kč</div>
-    <p>Doručení 2–3 dny • Platba dobírkou</p>
-  </div>
+<div data-lang="cz">
+<h2>Popis produktu</h2>
+<div class="card">
+<ul style="line-height:1.8">
+<li>✔ Aktivní dotykové ovládání</li>
+<li>✔ Aktivní potlačení hluku (ANC)</li>
+<li>✔ Podpora bezdrátového nabíjení</li>
+<li>✔ Kompatibilní s iOS a Android</li>
+</ul>
+<p><strong>Kompletní sada:</strong></p>
+<ul style="line-height:1.8">
+<li>• Sluchátka a nabíjecí pouzdro</li>
+<li>• 4 velikosti nástavců do uší</li>
+<li>• Nabíjecí kabel USB-C</li>
+<li>• Krabice a dokumentace</li>
+</ul>
+<p style="font-size:13px;opacity:.6">
+Nejedná se o originální výrobek Apple. Název je použit pouze pro označení kompatibility.
+</p>
+</div>
+</div>
 
-  <div data-lang="ru">
-    <h2>Цена</h2>
-    <div class="price">1 099 Kč</div>
-    <p>Доставка 2–3 дня • Оплата при получении</p>
-  </div>
+<div data-lang="ru">
+<h2>Описание товара</h2>
+<div class="card">
+<ul style="line-height:1.8">
+<li>✔ Активное сенсорное управление</li>
+<li>✔ Активное шумоподавление (ANC)</li>
+<li>✔ Поддержка беспроводной зарядки</li>
+<li>✔ Совместимость с iOS и Android</li>
+</ul>
+<p><strong>Комплект:</strong></p>
+<ul style="line-height:1.8">
+<li>• Наушники и зарядный кейс</li>
+<li>• 4 размера силиконовых насадок</li>
+<li>• Кабель USB-C</li>
+<li>• Коробка и документация</li>
+</ul>
+<p style="font-size:13px;opacity:.6">
+Это не оригинальный продукт Apple. Название используется только для указания совместимости.
+</p>
+</div>
+</div>
 </section>
 
-<footer style="text-align:center;opacity:.6">
-  Email: coincama@gmail.com | Tel: +420 702 846 018<br>
-  <a href="privacy.html">Privacy</a> |
-  <a href="terms.html">Terms</a><br>
-  Not official Apple website
+<section>
+<div data-lang="cz">
+<h2>Fotografie produktu</h2>
+<div class="gallery">
+<img src="airpods2.jpg" alt="Sluchátka">
+<img src="airpods3.jpg" alt="Balení">
+<img src="airpods4.jpg" alt="Detail produktu">
+</div>
+</div>
+
+<div data-lang="ru">
+<h2>Фотографии продукта</h2>
+<div class="gallery">
+<img src="airpods2.jpg" alt="Наушники">
+<img src="airpods3.jpg" alt="Упаковка">
+<img src="airpods4.jpg" alt="Детали">
+</div>
+</div>
+</section>
+
+<section>
+<div data-lang="cz">
+<h2>Doručení a platba</h2>
+<div class="grid">
+<div class="card">🚚 Doručení po ČR do 2–3 pracovních dnů</div>
+<div class="card">💳 Platba výhradně dobírkou</div>
+<div class="card">📦 Kontrola zboží při převzetí</div>
+</div>
+</div>
+
+<div data-lang="ru">
+<h2>Доставка и оплата</h2>
+<div class="grid">
+<div class="card">🚚 Доставка по ЧР 2–3 рабочих дня</div>
+<div class="card">💳 Оплата только при получении</div>
+<div class="card">📦 Проверка товара при получении</div>
+</div>
+</div>
+</section>
+
+<section>
+<div data-lang="cz">
+<h2>Zkušenosti zákazníků</h2>
+<div class="grid">
+<div class="card">⭐️⭐️⭐️⭐️⭐️<br>Rychlé doručení, dobrá kvalita.</div>
+<div class="card">⭐️⭐️⭐️⭐️⭐️<br>Vše odpovídá popisu.</div>
+<div class="card">⭐️⭐️⭐️⭐️⭐️<br>Skvělý poměr ceny a výkonu.</div>
+</div>
+</div>
+
+<div data-lang="ru">
+<h2>Отзывы покупателей</h2>
+<div class="grid">
+<div class="card">⭐️⭐️⭐️⭐️⭐️<br>Быстрая доставка, хорошее качество.</div>
+<div class="card">⭐️⭐️⭐️⭐️⭐️<br>Все соответствует описанию.</div>
+<div class="card">⭐️⭐️⭐️⭐️⭐️<br>Отличное соотношение цены и качества.</div>
+</div>
+</div>
+</section>
+
+<section>
+<div data-lang="cz">
+<h2>Cena</h2>
+<div class="price">1 099 Kč</div>
+<p>Pro objednávku nás kontaktujte přes WhatsApp nebo Telegram</p>
+</div>
+
+<div data-lang="ru">
+<h2>Цена</h2>
+<div class="price">1 099 Kč</div>
+<p>Для заказа свяжитесь через WhatsApp или Telegram</p>
+</div>
+</section>
+
+<footer>
+Email: coincama@gmail.com | Tel: +420 702 846 018<br>
+<a href="privacy.html">Zásady ochrany osobních údajů</a> |
+<a href="terms.html">Obchodní podmínky</a><br>
+Tento web není oficiálním вебом Apple Inc.
 </footer>
 
 </body>
