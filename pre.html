@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Recenze: Bezdrátová sluchátka, která dávají smysl</title>
+<meta name="description" content="Nezávislá recenze bezdrátových sluchátek s ANC. Zkušenosti, výhody, doručení.">
+
+<!-- TikTok Pixel -->
+<script>
+!function(w,d,t){
+w.TiktokAnalyticsObject=t;
+var ttq=w[t]=w[t]||[];
+ttq.methods=["page","track"];
+ttq.setAndDefer=function(t,e){
+t[e]=function(){t.push([e].concat([].slice.call(arguments,0)))}};
+for(var i=0;i<ttq.methods.length;i++)ttq.setAndDefer(ttq,ttq.methods[i]);
+ttq.load=function(e){
+var s=d.createElement("script");
+s.async=!0;
+s.src="https://analytics.tiktok.com/i18n/pixel/events.js?sdkid="+e;
+var x=d.getElementsByTagName("script")[0];
+x.parentNode.insertBefore(s,x)};
+ttq.load('YOUR_TIKTOK_PIXEL_ID');
+ttq.page();
+}(window,document,'ttq');
+</script>
+
+<style>
+body{
+margin:0;
+font-family:-apple-system,BlinkMacSystemFont,Arial,sans-serif;
+background:#f5f5f5;
+color:#111;
+line-height:1.65;
+}
+.article{
+max-width:780px;
+margin:auto;
+background:#fff;
+padding:30px 20px;
+position:relative;
+}
+h1{font-size:28px;margin-bottom:10px;}
+h2{font-size:22px;margin-top:30px;}
+img{
+width:100%;
+max-width:420px;
+margin:20px auto;
+display:block;
+border-radius:12px;
+}
+.badge{
+display:inline-block;
+background:#eee;
+padding:6px 12px;
+border-radius:20px;
+font-size:13px;
+margin-bottom:10px;
+}
+.timer{
+background:#111;
+color:#fff;
+padding:12px;
+border-radius:10px;
+text-align:center;
+font-weight:500;
+margin:20px 0;
+}
+.btn{
+display:block;
+width:fit-content;
+margin:30px auto;
+padding:14px 36px;
+border-radius:30px;
+background:#000;
+color:#fff;
+text-decoration:none;
+font-weight:500;
+}
+.note{
+font-size:13px;
+opacity:.6;
+margin-top:40px;
+}
+
+/* social proof popup */
+.social-proof{
+position:fixed;
+bottom:20px;
+left:20px;
+background:#fff;
+box-shadow:0 10px 30px rgba(0,0,0,.15);
+border-radius:12px;
+padding:12px 16px;
+font-size:14px;
+display:none;
+z-index:999;
+}
+</style>
+
+<script>
+// ===== A/B/C SPLIT =====
+const rand = Math.random();
+let variant = 'A';
+if(rand > 0.66) variant = 'C';
+else if(rand > 0.33) variant = 'B';
+
+document.addEventListener('DOMContentLoaded',()=>{
+  ttq.track('ViewContent',{variant:variant});
+});
+</script>
+</head>
+
+<body>
+
+<div class="article">
+
+<div class="badge">Nezávislá recenze</div>
+
+<script>
+if(variant === 'A'){
+document.write(`
+<h1>Testovali jsme bezdrátová sluchátka s ANC – výsledek překvapil</h1>
+<img src="airpods1.jpg">
+<p>Na trhu se objevuje stále více dostupných bezdrátových sluchátek.
+Rozhodli jsme se otestovat jeden z populárních modelů.</p>
+
+<h2>Aktivní potlačení hluku</h2>
+<p>Při běžném používání ve městě a MHD funguje ANC lépe,
+než bychom u této cenové kategorie čekali.</p>
+`);
+}
+
+if(variant === 'B'){
+document.write(`
+<h1>Levná bezdrátová sluchátka: má to smysl?</h1>
+<img src="airpods1.jpg">
+<p>Ne každý chce platit tisíce korun za značku.
+Otestovali jsme model zaměřený hlavně na poměr ceny a výkonu.</p>
+
+<h2>Co dostanete za svou cenu</h2>
+<p>Dotykové ovládání, bezdrátové nabíjení a ANC v jednom balení.</p>
+`);
+}
+
+if(variant === 'C'){
+document.write(`
+<h1>Pro koho jsou tato bezdrátová sluchátka ideální?</h1>
+<img src="airpods1.jpg">
+<p>Tento model cílí na uživatele, kteří chtějí moderní funkce,
+ale zároveň jednoduché ovládání a rychlé doručení.</p>
+
+<h2>Každodenní použití</h2>
+<p>Sluchátka jsou lehká, pohodlná a vhodná jak na práci,
+tak na běžný poslech hudby.</p>
+`);
+}
+</script>
+
+<div class="timer">
+⏳ Nabídka za tuto cenu vyprší za: <span id="countdown">15:00</span>
+</div>
+
+<a href="/index.html" class="btn" onclick="ttq.track('ClickButton',{variant:variant})">
+Zjistit více
+</a>
+
+<p class="note">
+Tento článek má informativní charakter a slouží jako uživatelská recenze produktu.
+</p>
+
+</div>
+
+<!-- SOCIAL PROOF -->
+<div class="social-proof" id="proof"></div>
+
+<script>
+// ===== TIMER =====
+let time = 15 * 60;
+setInterval(()=>{
+  const m = Math.floor(time/60);
+  const s = time % 60;
+  document.getElementById('countdown').innerText =
+    `${m}:${s<10?'0':''}${s}`;
+  if(time>0) time--;
+},1000);
+
+// ===== SOCIAL PROOF =====
+const names = ['Martin','Petra','Lucie','Jan','Tomáš','Eva'];
+const cities = ['Praha','Brno','Ostrava','Plzeň','Olomouc'];
+
+setInterval(()=>{
+  const box = document.getElementById('proof');
+  const name = names[Math.floor(Math.random()*names.length)];
+  const city = cities[Math.floor(Math.random()*cities.length)];
+  box.innerHTML = `📦 ${name} z města ${city} právě zobrazil nabídku`;
+  box.style.display='block';
+  setTimeout(()=>box.style.display='none',4000);
+},9000);
+</script>
+
+</body>
+</html>
