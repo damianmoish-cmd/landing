@@ -1,135 +1,85 @@
 <!DOCTYPE html>
 <html lang="cs">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Bezdrátová sluchátka Pro – kompatibilní model</title>
-  <meta name="description" content="Bezdrátová sluchátka s ANC. Platba dobírkou. Doručení 2–3 dny.">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <style>
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-    body {
-      font-family: Arial, sans-serif;
-      background: #000;
-      color: #fff;
-      line-height: 1.5;
-    }
-    section {
-      padding: 70px 20px;
-      max-width: 1100px;
-      margin: auto;
-    }
-    h1 { font-size: 36px; margin-bottom: 15px; }
-    h2 { font-size: 26px; margin-bottom: 25px; }
-    p { opacity: .85; margin-bottom: 15px; }
+<title>Bezdrátová sluchátka Pro – kompatibilní model</title>
+<meta name="description" content="Bezdrátová sluchátka s ANC. Platba dobírkou. Doručení 2–3 dny.">
 
-    .hero { text-align: center; }
-    .hero img {
-      max-width: 260px;
-      margin: 40px auto;
-      display: block;
-    }
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-J103ET7DD3"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-J103ET7DD3');
+</script>
 
-    .btn {
-      display: inline-block;
-      padding: 14px 36px;
-      border-radius: 30px;
-      text-decoration: none;
-      font-weight: 500;
-      margin: 10px;
-      background: #fff;
-      color: #000;
-      border: none;
-      cursor: pointer;
-    }
+<style>
+body{margin:0;font-family:Arial;background:#000;color:#fff}
+section{max-width:1100px;margin:auto;padding:70px 20px}
+.hero{text-align:center}
+.btn{padding:14px 36px;border-radius:30px;margin:10px;display:inline-block;text-decoration:none}
+.primary{background:#fff;color:#000}
+.outline{border:2px solid #fff;color:#fff}
+.lang{position:fixed;top:15px;right:15px}
+.lang button{margin-left:5px}
+.price{font-size:34px}
+</style>
 
-    .card {
-      background: #111;
-      padding: 25px;
-      border-radius: 16px;
-    }
-
-    input, select, textarea {
-      width: 100%;
-      padding: 12px;
-      margin-bottom: 15px;
-      border-radius: 10px;
-      border: none;
-      font-size: 15px;
-    }
-
-    footer {
-      text-align: center;
-      padding: 40px 20px;
-      font-size: 13px;
-      opacity: .6;
-    }
-    footer a { color: #fff; opacity: .7; margin: 0 5px; }
-  </style>
+<script>
+function setLang(lang){
+  document.querySelectorAll('[data-lang]').forEach(el=>{
+    el.style.display = el.dataset.lang === lang ? 'block' : 'none';
+  });
+}
+</script>
 </head>
-<body>
+
+<body onload="setLang('cz')">
+
+<div class="lang">
+  <button onclick="setLang('cz')">CZ</button>
+  <button onclick="setLang('ru')">RU</button>
+</div>
 
 <section class="hero">
-  <h1>Bezdrátová sluchátka Pro</h1>
-  <p>Kompatibilní bezdrátový model s moderními funkcemi</p>
-  <img src="airpods1.jpg" alt="Sluchátka">
+  <h1 data-lang="cz">Bezdrátová sluchátka Pro</h1>
+  <h1 data-lang="ru">Беспроводные наушники Pro</h1>
 
-  <a href="#order" class="btn">Objednat nyní</a>
-  <a href="https://wa.me/420702846018" class="btn">WhatsApp</a>
+  <p data-lang="cz">Kompatibilní model s aktivním potlačením hluku</p>
+  <p data-lang="ru">Совместимая модель с активным шумоподавлением</p>
+
+  <img src="airpods1.jpg" width="260">
+
+  <a href="order.html" class="btn primary" onclick="gtag('event','order_click')">
+    Objednat
+  </a>
+
+  <a href="https://wa.me/420702846018" class="btn outline">WhatsApp</a>
+  <a href="https://t.me/Appledestroyer1" class="btn outline">Telegram</a>
 </section>
 
-<section id="order">
-  <h2>Objednávkový formulář</h2>
+<section>
+  <div data-lang="cz">
+    <h2>Cena</h2>
+    <div class="price">1 099 Kč</div>
+    <p>Doručení 2–3 dny • Platba dobírkou</p>
+  </div>
 
-  <form action="https://formsubmit.co/coincama@gmail.com" method="POST">
-    <!-- FormSubmit настройки -->
-    <input type="hidden" name="_subject" value="NOVÁ OBJEDNÁVKA – Sluchátka Pro">
-    <input type="hidden" name="_template" value="table">
-    <input type="hidden" name="_captcha" value="false">
-
-    <div class="card">
-      <label>Služba doručení</label>
-      <select name="Doručení" required>
-        <option value="">Vyberte</option>
-        <option>Zásilkovna</option>
-        <option>PPL</option>
-        <option>Balíkovna</option>
-      </select>
-
-      <label>Typ doručení</label>
-      <select name="Typ_doručení" required>
-        <option value="">Vyberte</option>
-        <option>Na adresu</option>
-        <option>Na výdejní místo</option>
-      </select>
-
-      <label>Doručovací adresa</label>
-      <textarea name="Adresa" required></textarea>
-
-      <label>Jméno a příjmení</label>
-      <input type="text" name="Jméno" required>
-
-      <label>Telefonní číslo</label>
-      <input type="tel" name="Telefon" required>
-
-      <label>Email</label>
-      <input type="email" name="Email" required>
-
-      <button type="submit" class="btn">Odeslat objednávku</button>
-
-      <p style="font-size:13px;opacity:.6">
-        Platba probíhá výhradně dobírkou při převzetí zboží.
-      </p>
-    </div>
-  </form>
+  <div data-lang="ru">
+    <h2>Цена</h2>
+    <div class="price">1 099 Kč</div>
+    <p>Доставка 2–3 дня • Оплата при получении</p>
+  </div>
 </section>
 
-<footer>
-  © 2026 Online Store<br>
-  Email: coincama@gmail.com | Telefon: +420 702 846 018<br><br>
-  <a href="privacy.html">Zásady ochrany osobních údajů</a> |
-  <a href="terms.html">Obchodní podmínky</a><br>
-  Tento web není oficiálním webem společnosti Apple Inc.
+<footer style="text-align:center;opacity:.6">
+  Email: coincama@gmail.com | Tel: +420 702 846 018<br>
+  <a href="privacy.html">Privacy</a> |
+  <a href="terms.html">Terms</a><br>
+  Not official Apple website
 </footer>
 
 </body>
