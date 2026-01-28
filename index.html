@@ -5,38 +5,37 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>Bezdrátová sluchátka Pro | ANC • Rychlé doručení</title>
-<meta name="description" content="Bezdrátová sluchátka s ANC. Platba při převzetí. Doručení 2–3 dny po ČR.">
+<meta name="description" content="Bezdrátová sluchátka s ANC. Platba při převzetí. Doručení 2–3 dny.">
 
-<!-- OpenGraph (для WhatsApp / FB превью) -->
+<!-- OpenGraph -->
 <meta property="og:title" content="Bezdrátová sluchátka Pro">
 <meta property="og:description" content="ANC • Platba při převzetí • Doručení 2–3 dny">
-<meta property="og:image" content="https://tvujdomen.cz/airpods1.jpg">
+<meta property="og:image" content="https://TVUJDOMEN.CZ/airpods1.jpg">
 <meta property="og:type" content="website">
 
-<!-- Google Analytics 4 -->
+<!-- GA -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-J103ET7DD3"></script>
 <script>
-window.dataLayer = window.dataLayer || [];
+window.dataLayer=window.dataLayer||[];
 function gtag(){dataLayer.push(arguments);}
-gtag('js', new Date());
-gtag('config', 'G-J103ET7DD3');
+gtag('js',new Date()); gtag('config','G-J103ET7DD3');
 </script>
 
-<!-- Facebook Pixel -->
+<!-- FB Pixel -->
 <script>
 !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){
-n.callMethod? n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};
 if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
 n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;
-s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)
-}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');
+s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}
+(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');
 fbq('init','YOUR_PIXEL_ID'); fbq('track','PageView');
 </script>
 
-<!-- TikTok Pixel -->
+<!-- TikTok -->
 <script>
 !function(w,d,t){w.TiktokAnalyticsObject=t;var ttq=w[t]=w[t]||[];
-ttq.methods=["page","track","identify"];ttq.setAndDefer=function(t,e){
+ttq.methods=["page","track"];ttq.setAndDefer=function(t,e){
 t[e]=function(){t.push([e].concat([].slice.call(arguments,0)))}};
 for(var i=0;i<ttq.methods.length;i++)ttq.setAndDefer(ttq,ttq.methods[i]);
 ttq.load=function(e){var s=d.createElement("script");
@@ -47,73 +46,50 @@ ttq.load('YOUR_TIKTOK_PIXEL_ID'); ttq.page();
 </script>
 
 <style>
-body{
-  margin:0;
-  font-family:-apple-system,BlinkMacSystemFont,Arial,sans-serif;
-  background:#000;color:#fff;
-}
+body{margin:0;font-family:-apple-system,BlinkMacSystemFont,Arial,sans-serif;background:#000;color:#fff;}
 section{max-width:1100px;margin:auto;padding:70px 20px;}
 .hero{text-align:center;}
-.hero img{
-  max-width:420px;width:90%;
-  margin:50px auto;display:block;
-}
+.hero img{max-width:420px;width:90%;margin:50px auto;display:block;}
 h1{font-size:36px;margin-bottom:15px;}
+h2{font-size:26px;margin-bottom:25px;}
 p{opacity:.85}
-.btn{
-  display:inline-block;
-  padding:14px 36px;
-  border-radius:30px;
-  text-decoration:none;
-  font-weight:500;
-  margin:10px;
-}
+.btn{display:inline-block;padding:14px 36px;border-radius:30px;text-decoration:none;font-weight:500;margin:10px;}
 .btn-primary{background:#fff;color:#000;}
 .btn-outline{border:2px solid #fff;color:#fff;}
 .price{font-size:38px;font-weight:bold;margin-top:20px;}
+
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:25px;}
+.card{background:#111;padding:25px;border-radius:16px;}
+
+.gallery{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:20px;}
+.gallery img{width:100%;border-radius:14px;}
 
 .lang{position:fixed;top:15px;right:15px;z-index:5;}
 .lang button{padding:6px 10px;border-radius:8px;border:none;}
 
 .sticky-bar{
-  position:fixed;
-  bottom:0;left:0;right:0;
-  background:#111;
-  border-top:1px solid #222;
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  padding:12px 16px;
-  z-index:999;
+position:fixed;bottom:0;left:0;right:0;
+background:#111;border-top:1px solid #222;
+display:flex;justify-content:space-between;
+align-items:center;padding:12px 16px;z-index:999;
 }
 .sticky-price{font-size:22px;font-weight:bold;}
-.sticky-btn{
-  background:#fff;color:#000;
-  padding:10px 22px;
-  border-radius:25px;
-  text-decoration:none;
-  font-weight:500;
-}
+.sticky-btn{background:#fff;color:#000;padding:10px 22px;border-radius:25px;text-decoration:none;font-weight:500;}
 
-footer{
-  text-align:center;
-  font-size:13px;
-  opacity:.6;
-  padding:60px 20px 120px;
-}
+footer{text-align:center;font-size:13px;opacity:.6;padding:60px 20px 120px;}
 
 @media(max-width:600px){
-  h1{font-size:28px}
-  .hero img{max-width:320px}
-  .price{font-size:30px}
+h1{font-size:28px}
+.hero img{max-width:320px}
+.price{font-size:30px}
 }
 </style>
 
 <script>
 function setLang(lang){
-  document.querySelectorAll('[data-lang]').forEach(el=>{
-    el.style.display = el.dataset.lang===lang ? 'block':'none';
-  });
+document.querySelectorAll('[data-lang]').forEach(el=>{
+el.style.display=el.dataset.lang===lang?'block':'none';
+});
 }
 </script>
 </head>
@@ -125,30 +101,86 @@ function setLang(lang){
 <button onclick="setLang('ru')">RU</button>
 </div>
 
+<!-- HERO -->
 <section class="hero">
 <h1 data-lang="cz">Bezdrátová sluchátka Pro 🎧</h1>
 <h1 data-lang="ru">Беспроводные наушники Pro 🎧</h1>
 
-<p data-lang="cz"><strong>Aktivní potlačení hluku • Bezdrátové nabíjení</strong></p>
-<p data-lang="ru"><strong>Активное шумоподавление • Беспроводная зарядка</strong></p>
+<p data-lang="cz"><strong>Kompatibilní model s ANC</strong></p>
+<p data-lang="ru"><strong>Совместимая модель с ANC</strong></p>
 
-<img src="airpods1.jpg" alt="Bezdrátová sluchátka">
+<img src="airpods1.jpg" alt="Sluchátka">
 
 <a href="order.html" class="btn btn-primary">Objednat</a>
 <a href="https://wa.me/420702846018" class="btn btn-outline">WhatsApp</a>
 <a href="https://t.me/Appledestroyer1" class="btn btn-outline">Telegram</a>
 
-<div class="price" data-lang="cz">1 099 Kč</div>
-<div class="price" data-lang="ru">1 099 Kč</div>
-
+<div class="price">1 099 Kč</div>
 <p data-lang="cz">Platba při převzetí • Doručení 2–3 dny</p>
 <p data-lang="ru">Оплата при получении • Доставка 2–3 дня</p>
 </section>
 
-<!-- STICKY CTA -->
+<!-- ДОСТАВКА -->
+<section>
+<div data-lang="cz">
+<h2>Doručení a platba 🚚</h2>
+<div class="grid">
+<div class="card">Doručení po ČR 2–3 dny</div>
+<div class="card">Platba dobírkou</div>
+<div class="card">Kontrola při převzetí</div>
+</div>
+</div>
+
+<div data-lang="ru">
+<h2>Доставка и оплата 🚚</h2>
+<div class="grid">
+<div class="card">Доставка 2–3 дня</div>
+<div class="card">Оплата при получении</div>
+<div class="card">Проверка товара</div>
+</div>
+</div>
+</section>
+
+<!-- ОПИСАНИЕ -->
+<section>
+<div data-lang="cz">
+<h2>Popis produktu ✨</h2>
+<div class="card">
+<p>✔ Aktivní dotykové ovládání</p>
+<p>✔ ANC – aktivní potlačení hluku</p>
+<p>✔ Bezdrátové nabíjení</p>
+<p>✔ iOS & Android</p>
+<p style="font-size:13px;opacity:.6">Nejedná se o originální výrobek.</p>
+</div>
+</div>
+
+<div data-lang="ru">
+<h2>Описание товара ✨</h2>
+<div class="card">
+<p>✔ Сенсорное управление</p>
+<p>✔ Активное шумоподавление</p>
+<p>✔ Беспроводная зарядка</p>
+<p>✔ iOS и Android</p>
+<p style="font-size:13px;opacity:.6">Не является оригинальным брендом.</p>
+</div>
+</div>
+</section>
+
+<!-- ГАЛЕРЕЯ -->
+<section>
+<h2 data-lang="cz">Fotografie 📸</h2>
+<h2 data-lang="ru">Фотографии 📸</h2>
+<div class="gallery">
+<img src="airpods2.jpg">
+<img src="airpods3.jpg">
+<img src="airpods4.jpg">
+</div>
+</section>
+
+<!-- STICKY -->
 <div class="sticky-bar">
-  <div class="sticky-price">1 099 Kč</div>
-  <a href="order.html" class="sticky-btn">Objednat</a>
+<div class="sticky-price">1 099 Kč</div>
+<a href="order.html" class="sticky-btn">Objednat</a>
 </div>
 
 <footer>
