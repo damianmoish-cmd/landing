@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Objednávka</title>
+
+<style>
+body{font-family:Arial;background:#000;color:#fff}
+section{max-width:600px;margin:auto;padding:60px 20px}
+input,select,textarea,button{
+width:100%;padding:12px;margin-bottom:15px;border-radius:10px;border:none
+}
+button{background:#fff;color:#000;font-weight:bold}
+</style>
+</head>
+
+<body>
+
+<section>
+<h2>Objednávka</h2>
+
+<form action="https://formsubmit.co/coincama@gmail.com" method="POST">
+<input type="hidden" name="_subject" value="NOVÁ OBJEDNÁVKA">
+<input type="hidden" name="_template" value="table">
+<input type="hidden" name="_captcha" value="false">
+
+<select name="Doprava" required>
+<option value="">Služba doručení</option>
+<option>Zásilkovna</option>
+<option>PPL</option>
+<option>Balíkovna</option>
+</select>
+
+<select name="Typ" required>
+<option value="">Typ doručení</option>
+<option>Na adresu</option>
+<option>Na výdejní místo</option>
+</select>
+
+<textarea name="Adresa" placeholder="Adresa" required></textarea>
+<input name="Jméno" placeholder="Jméno a příjmení" required>
+<input name="Telefon" placeholder="Telefon" required>
+<input type="email" name="Email" placeholder="Email" required>
+
+<button type="submit">Odeslat objednávku</button>
+</form>
+
+<p style="font-size:12px;opacity:.6">
+Platba pouze dobírkou. Bez záruky a bez možnosti vrácení.
+</p>
+
+</section>
+</body>
+</html>
