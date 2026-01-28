@@ -5,10 +5,11 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Objednávka / Заказ</title>
 <style>
-body{font-family:Arial,sans-serif;background:#000;color:#fff;margin:0;padding:0;}
+body{margin:0;font-family:-apple-system,BlinkMacSystemFont,Arial,sans-serif;background:#000;color:#fff;}
 section{max-width:600px;margin:auto;padding:60px 20px;}
 h2{text-align:center;margin-bottom:25px;}
-form{background:#111;padding:30px;border-radius:16px;}
+form{background:#111;padding:30px;border-radius:16px;animation:fadeUp 0.8s ease both;}
+@keyframes fadeUp{from{opacity:0;transform:translateY(30px);}to{opacity:1;transform:translateY(0);}}
 input,select,textarea,button{width:100%;padding:12px;margin-bottom:15px;border-radius:10px;border:none;font-size:15px;}
 input:focus,select:focus,textarea:focus{outline:2px solid #fff;}
 button{background:#fff;color:#000;font-weight:bold;cursor:pointer;transition:.3s;}
@@ -16,6 +17,8 @@ button:hover{background:#ddd;}
 p{font-size:13px;opacity:.6;text-align:center;}
 .lang{position:fixed;top:15px;right:15px;}
 .lang button{margin-left:5px;padding:5px 10px;border-radius:8px;border:none;cursor:pointer;}
+.emoji{font-size:18px;}
+strong{font-weight:bold;}
 </style>
 <script>
 function setLang(lang){
@@ -24,16 +27,16 @@ function setLang(lang){
 function trackSubmit(){gtag('event','order_submit'); fbq('track','Lead'); ttq.track('Lead');}
 </script>
 </head>
-
 <body onload="setLang('cz')">
+
 <div class="lang">
 <button onclick="setLang('cz')">CZ</button>
 <button onclick="setLang('ru')">RU</button>
 </div>
 
 <section>
-<h2 data-lang="cz">Objednávka</h2>
-<h2 data-lang="ru">Заказ</h2>
+<h2 data-lang="cz">Objednávka <span class="emoji">🛒</span></h2>
+<h2 data-lang="ru">Заказ <span class="emoji">🛒</span></h2>
 
 <form action="https://formsubmit.co/coincama@gmail.com" method="POST" onsubmit="trackSubmit()">
 <input type="hidden" name="_subject" value="NOVÁ OBJEDNÁVKA">
@@ -69,8 +72,8 @@ function trackSubmit(){gtag('event','order_submit'); fbq('track','Lead'); ttq.tr
 <input name="Telefon" placeholder="Telefon / Телефон" required>
 <input type="email" name="Email" placeholder="Email" required>
 
-<button type="submit" data-lang="cz">Odeslat objednávku</button>
-<button type="submit" data-lang="ru">Отправить заказ</button>
+<button type="submit" data-lang="cz">Odeslat objednávku <span class="emoji">✅</span></button>
+<button type="submit" data-lang="ru">Отправить заказ <span class="emoji">✅</span></button>
 
 <p data-lang="cz">Platba pouze dobírkou. Bez záruky a bez vrácení.</p>
 <p data-lang="ru">Оплата только при получении. Без гарантии и возврата.</p>
