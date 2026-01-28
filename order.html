@@ -3,53 +3,78 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Objednávka</title>
-
+<title>Objednávka / Заказ</title>
 <style>
-body{font-family:Arial;background:#000;color:#fff}
-section{max-width:600px;margin:auto;padding:60px 20px}
-input,select,textarea,button{
-width:100%;padding:12px;margin-bottom:15px;border-radius:10px;border:none
-}
-button{background:#fff;color:#000;font-weight:bold}
+body{font-family:Arial,sans-serif;background:#000;color:#fff;margin:0;padding:0;}
+section{max-width:600px;margin:auto;padding:60px 20px;}
+h2{text-align:center;margin-bottom:25px;}
+form{background:#111;padding:30px;border-radius:16px;}
+input,select,textarea,button{width:100%;padding:12px;margin-bottom:15px;border-radius:10px;border:none;font-size:15px;}
+input:focus,select:focus,textarea:focus{outline:2px solid #fff;}
+button{background:#fff;color:#000;font-weight:bold;cursor:pointer;transition:.3s;}
+button:hover{background:#ddd;}
+p{font-size:13px;opacity:.6;text-align:center;}
+.lang{position:fixed;top:15px;right:15px;}
+.lang button{margin-left:5px;padding:5px 10px;border-radius:8px;border:none;cursor:pointer;}
 </style>
+<script>
+function setLang(lang){
+  document.querySelectorAll('[data-lang]').forEach(el=>{el.style.display=el.dataset.lang===lang?'block':'none';});
+}
+function trackSubmit(){gtag('event','order_submit'); fbq('track','Lead'); ttq.track('Lead');}
+</script>
 </head>
 
-<body>
+<body onload="setLang('cz')">
+<div class="lang">
+<button onclick="setLang('cz')">CZ</button>
+<button onclick="setLang('ru')">RU</button>
+</div>
 
 <section>
-<h2>Objednávka</h2>
+<h2 data-lang="cz">Objednávka</h2>
+<h2 data-lang="ru">Заказ</h2>
 
-<form action="https://formsubmit.co/coincama@gmail.com" method="POST">
+<form action="https://formsubmit.co/coincama@gmail.com" method="POST" onsubmit="trackSubmit()">
 <input type="hidden" name="_subject" value="NOVÁ OBJEDNÁVKA">
 <input type="hidden" name="_template" value="table">
 <input type="hidden" name="_captcha" value="false">
 
-<select name="Doprava" required>
+<select name="Doprava" required data-lang="cz">
 <option value="">Služba doručení</option>
 <option>Zásilkovna</option>
 <option>PPL</option>
 <option>Balíkovna</option>
 </select>
+<select name="Doprava" required data-lang="ru">
+<option value="">Служба доставки</option>
+<option>Zásilkovna</option>
+<option>PPL</option>
+<option>Balíковна</option>
+</select>
 
-<select name="Typ" required>
+<select name="Typ" required data-lang="cz">
 <option value="">Typ doručení</option>
 <option>Na adresu</option>
 <option>Na výdejní místo</option>
 </select>
+<select name="Typ" required data-lang="ru">
+<option value="">Тип доставки</option>
+<option>На адрес</option>
+<option>На пункт выдачи</option>
+</select>
 
-<textarea name="Adresa" placeholder="Adresa" required></textarea>
-<input name="Jméno" placeholder="Jméno a příjmení" required>
-<input name="Telefon" placeholder="Telefon" required>
+<textarea name="Adresa" placeholder="Adresa / Адрес" required></textarea>
+<input name="Jméno" placeholder="Jméno a příjmení / Имя Фамилия" required>
+<input name="Telefon" placeholder="Telefon / Телефон" required>
 <input type="email" name="Email" placeholder="Email" required>
 
-<button type="submit">Odeslat objednávku</button>
+<button type="submit" data-lang="cz">Odeslat objednávku</button>
+<button type="submit" data-lang="ru">Отправить заказ</button>
+
+<p data-lang="cz">Platba pouze dobírkou. Bez záruky a bez vrácení.</p>
+<p data-lang="ru">Оплата только при получении. Без гарантии и возврата.</p>
 </form>
-
-<p style="font-size:12px;opacity:.6">
-Platba pouze dobírkou. Bez záruky a bez možnosti vrácení.
-</p>
-
 </section>
 </body>
 </html>
