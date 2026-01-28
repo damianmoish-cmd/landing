@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Bezdrátová sluchátka Pro – совместимая модель</title>
-<meta name="description" content="Бездротовые наушники с ANC. Оплата при получении. Доставка 2–3 дня.">
+<title>Bezdrátová sluchátka Pro – мультиязычная страница</title>
+<meta name="description" content="Беспроводные наушники с ANC. Оплата при получении. Доставка 2–3 дня.">
 
 <!-- Google Analytics 4 -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
@@ -54,22 +54,26 @@ h2{font-size:26px;margin-bottom:25px;}
 p{opacity:.85;margin-bottom:15px;}
 .hero{text-align:center;}
 .hero img{max-width:260px;margin:40px auto;display:block;transition: transform .4s;}
-.hero img:hover{transform: scale(1.05);}
+.hero img:hover{transform: scale(1.08);}
 .btn{display:inline-block;padding:14px 36px;border-radius:30px;text-decoration:none;font-weight:500;margin:10px;transition:.3s;}
 .btn-primary{background:#fff;color:#000;}
 .btn-primary:hover{background:#ddd;}
 .btn-outline{border:2px solid #fff;color:#fff;}
 .btn-outline:hover{background:#fff;color:#000;}
 .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:25px;}
-.card{background:#111;padding:25px;border-radius:16px;}
-.gallery{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:20px;}
-.gallery img{width:100%;border-radius:14px;background:#111;}
-.price{font-size:34px;margin:20px 0;}
+.card{background:#111;padding:25px;border-radius:16px;animation:fadeUp 0.8s ease both;}
+@keyframes fadeUp{from{opacity:0;transform:translateY(30px);}to{opacity:1;transform:translateY(0);}}
+.gallery{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:20px;}
+.gallery img{width:100%;border-radius:14px;background:#111;transition: transform .3s;}
+.gallery img:hover{transform: scale(1.05);}
+.price{font-size:36px;margin:20px 0;font-weight:bold;}
 footer{text-align:center;padding:40px 20px;font-size:13px;opacity:.6;}
 footer a{color:#fff;opacity:.7;margin:0 5px;}
 .lang{position:fixed;top:15px;right:15px;}
 .lang button{margin-left:5px;padding:5px 10px;border-radius:8px;border:none;cursor:pointer;}
-@media(max-width:600px){h1{font-size:28px;}h2{font-size:22px;}.price{font-size:26px;}}
+.emoji{font-size:18px;}
+strong{font-weight:bold;}
+@media(max-width:600px){h1{font-size:28px;}h2{font-size:22px;} .price{font-size:28px;}}
 </style>
 
 <script>
@@ -80,12 +84,12 @@ function setLang(lang){
 }
 function trackClick(eventName){
   gtag('event', eventName);
-  fbq('track', 'Lead'); 
+  fbq('track','Lead');
   ttq.track('Lead');
 }
 </script>
-</head>
 
+</head>
 <body onload="setLang('cz')">
 
 <div class="lang">
@@ -94,11 +98,11 @@ function trackClick(eventName){
 </div>
 
 <section class="hero">
-<h1 data-lang="cz">Bezdrátová sluchátka Pro</h1>
-<h1 data-lang="ru">Беспроводные наушники Pro</h1>
+<h1 data-lang="cz">Bezdrátová sluchátka Pro <span class="emoji">🎧</span></h1>
+<h1 data-lang="ru">Беспроводные наушники Pro <span class="emoji">🎧</span></h1>
 
-<p data-lang="cz">Kompatibilní model s aktivním potlačením hluku</p>
-<p data-lang="ru">Совместимая модель с активным шумоподавлением</p>
+<p data-lang="cz"><strong>Kompatibilní model s aktivním potlačením hluku</strong></p>
+<p data-lang="ru"><strong>Совместимая модель с активным шумоподавлением</strong></p>
 
 <img src="airpods1.jpg" alt="Sluchátka">
 
@@ -107,19 +111,16 @@ function trackClick(eventName){
 <a href="https://t.me/Appledestroyer1" class="btn btn-outline" onclick="trackClick('telegram_click')">Telegram</a>
 </section>
 
-<!-- Далее остальные секции: описание, галерея, доставка, отзывы, цена -->
-<!-- Все элементы имеют data-lang="cz" и data-lang="ru" для мультиязычности -->
+<!-- Описание -->
 <section>
 <div data-lang="cz">
-<h2>Popis produktu</h2>
+<h2>Popis produktu <span class="emoji">✨</span></h2>
 <div class="card">
-<ul>
-<li>✔ Aktivní dotykové ovládání</li>
-<li>✔ Aktivní potlačení hluku (ANC)</li>
-<li>✔ Podpora bezdrátového nabíjení</li>
-<li>✔ Kompatibilní s iOS a Android</li>
-</ul>
-<p><strong>Kompletní sada:</strong></p>
+<p><strong>✔ Aktivní dotykové ovládání</strong> <span class="emoji">🖐️</span></p>
+<p><strong>✔ ANC – aktivní potlačení hluku</strong> <span class="emoji">🔊</span></p>
+<p><strong>✔ Podpora bezdrátového nabíjení</strong> <span class="emoji">⚡</span></p>
+<p><strong>✔ Kompatibilní s iOS a Android</strong> <span class="emoji">📱</span></p>
+<p><strong>Kompletní sada:</strong> 🎁</p>
 <ul>
 <li>• Sluchátka a nabíjecí pouzdro</li>
 <li>• 4 velikosti nástavců do uší</li>
@@ -129,16 +130,15 @@ function trackClick(eventName){
 <p style="font-size:13px;opacity:.6">Nejedná se o originální výrobek Apple.</p>
 </div>
 </div>
+
 <div data-lang="ru">
-<h2>Описание товара</h2>
+<h2>Описание товара <span class="emoji">✨</span></h2>
 <div class="card">
-<ul>
-<li>✔ Активное сенсорное управление</li>
-<li>✔ Активное шумоподавление (ANC)</li>
-<li>✔ Поддержка беспроводной зарядки</li>
-<li>✔ Совместимость с iOS и Android</li>
-</ul>
-<p><strong>Комплект:</strong></p>
+<p><strong>✔ Активное сенсорное управление</strong> <span class="emoji">🖐️</span></p>
+<p><strong>✔ ANC – активное шумоподавление</strong> <span class="emoji">🔊</span></p>
+<p><strong>✔ Поддержка беспроводной зарядки</strong> <span class="emoji">⚡</span></p>
+<p><strong>✔ Совместимость с iOS и Android</strong> <span class="emoji">📱</span></p>
+<p><strong>Комплект:</strong> 🎁</p>
 <ul>
 <li>• Наушники и зарядный кейс</li>
 <li>• 4 размера силиконовых насадок</li>
@@ -150,11 +150,88 @@ function trackClick(eventName){
 </div>
 </section>
 
+<!-- Галерея -->
+<section>
+<div data-lang="cz">
+<h2>Fotografie produktu <span class="emoji">📸</span></h2>
+<div class="gallery">
+<img src="airpods2.jpg" alt="Sluchátka">
+<img src="airpods3.jpg" alt="Balení">
+<img src="airpods4.jpg" alt="Detail produktu">
+</div>
+</div>
+<div data-lang="ru">
+<h2>Фотографии продукта <span class="emoji">📸</span></h2>
+<div class="gallery">
+<img src="airpods2.jpg" alt="Наушники">
+<img src="airpods3.jpg" alt="Упаковка">
+<img src="airpods4.jpg" alt="Детали">
+</div>
+</div>
+</section>
+
+<!-- Доставка и оплата -->
+<section>
+<div data-lang="cz">
+<h2>Doručení a platba <span class="emoji">🚚</span></h2>
+<div class="grid">
+<div class="card">Doručení po ČR do 2–3 pracovních dnů</div>
+<div class="card">Platba výhradně dobírkou</div>
+<div class="card">Kontrola zboží při převzetí</div>
+</div>
+</div>
+
+<div data-lang="ru">
+<h2>Доставка и оплата <span class="emoji">🚚</span></h2>
+<div class="grid">
+<div class="card">Доставка по ЧР 2–3 рабочих дня</div>
+<div class="card">Оплата только при получении</div>
+<div class="card">Проверка товара при получении</div>
+</div>
+</div>
+</section>
+
+<!-- Отзывы -->
+<section>
+<div data-lang="cz">
+<h2>Zkušenosti zákazníků <span class="emoji">⭐</span></h2>
+<div class="grid">
+<div class="card">⭐️⭐️⭐️⭐️⭐️<br>Rychlé doručení, dobrá kvalita.</div>
+<div class="card">⭐️⭐️⭐️⭐️⭐️<br>Vše odpovídá popisu.</div>
+<div class="card">⭐️⭐️⭐️⭐️⭐️<br>Skvělý poměr ceny a výkonu.</div>
+</div>
+</div>
+
+<div data-lang="ru">
+<h2>Отзывы покупателей <span class="emoji">⭐</span></h2>
+<div class="grid">
+<div class="card">⭐️⭐️⭐️⭐️⭐️<br>Быстрая доставка, хорошее качество.</div>
+<div class="card">⭐️⭐️⭐️⭐️⭐️<br>Все соответствует описанию.</div>
+<div class="card">⭐️⭐️⭐️⭐️⭐️<br>Отличное соотношение цены и качества.</div>
+</div>
+</div>
+</section>
+
+<!-- Цена -->
+<section>
+<div data-lang="cz">
+<h2>Cena <span class="emoji">💰</span></h2>
+<div class="price">1 099 Kč</div>
+<p>Pro objednávku nás kontaktujte přes WhatsApp nebo Telegram</p>
+</div>
+<div data-lang="ru">
+<h2>Цена <span class="emoji">💰</span></h2>
+<div class="price">1 099 Kč</div>
+<p>Для заказа свяжитесь через WhatsApp или Telegram</p>
+</div>
+</section>
+
 <footer>
 Email: coincama@gmail.com | Tel: +420 702 846 018<br>
 <a href="privacy.html">Zásady ochrany osobních údajů</a> |
 <a href="terms.html">Obchodní podmínky</a><br>
 Неофициальный сайт Apple
 </footer>
+
 </body>
 </html>
