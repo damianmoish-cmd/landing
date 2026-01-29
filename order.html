@@ -3,128 +3,231 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Objednávka / Заказ</title>
+
+<title>Objednávka | Rychlé doručení</title>
+<meta name="description" content="Objednávka s platbou při převzetí. Rychlé doručení 2–3 dny.">
+
+<!-- TikTok Pixel -->
+<script>
+!function(w,d,t){
+w.TiktokAnalyticsObject=t;var ttq=w[t]=w[t]||[];
+ttq.methods=["page","track"];ttq.setAndDefer=function(t,e){
+t[e]=function(){t.push([e].concat([].slice.call(arguments,0)))}};
+for(var i=0;i<ttq.methods.length;i++)ttq.setAndDefer(ttq,ttq.methods[i]);
+ttq.load=function(e){var s=d.createElement("script");
+s.async=!0;s.src="https://analytics.tiktok.com/i18n/pixel/events.js?sdkid="+e;
+var x=d.getElementsByTagName("script")[0];x.parentNode.insertBefore(s,x)};
+ttq.load('D5TQCN3C77U3O6ND7J0G'); ttq.page();
+}(window,document,'ttq');
+</script>
 
 <style>
-body{margin:0;font-family:-apple-system,BlinkMacSystemFont,Arial,sans-serif;background:#000;color:#fff;}
-section{max-width:600px;margin:auto;padding:60px 20px;}
-h2{text-align:center;margin-bottom:25px;}
-form{background:#111;padding:30px;border-radius:16px;animation:fadeUp 0.8s ease both;}
-@keyframes fadeUp{from{opacity:0;transform:translateY(30px);}to{opacity:1;transform:translateY(0);}}
-input,select,textarea,button{width:100%;padding:12px;margin-bottom:15px;border-radius:10px;border:none;font-size:15px;}
-input:focus,select:focus,textarea:focus{outline:2px solid #fff;}
-button{background:#fff;color:#000;font-weight:bold;cursor:pointer;transition:.3s;}
-button:hover{background:#ddd;}
-p{font-size:13px;opacity:.6;text-align:center;}
-.lang{position:fixed;top:15px;right:15px;}
-.lang button{margin-left:5px;padding:5px 10px;border-radius:8px;border:none;cursor:pointer;}
-.emoji{font-size:18px;}
-strong{font-weight:bold;}
+:root{
+--bg:#000;
+--card:#0f0f0f;
+--accent:#fff;
+--muted:#999;
+}
+
+*{box-sizing:border-box}
+
+body{
+margin:0;
+font-family:-apple-system,BlinkMacSystemFont,Arial,sans-serif;
+background:radial-gradient(circle at top,#111,#000 70%);
+color:#fff;
+}
+
+section{
+max-width:560px;
+margin:auto;
+padding:100px 20px;
+}
+
+h1{
+text-align:center;
+font-size:32px;
+margin-bottom:10px;
+animation:fadeUp .6s ease both;
+}
+
+.subtitle{
+text-align:center;
+opacity:.8;
+margin-bottom:40px;
+animation:fadeUp .8s ease both;
+}
+
+@keyframes fadeUp{
+from{opacity:0;transform:translateY(25px)}
+to{opacity:1;transform:translateY(0)}
+}
+
+.form-card{
+background:linear-gradient(180deg,#111,#0a0a0a);
+padding:36px;
+border-radius:26px;
+border:1px solid #1f1f1f;
+box-shadow:0 30px 80px rgba(0,0,0,.6);
+animation:fadeUp 1s ease both;
+}
+
+.order-info{
+background:#0b0b0b;
+border:1px solid #1f1f1f;
+border-radius:18px;
+padding:18px;
+margin-bottom:28px;
+font-size:14px;
+line-height:1.6;
+}
+
+.order-info strong{font-weight:600}
+
+label{
+font-size:13px;
+opacity:.85;
+display:block;
+margin-bottom:6px;
+}
+
+input,textarea,select{
+width:100%;
+padding:14px 16px;
+border-radius:14px;
+border:1px solid #222;
+background:#0c0c0c;
+color:#fff;
+font-size:15px;
+margin-bottom:18px;
+transition:.25s;
+}
+
+input:focus,textarea:focus,select:focus{
+outline:none;
+border-color:#fff;
+background:#111;
+}
+
+textarea{resize:none;height:80px}
+
+button{
+width:100%;
+padding:18px;
+border-radius:32px;
+border:none;
+font-size:16px;
+font-weight:700;
+background:#fff;
+color:#000;
+cursor:pointer;
+transition:.3s;
+}
+
+button:hover{
+transform:translateY(-2px);
+box-shadow:0 18px 45px rgba(255,255,255,.18);
+}
+
+.trust{
+display:flex;
+justify-content:space-between;
+gap:12px;
+margin-top:28px;
+flex-wrap:wrap;
+}
+
+.trust div{
+flex:1;
+min-width:140px;
+background:#0b0b0b;
+border:1px solid #1f1f1f;
+border-radius:16px;
+padding:14px;
+font-size:13px;
+text-align:center;
+opacity:.85;
+}
+
+footer{
+text-align:center;
+font-size:13px;
+opacity:.6;
+margin-top:50px;
+}
 </style>
 
-<!-- ✅ TikTok Pixel Base Code -->
 <script>
-!function (w, d, t) {
-  w.TiktokAnalyticsObject=t;
-  var ttq=w[t]=w[t]||[];
-  ttq.methods=["page","track","identify","instances","debug","on","off","once","ready","alias","group","enableCookie","disableCookie"];
-  ttq.setAndDefer=function(t,e){t[e]=function(){t.push([e].concat(Array.prototype.slice.call(arguments,0)))}};
-  for(var i=0;i<ttq.methods.length;i++)ttq.setAndDefer(ttq,ttq.methods[i]);
-  ttq.instance=function(t){for(var e=ttq._i[t]||[],n=0;n<ttq.methods.length;n++)ttq.setAndDefer(e,ttq.methods[n]);return e};
-  ttq.load=function(e,n){
-    var i="https://analytics.tiktok.com/i18n/pixel/events.js";
-    ttq._i=ttq._i||{};
-    ttq._i[e]=[];
-    ttq._i[e]._u=i;
-    ttq._t=ttq._t||{};
-    ttq._t[e]=+new Date;
-    ttq._o=ttq._o||{};
-    ttq._o[e]=n||{};
-    var o=document.createElement("script");
-    o.type="text/javascript";
-    o.async=!0;
-    o.src=i+"?sdkid="+e+"&lib="+t;
-    var a=document.getElementsByTagName("script")[0];
-    a.parentNode.insertBefore(o,a)
-  };
-  ttq.load('D5TQCN3C77U3O6ND7J0G');
-  ttq.page();
-}(window, document, 'ttq');
-</script>
-
-<script>
-function setLang(lang){
-  document.querySelectorAll('[data-lang]').forEach(el=>{
-    el.style.display = el.dataset.lang === lang ? 'block' : 'none';
-  });
-}
-
 function trackSubmit(){
-  try {
-    if (typeof ttq !== 'undefined') {
-      ttq.track('SubmitForm');
-      ttq.track('Lead');
-    }
-  } catch(e) {
-    console.log('Tracking error:', e);
-  }
+try{
+ttq.track('SubmitForm');
+ttq.track('Lead');
+}catch(e){}
+}
+
+window.onload=function(){
+const p=new URLSearchParams(location.search);
+document.getElementById('product').value=p.get('product')||'';
+document.getElementById('color').value=p.get('color')||'';
+
+document.getElementById('summary').innerHTML=
+'<strong>Produkt:</strong> '+(p.get('product')||'—')+'<br>'+
+'<strong>Barva:</strong> '+(p.get('color')||'—')+'<br>'+
+'<strong>Platba:</strong> Dobírka';
 }
 </script>
+
 </head>
 
-<body onload="setLang('cz')">
-
-<div class="lang">
-  <button onclick="setLang('cz')">CZ</button>
-  <button onclick="setLang('ru')">RU</button>
-</div>
+<body>
 
 <section>
-<h2 data-lang="cz">Objednávka <span class="emoji">🛒</span></h2>
-<h2 data-lang="ru">Заказ <span class="emoji">🛒</span></h2>
+<h1>Dokončení objednávky</h1>
+<p class="subtitle">Vyplňte údaje a my se o zbytek postaráme</p>
 
-<form action="https://formsubmit.co/coincama@gmail.com" method="POST" onsubmit="trackSubmit()">
-<input type="hidden" name="_subject" value="NOVÁ OBJEDNÁVKA">
-<input type="hidden" name="_template" value="table">
+<div class="form-card">
+
+<div class="order-info" id="summary"></div>
+
+<form action="https://formsubmit.co/coincama@gmail.com"
+method="POST" onsubmit="trackSubmit()">
+
+<input type="hidden" name="_next" value="thank-you.html">
 <input type="hidden" name="_captcha" value="false">
+<input type="hidden" name="_template" value="table">
 
-<select name="Doprava" required data-lang="cz">
-  <option value="">Služba doručení</option>
-  <option>Zásilkovna</option>
-  <option>PPL</option>
-  <option>Balíkovna</option>
-</select>
+<input type="hidden" name="Produkt" id="product">
+<input type="hidden" name="Barva" id="color">
 
-<select name="Doprava" required data-lang="ru">
-  <option value="">Служба доставки</option>
-  <option>Zásilkovna</option>
-  <option>PPL</option>
-  <option>Balíковна</option>
-</select>
+<label>Jméno a příjmení</label>
+<input name="Jméno" required placeholder="Jan Novák">
 
-<select name="Typ" required data-lang="cz">
-  <option value="">Typ doručení</option>
-  <option>Na adresu</option>
-  <option>Na výdejní místo</option>
-</select>
+<label>Telefon</label>
+<input name="Telefon" required placeholder="+420 777 000 000">
 
-<select name="Typ" required data-lang="ru">
-  <option value="">Тип доставки</option>
-  <option>На адрес</option>
-  <option>На пункт выдачи</option>
-</select>
+<label>Email</label>
+<input type="email" name="Email" required placeholder="email@email.cz">
 
-<textarea name="Adresa" placeholder="Adresa / Адрес" required></textarea>
-<input name="Jméno" placeholder="Jméno a příjmení / Имя Фамилия" required>
-<input name="Telefon" placeholder="Telefon / Телефон" required>
-<input type="email" name="Email" placeholder="Email" required>
+<label>Adresa doručení</label>
+<textarea name="Adresa" required placeholder="Ulice, město, PSČ"></textarea>
 
-<button type="submit" data-lang="cz">Odeslat objednávku <span class="emoji">✅</span></button>
-<button type="submit" data-lang="ru">Отправить заказ <span class="emoji">✅</span></button>
+<button type="submit">Odeslat objednávku</button>
 
-<p data-lang="cz">Platba pouze dobírkou. Bez záruky a bez vrácení.</p>
-<p data-lang="ru">Оплата только при получении. Без гарантии и возврата.</p>
 </form>
+
+<div class="trust">
+<div>🚚 Doručení 2–3 dny</div>
+<div>💰 Platba při převzetí</div>
+<div>📦 Kontrola při doručení</div>
+</div>
+
+</div>
+
+<footer>
+Email: coincama@gmail.com<br>
+Neznačkový produkt • Bez záruky a vrácení
+</footer>
+
 </section>
 
 </body>
