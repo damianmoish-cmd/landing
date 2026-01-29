@@ -14,8 +14,8 @@ w.TiktokAnalyticsObject=t;var ttq=w[t]=w[t]||[];
 ttq.methods=["page","track"];ttq.setAndDefer=function(t,e){
 t[e]=function(){t.push([e].concat([].slice.call(arguments,0)))}};
 for(var i=0;i<ttq.methods.length;i++)ttq.setAndDefer(ttq,ttq.methods[i]);
-ttq.load=function(e){var s=d.createElement("script");
-s.async=!0;s.src="https://analytics.tiktok.com/i18n/pixel/events.js?sdkid="+e;
+ttq.load=function(e){
+var s=d.createElement("script");s.async=!0;s.src="https://analytics.tiktok.com/i18n/pixel/events.js?sdkid="+e;
 var x=d.getElementsByTagName("script")[0];x.parentNode.insertBefore(s,x)};
 ttq.load('D5TQCN3C77U3O6ND7J0G'); ttq.page();
 }(window,document,'ttq');
@@ -40,12 +40,14 @@ h1{text-align:center;font-size:32px;margin-bottom:10px;animation:fadeUp .6s ease
 label{font-size:13px;opacity:.85;display:block;margin-bottom:6px;}
 input,textarea,select{width:100%;padding:14px 16px;border-radius:14px;border:1px solid #222;background:#0c0c0c;color:#fff;font-size:15px;margin-bottom:18px;transition:.25s;}
 input:focus,textarea:focus,select:focus{outline:none;border-color:#fff;background:#111;}
-textarea{resize:none;height:80px;}
+textarea{resize:none;height:80px}
 button{width:100%;padding:18px;border-radius:32px;border:none;font-size:16px;font-weight:700;background:#fff;color:#000;cursor:pointer;transition:.3s;}
 button:hover{transform:translateY(-2px);box-shadow:0 18px 45px rgba(255,255,255,.18);}
 .trust{display:flex;justify-content:space-between;gap:12px;margin-top:28px;flex-wrap:wrap;}
 .trust div{flex:1;min-width:140px;background:#0b0b0b;border:1px solid #1f1f1f;border-radius:16px;padding:14px;font-size:13px;text-align:center;opacity:.85;}
 footer{text-align:center;font-size:13px;opacity:.6;margin-top:50px;}
+.logo-fixed{position:fixed;top:10px;left:10px;z-index:1000;}
+.logo-fixed img{height:50px;}
 </style>
 
 <script>
@@ -55,6 +57,7 @@ ttq.track('SubmitForm');
 ttq.track('Lead');
 }catch(e){}
 }
+
 window.onload=function(){
 const p=new URLSearchParams(location.search);
 document.getElementById('product').value=p.get('product')||'';
@@ -67,15 +70,18 @@ document.getElementById('summary').innerHTML=
 </script>
 
 </head>
-
 <body>
+
+<!-- Логотип -->
+<div class="logo-fixed">
+<img src="logo.png" alt="iMart-Store Logo">
+</div>
 
 <section>
 <h1>Dokončení objednávky</h1>
 <p class="subtitle">Vyplňte údaje a my se o zbytek postaráme</p>
 
 <div class="form-card">
-
 <div class="order-info" id="summary"></div>
 
 <form action="https://formsubmit.co/coincama@gmail.com"
@@ -84,24 +90,19 @@ method="POST" onsubmit="trackSubmit()">
 <input type="hidden" name="_next" value="thank-you.html">
 <input type="hidden" name="_captcha" value="false">
 <input type="hidden" name="_template" value="table">
-
 <input type="hidden" name="Produkt" id="product">
 <input type="hidden" name="Barva" id="color">
 
 <label>Jméno a příjmení</label>
 <input name="Jméno" required placeholder="Jan Novák">
-
 <label>Telefon</label>
 <input name="Telefon" required placeholder="+420 777 000 000">
-
 <label>Email</label>
 <input type="email" name="Email" required placeholder="email@email.cz">
-
 <label>Adresa doručení</label>
 <textarea name="Adresa" required placeholder="Ulice, město, PSČ"></textarea>
 
 <button type="submit">Odeslat objednávku</button>
-
 </form>
 
 <div class="trust">
@@ -109,15 +110,12 @@ method="POST" onsubmit="trackSubmit()">
 <div>💰 Platba při převzetí</div>
 <div>📦 Kontrola při doručení</div>
 </div>
-
 </div>
 
 <footer>
-<a href="index.html" style="color:#fff;text-decoration:underline;">🏠 Zpět na hlavní stránku</a><br>
 Email: coincama@gmail.com<br>
 Neznačkový produkt • Bez záruky a vrácení
 </footer>
-
 </section>
 
 </body>
