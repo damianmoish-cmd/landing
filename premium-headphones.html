@@ -4,105 +4,228 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Prémiová bezdrátová sluchátka | ANC • Hi-Fi zvuk</title>
+
 <meta name="description" content="Prémiová bezdrátová sluchátka s ANC, prostorovým zvukem a prémiovým pohodlím. Platba při převzetí.">
 
 <!-- TikTok Pixel -->
 <script>
-!function(w,d,t){w.TiktokAnalyticsObject=t;var ttq=w[t]=w[t]||[];
-ttq.methods=["page","track"];ttq.setAndDefer=function(t,e){t[e]=function(){t.push([e].concat([].slice.call(arguments,0)))}};
+!function(w,d,t){
+w.TiktokAnalyticsObject=t;var ttq=w[t]=w[t]||[];
+ttq.methods=["page","track"];ttq.setAndDefer=function(t,e){
+t[e]=function(){t.push([e].concat([].slice.call(arguments,0)))}};
 for(var i=0;i<ttq.methods.length;i++)ttq.setAndDefer(ttq,ttq.methods[i]);
-ttq.load=function(e){var s=d.createElement("script");s.async=!0;s.src="https://analytics.tiktok.com/i18n/pixel/events.js?sdkid="+e;
+ttq.load=function(e){var s=d.createElement("script");
+s.async=!0;s.src="https://analytics.tiktok.com/i18n/pixel/events.js?sdkid="+e;
 var x=d.getElementsByTagName("script")[0];x.parentNode.insertBefore(s,x)};
 ttq.load('D5TQCN3C77U3O6ND7J0G'); ttq.page();
 }(window,document,'ttq');
 </script>
 
 <style>
-:root{--bg:#000;--card:#0f0f0f;--accent:#fff;--muted:#999;}
-*{box-sizing:border-box}
-body{margin:0;font-family:-apple-system,BlinkMacSystemFont,Arial,sans-serif;background:radial-gradient(circle at top,#111,#000 70%);color:#fff;overflow-x:hidden;}
+:root{
+--bg:#000;
+--card:#0f0f0f;
+--accent:#fff;
+--muted:#999;
+}
+
+*{box-sizing:border-box;}
+body{
+margin:0;
+font-family:-apple-system,BlinkMacSystemFont,Arial,sans-serif;
+background:radial-gradient(circle at top,#111,#000 70%);
+color:#fff;
+overflow-x:hidden;
+}
+
 section{max-width:1200px;margin:auto;padding:90px 20px;}
 .hero{text-align:center;position:relative;}
-.hero::after{content:"";position:absolute;top:-220px;left:50%;width:700px;height:700px;background:radial-gradient(circle,#222,transparent 70%);transform:translateX(-50%);z-index:-1;}
-h1{font-size:42px;margin-bottom:10px;letter-spacing:-.6px;animation:fadeUp .8s ease both;}
+.hero::after{
+content:"";
+position:absolute;
+top:-220px;left:50%;
+width:700px;height:700px;
+background:radial-gradient(circle,#222,transparent 70%);
+transform:translateX(-50%);
+z-index:-1;
+}
+
+h1{font-size:42px;margin-bottom:10px;letter-spacing:-.6px;}
 h2{font-size:28px;margin-bottom:30px;}
 p{opacity:.9;line-height:1.6;}
-@keyframes fadeUp{from{opacity:0;transform:translateY(30px)}to{opacity:1;transform:translateY(0)}}
-.hero img{max-width:440px;width:92%;margin:50px auto;display:block;animation:float 4s ease-in-out infinite;}
+
+/* Анимация */
+.fade-up{
+opacity:0;
+transform:translateY(25px);
+transition:all 0.8s ease-out;
+}
+.fade-up.visible{
+opacity:1;
+transform:translateY(0);
+}
+
+.hero img{
+max-width:440px;width:92%;margin:50px auto;display:block;animation:float 4s ease-in-out infinite;
+}
 @keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-14px)}}
+
 .badges{display:flex;justify-content:center;gap:14px;flex-wrap:wrap;margin:25px 0;}
 .badge{padding:8px 18px;border-radius:22px;font-size:13px;background:#111;border:1px solid #222;}
-.btn{display:inline-block;padding:16px 42px;border-radius:34px;text-decoration:none;font-weight:600;margin:12px;transition:.3s;}
+
+.btn{display:inline-block;padding:16px 42px;border-radius:34px;text-decoration:none;font-weight:600;margin:12px;transition:.3s;cursor:pointer;}
 .btn-primary{background:#fff;color:#000;box-shadow:0 0 0 rgba(255,255,255,0);}
 .btn-primary:hover{transform:translateY(-3px);box-shadow:0 18px 50px rgba(255,255,255,.18);}
 .btn-outline{border:2px solid #fff;color:#fff;}
 .btn-outline:hover{background:#fff;color:#000;}
+
 .price{font-size:46px;font-weight:800;margin-top:30px;}
+
 .color-select{display:flex;justify-content:center;gap:14px;margin:22px 0;}
 .color-btn{padding:12px 26px;border-radius:26px;border:2px solid #333;background:#111;color:#fff;cursor:pointer;transition:.3s;}
-.color-btn.active,.color-btn:hover{background:#fff;color:#000;border-color:#fff;}
+.color-btn.active,
+.color-btn:hover{background:#fff;color:#000;border-color:#fff;}
+
 .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:30px;}
 .card{background:linear-gradient(180deg,#111,#0a0a0a);padding:34px;border-radius:22px;border:1px solid #1f1f1f;transition:.35s;}
 .card:hover{transform:translateY(-8px);border-color:#333;}
-.gallery{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:24px;}
-.gallery img{width:100%;border-radius:18px;transition:.45s;}
-.gallery img:hover{transform:scale(1.06);}
+
+.gallery{display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:16px;margin-top:20px;}
+.gallery img{width:100%;border-radius:12px;cursor:pointer;transition:.3s;}
+.gallery img:hover{transform:scale(1.05);}
+
+/* Стили sticky-bar */
 .sticky-bar{position:fixed;bottom:0;left:0;right:0;background:rgba(8,8,8,.9);backdrop-filter:blur(12px);border-top:1px solid #222;display:flex;justify-content:space-between;align-items:center;padding:16px 20px;z-index:999;}
 .sticky-price{font-size:24px;font-weight:800;}
-.sticky-btn{background:#fff;color:#000;padding:12px 28px;border-radius:30px;text-decoration:none;font-weight:700;}
-footer{text-align:center;font-size:13px;opacity:.6;padding:80px 20px 140px;}
-@media(max-width:600px){h1{font-size:32px}.hero img{max-width:330px}.price{font-size:34px}}
+.sticky-btn{background:#fff;color:#000;padding:12px 28px;border-radius:30px;text-decoration:none;font-weight:700;cursor:pointer;}
 
-/* ===== Логотип и кнопка переключения ===== */
-.logo-nav{position:fixed;top:10px;left:10px;z-index:1000;display:flex;align-items:center;gap:20px;animation:fadeDown 1s ease;}
+/* footer */
+footer{text-align:center;font-size:13px;opacity:.6;padding:80px 20px 140px;}
+
+/* логотип и кнопка навигации */
+.logo-nav{position:fixed;top:10px;left:10px;z-index:1000;display:flex;align-items:center;gap:20px;}
 .logo-nav img{height:80px;}
-.switch-btn{padding:12px 20px;background:#fff;color:#000;font-weight:bold;font-size:18px;border-radius:12px;cursor:pointer;transition:0.3s;animation:fadeDown 1.2s ease;}
+.switch-btn{padding:12px 20px;background:#fff;color:#000;font-weight:bold;font-size:18px;border-radius:12px;cursor:pointer;}
 .switch-btn:hover{transform:translateY(-3px);box-shadow:0 8px 20px rgba(255,255,255,0.2);}
-@keyframes fadeDown{from{opacity:0;transform:translateY(-20px);}to{opacity:1;transform:translateY(0);}}
+
+/* адаптивность */
+@media(max-width:900px){
+h1{font-size:32px;}
+.hero img{max-width:320px;}
+.price{font-size:34px;}
+.grid{grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:20px;}
+.gallery{grid-template-columns:repeat(auto-fit,minmax(80px,1fr));gap:12px;}
+.color-select{flex-wrap:wrap;}
+}
 </style>
 
 <script>
 let selectedColor='Černá';
-function selectColor(color,el){selectedColor=color;document.querySelectorAll('.color-btn').forEach(b=>b.classList.remove('active'));el.classList.add('active');}
-function orderNow(){window.location.href="order.html?product=Prémiová+bezdrátová+sluchátka&color="+encodeURIComponent(selectedColor);}
-function goToPro(){window.location.href="index.html";}
-</script>
+function selectColor(color,el){
+selectedColor=color;
+document.querySelectorAll('.color-btn').forEach(b=>b.classList.remove('active'));
+el.classList.add('active');
+}
+function orderNow(){
+window.location.href="order.html?product=Prémiová+bezdrátová+sluchátka&color="+encodeURIComponent(selectedColor);
+}
+function goBack(){window.history.back();}
 
+// ===== Scroll animation =====
+function scrollAnimate(){
+const elements = document.querySelectorAll('.fade-up');
+elements.forEach(el=>{
+const rect = el.getBoundingClientRect();
+if(rect.top < window.innerHeight - 100){
+el.classList.add('visible');
+}
+});
+}
+window.addEventListener('scroll', scrollAnimate);
+window.addEventListener('load', scrollAnimate);
+</script>
 </head>
+
 <body>
 
-<!-- Логотип и кнопка переключения -->
+<!-- Логотип и кнопка возврата -->
 <div class="logo-nav">
 <img src="logo.png" alt="iMart-Store">
-<div class="switch-btn" onclick="goToPro()">Pro sluchátka</div>
+<div class="switch-btn" onclick="goBack()">Zpět k produktům</div>
 </div>
 
 <!-- HERO -->
-<section class="hero">
+<section class="hero fade-up">
 <h1>Prémiová bezdrátová sluchátka 🎧</h1>
 <p><strong>Silný zvuk. Ticho kolem. Komfort celý den.</strong></p>
 
-<div class="badges">
+<div class="badges fade-up">
 <div class="badge">ANC nové generace</div>
 <div class="badge">Hi-Fi prostorový zvuk</div>
 <div class="badge">Bluetooth 5.3</div>
 <div class="badge">Výdrž až 30 h</div>
 </div>
 
-<img src="premium-black-1.jpg" alt="Prémiová sluchátka">
+<img src="premium-black-1.jpg" alt="Prémiová sluchátka" class="fade-up">
 
-<div class="color-select">
+<!-- Галерея мини фото -->
+<div class="gallery fade-up">
+<img src="premium-black-1.jpg" onclick="document.querySelector('.hero img').src='premium-black-1.jpg'">
+<img src="premium-black-2.jpg" onclick="document.querySelector('.hero img').src='premium-black-2.jpg'">
+<img src="premium-black-3.jpg" onclick="document.querySelector('.hero img').src='premium-black-3.jpg'">
+<img src="premium-silver-1.jpg" onclick="document.querySelector('.hero img').src='premium-silver-1.jpg'">
+<img src="premium-silver-2.jpg" onclick="document.querySelector('.hero img').src='premium-silver-2.jpg'">
+<img src="premium-silver-3.jpg" onclick="document.querySelector('.hero img').src='premium-silver-3.jpg'">
+</div>
+
+<div class="color-select fade-up">
 <button class="color-btn active" onclick="selectColor('Černá',this)">Černá</button>
 <button class="color-btn" onclick="selectColor('Stříbrná',this)">Stříbrná</button>
 </div>
 
-<div class="price">2 499 Kč</div>
+<div class="price fade-up">2 499 Kč</div>
 
+<div class="fade-up">
 <a onclick="orderNow()" class="btn btn-primary">Objednat nyní</a>
 <a href="https://wa.me/420702846018" class="btn btn-outline">WhatsApp</a>
 <a href="https://t.me/Appledestroyer1" class="btn btn-outline">Telegram</a>
+</div>
 
-<p>Platba při převzetí • Doručení 2–3 dny</p>
 </section>
 
-<!-- Остальной контент (BENEFITS, GALLERY, STICKY, footer) как в исходном коде -->
+<!-- Описание -->
+<section class="fade-up">
+<h2>Proč si je zamilujete ✨</h2>
+<div class="grid">
+<div class="card fade-up">
+<h3>🎵 Zvuk, který obklopí</h3>
+<p>Čisté výšky, hluboké basy a prostorový efekt, který vás vtáhne do hudby.</p>
+</div>
+<div class="card fade-up">
+<h3>🔇 Ticho jedním dotykem</h3>
+<p>Aktivní potlačení hluku eliminuje ruch města, kanceláře i dopravy.</p>
+</div>
+<div class="card fade-up">
+<h3>🛋 Komfort bez tlaku</h3>
+<p>Měkké náušníky a lehká konstrukce umožňují celodenní nošení.</p>
+</div>
+<div class="card fade-up">
+<h3>🔋 Energie na celý den</h3>
+<p>Až 30 hodin poslechu bez nutnosti nabíjení.</p>
+</div>
+</div>
+</section>
+
+<!-- STICKY -->
+<div class="sticky-bar fade-up">
+<div class="sticky-price">2 499 Kč</div>
+<a onclick="orderNow()" class="sticky-btn">Objednat</a>
+</div>
+
+<footer class="fade-up">
+Email: coincama@gmail.com | Tel: +420 702 846 018<br>
+Neznačkový produkt. Není spojen s žádnou ochrannou známkou.
+</footer>
+
+</body>
+</html>
