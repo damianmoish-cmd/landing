@@ -10,7 +10,7 @@
 <!-- OpenGraph -->
 <meta property="og:title" content="Bezdrátová sluchátka Pro">
 <meta property="og:description" content="ANC • Platba při převzetí • Doručení 2–3 dny">
-<meta property="og:image" content="airpods1.jpg">
+<meta property="og:image" content="https://TVUJDOMEN.CZ/airpods1.jpg">
 <meta property="og:type" content="website">
 
 <!-- GA -->
@@ -35,11 +35,9 @@ fbq('init','YOUR_PIXEL_ID'); fbq('track','PageView');
 <!-- TikTok -->
 <script>
 !function(w,d,t){w.TiktokAnalyticsObject=t;var ttq=w[t]=w[t]||[];
-ttq.methods=["page","track"];ttq.setAndDefer=function(t,e){
-t[e]=function(){t.push([e].concat([].slice.call(arguments,0)))}};
+ttq.methods=["page","track"];ttq.setAndDefer=function(t,e){t[e]=function(){t.push([e].concat([].slice.call(arguments,0)))}};
 for(var i=0;i<ttq.methods.length;i++)ttq.setAndDefer(ttq,ttq.methods[i]);
-ttq.load=function(e){var s=d.createElement("script");
-s.async=!0;s.src="https://analytics.tiktok.com/i18n/pixel/events.js?sdkid="+e;
+ttq.load=function(e){var s=d.createElement("script");s.async=!0;s.src="https://analytics.tiktok.com/i18n/pixel/events.js?sdkid="+e;
 var x=d.getElementsByTagName("script")[0];x.parentNode.insertBefore(s,x)};
 ttq.load('D5TQCN3C77U3O6ND7J0G'); ttq.page();
 }(window,document,'ttq');
@@ -57,32 +55,25 @@ p{opacity:.85}
 .btn-primary{background:#fff;color:#000;}
 .btn-outline{border:2px solid #fff;color:#fff;}
 .price{font-size:38px;font-weight:bold;margin-top:20px;}
-
 .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:25px;}
 .card{background:#111;padding:25px;border-radius:16px;}
-
 .gallery{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:20px;}
 .gallery img{width:100%;border-radius:14px;}
-
-.lang{position:fixed;top:15px;right:15px;z-index:5;}
+.lang{position:fixed;top:80px;right:15px;z-index:5;}
 .lang button{padding:6px 10px;border-radius:8px;border:none;}
-
-.sticky-bar{
-position:fixed;bottom:0;left:0;right:0;
-background:#111;border-top:1px solid #222;
-display:flex;justify-content:space-between;
-align-items:center;padding:12px 16px;z-index:999;
-}
+.sticky-bar{position:fixed;bottom:0;left:0;right:0;background:#111;border-top:1px solid #222;display:flex;justify-content:space-between;align-items:center;padding:12px 16px;z-index:999;}
 .sticky-price{font-size:22px;font-weight:bold;}
 .sticky-btn{background:#fff;color:#000;padding:10px 22px;border-radius:25px;text-decoration:none;font-weight:500;}
-
 footer{text-align:center;font-size:13px;opacity:.6;padding:60px 20px 120px;}
+@media(max-width:600px){h1{font-size:28px} .hero img{max-width:320px} .price{font-size:30px}}
 
-@media(max-width:600px){
-h1{font-size:28px}
-.hero img{max-width:320px}
-.price{font-size:30px}
+/* Логотип фиксированный */
+.logo-fixed{
+position:fixed;
+top:10px;left:10px;
+z-index:1000;
 }
+.logo-fixed img{height:50px;}
 </style>
 
 <script>
@@ -92,9 +83,14 @@ el.style.display=el.dataset.lang===lang?'block':'none';
 });
 }
 </script>
-</head>
 
+</head>
 <body onload="setLang('cz')">
+
+<!-- Логотип -->
+<div class="logo-fixed">
+<img src="logo.png" alt="iMart-Store Logo">
+</div>
 
 <div class="lang">
 <button onclick="setLang('cz')">CZ</button>
@@ -105,19 +101,12 @@ el.style.display=el.dataset.lang===lang?'block':'none';
 <section class="hero">
 <h1 data-lang="cz">Bezdrátová sluchátka Pro 🎧</h1>
 <h1 data-lang="ru">Беспроводные наушники Pro 🎧</h1>
-
 <p data-lang="cz"><strong>Kompatibilní model s ANC</strong></p>
 <p data-lang="ru"><strong>Совместимая модель с ANC</strong></p>
-
 <img src="airpods1.jpg" alt="Sluchátka">
-
-<!-- Используем относительные ссылки -->
 <a href="order.html" class="btn btn-primary">Objednat</a>
 <a href="https://wa.me/420702846018" class="btn btn-outline">WhatsApp</a>
 <a href="https://t.me/Appledestroyer1" class="btn btn-outline">Telegram</a>
-<a href="pre.html" class="btn btn-outline">Recenze</a>
-<a href="premium-headphones.html" class="btn btn-outline">Prémiová sluchátka</a>
-
 <div class="price">1 099 Kč</div>
 <p data-lang="cz">Platba při převzetí • Doručení 2–3 dny</p>
 <p data-lang="ru">Оплата при получении • Доставка 2–3 дня</p>
@@ -133,7 +122,6 @@ el.style.display=el.dataset.lang===lang?'block':'none';
 <div class="card">Kontrola při převzetí</div>
 </div>
 </div>
-
 <div data-lang="ru">
 <h2>Доставка и оплата 🚚</h2>
 <div class="grid">
@@ -156,7 +144,6 @@ el.style.display=el.dataset.lang===lang?'block':'none';
 <p style="font-size:13px;opacity:.6">Nejedná se o originální výrobek.</p>
 </div>
 </div>
-
 <div data-lang="ru">
 <h2>Описание товара ✨</h2>
 <div class="card">
@@ -190,6 +177,5 @@ el.style.display=el.dataset.lang===lang?'block':'none';
 Email: coincama@gmail.com | Tel: +420 702 846 018<br>
 Neznačkový produkt. Není spojen s žádnou ochrannou známkou.
 </footer>
-
 </body>
 </html>
