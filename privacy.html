@@ -5,20 +5,31 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Zásady ochrany osobních údajů</title>
 <style>
-body{font-family:-apple-system,BlinkMacSystemFont,Arial,sans-serif;margin:20px;line-height:1.6;color:#111;background:#f5f5f5;}
-h1,h2{color:#000;}
-.logo-fixed{position:fixed;top:10px;left:10px;z-index:1000;}
-.logo-fixed img{height:50px;}
+body{margin:0;font-family:-apple-system,BlinkMacSystemFont,Arial,sans-serif;background:#f5f5f5;color:#111;line-height:1.6;padding:20px;}
+h1{font-size:28px;margin-bottom:20px;}
+h2{font-size:22px;margin-top:25px;}
+ul{margin-left:20px;}
+p{margin-bottom:15px;}
+
+/* Логотип и кнопка возврата */
+.logo-nav{position:fixed;top:10px;left:10px;z-index:1000;display:flex;align-items:center;gap:20px;}
+.logo-nav img{height:80px;}
+.switch-btn{padding:12px 20px;background:#000;color:#fff;font-weight:bold;font-size:16px;border-radius:12px;cursor:pointer;}
+.switch-btn:hover{transform:translateY(-3px);box-shadow:0 8px 20px rgba(0,0,0,0.2);}
 </style>
+<script>
+function goBack(){window.history.back();}
+</script>
 </head>
 <body>
 
-<!-- Логотип -->
-<div class="logo-fixed">
-<img src="logo.png" alt="iMart-Store Logo">
+<div class="logo-nav">
+<img src="logo.png" alt="iMart-Store">
+<div class="switch-btn" onclick="goBack()">Zpět k produktům</div>
 </div>
 
 <h1>Zásady ochrany osobních údajů</h1>
+
 <p>Osobní údaje jsou zpracovávány v souladu s GDPR (EU 2016/679).</p>
 
 <h2>Zpracovávané údaje</h2>
@@ -33,7 +44,8 @@ h1,h2{color:#000;}
 <p>Údaje slouží výhradně k vyřízení objednávky a komunikaci se zákazníkem.</p>
 
 <h2>Kontakt</h2>
-<p>Email: coincama@gmail.com<br>Telefon: +420 702 846 018</p>
+<p>Email: coincama@gmail.com<br>
+Telefon: +420 702 846 018</p>
 
 </body>
 </html>
