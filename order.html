@@ -4,6 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Objednávka / Заказ</title>
+
 <style>
 body{margin:0;font-family:-apple-system,BlinkMacSystemFont,Arial,sans-serif;background:#000;color:#fff;}
 section{max-width:600px;margin:auto;padding:60px 20px;}
@@ -20,18 +21,62 @@ p{font-size:13px;opacity:.6;text-align:center;}
 .emoji{font-size:18px;}
 strong{font-weight:bold;}
 </style>
+
+<!-- ✅ TikTok Pixel Base Code -->
+<script>
+!function (w, d, t) {
+  w.TiktokAnalyticsObject=t;
+  var ttq=w[t]=w[t]||[];
+  ttq.methods=["page","track","identify","instances","debug","on","off","once","ready","alias","group","enableCookie","disableCookie"];
+  ttq.setAndDefer=function(t,e){t[e]=function(){t.push([e].concat(Array.prototype.slice.call(arguments,0)))}};
+  for(var i=0;i<ttq.methods.length;i++)ttq.setAndDefer(ttq,ttq.methods[i]);
+  ttq.instance=function(t){for(var e=ttq._i[t]||[],n=0;n<ttq.methods.length;n++)ttq.setAndDefer(e,ttq.methods[n]);return e};
+  ttq.load=function(e,n){
+    var i="https://analytics.tiktok.com/i18n/pixel/events.js";
+    ttq._i=ttq._i||{};
+    ttq._i[e]=[];
+    ttq._i[e]._u=i;
+    ttq._t=ttq._t||{};
+    ttq._t[e]=+new Date;
+    ttq._o=ttq._o||{};
+    ttq._o[e]=n||{};
+    var o=document.createElement("script");
+    o.type="text/javascript";
+    o.async=!0;
+    o.src=i+"?sdkid="+e+"&lib="+t;
+    var a=document.getElementsByTagName("script")[0];
+    a.parentNode.insertBefore(o,a)
+  };
+  ttq.load('D5TQCN3C77U3O6ND7J0G');
+  ttq.page();
+}(window, document, 'ttq');
+</script>
+
 <script>
 function setLang(lang){
-  document.querySelectorAll('[data-lang]').forEach(el=>{el.style.display=el.dataset.lang===lang?'block':'none';});
+  document.querySelectorAll('[data-lang]').forEach(el=>{
+    el.style.display = el.dataset.lang === lang ? 'block' : 'none';
+  });
 }
-function trackSubmit(){gtag('event','order_submit'); fbq('track','Lead'); ttq.track('Lead');}
+
+function trackSubmit(){
+  try {
+    if (typeof ttq !== 'undefined') {
+      ttq.track('SubmitForm');
+      ttq.track('Lead');
+    }
+  } catch(e) {
+    console.log('Tracking error:', e);
+  }
+}
 </script>
 </head>
+
 <body onload="setLang('cz')">
 
 <div class="lang">
-<button onclick="setLang('cz')">CZ</button>
-<button onclick="setLang('ru')">RU</button>
+  <button onclick="setLang('cz')">CZ</button>
+  <button onclick="setLang('ru')">RU</button>
 </div>
 
 <section>
@@ -44,27 +89,29 @@ function trackSubmit(){gtag('event','order_submit'); fbq('track','Lead'); ttq.tr
 <input type="hidden" name="_captcha" value="false">
 
 <select name="Doprava" required data-lang="cz">
-<option value="">Služba doručení</option>
-<option>Zásilkovna</option>
-<option>PPL</option>
-<option>Balíkovna</option>
+  <option value="">Služba doručení</option>
+  <option>Zásilkovna</option>
+  <option>PPL</option>
+  <option>Balíkovna</option>
 </select>
+
 <select name="Doprava" required data-lang="ru">
-<option value="">Служба доставки</option>
-<option>Zásilkovna</option>
-<option>PPL</option>
-<option>Balíковна</option>
+  <option value="">Служба доставки</option>
+  <option>Zásilkovna</option>
+  <option>PPL</option>
+  <option>Balíковна</option>
 </select>
 
 <select name="Typ" required data-lang="cz">
-<option value="">Typ doručení</option>
-<option>Na adresu</option>
-<option>Na výdejní místo</option>
+  <option value="">Typ doručení</option>
+  <option>Na adresu</option>
+  <option>Na výdejní místo</option>
 </select>
+
 <select name="Typ" required data-lang="ru">
-<option value="">Тип доставки</option>
-<option>На адрес</option>
-<option>На пункт выдачи</option>
+  <option value="">Тип доставки</option>
+  <option>На адрес</option>
+  <option>На пункт выдачи</option>
 </select>
 
 <textarea name="Adresa" placeholder="Adresa / Адрес" required></textarea>
@@ -79,5 +126,6 @@ function trackSubmit(){gtag('event','order_submit'); fbq('track','Lead'); ttq.tr
 <p data-lang="ru">Оплата только при получении. Без гарантии и возврата.</p>
 </form>
 </section>
+
 </body>
 </html>
