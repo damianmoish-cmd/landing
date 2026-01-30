@@ -49,7 +49,6 @@ ttq.load('D5TQCN3C77U3O6ND7J0G'); ttq.page();
 <script src="cart.js"></script>
 
 <style>
-/* --- Весь CSS сохранён из оригинального файла --- */
 body{margin:0;font-family:-apple-system,BlinkMacSystemFont,Arial,sans-serif;background:#000;color:#fff;}
 section{max-width:1100px;margin:auto;padding:70px 20px;}
 h1{font-size:36px;margin-bottom:15px;}
@@ -69,19 +68,14 @@ p{opacity:.85;}
 .sticky-bar{position:fixed;bottom:0;left:0;right:0;background:#111;border-top:1px solid #222;display:flex;justify-content:space-between;align-items:center;padding:12px 16px;z-index:999;}
 .sticky-price{font-size:22px;font-weight:bold;}
 .sticky-btn{background:#fff;color:#000;padding:10px 22px;border-radius:25px;text-decoration:none;font-weight:500;cursor:pointer;}
-
-/* Логотип и кнопка перехода */
 logo-nav{position:fixed;top:10px;left:10px;z-index:1000;display:flex;align-items:center;gap:20px;}
 .logo-nav img{height:80px;}
 .switch-btn{padding:12px 20px;background:#fff;color:#000;font-weight:bold;font-size:18px;border-radius:12px;cursor:pointer;}
 .switch-btn:hover{transform:translateY(-3px);box-shadow:0 8px 20px rgba(255,255,255,0.2);}
-    
-}
-  
-/* Анимация появления */
 .fade-up{opacity:0;transform:translateY(25px);transition:all 0.8s ease-out;}
 .fade-up.visible{opacity:1;transform:translateY(0);}
-
+.qty-btn{background:#222;color:#fff;border:none;width:40px;height:40px;font-size:22px;border-radius:12px;cursor:pointer;transition:0.2s;}
+.qty-btn:hover{background:#fff;color:#000;}
 @media(max-width:600px){
 h1{font-size:28px;}
 .hero img{max-width:320px;}
@@ -95,7 +89,6 @@ function setLang(lang){
         el.style.display=el.dataset.lang===lang?'block':'none';
     });
 }
-
 function scrollAnimate(){
     const elements=document.querySelectorAll('.fade-up');
     elements.forEach(el=>{
@@ -105,17 +98,15 @@ function scrollAnimate(){
 }
 window.addEventListener('scroll',scrollAnimate);
 window.addEventListener('load',scrollAnimate);
-
 function goPremium(){window.location.href='sluchatka-max.html';}
 
+let qtyPro=1;
+function changeQtyPro(delta){
+    qtyPro=Math.max(1, qtyPro+delta);
+    document.getElementById('qtyProDisplay').innerText=qtyPro;
+}
 function addProToCart(){
-    addToCart(
-        'Bezdrátová sluchátka Pro',
-        1099,
-        'img/airpods1.jpg',
-        parseInt(document.getElementById('qtyPro').value||1),
-        'Černá'
-    );
+    addToCart('Bezdrátová sluchátka Pro',1099,'img/airpods1.jpg',qtyPro,'Černá');
 }
 </script>
 
@@ -127,7 +118,6 @@ function addProToCart(){
 <span style="font-size:28px;font-weight:bold;">iMart-Store</span>
 <div class="switch-btn" onclick="goPremium()">Prémiová sluchátka / Sluchátka Max</div>
 </div>
-
 
 <!-- Выбор языка -->
 <div class="lang fade-up">
@@ -151,44 +141,11 @@ function addProToCart(){
 </div>
 
 <div class="qty-selector fade-up" style="margin-top:20px;display:flex;align-items:center;gap:12px;">
-    <span style="font-weight:600;">Množství:</span>
-    <button class="qty-btn" onclick="changeQtyPro(-1)">−</button>
-    <span id="qtyProDisplay">1</span>
-    <button class="qty-btn" onclick="changeQtyPro(1)">+</button>
+<span style="font-weight:600;">Množství:</span>
+<button class="qty-btn" onclick="changeQtyPro(-1)">−</button>
+<span id="qtyProDisplay">1</span>
+<button class="qty-btn" onclick="changeQtyPro(1)">+</button>
 </div>
-
-<style>
-.qty-btn{
-    background:#222;
-    color:#fff;
-    border:none;
-    width:40px;
-    height:40px;
-    font-size:22px;
-    border-radius:12px;
-    cursor:pointer;
-    transition:0.2s;
-}
-.qty-btn:hover{background:#fff;color:#000;}
-</style>
-
-<script>
-let qtyPro=1;
-function changeQtyPro(delta){
-    qtyPro=Math.max(1, qtyPro+delta);
-    document.getElementById('qtyProDisplay').innerText=qtyPro;
-}
-function addProToCart(){
-    addToCart(
-        'Bezdrátová sluchátka Pro',
-        1099,
-        'img/airpods1.jpg',
-        qtyPro,
-        'Černá'
-    );
-}
-</script>
-
 
 <div style="margin-top:20px;">
 <button class="btn btn-primary" onclick="addProToCart()">Přidat do košíku</button>
@@ -268,30 +225,30 @@ Neznačkový produkt. Není spojen s žádnou ochrannou známkou.
 </footer>
 
 <!-- Фон для затемнения -->
-<div id="cart-overlay"></div>
+<div id="cart-overlay" style="
+    position:fixed; top:0; left:0; right:0; bottom:0;
+    background:rgba(0,0,0,0.5);
+    opacity:0; visibility:hidden;
+    transition:opacity 0.3s ease; z-index:9998;
+"></div>
 
 <!-- Контейнер корзины -->
-<div id="cart"></div>
+<div id="cart" style="
+    position:fixed; top:0; right:-400px; width:360px; height:100%;
+    background:#f1f1f1; transition:right 0.3s ease; padding:16px;
+    overflow-y:auto; z-index:9999;
+"></div>
 
 <!-- Кнопка корзины -->
 <div id="fixed-cart-btn" style="
-    position:fixed;
-    bottom:20px;
-    right:20px;
-    width:60px;
-    height:60px;
-    background:#000;
-    border-radius:50%;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    cursor:pointer;
-    z-index:10000;
+    position:fixed; bottom:20px; right:20px; width:60px; height:60px;
+    background:#000; border-radius:50%; display:flex; align-items:center;
+    justify-content:center; cursor:pointer; z-index:10000;
     box-shadow:0 5px 20px rgba(0,0,0,0.4);
 ">
     <span style="font-size:28px;color:#fff;">🛒</span>
 </div>
-<script src="cart.js"></script>
+
 <script>
 document.addEventListener('DOMContentLoaded', function(){
     const cartBtn = document.getElementById('fixed-cart-btn');
@@ -300,8 +257,6 @@ document.addEventListener('DOMContentLoaded', function(){
     }
 });
 </script>
-
-
 
 </body>
 </html>
