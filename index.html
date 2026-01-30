@@ -12,16 +12,15 @@
 <meta property="og:image" content="img/airpods1.jpg">
 <meta property="og:type" content="website">
 
-<!-- Google Analytics -->
+<!-- GA -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-J103ET7DD3"></script>
 <script>
 window.dataLayer=window.dataLayer||[];
 function gtag(){dataLayer.push(arguments);}
-gtag('js',new Date());
-gtag('config','G-J103ET7DD3');
+gtag('js',new Date()); gtag('config','G-J103ET7DD3');
 </script>
 
-<!-- Facebook Pixel -->
+<!-- FB Pixel -->
 <script>
 !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){
 n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};
@@ -35,9 +34,11 @@ fbq('init','YOUR_PIXEL_ID'); fbq('track','PageView');
 <!-- TikTok Pixel -->
 <script>
 !function(w,d,t){w.TiktokAnalyticsObject=t;var ttq=w[t]=w[t]||[];
-ttq.methods=["page","track"];ttq.setAndDefer=function(t,e){t[e]=function(){t.push([e].concat([].slice.call(arguments,0)))}};
+ttq.methods=["page","track"];ttq.setAndDefer=function(t,e){
+t[e]=function(){t.push([e].concat([].slice.call(arguments,0)))}};
 for(var i=0;i<ttq.methods.length;i++)ttq.setAndDefer(ttq,ttq.methods[i]);
-ttq.load=function(e){var s=d.createElement("script");s.async=!0;s.src="https://analytics.tiktok.com/i18n/pixel/events.js?sdkid="+e;
+ttq.load=function(e){var s=d.createElement("script");
+s.async=!0;s.src="https://analytics.tiktok.com/i18n/pixel/events.js?sdkid="+e;
 var x=d.getElementsByTagName("script")[0];x.parentNode.insertBefore(s,x)};
 ttq.load('D5TQCN3C77U3O6ND7J0G'); ttq.page();
 }(window,document,'ttq');
@@ -51,7 +52,7 @@ body{margin:0;font-family:-apple-system,BlinkMacSystemFont,Arial,sans-serif;back
 section{max-width:1100px;margin:auto;padding:70px 20px;}
 h1{font-size:36px;margin-bottom:15px;}
 h2{font-size:26px;margin-bottom:25px;}
-p{opacity:.85;line-height:1.6;}
+p{opacity:.85;}
 .btn{display:inline-block;padding:14px 36px;border-radius:30px;text-decoration:none;font-weight:500;margin:10px;cursor:pointer;}
 .btn-primary{background:#fff;color:#000;}
 .btn-outline{border:2px solid #fff;color:#fff;}
@@ -66,27 +67,17 @@ p{opacity:.85;line-height:1.6;}
 .sticky-bar{position:fixed;bottom:0;left:0;right:0;background:#111;border-top:1px solid #222;display:flex;justify-content:space-between;align-items:center;padding:12px 16px;z-index:999;}
 .sticky-price{font-size:22px;font-weight:bold;}
 .sticky-btn{background:#fff;color:#000;padding:10px 22px;border-radius:25px;text-decoration:none;font-weight:500;}
-
-/* Логотип и кнопка перехода на Sluchátka Max */
 .logo-nav{position:fixed;top:10px;left:10px;z-index:1000;display:flex;align-items:center;gap:20px;}
 .logo-nav img{height:80px;}
-.switch-btn{padding:12px 20px;background:#fff;color:#000;font-weight:bold;font-size:18px;border-radius:12px;cursor:pointer;}
+.switch-btn{padding:12px 20px;background:#fff;color:#000;font-weight:bold;font-size:18px;border-radius:12px;cursor:pointer;display:flex;align-items:center;gap:8px;}
 .switch-btn:hover{transform:translateY(-3px);box-shadow:0 8px 20px rgba(255,255,255,0.2);}
-
-/* Анимация */
+.home-icon{width:24px;height:24px;}
 .fade-up{opacity:0;transform:translateY(25px);transition:all 0.8s ease-out;}
 .fade-up.visible{opacity:1;transform:translateY(0);}
-
-/* Количество товара */
 .qty{display:flex;justify-content:center;align-items:center;gap:12px;margin-top:18px;}
 .qty button{padding:8px 14px;border:none;border-radius:8px;font-size:16px;cursor:pointer;}
 .qty span{font-size:18px;font-weight:bold;color:#fff;}
-
-@media(max-width:600px){
-h1{font-size:28px;}
-.hero img{max-width:320px;}
-.price{font-size:30px;}
-}
+@media(max-width:600px){h1{font-size:28px;}.hero img{max-width:320px;}.price{font-size:30px;}}
 </style>
 
 <script>
@@ -94,25 +85,20 @@ let selectedColorPro='Černá';
 let qtyPro = 1;
 
 function setLang(lang){
-  document.querySelectorAll('[data-lang]').forEach(el=>{
-    el.style.display=el.dataset.lang===lang?'block':'none';
-  });
+document.querySelectorAll('[data-lang]').forEach(el=>{
+  el.style.display = (el.dataset.lang === lang)? 'block' : 'none';
+});
 }
 
 function scrollAnimate(){
-  const elements=document.querySelectorAll('.fade-up');
-  elements.forEach(el=>{
-    const rect=el.getBoundingClientRect();
-    if(rect.top<window.innerHeight-100) el.classList.add('visible');
-  });
+const elements=document.querySelectorAll('.fade-up');
+elements.forEach(el=>{
+  const rect=el.getBoundingClientRect();
+  if(rect.top<window.innerHeight-100) el.classList.add('visible');
+});
 }
 window.addEventListener('scroll',scrollAnimate);
 window.addEventListener('load',scrollAnimate);
-
-function changeQtyPro(v){
-  qtyPro = Math.max(1, qtyPro+v);
-  document.getElementById('qty-pro').innerText = qtyPro;
-}
 
 function selectColorPro(color,el){
   selectedColorPro=color;
@@ -120,40 +106,55 @@ function selectColorPro(color,el){
   el.classList.add('active');
 }
 
-function goMax(){window.location.href='sluchatka-max.html';}
+function changeQtyPro(v){
+  qtyPro = Math.max(1, qtyPro + v);
+  document.getElementById('qty-pro').innerText = qtyPro;
+}
 
-// Добавление Pro в корзину
-function addPro(){ 
+function addPro(){
   addToCart('Sluchátka Pro',1099,'img/airpods1.jpg',qtyPro);
 }
-</script>
 
+function goMax(){window.location.href='sluchatka-max.html';}
+
+// Анимация перехода с мини-домиком
+function switchProduct(){
+  const heroImg = document.querySelector('.hero img');
+  heroImg.classList.add('fade-switch');
+  setTimeout(()=>{ goMax(); }, 300);
+}
+</script>
 </head>
+
 <body onload="setLang('cz')">
 
-<!-- Логотип + переход -->
 <div class="logo-nav fade-up">
 <img src="img/logo.png" alt="iMart-Store">
-<div class="switch-btn" onclick="goMax()">Sluchátka Max / Макс</div>
+<div class="switch-btn" onclick="switchProduct()">
+<img src="img/home-icon.png" class="home-icon" alt="Домик"> Sluchátka Max
+</div>
 </div>
 
-<!-- Языки -->
 <div class="lang fade-up">
 <button onclick="setLang('cz')">CZ</button>
 <button onclick="setLang('ru')">RU</button>
 </div>
 
-<!-- HERO -->
 <section class="hero fade-up">
 <h1 data-lang="cz">Bezdrátová sluchátka Pro 🎧</h1>
 <h1 data-lang="ru">Беспроводные наушники Pro 🎧</h1>
-
 <p data-lang="cz"><strong>Kompatibilní model s ANC</strong></p>
 <p data-lang="ru"><strong>Совместимая модель с ANC</strong></p>
 
-<img src="img/airpods1.jpg" alt="Sluchátka Pro" class="fade-up">
+<img src="img/airpods1.jpg" alt="Sluchátka" class="fade-up">
 
-<!-- Цвет и количество -->
+<div class="gallery fade-up">
+<img src="img/airpods1.jpg" onclick="document.querySelector('.hero img').src='img/airpods1.jpg'">
+<img src="img/airpods2.jpg" onclick="document.querySelector('.hero img').src='img/airpods2.jpg'">
+<img src="img/airpods3.jpg" onclick="document.querySelector('.hero img').src='img/airpods3.jpg'">
+<img src="img/airpods4.jpg" onclick="document.querySelector('.hero img').src='img/airpods4.jpg'">
+</div>
+
 <div class="color-select fade-up">
 <button class="color-btn active" onclick="selectColorPro('Černá',this)">Černá</button>
 <button class="color-btn" onclick="selectColorPro('Bílá',this)">Bílá</button>
@@ -172,33 +173,7 @@ function addPro(){
 <a href="https://wa.me/420702846018" class="btn btn-outline">WhatsApp</a>
 <a href="https://t.me/Appledestroyer1" class="btn btn-outline">Telegram</a>
 </div>
-<p data-lang="cz">Platba při převzetí • Doručení 2–3 dny</p>
-<p data-lang="ru">Оплата при получении • Доставка 2–3 дня</p>
 
-</section>
-
-<!-- Описание, доставка и галерея полностью... -->
-<!-- Здесь я могу прислать оставшийся код index.html, включая блоки Доставка, Описание продукта, Галерея, Sticky Bar, Footer, полностью без сокращений --><!-- ДОСТАВКА -->
-<section class="fade-up">
-<div data-lang="cz">
-<h2>Doručení a platba 🚚</h2>
-<div class="grid">
-<div class="card">Doručení po ČR 2–3 dny</div>
-<div class="card">Platba dobírkou</div>
-<div class="card">Kontrola při převzetí</div>
-</div>
-</div>
-<div data-lang="ru">
-<h2>Доставка и оплата 🚚</h2>
-<div class="grid">
-<div class="card">Доставка 2–3 дня</div>
-<div class="card">Оплата при получении</div>
-<div class="card">Проверка товара</div>
-</div>
-</div>
-</section>
-
-<!-- ОПИСАНИЕ ПРОДУКТА -->
 <section class="fade-up">
 <div data-lang="cz">
 <h2>Popis produktu ✨</h2>
@@ -222,18 +197,6 @@ function addPro(){
 </div>
 </section>
 
-<!-- ГАЛЕРЕЯ -->
-<section class="fade-up">
-<h2 data-lang="cz">Fotografie 📸</h2>
-<h2 data-lang="ru">Фотографии 📸</h2>
-<div class="gallery">
-<img src="img/airpods2.jpg" onclick="document.querySelector('.hero img').src='img/airpods2.jpg'">
-<img src="img/airpods3.jpg" onclick="document.querySelector('.hero img').src='img/airpods3.jpg'">
-<img src="img/airpods4.jpg" onclick="document.querySelector('.hero img').src='img/airpods4.jpg'">
-</div>
-</section>
-
-<!-- STICKY BAR -->
 <div class="sticky-bar fade-up">
 <div class="sticky-price">1 099 Kč</div>
 <a class="sticky-btn" onclick="addPro()">Přidat do košíku</a>
@@ -242,8 +205,7 @@ function addPro(){
 <!-- Мини-корзина -->
 <div id="cart" style="position:fixed;bottom:70px;right:15px;z-index:999;"></div>
 
-<!-- FOOTER -->
-<footer class="fade-up" style="padding-top:50px;">
+<footer class="fade-up">
 Email: coincama@gmail.com | Tel: +420 702 846 018<br>
 Neznačkový produkt. Není spojen s žádnou ochrannou známkou.
 </footer>
