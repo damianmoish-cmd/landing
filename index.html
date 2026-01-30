@@ -6,10 +6,8 @@
 <title>Bezdrátová sluchátka Pro | ANC • Rychlé doručení</title>
 <meta name="description" content="Bezdrátová sluchátka s ANC. Platba při převzetí. Doručení 2–3 dny.">
 
-<link rel="stylesheet" href="style.css">
-
 <style>
-/* === Основные стили === */
+/* Основные стили */
 body {
   margin:0;
   font-family:-apple-system,BlinkMacSystemFont,Arial,sans-serif;
@@ -36,8 +34,6 @@ p{opacity:.85;}
 .fade-up.visible{opacity:1;transform:translateY(0);}
 .qty-btn{background:#222;color:#fff;border:none;width:36px;height:36px;font-size:20px;border-radius:12px;cursor:pointer;transition:0.2s;}
 .qty-btn:hover{background:#fff;color:#000;}
-
-/* Логотип и кнопка Max сверху */
 .logo-nav{
   position:fixed;
   top:10px;
@@ -61,8 +57,6 @@ p{opacity:.85;}
   white-space:nowrap;
 }
 .switch-btn:hover{transform:translateY(-2px);box-shadow:0 6px 16px rgba(255,255,255,0.2);}
-
-/* Sticky bar снизу */
 .sticky-bar{
   position:fixed;
   bottom:0;
@@ -78,8 +72,6 @@ p{opacity:.85;}
 }
 .sticky-price{font-size:22px;font-weight:bold;}
 .sticky-btn{background:#fff;color:#000;padding:12px 24px;border-radius:25px;text-decoration:none;font-weight:500;cursor:pointer;flex-shrink:0;}
-
-/* Кнопка корзины */
 #fixed-cart-btn{
     position:fixed;
     bottom:20px;
@@ -96,8 +88,6 @@ p{opacity:.85;}
     box-shadow:0 5px 20px rgba(255,255,255,0.4);
     transition:transform 0.2s;
 }
-
-/* Корзина */
 #cart{
     position:fixed;
     top:0;
@@ -108,37 +98,54 @@ p{opacity:.85;}
     background:#111;
     color:#fff;
     transition:right 0.3s ease;
-    padding:16px;
+    padding:20px;
     overflow-y:auto;
     z-index:9999;
     border-left:2px solid #fff;
     border-radius:10px 0 0 10px;
 }
-#cart h2{
-    font-size:22px;
+#cart h2{font-size:22px;margin-bottom:15px;}
+.cart-item{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
     margin-bottom:15px;
-}
-#cart-items div{
-    border-bottom:1px solid #444;
     padding-bottom:10px;
-    margin-bottom:10px;
+    border-bottom:1px solid #444;
 }
-#cart-items img{
-    border-radius:8px;
+.cart-item img{width:60px;height:60px;border-radius:8px;margin-right:10px;}
+.cart-item-info{flex:1;}
+.cart-item-info strong{display:block;margin-bottom:4px;}
+.cart-item-qty{
+    display:flex;
+    align-items:center;
+    gap:8px;
+    margin-top:5px;
 }
-
-/* Overlay */
-#cart-overlay{
-    position:fixed;
-    top:0;
-    left:0;
-    right:0;
-    bottom:0;
-    background:rgba(0,0,0,0.5);
-    opacity:0;
-    visibility:hidden;
-    transition:opacity 0.3s ease;
-    z-index:9998;
+.cart-item-qty button{
+    width:30px;
+    height:30px;
+    font-size:18px;
+    border:none;
+    border-radius:6px;
+    background:#fff;
+    color:#000;
+    cursor:pointer;
+}
+.cart-item-qty input{
+    width:50px;
+    text-align:center;
+    border-radius:6px;
+    border:1px solid #fff;
+    background:#000;
+    color:#fff;
+    font-weight:bold;
+    font-size:16px;
+}
+.cart-item-price{
+    font-weight:bold;
+    min-width:70px;
+    text-align:right;
 }
 
 /* Мобильная адаптация */
@@ -167,99 +174,102 @@ p{opacity:.85;}
 </style>
 
 <script>
-// === Языки ===
+let qtyPro = 1;
+
 function setLang(lang){
     document.querySelectorAll('[data-lang]').forEach(el=>{
         el.style.display = el.dataset.lang === lang ? 'block' : 'none';
     });
 }
 
-// === Анимация при скролле ===
 function scrollAnimate(){
-    const elements = document.querySelectorAll('.fade-up');
-    elements.forEach(el=>{
-        const rect = el.getBoundingClientRect();
-        if(rect.top < window.innerHeight - 100){
+    document.querySelectorAll('.fade-up').forEach(el=>{
+        if(el.getBoundingClientRect().top < window.innerHeight - 100){
             el.classList.add('visible');
         }
     });
 }
+
 window.addEventListener('scroll', scrollAnimate);
 window.addEventListener('load', scrollAnimate);
 
-// === Количество на странице ===
-let qtyPro = 1;
 function changeQtyPro(delta){
     qtyPro = Math.max(1, qtyPro + delta);
     document.getElementById('qtyProDisplay').innerText = qtyPro;
 }
 
-// === Кнопка Max ===
 function goToMax(){
     window.location.href='sluchatka-max.html';
 }
 
-// === Корзина ===
 function openCart(){
-    document.getElementById('cart').style.right = '0';
-    document.getElementById('cart-overlay').style.opacity = '1';
-    document.getElementById('cart-overlay').style.visibility = 'visible';
+    document.getElementById('cart').style.right='0';
+    document.getElementById('cart-overlay').style.opacity='1';
+    document.getElementById('cart-overlay').style.visibility='visible';
 }
 function closeCart(){
-    document.getElementById('cart').style.right = '-400px';
-    document.getElementById('cart-overlay').style.opacity = '0';
-    document.getElementById('cart-overlay').style.visibility = 'hidden';
+    document.getElementById('cart').style.right='-400px';
+    document.getElementById('cart-overlay').style.opacity='0';
+    document.getElementById('cart-overlay').style.visibility='hidden';
 }
-document.addEventListener('DOMContentLoaded', function(){
-    const cartBtn = document.getElementById('fixed-cart-btn');
-    cartBtn.addEventListener('click', openCart);
-    document.getElementById('cart-overlay').addEventListener('click', closeCart);
-});
 
-// === Анимация кнопки корзины ===
 function animateCartBtn(){
-    const cartBtn = document.getElementById('fixed-cart-btn');
-    cartBtn.style.transform = 'translateY(-10px)';
-    setTimeout(()=>{ cartBtn.style.transform = 'translateY(0)'; }, 200);
+    const cartBtn=document.getElementById('fixed-cart-btn');
+    cartBtn.style.transform='translateY(-10px)';
+    setTimeout(()=>{cartBtn.style.transform='translateY(0)'},200);
 }
 
-// === Добавление товара в корзину ===
+// Добавление товара в корзину с выбором количества
 function addToCart(name='Bezdrátová sluchátka Pro', price=1099, img='img/airpods1.jpg', qty=qtyPro, color='Černá'){
-    const cartItems = document.getElementById('cart-items');
-    cartItems.innerHTML = ''; // очищаем перед добавлением
-    const item = document.createElement('div');
-    item.style.display='flex';
-    item.style.alignItems='center';
-    item.style.marginBottom='12px';
+    const cartItems=document.getElementById('cart-items');
+    cartItems.innerHTML='';
+    const item=document.createElement('div');
+    item.className='cart-item';
     item.innerHTML=`
-        <img src="${img}" style="width:60px;height:60px;margin-right:12px;">
-        <div style="flex:1;">
-            <strong>${name}</strong><br>
-            ${color} | <input type="number" id="cartQty" value="${qty}" min="1" style="width:50px;padding:4px;margin-top:4px;border-radius:6px;border:1px solid #fff;background:#000;color:#fff;"> ks<br>
-            <span id="cartPrice" style="font-weight:bold;">${price * qty} Kč</span>
+        <img src="${img}">
+        <div class="cart-item-info">
+            <strong>${name}</strong>
+            ${color}
+            <div class="cart-item-qty">
+                <button class="qty-minus">−</button>
+                <input type="number" value="${qty}" min="1">
+                <button class="qty-plus">+</button>
+            </div>
         </div>
+        <div class="cart-item-price">${price*qty} Kč</div>
     `;
     cartItems.appendChild(item);
 
-    // слушатель изменения количества в корзине
-    const cartQtyInput = document.getElementById('cartQty');
-    cartQtyInput.addEventListener('change', function(){
-        const val = Math.max(1, parseInt(this.value));
-        this.value = val;
-        document.getElementById('cartPrice').innerText = val * price + ' Kč';
-        qtyPro = val;
-        document.getElementById('qtyProDisplay').innerText = val;
-    });
-
     animateCartBtn();
     openCart();
-}
-</script>
 
+    const qtyInput = item.querySelector('input');
+    const minusBtn = item.querySelector('.qty-minus');
+    const plusBtn = item.querySelector('.qty-plus');
+    const priceEl = item.querySelector('.cart-item-price');
+
+    function updatePrice(){
+        let val = Math.max(1, parseInt(qtyInput.value));
+        qtyInput.value = val;
+        priceEl.innerText = (val*price)+' Kč';
+        qtyPro = val;
+        document.getElementById('qtyProDisplay').innerText = val;
+    }
+
+    minusBtn.addEventListener('click', ()=>{ qtyInput.value = parseInt(qtyInput.value)-1; updatePrice(); });
+    plusBtn.addEventListener('click', ()=>{ qtyInput.value = parseInt(qtyInput.value)+1; updatePrice(); });
+    qtyInput.addEventListener('change', updatePrice);
+}
+
+document.addEventListener('DOMContentLoaded', ()=>{
+    document.getElementById('fixed-cart-btn').addEventListener('click', openCart);
+    document.getElementById('cart-overlay').addEventListener('click', closeCart);
+});
+</script>
 </head>
 <body onload="setLang('cz')">
 
-<!-- Логотип и кнопка Max -->
+<!-- Логотип -->
 <div class="logo-nav fade-up">
     <span style="font-size:28px;font-weight:bold;">iMart-Store</span>
     <div class="switch-btn" onclick="goToMax()">Sluchatka Max 🎧</div>
@@ -280,7 +290,7 @@ function addToCart(name='Bezdrátová sluchátka Pro', price=1099, img='img/airp
 <p data-lang="cz" style="font-size:13px;opacity:.7;">Nejedná se o originální výrobek známých značek. Kompatibilní s iOS a Android.</p>
 <p data-lang="ru" style="font-size:13px;opacity:.7;">Не является оригинальным продуктом известных брендов. Совместим с iOS и Android.</p>
 
-<img src="img/airpods1.jpg" alt="Sluchátka" class="fade-up" id="mainProImg" style="max-width:280px; border-radius:14px;">
+<img src="img/airpods1.jpg" alt="Sluchátka" class="fade-up" id="mainProImg" style="max-width:200px;border-radius:14px;">
 
 <div class="gallery fade-up">
 <img src="img/airpods2.jpg" onclick="document.getElementById('mainProImg').src='img/airpods2.jpg'">
@@ -298,7 +308,7 @@ function addToCart(name='Bezdrátová sluchátka Pro', price=1099, img='img/airp
 
 <!-- Кнопки -->
 <div style="margin-top:20px;">
-<button class="btn btn-primary" id="addToCartBtn">Přidat do košíku</button>
+<button class="btn btn-primary" onclick="addToCart()">Přidat do košíku</button>
 <a href="https://wa.me/420702846018" class="btn btn-outline">WhatsApp</a>
 <a href="https://t.me/Appledestroyer1" class="btn btn-outline">Telegram</a>
 <a href="sluchatka-max.html" class="switch-btn">Sluchatka Max 🎧</a>
@@ -308,29 +318,32 @@ function addToCart(name='Bezdrátová sluchátka Pro', price=1099, img='img/airp
 <p data-lang="cz">Platba při převzetí • Doručení 2–3 dny</p>
 <p data-lang="ru">Оплата при получении • Доставка 2–3 дня</p>
 
+<!-- Sticky bar -->
+<div class="sticky-bar fade-up">
+<div class="sticky-price">1 099 Kč</div>
+<button class="sticky-btn" onclick="addToCart()">objednat nyní</button>
+</div>
+
 <!-- Доставка -->
-<section class="fade-up">
-<div data-lang="cz">
+<section class="fade-up" data-lang="cz">
 <h2>Doručení a platba 🚚</h2>
 <div class="grid">
 <div class="card">Doručení po ČR 2–3 dny</div>
 <div class="card">Platba dobírkou</div>
 <div class="card">Kontrola při převzetí</div>
 </div>
-</div>
-<div data-lang="ru">
+</section>
+<section class="fade-up" data-lang="ru">
 <h2>Доставка и оплата 🚚</h2>
 <div class="grid">
 <div class="card">Доставка 2–3 дня</div>
 <div class="card">Оплата при получении</div>
 <div class="card">Проверка товара</div>
 </div>
-</div>
 </section>
 
 <!-- Описание продукта -->
-<section class="fade-up">
-<div data-lang="cz">
+<section class="fade-up" data-lang="cz">
 <h2>Popis produktu ✨</h2>
 <div class="card">
 <p>✔ Aktivní dotykové ovládání</p>
@@ -339,8 +352,8 @@ function addToCart(name='Bezdrátová sluchátka Pro', price=1099, img='img/airp
 <p>✔ iOS & Android</p>
 <p style="font-size:13px;opacity:.6">Nejedná se o originální výrobek.</p>
 </div>
-</div>
-<div data-lang="ru">
+</section>
+<section class="fade-up" data-lang="ru">
 <h2>Описание товара ✨</h2>
 <div class="card">
 <p>✔ Сенсорное управление</p>
@@ -348,23 +361,16 @@ function addToCart(name='Bezdrátová sluchátka Pro', price=1099, img='img/airp
 <p>✔ Беспроводная зарядка</p>
 <p>✔ iOS и Android</p>
 </div>
-</div>
-</section>
-
-<!-- Отзывы -->
-<section class="fade-up">
-<p data-lang="cz">⭐ Hodnocení 4.8 / 5 — více než 1 200 spokojených zákazníků</p>
-<p data-lang="ru">⭐ Рейтинг 4.8 / 5 — более 1 200 довольных клиентов</p>
 </section>
 
 <!-- FAQ -->
 <section class="fade-up">
 <h2 data-lang="cz">Často kladené dotazy</h2>
-<h2 data-lang="ru">Часто задаваемые вопросы</h2>
 <div data-lang="cz">
 <p><b>Jsou sluchátka originální?</b><br>Ne, jedná se o kompatibilní model.</p>
 <p><b>Jak dlouho trvá doručení?</b><br>2–3 pracovní dny.</p>
 </div>
+<h2 data-lang="ru">Часто задаваемые вопросы</h2>
 <div data-lang="ru">
 <p><b>Это оригинал?</b><br>Нет, это совместимая модель.</p>
 <p><b>Сколько доставка?</b><br>2–3 рабочих дня.</p>
@@ -382,34 +388,28 @@ function addToCart(name='Bezdrátová sluchátka Pro', price=1099, img='img/airp
 </div>
 </section>
 
-<!-- Sticky bar -->
-<div class="sticky-bar fade-up">
-<div class="sticky-price">1 099 Kč</div>
-<button class="sticky-btn" onclick="addToCart()">objednat nyní</button>
-</div>
+<!-- Отзывы -->
+<section class="fade-up">
+<p data-lang="cz">⭐ Hodnocení 4.8 / 5 — více než 1 200 spokojených zákazníků</p>
+<p data-lang="ru">⭐ Рейтинг 4.8 / 5 — более 1 200 довольных клиентов</p>
+</section>
 
+<!-- Footer -->
 <footer class="fade-up" style="padding:20px 15px; text-align:center; font-size:13px;">
 Email: coincama@gmail.com | Tel: +420 702 846 018<br>
 Neznačkový produkt. Není spojen s žádnou ochrannou známkou.
 </footer>
 
-<!-- Корзина и overlay -->
+<!-- Корзина -->
 <div id="cart-overlay"></div>
 <div id="cart">
-    <h2>Košík 🛒</h2>
-    <div id="cart-items"></div>
-    <button onclick="closeCart()" style="margin-top:20px;padding:10px 20px;border:none;background:#fff;color:#000;border-radius:8px;cursor:pointer;">Zavřít</button>
+<h2>Košík 🛒</h2>
+<div id="cart-items"></div>
+<button onclick="closeCart()" style="margin-top:20px;padding:10px 20px;border:none;background:#fff;color:#000;border-radius:8px;cursor:pointer;">Zavřít</button>
 </div>
 
-<!-- Плавающая кнопка корзины -->
+<!-- Кнопка корзины -->
 <div id="fixed-cart-btn"><span style="font-size:28px;color:#000;">🛒</span></div>
-
-<script>
-// Привязка кнопки добавления в корзину
-document.getElementById('addToCartBtn').addEventListener('click', function(){
-    addToCart();
-});
-</script>
 
 </body>
 </html>
