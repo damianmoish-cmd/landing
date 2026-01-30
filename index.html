@@ -17,7 +17,8 @@
 <script>
 window.dataLayer=window.dataLayer||[];
 function gtag(){dataLayer.push(arguments);}
-gtag('js',new Date()); gtag('config','G-J103ET7DD3');
+gtag('js',new Date()); 
+gtag('config','G-J103ET7DD3');
 </script>
 
 <!-- FB Pixel -->
@@ -45,7 +46,6 @@ ttq.load('D5TQCN3C77U3O6ND7J0G'); ttq.page();
 </script>
 
 <link rel="stylesheet" href="style.css">
-
 <script src="cart.js"></script>
 
 <style>
@@ -68,8 +68,7 @@ p{opacity:.85;}
 .sticky-bar{position:fixed;bottom:0;left:0;right:0;background:#111;border-top:1px solid #222;display:flex;justify-content:space-between;align-items:center;padding:12px 16px;z-index:999;}
 .sticky-price{font-size:22px;font-weight:bold;}
 .sticky-btn{background:#fff;color:#000;padding:10px 22px;border-radius:25px;text-decoration:none;font-weight:500;cursor:pointer;}
-logo-nav{position:fixed;top:10px;left:10px;z-index:1000;display:flex;align-items:center;gap:20px;}
-.logo-nav img{height:80px;}
+.logo-nav{position:fixed;top:10px;left:10px;z-index:1000;display:flex;align-items:center;gap:20px;}
 .switch-btn{padding:12px 20px;background:#fff;color:#000;font-weight:bold;font-size:18px;border-radius:12px;cursor:pointer;}
 .switch-btn:hover{transform:translateY(-3px);box-shadow:0 8px 20px rgba(255,255,255,0.2);}
 .fade-up{opacity:0;transform:translateY(25px);transition:all 0.8s ease-out;}
@@ -107,12 +106,7 @@ function goPremium(){
     window.location.href='sluchatka-max.html';
 }
 
-function goBack(){
-    window.history.back();
-}
-
 let qtyPro = 1;
-
 function changeQtyPro(delta){
     qtyPro = Math.max(1, qtyPro + delta);
     document.getElementById('qtyProDisplay').innerText = qtyPro;
@@ -127,6 +121,7 @@ function addProToCart(){
         'Černá'
     );
 }
+
 function goToMax(){
     window.location.href = 'sluchatka-max.html';
 }
@@ -136,23 +131,10 @@ function goToMax(){
 <body onload="setLang('cz')">
 
 <!-- Логотип и кнопка перехода -->
-<div class=.logo-nav{
-    position:fixed;
-    top:10px;
-    left:10px;
-    z-index:1000;
-    display:flex;
-    align-items:center;
-    gap:20px;
-}
-<span style="font-size:28px;font-weight:bold;">iMart-Store</span>
-<div class="switch-btn" onclick="goToMax()">
-Sluchatka Max 🎧
+<div class="logo-nav fade-up">
+    <span style="font-size:28px;font-weight:bold;">iMart-Store</span>
+    <div class="switch-btn" onclick="goToMax()">Sluchatka Max 🎧</div>
 </div>
-<div class="switch-btn" onclick="goToMax()">
-Sluchatka Max 🎧
-</div>
-
 
 <!-- Выбор языка -->
 <div class="lang fade-up">
@@ -166,6 +148,7 @@ Sluchatka Max 🎧
 
 <p data-lang="cz"><strong>Model s aktivním potlačením hluku (ANC)</strong></p>
 <p data-lang="ru"><strong>Модель с активным шумоподавлением (ANC)</strong></p>
+
 <p data-lang="cz" style="font-size:13px;opacity:.7;">
 Nejedná se o originální výrobek známých značek. Kompatibilní s iOS a Android.
 </p>
@@ -193,15 +176,12 @@ Nejedná se o originální výrobek známých značek. Kompatibilní s iOS a And
 <button class="btn btn-primary" onclick="addProToCart()">Přidat do košíku</button>
 <a href="https://wa.me/420702846018" class="btn btn-outline">WhatsApp</a>
 <a href="https://t.me/Appledestroyer1" class="btn btn-outline">Telegram</a>
-<a href="sluchatka-max.html" class="switch-btn">
-Sluchatka Max 🎧
-</a>
+<a href="sluchatka-max.html" class="switch-btn">Sluchatka Max 🎧</a>
 </div>
 
 <div class="price fade-up">1 099 Kč</div>
 <p data-lang="cz">Platba při převzetí • Doručení 2–3 dny</p>
 <p data-lang="ru">Оплата при получении • Доставка 2–3 дня</p>
-</section>
 
 <!-- Доставка -->
 <section class="fade-up">
@@ -243,28 +223,27 @@ Sluchatka Max 🎧
 <p>✔ Беспроводная зарядка</p>
 <p>✔ iOS и Android</p>
 </div>
+</div>
 </section>
-    
-<section><p data-lang="cz">⭐ Hodnocení 4.8 / 5 — více než 1 200 spokojených zákazníků</p>
+
+<section>
+<p data-lang="cz">⭐ Hodnocení 4.8 / 5 — více než 1 200 spokojených zákazníků</p>
 <p data-lang="ru">⭐ Рейтинг 4.8 / 5 — более 1 200 довольных клиентов</p>
+</section>
 
-</section>   
-    <section><h2 data-lang="cz">Často kladené dotazy</h2>
+<section>
+<h2 data-lang="cz">Často kladené dotazy</h2>
 <h2 data-lang="ru">Часто задаваемые вопросы</h2>
-
 <div data-lang="cz">
 <p><b>Jsou sluchátka originální?</b><br>Ne, jedná se o kompatibilní model.</p>
 <p><b>Jak dlouho trvá doručení?</b><br>2–3 pracovní dny.</p>
 </div>
-
 <div data-lang="ru">
 <p><b>Это оригинал?</b><br>Нет, это совместимая модель.</p>
 <p><b>Сколько доставка?</b><br>2–3 рабочих дня.</p>
 </div>
 </section>
 
-
-<!-- Галерея -->
 <section class="fade-up">
 <h2 data-lang="cz">Fotografie 📸</h2>
 <h2 data-lang="ru">Фотографии 📸</h2>
@@ -275,7 +254,6 @@ Sluchatka Max 🎧
 </div>
 </section>
 
-<!-- Sticky Bar -->
 <div class="sticky-bar fade-up">
 <div class="sticky-price">1 099 Kč</div>
 <button class="sticky-btn" onclick="addProToCart()">objednat nyní</button>
@@ -286,7 +264,6 @@ Email: coincama@gmail.com | Tel: +420 702 846 018<br>
 Neznačkový produkt. Není spojen s žádnou ochrannou známkou.
 </footer>
 
-<!-- Фон для затемнения -->
 <div id="cart-overlay" style="
     position:fixed; top:0; left:0; right:0; bottom:0;
     background:rgba(0,0,0,0.5);
@@ -294,14 +271,12 @@ Neznačkový produkt. Není spojen s žádnou ochrannou známkou.
     transition:opacity 0.3s ease; z-index:9998;
 "></div>
 
-<!-- Контейнер корзины -->
 <div id="cart" style="
     position:fixed; top:0; right:-400px; width:360px; height:100%;
     background:#f1f1f1; transition:right 0.3s ease; padding:16px;
     overflow-y:auto; z-index:9999;
 "></div>
 
-<!-- Кнопка корзины -->
 <div id="fixed-cart-btn" style="
     position:fixed; bottom:20px; right:20px; width:60px; height:60px;
     background:#000; border-radius:50%; display:flex; align-items:center;
@@ -317,12 +292,6 @@ document.addEventListener('DOMContentLoaded', function(){
     if(cartBtn && typeof openCart === 'function'){
         cartBtn.addEventListener('click', openCart);
     }
-});
-</script>
-<script>
-document.addEventListener('DOMContentLoaded', function(){
-    const cartBtn = document.getElementById('fixed-cart-btn');
-    if(cartBtn) cartBtn.addEventListener('click', openCart);
 });
 </script>
 
