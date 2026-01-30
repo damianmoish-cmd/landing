@@ -71,10 +71,7 @@ p{opacity:.85;}
 .sticky-btn{background:#fff;color:#000;padding:10px 22px;border-radius:25px;text-decoration:none;font-weight:500;cursor:pointer;}
 
 /* Логотип и кнопка перехода */
-<div class="logo-nav fade-up">
-<span style="font-size:28px;font-weight:bold;">iMart-Store</span>
-<div class="switch-btn" onclick="goPremium()">Prémiová sluchátka / Sluchátka Max</div>
-</div>
+logo-nav{position:fixed;top:10px;left:10px;z-index:1000;display:flex;align-items:center;gap:20px;} .logo-nav img{height:80px;} .switch-btn{padding:12px 20px;background:#fff;color:#000;font-weight:bold;font-size:18px;border-radius:12px;cursor:pointer;} .switch-btn:hover{transform:translateY(-3px);box-shadow:0 8px 20px rgba(255,255,255,0.2);}
     
 /* Анимация появления */
 .fade-up{opacity:0;transform:translateY(25px);transition:all 0.8s ease-out;}
