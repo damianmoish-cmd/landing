@@ -264,9 +264,29 @@ Email: coincama@gmail.com | Tel: +420 702 846 018<br>
 Neznačkový produkt. Není spojen s žádnou ochrannou známkou.
 </footer>
 
-<!-- Корзина -->
-<div id="cart"></div>
-<div class="cart-toggle" onclick="openCart()">🛒 Košík</div>
+<!-- Добавьте прямо перед закрывающим </body> -->
+<div id="fixed-cart-btn" style="
+    position:fixed;
+    bottom:20px;
+    right:20px;
+    width:60px;
+    height:60px;
+    background:#000;
+    border-radius:50%;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    cursor:pointer;
+    z-index:10000;
+    box-shadow:0 5px 20px rgba(0,0,0,0.4);
+">
+    <span style="font-size:28px;color:#fff;">🛒</span>
+</div>
+
+<script>
+document.getElementById('fixed-cart-btn').onclick=openCart;
+</script>
+
 
 </body>
 </html>
