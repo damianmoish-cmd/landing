@@ -45,8 +45,7 @@ p{opacity:.9;line-height:1.6;}
 .switch-btn{padding:12px 20px;background:#fff;color:#000;font-weight:bold;font-size:18px;border-radius:12px;cursor:pointer;display:flex;align-items:center;gap:8px;}
 .switch-btn:hover{transform:translateY(-3px);box-shadow:0 8px 20px rgba(255,255,255,0.2);}
 .home-icon{width:24px;height:24px;}
-@media(max-width:900px){h1{font-size:32px;}.price{font-size:34px;}.gallery{grid-template-columns:repeat(auto-fit,minmax(80px,1fr));gap:12px;}.color-select{flex-wrap:wrap;}}
-</style>/* =========================
+@media(max-width:900px){h1{font-size:32px;}.price{font-size:34px;}.gallery{grid-template-columns:repeat(auto-fit,minmax(80px,1fr));gap:12px;}.color-select{flex-wrap:wrap;}}/* =========================
    PREMIUM MOBILE APPLE STYLE
    ========================= */
 
@@ -162,6 +161,8 @@ p{opacity:.9;line-height:1.6;}
   transform: scale(.97);
 }
 
+</style>/
+
 
 <script>
 let selectedColorMax='Černá';
@@ -223,7 +224,43 @@ function openCart(){
 function closeCart(){
   const cart = document.getElementById('cart');
   cart.style.right = '-100%';
+}<script>
+/* =========================
+   AUTO LANGUAGE
+   ========================= */
+(function(){
+  const lang = navigator.language.startsWith('ru') ? 'ru' : 'cz';
+  setLang(lang);
+})();
+
+/* =========================
+   SWIPE GALLERY -> HERO
+   ========================= */
+document.querySelectorAll('.gallery img').forEach(img=>{
+  img.addEventListener('click',()=>{
+    const heroImg = document.querySelector('.hero img');
+    heroImg.style.opacity = 0;
+    setTimeout(()=>{
+      heroImg.src = img.src;
+      heroImg.style.opacity = 1;
+    },200);
+  });
+});
+
+/* =========================
+   APPLE STYLE CART OPEN
+   ========================= */
+function openCart(){
+  const cart = document.getElementById('cart');
+  cart.style.right = '0';
 }
+
+function closeCart(){
+  const cart = document.getElementById('cart');
+  cart.style.right = '-100%';
+}
+</script>
+
 </script>
 
     }
