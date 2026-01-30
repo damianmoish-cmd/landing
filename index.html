@@ -31,7 +31,7 @@ s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}
 fbq('init','YOUR_PIXEL_ID'); fbq('track','PageView');
 </script>
 
-<!-- TikTok Pixel -->
+<!-- TikTok -->
 <script>
 !function(w,d,t){w.TiktokAnalyticsObject=t;var ttq=w[t]=w[t]||[];
 ttq.methods=["page","track"];ttq.setAndDefer=function(t,e){
@@ -52,7 +52,7 @@ body{margin:0;font-family:-apple-system,BlinkMacSystemFont,Arial,sans-serif;back
 section{max-width:1100px;margin:auto;padding:70px 20px;}
 h1{font-size:36px;margin-bottom:15px;}
 h2{font-size:26px;margin-bottom:25px;}
-p{opacity:.85;}
+p{opacity:.85;line-height:1.6;}
 .btn{display:inline-block;padding:14px 36px;border-radius:30px;text-decoration:none;font-weight:500;margin:10px;cursor:pointer;}
 .btn-primary{background:#fff;color:#000;}
 .btn-outline{border:2px solid #fff;color:#fff;}
@@ -74,6 +74,10 @@ p{opacity:.85;}
 .home-icon{width:24px;height:24px;}
 .fade-up{opacity:0;transform:translateY(25px);transition:all 0.8s ease-out;}
 .fade-up.visible{opacity:1;transform:translateY(0);}
+.color-select{display:flex;justify-content:center;gap:14px;margin:22px 0;}
+.color-btn{padding:12px 26px;border-radius:26px;border:2px solid #333;background:#111;color:#fff;cursor:pointer;transition:.3s;}
+.color-btn.active,
+.color-btn:hover{background:#fff;color:#000;border-color:#fff;}
 .qty{display:flex;justify-content:center;align-items:center;gap:12px;margin-top:18px;}
 .qty button{padding:8px 14px;border:none;border-radius:8px;font-size:16px;cursor:pointer;}
 .qty span{font-size:18px;font-weight:bold;color:#fff;}
@@ -85,17 +89,16 @@ let selectedColorPro='Černá';
 let qtyPro = 1;
 
 function setLang(lang){
-document.querySelectorAll('[data-lang]').forEach(el=>{
-  el.style.display = (el.dataset.lang === lang)? 'block' : 'none';
-});
+  document.querySelectorAll('[data-lang]').forEach(el=>{
+    el.style.display = (el.dataset.lang===lang)? 'block':'none';
+  });
 }
 
 function scrollAnimate(){
-const elements=document.querySelectorAll('.fade-up');
-elements.forEach(el=>{
-  const rect=el.getBoundingClientRect();
-  if(rect.top<window.innerHeight-100) el.classList.add('visible');
-});
+  document.querySelectorAll('.fade-up').forEach(el=>{
+    const rect=el.getBoundingClientRect();
+    if(rect.top<window.innerHeight-100) el.classList.add('visible');
+  });
 }
 window.addEventListener('scroll',scrollAnimate);
 window.addEventListener('load',scrollAnimate);
@@ -115,22 +118,21 @@ function addPro(){
   addToCart('Sluchátka Pro',1099,'img/airpods1.jpg',qtyPro);
 }
 
-function goMax(){window.location.href='sluchatka-max.html';}
+function goPremium(){window.location.href='sluchatka-max.html';}
 
-// Анимация перехода с мини-домиком
-function switchProduct(){
+function switchProductPro(){
   const heroImg = document.querySelector('.hero img');
   heroImg.classList.add('fade-switch');
-  setTimeout(()=>{ goMax(); }, 300);
+  setTimeout(()=>{ goPremium(); }, 300);
 }
 </script>
-</head>
 
+</head>
 <body onload="setLang('cz')">
 
 <div class="logo-nav fade-up">
 <img src="img/logo.png" alt="iMart-Store">
-<div class="switch-btn" onclick="switchProduct()">
+<div class="switch-btn" onclick="switchProductPro()">
 <img src="img/home-icon.png" class="home-icon" alt="Домик"> Sluchátka Max
 </div>
 </div>
@@ -149,7 +151,6 @@ function switchProduct(){
 <img src="img/airpods1.jpg" alt="Sluchátka" class="fade-up">
 
 <div class="gallery fade-up">
-<img src="img/airpods1.jpg" onclick="document.querySelector('.hero img').src='img/airpods1.jpg'">
 <img src="img/airpods2.jpg" onclick="document.querySelector('.hero img').src='img/airpods2.jpg'">
 <img src="img/airpods3.jpg" onclick="document.querySelector('.hero img').src='img/airpods3.jpg'">
 <img src="img/airpods4.jpg" onclick="document.querySelector('.hero img').src='img/airpods4.jpg'">
@@ -195,17 +196,40 @@ function switchProduct(){
 <p style="font-size:13px;opacity:.6">Не является оригинальным брендом.</p>
 </div>
 </div>
+</section><!-- ДОСТАВКА -->
+<section class="fade-up">
+<div data-lang="cz">
+<h2>Doručení a platba 🚚</h2>
+<div class="grid">
+<div class="card">Doručení po ČR 2–3 dny</div>
+<div class="card">Platba dobírkou</div>
+<div class="card">Kontrola při převzetí</div>
+</div>
+</div>
+<div data-lang="ru">
+<h2>Доставка и оплата 🚚</h2>
+<div class="grid">
+<div class="card">Доставка 2–3 дня</div>
+<div class="card">Оплата при получении</div>
+<div class="card">Проверка товара</div>
+</div>
+</div>
 </section>
 
+<!-- STICKY -->
 <div class="sticky-bar fade-up">
 <div class="sticky-price">1 099 Kč</div>
 <a class="sticky-btn" onclick="addPro()">Přidat do košíku</a>
 </div>
 
-<!-- Мини-корзина -->
-<div id="cart" style="position:fixed;bottom:70px;right:15px;z-index:999;"></div>
+<!-- Кнопка для открытия корзины на половину экрана -->
+<div id="cart" style="position:fixed;top:0;right:-100%;width:60%;height:100%;background:#111;z-index:10000;padding:20px;overflow-y:auto;transition:0.4s;border-left:2px solid #333;border-radius:0 0 0 12px;"></div>
+<div style="position:fixed;top:50%;right:16px;z-index:10001;">
+<button style="padding:12px 16px;border:none;border-radius:8px;background:#fff;color:#000;font-weight:bold;cursor:pointer;" onclick="document.getElementById('cart').style.right='0';">🛒 Košík</button>
+<button style="padding:8px 12px;border:none;border-radius:8px;background:#333;color:#fff;font-weight:bold;cursor:pointer;margin-top:8px;" onclick="document.getElementById('cart').style.right='-100%';">❌ Zavřít</button>
+</div>
 
-<footer class="fade-up">
+<footer class="fade-up" style="margin-top:60px;text-align:center;font-size:13px;opacity:.6;">
 Email: coincama@gmail.com | Tel: +420 702 846 018<br>
 Neznačkový produkt. Není spojen s žádnou ochrannou známkou.
 </footer>
