@@ -7,7 +7,6 @@
 <meta name="description" content="Bezdrátová sluchátka s ANC. Platba při převzetí. Doručení 2–3 dny.">
 
 <link rel="stylesheet" href="style.css">
-<script src="cart.js"></script>
 
 <style>
 body {margin:0;font-family:-apple-system,BlinkMacSystemFont,Arial,sans-serif;background:#000;color:#fff;overflow-x:hidden;}
@@ -73,7 +72,7 @@ p{opacity:.85;}
 .sticky-price{font-size:22px;font-weight:bold;}
 .sticky-btn{background:#fff;color:#000;padding:12px 24px;border-radius:25px;text-decoration:none;font-weight:500;cursor:pointer;flex-shrink:0;}
 
-/* Корзина */
+/* КОРЗИНА */
 #fixed-cart-btn{
   position:fixed; bottom:20px; right:20px; width:60px; height:60px;
   background:#ff6600; border-radius:50%; display:flex; align-items:center;
@@ -146,7 +145,6 @@ function setLang(lang){
         el.style.display = el.dataset.lang === lang ? 'block' : 'none';
     });
 }
-
 function scrollAnimate(){
     const elements = document.querySelectorAll('.fade-up');
     elements.forEach(el=>{
@@ -163,31 +161,18 @@ function changeQtyPro(delta){
     qtyPro = Math.max(1, qtyPro + delta);
     document.getElementById('qtyProDisplay').innerText = qtyPro;
 }
-
-function goToMax(){
-    window.location.href = 'sluchatka-max.html';
-}
+function goToMax(){ window.location.href = 'sluchatka-max.html'; }
 
 // ==================== КОРЗИНА ====================
-const cartBtn = document.getElementById('fixed-cart-btn');
-const cartOverlay = document.getElementById('cart-overlay');
-const cart = document.getElementById('cart');
-const cartItemsContainer = document.getElementById('cart-items');
-const cartTotal = document.getElementById('cart-total');
-
-cartBtn.addEventListener('click', openCart);
-cartOverlay.addEventListener('click', closeCart);
-
 function openCart(){
-    cart.style.right = '0';
-    cartOverlay.style.opacity = '1';
-    cartOverlay.style.visibility = 'visible';
+    document.getElementById('cart').style.right = '0';
+    document.getElementById('cart-overlay').style.opacity = '1';
+    document.getElementById('cart-overlay').style.visibility = 'visible';
 }
-
 function closeCart(){
-    cart.style.right = '-420px';
-    cartOverlay.style.opacity = '0';
-    cartOverlay.style.visibility = 'hidden';
+    document.getElementById('cart').style.right = '-420px';
+    document.getElementById('cart-overlay').style.opacity = '0';
+    document.getElementById('cart-overlay').style.visibility = 'hidden';
 }
 
 function addProToCart(){
@@ -197,20 +182,17 @@ function addProToCart(){
 function addToCart(name, price, img, qty, color){
     // Летающий эффект
     const flyImg = document.createElement('img');
-    flyImg.src = img;
-    flyImg.className = 'flying-img';
+    flyImg.src = img; flyImg.className = 'flying-img';
     document.body.appendChild(flyImg);
     const rect = document.getElementById('mainProImg').getBoundingClientRect();
-    flyImg.style.top = rect.top + 'px';
-    flyImg.style.left = rect.left + 'px';
+    flyImg.style.top = rect.top + 'px'; flyImg.style.left = rect.left + 'px';
     setTimeout(()=>{
-        const cartRect = cartBtn.getBoundingClientRect();
-        flyImg.style.transform = `translate(${cartRect.left - rect.left}px, ${cartRect.top - rect.top}px) scale(0.3)`;
+        const cartRect = document.getElementById('fixed-cart-btn').getBoundingClientRect();
+        flyImg.style.transform = `translate(${cartRect.left-rect.left}px,${cartRect.top-rect.top}px) scale(0.3)`;
     },10);
     setTimeout(()=>{ flyImg.remove(); },800);
 
-    // Проверка на существующий товар
-    const existing = cartItems.find(i => i.name===name && i.color===color);
+    const existing = cartItems.find(i=>i.name===name && i.color===color);
     if(existing) existing.qty += qty;
     else cartItems.push({name, price, img, qty, color});
     renderCart();
@@ -218,17 +200,18 @@ function addToCart(name, price, img, qty, color){
 }
 
 function renderCart(){
-    cartItemsContainer.innerHTML = '';
-    let total = 0;
+    const container = document.getElementById('cart-items');
+    container.innerHTML='';
+    let total=0;
     cartItems.forEach((item,index)=>{
-        total += item.price * item.qty;
+        total += item.price*item.qty;
         const div = document.createElement('div');
-        div.className = 'cart-item';
-        div.innerHTML = `
+        div.className='cart-item';
+        div.innerHTML=`
             <img src="${item.img}">
             <div>
                 <strong>${item.name}</strong>
-                <span>${item.color} | ${item.price * item.qty} Kč</span>
+                <span>${item.color} | ${item.price*item.qty} Kč</span>
                 <div class="cart-qty">
                     <button onclick="changeCartQty(${index},-1)">−</button>
                     <span>${item.qty}</span>
@@ -236,34 +219,30 @@ function renderCart(){
                 </div>
             </div>
         `;
-        cartItemsContainer.appendChild(div);
+        container.appendChild(div);
     });
-    cartTotal.innerText = 'Celkem: ' + total + ' Kč';
+    document.getElementById('cart-total').innerText='Celkem: '+total+' Kč';
 }
-
 function changeCartQty(index,delta){
-    cartItems[index].qty = Math.max(1, cartItems[index].qty + delta);
+    cartItems[index].qty=Math.max(1,cartItems[index].qty+delta);
     renderCart();
 }
-
 function checkout(){
     if(cartItems.length===0){ alert('Košík je prázdný!'); return; }
-    alert('Děkujeme za objednávku! Celkem: ' + cartItems.reduce((a,b)=>a+b.price*b.qty,0) + ' Kč');
-    cartItems = [];
-    renderCart();
-    closeCart();
+    alert('Děkujeme za objednávku! Celkem: '+cartItems.reduce((a,b)=>a+b.price*b.qty,0)+' Kč');
+    cartItems=[]; renderCart(); closeCart();
 }
 </script>
 </head>
 <body onload="setLang('cz')">
 
-<!-- Логотип и кнопка Max -->
+<!-- Логотип и Max -->
 <div class="logo-nav fade-up">
     <span style="font-size:28px;font-weight:bold;">iMart-Store</span>
     <div class="switch-btn" onclick="goToMax()">Sluchatka Max 🎧</div>
 </div>
 
-<!-- Языки -->
+<!-- Выбор языка -->
 <div class="lang fade-up">
 <button onclick="setLang('cz')">CZ</button>
 <button onclick="setLang('ru')">RU</button>
@@ -284,6 +263,7 @@ function checkout(){
 <img src="img/airpods4.jpg" onclick="document.getElementById('mainProImg').src='img/airpods4.jpg'">
 </div>
 
+<!-- Количество и кнопки -->
 <div class="qty-selector fade-up" style="margin-top:20px;display:flex;align-items:center;gap:12px;">
 <span style="font-weight:600;">Množství:</span>
 <button class="qty-btn" onclick="changeQtyPro(-1)">−</button>
@@ -302,18 +282,114 @@ function checkout(){
 <p data-lang="cz">Platba při převzetí • Doručení 2–3 dny</p>
 <p data-lang="ru">Оплата при получении • Доставка 2–3 дня</p>
 
-<!-- Остальной контент страницы оставляем без изменений -->
-
-<!-- Кнопка корзины и контейнеры уже внизу -->
-<div id="fixed-cart-btn"><span style="font-size:28px;color:#fff;">🛒</span></div>
-<div id="cart-overlay"></div>
-<div id="cart">
-  <h2>Košík 🛒</h2>
-  <div id="cart-items" style="margin-top:15px;"></div>
-  <div id="cart-total" style="font-weight:bold; margin:15px 0; font-size:18px;">Celkem: 0 Kč</div>
-  <button onclick="checkout()" class="checkout-btn">Objednat nyní</button>
-  <button onclick="closeCart()" class="close-btn">Zavřít</button>
+<!-- Модули Doručení, Popis, Hodnocení, FAQ, Галерея -->
+<section class="fade-up">
+<div data-lang="cz">
+<h2>Doručení a platba 🚚</h2>
+<div class="grid">
+<div class="card">Doručení po ČR 2–3 dny</div>
+<div class="card">Platba dobírkou</div>
+<div class="card">Kontrola při převzetí</div>
 </div>
+</div>
+<div data-lang="ru">
+<h2>Доставка и оплата 🚚</h2>
+<div class="grid">
+<div class="card">Доставка 2–3 дня</div>
+<div class="card">Оплата при получении</div>
+<div class="card">Проверка товара</div>
+</div>
+</div>
+</section>
+
+<section class="fade-up">
+<div data-lang="cz">
+<h2>Popis produktu ✨</h2>
+<div class="card">
+<p>✔ Aktivní dotykové ovládání</p>
+<p>✔ ANC – aktivní potlačení hluku</p>
+<p>✔ Bezdrátové nabíjení</p>
+<p>✔ iOS & Android</p>
+<p style="font-size:13px;opacity:.6">Nejedná se o originální výrobek.</p>
+</div>
+</div>
+<div data-lang="ru">
+<h2>Описание товара ✨</h2>
+<div class="card">
+<p>✔ Сенсорное управление</p>
+<p>✔ Активное шумоподавление</p>
+<p>✔ Беспроводная зарядка</p>
+<p>✔ iOS и Android</p>
+</div>
+</div>
+</section>
+
+<section class="fade-up">
+<p data-lang="cz">⭐ Hodnocení 4.8 / 5 — více než 1 200 spokojených zákazníků</p>
+<p data-lang="ru">⭐ Рейтинг 4.8 / 5 — более 1 200 довольных клиентов</p>
+</section>
+
+<section class="fade-up">
+<h2 data-lang="cz">Často kladené dotazy</h2>
+<h2 data-lang="ru">Часто задаваемые вопросы</h2>
+<div data-lang="cz">
+<p><b>Jsou sluchátka originální?</b><br>Ne, jedná se o kompatibilní model.</p>
+<p><b>Jak dlouho trvá doručení?</b><br>2–3 pracovní dny.</p>
+</div>
+<div data-lang="ru">
+<p><b>Это оригинал?</b><br>Нет, это совместимая модель.</p>
+<p><b>Сколько доставка?</b><br>2–3 рабочих дня.</p>
+</div>
+</section>
+
+<section class="fade-up">
+<h2 data-lang="cz">Fotografie 📸</h2>
+<h2 data-lang="ru">Фотографии 📸</h2>
+<div class="gallery">
+<img src="img/airpods2.jpg">
+<img src="img/airpods3.jpg">
+<img src="img/airpods4.jpg">
+</div>
+</section>
+
+<!-- Sticky bar -->
+<div class="sticky-bar fade-up">
+    <div class="sticky-price">1 099 Kč</div>
+    <button class="sticky-btn" onclick="addProToCart()">objednat nyní</button>
+</div>
+
+<!-- Footer -->
+<footer class="fade-up" style="padding:20px 15px; text-align:center; font-size:13px;">
+Email: coincama@gmail.com | Tel: +420 702 846 018<br>
+Neznačkový produkt. Není spojen s žádnou ochrannou známkou.
+</footer>
+
+<!-- Кнопка корзины -->
+<div id="fixed-cart-btn"><span style="font-size:28px;color:#fff;">🛒</span></div>
+
+<!-- Фон для затемнения -->
+<div id="cart-overlay"></div>
+
+<!-- Контейнер корзины -->
+<div id="cart">
+    <h2>Košík 🛒</h2>
+    <div id="cart-items"></div>
+    <div id="cart-total" style="margin-top:10px;font-weight:bold;font-size:16px;">Celkem: 0 Kč</div>
+    <button class="checkout-btn" onclick="checkout()">Objednat</button>
+    <button class="close-btn" onclick="closeCart()">Zavřít</button>
+</div>
+
+<script>
+// ==================== КОРЗИНА ====================
+const cartBtn = document.getElementById('fixed-cart-btn');
+cartBtn.addEventListener('click', openCart);
+document.getElementById('cart-overlay').addEventListener('click', closeCart);
+
+function animateCartBtn(){
+    cartBtn.style.transform='translateY(-10px)';
+    setTimeout(()=>{cartBtn.style.transform='translateY(0)';},200);
+}
+</script>
 
 </body>
 </html>
