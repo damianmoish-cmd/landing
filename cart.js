@@ -1,15 +1,17 @@
-// cart.js - универсальная корзина для Pro и Max
+// cart.js с плавной анимацией и фоном
 
 let cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
+
+const cartDiv = document.getElementById('cart');
+const overlay = document.getElementById('cart-overlay');
 
 function saveCart(){
     localStorage.setItem('cartItems', JSON.stringify(cartItems));
     renderCart();
 }
 
-// Добавление товара в корзину
 function addToCart(name, price, img, qty=1, color='Černá'){
-    // Проверяем, есть ли такой товар уже в корзине с тем же цветом
+    qty = parseInt(qty) || 1;
     const existing = cartItems.find(item => item.name===name && item.color===color);
     if(existing){
         existing.qty += qty;
@@ -20,29 +22,43 @@ function addToCart(name, price, img, qty=1, color='Černá'){
     openCart();
 }
 
-// Открытие корзины
+// Открытие корзины с анимацией
 function openCart(){
-    const cartDiv = document.getElementById('cart');
+    if(!cartDiv || !overlay) return;
     cartDiv.style.right = '0';
+    overlay.style.visibility = 'visible';
+    overlay.style.opacity = '1';
     renderCart();
 }
 
 // Закрытие корзины
 function closeCart(){
-    const cartDiv = document.getElementById('cart');
-    cartDiv.style.right = '-100%';
+    if(!cartDiv || !overlay) return;
+    cartDiv.style.right = '-400px';
+    overlay.style.opacity = '0';
+    setTimeout(()=>overlay.style.visibility='hidden', 300);
+}
+
+// Закрытие по клику на фон
+if(overlay){
+    overlay.addEventListener('click', closeCart);
 }
 
 // Рендер корзины
 function renderCart(){
-    const cartDiv = document.getElementById('cart');
     if(!cartDiv) return;
+
     if(cartItems.length===0){
-        cartDiv.innerHTML='<h2>🛒 Košík je prázdný</h2>';
+        cartDiv.innerHTML = `
+            <h2>🛒 Košík je prázdný</h2>
+            <button onclick="closeCart()" style="margin-top:16px;padding:10px 20px;border:none;border-radius:8px;cursor:pointer;">Zavřít</button>
+        `;
         return;
     }
-    let html = '<h2>🛒 Váš košík</h2>';
+
     let total=0;
+    let html='<h2>🛒 Váš košík</h2>';
+
     cartItems.forEach((item,index)=>{
         total += item.price * item.qty;
         html += `
@@ -53,36 +69,51 @@ function renderCart(){
                 Barva: ${item.color}<br>
                 Cena: ${item.price} Kč<br>
                 Množství: 
-                <button onclick="changeQty(${index},-1)">−</button>
+                <button data-index="${index}" data-delta="-1" class="qty-change-btn">−</button>
                 <span>${item.qty}</span>
-                <button onclick="changeQty(${index},1)">+</button>
+                <button data-index="${index}" data-delta="1" class="qty-change-btn">+</button>
             </div>
-            <button onclick="removeItem(${index})" style="background:#ff4444;color:#fff;border:none;padding:6px 10px;border-radius:8px;cursor:pointer;">❌</button>
+            <button data-index="${index}" class="remove-item-btn" style="background:#ff4444;color:#fff;border:none;padding:6px 10px;border-radius:8px;cursor:pointer;">❌</button>
         </div>`;
     });
+
     html += `<h3>Celkem: ${total} Kč</h3>`;
     html += `<button style="width:100%;padding:16px;border-radius:32px;border:none;font-size:16px;font-weight:700;background:#fff;color:#000;cursor:pointer;margin-top:12px;" onclick="checkout()">Objednat vše</button>`;
+    html += `<button onclick="closeCart()" style="margin-top:12px;padding:10px 20px;border:none;border-radius:8px;cursor:pointer;">Zavřít</button>`;
+
     cartDiv.innerHTML = html;
+
+    // Обработчики кнопок
+    cartDiv.querySelectorAll('.qty-change-btn').forEach(btn=>{
+        btn.addEventListener('click', function(){
+            const index = parseInt(this.dataset.index);
+            const delta = parseInt(this.dataset.delta);
+            changeQty(index, delta);
+        });
+    });
+
+    cartDiv.querySelectorAll('.remove-item-btn').forEach(btn=>{
+        btn.addEventListener('click', function(){
+            const index = parseInt(this.dataset.index);
+            removeItem(index);
+        });
+    });
 }
 
-// Изменение количества
 function changeQty(index, delta){
-    cartItems[index].qty = Math.max(1, cartItems[index].qty + delta);
-    saveCart();
+    if(cartItems[index]){
+        cartItems[index].qty = Math.max(1, cartItems[index].qty + delta);
+        saveCart();
+    }
 }
 
-// Удаление товара
 function removeItem(index){
     cartItems.splice(index,1);
     saveCart();
 }
 
-// Checkout (отправка на order.html с параметрами)
 function checkout(){
     if(cartItems.length===0) return;
-    // Сохраняем корзину в localStorage, order.html будет её читать
     localStorage.setItem('checkoutItems', JSON.stringify(cartItems));
     window.location.href='order.html';
 }
-
-// При загрузке order.html можно прочитать checkoutItems и показать товары
