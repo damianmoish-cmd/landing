@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sluchátka Max | ANC • Hi-Fi zvuk</title>
+
+<meta name="description" content="Sluchátka Max s aktivním potlačením hluku, prémiovým zvukem a komfortem.">
+
+<!-- OpenGraph -->
+<meta property="og:title" content="Sluchátka Max">
+<meta property="og:description" content="ANC • Hi-Fi zvuk • Platba při převzetí">
+<meta property="og:image" content="https://TVUJDOMEN.CZ/premium-black-1.jpg">
+<meta property="og:type" content="website">
+
+<!-- TikTok Pixel -->
+<script>
+!function(w,d,t){
+w.TiktokAnalyticsObject=t;var ttq=w[t]=w[t]||[];
+ttq.methods=["page","track"];
+ttq.setAndDefer=function(t,e){
+t[e]=function(){t.push([e].concat([].slice.call(arguments,0)))}};
+for(var i=0;i<ttq.methods.length;i++)ttq.setAndDefer(ttq,ttq.methods[i]);
+ttq.load=function(e){
+var s=d.createElement("script");
+s.async=!0;
+s.src="https://analytics.tiktok.com/i18n/pixel/events.js?sdkid="+e;
+var x=d.getElementsByTagName("script")[0];
+x.parentNode.insertBefore(s,x)};
+ttq.load('D5TQCN3C77U3O6ND7J0G');
+ttq.page();
+}(window,document,'ttq');
+</script>
+
+<style>
+body{margin:0;font-family:-apple-system,BlinkMacSystemFont,Arial,sans-serif;background:#000;color:#fff;}
+section{max-width:1200px;margin:auto;padding:90px 20px;}
+h1{font-size:42px;margin-bottom:10px;}
+h2{font-size:28px;margin-bottom:30px;}
+p{opacity:.9;line-height:1.6;}
+
+.fade-up{opacity:0;transform:translateY(25px);transition:.8s;}
+.fade-up.visible{opacity:1;transform:translateY(0);}
+
+.hero{text-align:center;position:relative;}
+.hero img{max-width:440px;width:92%;margin:50px auto;display:block;animation:float 4s ease-in-out infinite;}
+@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-14px)}}
+
+.badges{display:flex;justify-content:center;gap:14px;flex-wrap:wrap;margin:25px 0;}
+.badge{padding:8px 18px;border-radius:22px;font-size:13px;background:#111;border:1px solid #222;}
+
+.btn{display:inline-block;padding:16px 42px;border-radius:34px;text-decoration:none;font-weight:600;margin:12px;cursor:pointer;}
+.btn-primary{background:#fff;color:#000;}
+.btn-outline{border:2px solid #fff;color:#fff;}
+
+.price{font-size:46px;font-weight:800;margin-top:30px;}
+
+.color-select{display:flex;justify-content:center;gap:14px;margin:22px 0;flex-wrap:wrap;}
+.color-btn{
+padding:12px 26px;border-radius:26px;border:2px solid #333;
+background:#111;color:#fff;cursor:pointer;transition:.3s;
+}
+.color-btn.active,.color-btn:hover{background:#fff;color:#000;border-color:#fff;}
+
+.qty{
+display:flex;justify-content:center;align-items:center;
+gap:14px;margin:20px 0;
+}
+.qty button{
+width:42px;height:42px;border-radius:50%;
+border:none;font-size:20px;cursor:pointer;
+}
+.qty span{font-size:20px}
+
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:30px;}
+.card{background:#111;padding:34px;border-radius:22px;border:1px solid #1f1f1f;}
+
+.gallery{display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:16px;margin-top:20px;}
+.gallery img{width:100%;border-radius:12px;cursor:pointer;transition:.3s;}
+.gallery img:hover{transform:scale(1.05);}
+
+.sticky-bar{
+position:fixed;bottom:0;left:0;right:0;
+background:rgba(8,8,8,.9);
+border-top:1px solid #222;
+display:flex;justify-content:space-between;align-items:center;
+padding:16px 20px;z-index:999;
+}
+.sticky-price{font-size:24px;font-weight:800;}
+.sticky-btn{
+background:#fff;color:#000;
+padding:12px 28px;border-radius:30px;
+text-decoration:none;font-weight:700;cursor:pointer;
+}
+
+.logo-nav{
+position:fixed;top:10px;left:10px;z-index:1000;
+display:flex;flex-direction:column;gap:10px;
+}
+.logo-nav img{height:70px;}
+.switch-btn{
+display:flex;align-items:center;gap:8px;
+padding:10px 16px;background:#fff;color:#000;
+font-weight:600;font-size:15px;border-radius:10px;cursor:pointer;
+}
+.mini-icon{width:22px;height:22px}
+
+.lang{position:fixed;top:15px;right:15px;z-index:1000;}
+.lang button{padding:6px 10px;border-radius:8px;border:none;cursor:pointer;}
+
+footer{text-align:center;font-size:13px;opacity:.6;padding:80px 20px 140px;}
+
+@media(max-width:900px){
+h1{font-size:32px;}
+.hero img{max-width:320px;}
+.price{font-size:34px;}
+}
+</style>
+
+<script src="cart.js"></script>
+
+<script>
+let selectedColor='Černá';
+let qty=1;
+
+function setLang(lang){
+document.querySelectorAll('[data-lang]').forEach(el=>{
+el.style.display=el.dataset.lang===lang?'block':'none';
+});
+}
+
+function selectColor(c,el){
+selectedColor=c;
+document.querySelectorAll('.color-btn').forEach(b=>b.classList.remove('active'));
+el.classList.add('active');
+}
+
+function changeQty(v){
+qty=Math.max(1,qty+v);
+document.getElementById('qty').innerText=qty;
+}
+
+function addMax(){
+addToCart('Sluchátka Max',2499,'premium-black-1.jpg',qty,selectedColor);
+}
+
+function scrollAnimate(){
+document.querySelectorAll('.fade-up').forEach(el=>{
+if(el.getBoundingClientRect().top<window.innerHeight-100)
+el.classList.add('visible');
+});
+}
+
+window.addEventListener('load',()=>{
+setLang('cz');
+scrollAnimate();
+});
+window.addEventListener('scroll',scrollAnimate);
+</script>
+</head>
+
+<body>
+
+<div class="logo-nav fade-up">
+<img src="logo.png">
+<div class="switch-btn" onclick="location.href='index.html'">
+<img src="icon-mini.png" class="mini-icon">
+<span data-lang="cz">← Sluchátka Pro</span>
+<span data-lang="ru">← Маленькие наушники</span>
+</div>
+</div>
+
+<div class="lang fade-up">
+<button onclick="setLang('cz')">CZ</button>
+<button onclick="setLang('ru')">RU</button>
+</div>
+
+<section class="hero fade-up">
+<h1 data-lang="cz">Sluchátka Max 🎧</h1>
+<h1 data-lang="ru">Наушники Max 🎧</h1>
+
+<p data-lang="cz"><strong>Silný zvuk. Ticho kolem. Komfort celý den.</strong></p>
+<p data-lang="ru"><strong>Мощный звук. Тишина вокруг. Комфорт на весь день.</strong></p>
+
+<div class="badges fade-up">
+<div class="badge">ANC nové generace</div>
+<div class="badge">Hi-Fi prostorový zvuk</div>
+<div class="badge">Bluetooth 5.3</div>
+<div class="badge">Výdrž až 30 h</div>
+</div>
+
+<img src="premium-black-1.jpg" id="main-img" class="fade-up">
+
+<div class="gallery fade-up">
+<img src="premium-black-1.jpg" onclick="main-img.src=this.src">
+<img src="premium-black-2.jpg" onclick="main-img.src=this.src">
+<img src="premium-black-3.jpg" onclick="main-img.src=this.src">
+<img src="premium-silver-1.jpg" onclick="main-img.src=this.src">
+<img src="premium-silver-2.jpg" onclick="main-img.src=this.src">
+<img src="premium-silver-3.jpg" onclick="main-img.src=this.src">
+</div>
+
+<div class="color-select fade-up">
+<button class="color-btn active" onclick="selectColor('Černá',this)">Černá</button>
+<button class="color-btn" onclick="selectColor('Stříbrná',this)">Stříbrná</button>
+</div>
+
+<div class="qty fade-up">
+<button onclick="changeQty(-1)">−</button>
+<span id="qty">1</span>
+<button onclick="changeQty(1)">+</button>
+</div>
+
+<div class="price fade-up">2 499 Kč</div>
+
+<div class="fade-up">
+<a onclick="addMax()" class="btn btn-primary">Přidat do košíku</a>
+<a href="order.html" class="btn btn-outline">Košík</a>
+</div>
+
+</section>
+
+<div class="sticky-bar fade-up">
+<div class="sticky-price">2 499 Kč</div>
+<div class="sticky-btn" onclick="addMax()">Přidat</div>
+</div>
+
+<footer class="fade-up">
+Email: coincama@gmail.com | Tel: +420 702 846 018<br>
+Neznačkový produkt. Není spojen s žádnou ochrannou známkou.
+</footer>
+
+</body>
+</html>
