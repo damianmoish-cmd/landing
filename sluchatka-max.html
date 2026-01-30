@@ -46,7 +46,122 @@ p{opacity:.9;line-height:1.6;}
 .switch-btn:hover{transform:translateY(-3px);box-shadow:0 8px 20px rgba(255,255,255,0.2);}
 .home-icon{width:24px;height:24px;}
 @media(max-width:900px){h1{font-size:32px;}.price{font-size:34px;}.gallery{grid-template-columns:repeat(auto-fit,minmax(80px,1fr));gap:12px;}.color-select{flex-wrap:wrap;}}
-</style>
+</style>/* =========================
+   PREMIUM MOBILE APPLE STYLE
+   ========================= */
+
+@media (max-width: 600px) {
+
+  body {
+    font-size: 15px;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  section {
+    padding: 56px 14px;
+  }
+
+  h1 {
+    font-size: 28px;
+    line-height: 1.15;
+  }
+
+  h2 {
+    font-size: 22px;
+  }
+
+  /* HERO IMAGE */
+  .hero img {
+    width: 100%;
+    max-width: 320px;
+    margin: 22px auto;
+    display: block;
+    border-radius: 22px;
+    box-shadow: 0 30px 80px rgba(0,0,0,.6);
+  }
+
+  /* GALLERY = SWIPE */
+  .gallery {
+    display: flex;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    gap: 12px;
+    padding-bottom: 10px;
+  }
+
+  .gallery img {
+    min-width: 90px;
+    scroll-snap-align: center;
+    border-radius: 14px;
+  }
+
+  /* BUTTONS */
+  .btn {
+    width: 100%;
+    max-width: 340px;
+    margin: 10px auto;
+    display: block;
+    font-size: 16px;
+    padding: 16px;
+  }
+
+  .btn-primary {
+    box-shadow: 0 20px 50px rgba(255,255,255,.25);
+  }
+
+  /* PRICE */
+  .price {
+    font-size: 32px;
+    text-align: center;
+    letter-spacing: -.5px;
+  }
+
+  /* COLOR */
+  .color-btn {
+    font-size: 14px;
+    padding: 10px 20px;
+  }
+
+  /* CARDS */
+  .grid {
+    grid-template-columns: 1fr;
+  }
+
+  .card {
+    border-radius: 26px;
+    background: linear-gradient(180deg,#151515,#090909);
+  }
+
+  /* NAV */
+  .logo-nav {
+    position: static;
+    justify-content: center;
+    margin-bottom: 10px;
+  }
+
+  /* STICKY BAR -> APPLE */
+  .sticky-bar {
+    border-radius: 20px 20px 0 0;
+    padding-bottom: env(safe-area-inset-bottom);
+  }
+
+  /* CART FULLSCREEN */
+  #cart {
+    width: 100% !important;
+    border-radius: 24px 24px 0 0;
+  }
+}
+
+/* Smooth tap animation */
+.btn, .color-btn, .card {
+  transition: transform .15s ease;
+}
+
+.btn:active,
+.color-btn:active {
+  transform: scale(.97);
+}
+
 
 <script>
 let selectedColorMax='Černá';
@@ -74,7 +189,43 @@ function scrollAnimate(){
   elements.forEach(el=>{
     const rect = el.getBoundingClientRect();
     if(rect.top < window.innerHeight - 100){
-      el.classList.add('visible');
+      el.classList.add('visible');<script>
+/* =========================
+   AUTO LANGUAGE
+   ========================= */
+(function(){
+  const lang = navigator.language.startsWith('ru') ? 'ru' : 'cz';
+  setLang(lang);
+})();
+
+/* =========================
+   SWIPE GALLERY -> HERO
+   ========================= */
+document.querySelectorAll('.gallery img').forEach(img=>{
+  img.addEventListener('click',()=>{
+    const heroImg = document.querySelector('.hero img');
+    heroImg.style.opacity = 0;
+    setTimeout(()=>{
+      heroImg.src = img.src;
+      heroImg.style.opacity = 1;
+    },200);
+  });
+});
+
+/* =========================
+   APPLE STYLE CART OPEN
+   ========================= */
+function openCart(){
+  const cart = document.getElementById('cart');
+  cart.style.right = '0';
+}
+
+function closeCart(){
+  const cart = document.getElementById('cart');
+  cart.style.right = '-100%';
+}
+</script>
+
     }
   });
 }
