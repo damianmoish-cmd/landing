@@ -11,13 +11,7 @@
 
 <style>
 /* Основные стили */
-body {
-    margin:0;
-    font-family:-apple-system,BlinkMacSystemFont,Arial,sans-serif;
-    background:#000;
-    color:#fff;
-    overflow-x:hidden;
-}
+body {margin:0;font-family:-apple-system,BlinkMacSystemFont,Arial,sans-serif;background:#000;color:#fff;overflow-x:hidden;}
 section {max-width:1100px;margin:auto;padding:70px 20px;}
 h1{font-size:36px;margin-bottom:15px;}
 h2{font-size:26px;margin-bottom:25px;}
@@ -35,8 +29,8 @@ p{opacity:.85;}
 .lang button{padding:6px 10px;border-radius:8px;border:none;cursor:pointer;}
 .fade-up{opacity:0;transform:translateY(25px);transition:all 0.8s ease-out;}
 .fade-up.visible{opacity:1;transform:translateY(0);}
-.qty-btn{background:#222;color:#fff;border:none;width:36px;height:36px;font-size:20px;border-radius:12px;cursor:pointer;transition:0.2s;}
-.qty-btn:hover{background:#fff;color:#000;}
+.qty-btn{background:#fff;color:#000;border:none;width:36px;height:36px;font-size:20px;border-radius:12px;cursor:pointer;transition:0.2s;}
+.qty-btn:hover{background:#eee;}
 
 /* Логотип и кнопка Max сверху */
 .logo-nav{
@@ -79,96 +73,6 @@ p{opacity:.85;}
 }
 .sticky-price{font-size:22px;font-weight:bold;}
 .sticky-btn{background:#fff;color:#000;padding:12px 24px;border-radius:25px;text-decoration:none;font-weight:500;cursor:pointer;flex-shrink:0;}
-.sticky-btn:hover{background:#eee;}
-
-/* Кнопка корзины */
-#fixed-cart-btn {
-    position:fixed;
-    bottom:20px;
-    right:20px;
-    width:60px;
-    height:60px;
-    background:#fff; /* Белая кнопка */
-    color:#000; /* Черная иконка */
-    border-radius:50%;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    cursor:pointer;
-    z-index:10000;
-    box-shadow:0 5px 20px rgba(0,0,0,0.4);
-    transition:transform 0.2s, background 0.3s;
-}
-#fixed-cart-btn:hover{
-    transform:translateY(-5px);
-    box-shadow:0 8px 25px rgba(0,0,0,0.5);
-}
-
-/* Контейнер корзины */
-#cart {
-    position:fixed;
-    top:0;
-    right:-400px;
-    width:360px;
-    max-width:90%;
-    height:100%;
-    background:#000; /* Черный фон */
-    color:#fff; /* Белый текст */
-    transition:right 0.3s ease;
-    padding:16px;
-    overflow-y:auto;
-    z-index:9999;
-    border-left:2px solid #222;
-    box-shadow:-5px 0 15px rgba(0,0,0,0.6);
-    font-family:Arial, sans-serif;
-}
-
-/* Кнопки внутри корзины */
-.checkout-btn, .close-btn {
-    display:block;
-    width:100%;
-    padding:14px;
-    margin-top:12px;
-    border:none;
-    border-radius:12px;
-    font-size:16px;
-    font-weight:bold;
-    cursor:pointer;
-    transition:0.3s;
-}
-.checkout-btn {
-    background:#fff;
-    color:#000;
-}
-.checkout-btn:hover {
-    background:#eee;
-}
-.close-btn {
-    background:#fff;
-    color:#000;
-}
-.close-btn:hover {
-    background:#eee;
-}
-
-/* Элементы в корзине */
-#cart-items div {
-    margin-bottom:12px;
-    padding:8px;
-    background:#111;
-    border-radius:10px;
-    display:flex;
-    align-items:center;
-    transition:0.3s;
-}
-#cart-items div:hover { background:#222; }
-#cart-items img {
-    border-radius:8px;
-    margin-right:10px;
-    width:50px;
-    height:50px;
-    object-fit:cover;
-}
 
 /* Мобильная адаптация */
 @media(max-width:768px){
@@ -181,6 +85,7 @@ p{opacity:.85;}
   .gallery{grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px;}
   .btn{padding:10px 24px;font-size:14px;margin:8px 5px 8px 0;}
 }
+
 @media(max-width:480px){
   h1{font-size:24px;}
   h2{font-size:20px;}
@@ -192,6 +97,28 @@ p{opacity:.85;}
   .gallery{grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:8px;}
   .btn{padding:8px 18px;font-size:13px;margin:6px 5px 6px 0;}
 }
+
+/* Корзина */
+#cart-overlay{
+  position:fixed; top:0; left:0; right:0; bottom:0;
+  background:rgba(0,0,0,0.5);
+  opacity:0; visibility:hidden;
+  transition:opacity 0.3s ease;
+  z-index:9998;
+}
+#cart{
+  position:fixed; top:0; right:-400px; width:360px; max-width:90%; height:100%;
+  background:#000; color:#fff; transition:right 0.3s ease; padding:20px;
+  overflow-y:auto; z-index:10001; box-shadow:-5px 0 20px rgba(0,0,0,0.5);
+  border-left:2px solid #fff; font-family:Arial, sans-serif;
+}
+#fixed-cart-btn{
+  position:fixed; bottom:20px; right:20px; width:60px; height:60px;
+  background:#fff; border-radius:50%; display:flex; align-items:center; justify-content:center;
+  cursor:pointer; z-index:10000; box-shadow:0 5px 20px rgba(0,0,0,0.4);
+  transition:transform 0.2s;
+}
+#fixed-cart-btn span{color:#000;font-size:28px;}
 </style>
 
 <script>
@@ -220,21 +147,52 @@ function changeQtyPro(delta){
     document.getElementById('qtyProDisplay').innerText = qtyPro;
 }
 
+let cartData = [];
+
 function addToCart(name, price, img, qty, color){
-    const cartItems = document.getElementById('cart-items');
-    
-    const item = document.createElement('div');
-    item.innerHTML = `
-        <img src="${img}">
-        <div>
-            <strong>${name}</strong><br>
-            ${color} | ${qty} ks<br>
-            ${price * qty} Kč
-        </div>
-    `;
-    cartItems.appendChild(item);
+    let existing = cartData.find(item => item.name===name && item.color===color);
+    if(existing){
+        existing.qty += qty;
+    } else {
+        cartData.push({name, price, img, qty, color});
+    }
+    renderCart();
     animateCartBtn();
     openCart();
+}
+
+function renderCart(){
+    const cartItems = document.getElementById('cart-items');
+    cartItems.innerHTML = '';
+
+    cartData.forEach((item, index)=>{
+        const div = document.createElement('div');
+        div.style.display='flex';
+        div.style.alignItems='center';
+        div.style.marginBottom='15px';
+        div.style.borderBottom='1px solid #555';
+        div.style.paddingBottom='10px';
+
+        div.innerHTML = `
+            <img src="${item.img}" style="width:60px;height:60px;border-radius:12px;margin-right:10px; object-fit:cover;">
+            <div style="flex:1;">
+                <strong style="font-size:16px;">${item.name}</strong><br>
+                <span>${item.color}</span><br>
+                <div style="display:flex; align-items:center; margin-top:5px; gap:8px;">
+                    <button onclick="changeCartQty(${index}, -1)" style="background:#fff; color:#000; border:none; border-radius:8px; padding:6px 12px; font-size:16px; cursor:pointer;" onmouseover="this.style.background='#eee'" onmouseout="this.style.background='#fff'">−</button>
+                    <span id="cart-qty-${index}" style="min-width:24px; text-align:center;">${item.qty}</span>
+                    <button onclick="changeCartQty(${index}, 1)" style="background:#fff; color:#000; border:none; border-radius:8px; padding:6px 12px; font-size:16px; cursor:pointer;" onmouseover="this.style.background='#eee'" onmouseout="this.style.background='#fff'">+</button>
+                </div>
+            </div>
+            <div style="font-weight:bold; margin-left:10px;">${item.price * item.qty} Kč</div>
+        `;
+        cartItems.appendChild(div);
+    });
+}
+
+function changeCartQty(index, delta){
+    cartData[index].qty = Math.max(1, cartData[index].qty + delta);
+    renderCart();
 }
 
 function animateCartBtn(){
@@ -244,15 +202,15 @@ function animateCartBtn(){
 }
 
 function openCart(){
-    document.getElementById('cart').style.right = '0';
-    document.getElementById('cart-overlay').style.opacity = '1';
-    document.getElementById('cart-overlay').style.visibility = 'visible';
+    document.getElementById('cart').style.right='0';
+    document.getElementById('cart-overlay').style.opacity='1';
+    document.getElementById('cart-overlay').style.visibility='visible';
 }
 
 function closeCart(){
-    document.getElementById('cart').style.right = '-400px';
-    document.getElementById('cart-overlay').style.opacity = '0';
-    document.getElementById('cart-overlay').style.visibility = 'hidden';
+    document.getElementById('cart').style.right='-400px';
+    document.getElementById('cart-overlay').style.opacity='0';
+    document.getElementById('cart-overlay').style.visibility='hidden';
 }
 
 function goToMax(){
@@ -260,12 +218,10 @@ function goToMax(){
 }
 
 document.addEventListener('DOMContentLoaded', function(){
-    const cartBtn = document.getElementById('fixed-cart-btn');
-    cartBtn.addEventListener('click', openCart);
+    document.getElementById('fixed-cart-btn').addEventListener('click', openCart);
     document.getElementById('cart-overlay').addEventListener('click', closeCart);
 });
 </script>
-
 </head>
 <body onload="setLang('cz')">
 
@@ -402,24 +358,15 @@ Email: coincama@gmail.com | Tel: +420 702 846 018<br>
 Neznačkový produkt. Není spojen s žádnou ochrannou známkou.
 </footer>
 
-<!-- Overlay и корзина -->
-<div id="cart-overlay" style="
-    position:fixed; top:0; left:0; right:0; bottom:0;
-    background:rgba(0,0,0,0.5);
-    opacity:0; visibility:hidden;
-    transition:opacity 0.3s ease;
-    z-index:9998;
-"></div>
-
-<div id="cart">
-<h2>Košík 🛒</h2>
-<div id="cart-items"></div>
-<button class="close-btn" onclick="closeCart()">Zavřít</button>
-<button class="checkout-btn">Pokračovat k platbě</button>
-</div>
-
 <!-- Кнопка корзины -->
-<div id="fixed-cart-btn"><span style="font-size:28px;color:#000;">🛒</span></div>
+<div id="fixed-cart-btn"><span>🛒</span></div>
+<div id="cart-overlay"></div>
+<div id="cart">
+  <h2>Košík 🛒</h2>
+  <div id="cart-items"></div>
+  <button onclick="closeCart()" style="margin-top:20px; width:100%; padding:14px; font-size:16px; background:#fff 
+  ; color:#000; border:none; border-radius:12px; cursor:pointer;">Zavřít</button>
+</div>
 
 </body>
 </html>
