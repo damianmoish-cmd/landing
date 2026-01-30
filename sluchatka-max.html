@@ -46,7 +46,9 @@ p{opacity:.9;line-height:1.6;}
 .switch-btn:hover{transform:translateY(-3px);box-shadow:0 8px 20px rgba(255,255,255,0.2);}
 .home-icon{width:24px;height:24px;}
 @media(max-width:900px){h1{font-size:32px;}.price{font-size:34px;}.gallery{grid-template-columns:repeat(auto-fit,minmax(80px,1fr));gap:12px;}.color-select{flex-wrap:wrap;}}/* =========================
-   PREMIUM MOBILE APPLE STYLE
+/* =========================
+   APPLE STYLE MOBILE ADD-ON
+   (НЕ МЕНЯЕТ СУЩЕСТВУЮЩЕЕ)
    ========================= */
 
 @media (max-width: 600px) {
@@ -69,7 +71,7 @@ p{opacity:.9;line-height:1.6;}
     font-size: 22px;
   }
 
-  /* HERO IMAGE */
+  /* HERO IMAGE PREMIUM */
   .hero img {
     width: 100%;
     max-width: 320px;
@@ -79,19 +81,17 @@ p{opacity:.9;line-height:1.6;}
     box-shadow: 0 30px 80px rgba(0,0,0,.6);
   }
 
-  /* GALLERY = SWIPE */
+  /* GALLERY = SWIPE (не ломает grid на ПК) */
   .gallery {
     display: flex;
     overflow-x: auto;
     scroll-snap-type: x mandatory;
-    gap: 12px;
-    padding-bottom: 10px;
+    -webkit-overflow-scrolling: touch;
   }
 
   .gallery img {
     min-width: 90px;
     scroll-snap-align: center;
-    border-radius: 14px;
   }
 
   /* BUTTONS */
@@ -101,65 +101,36 @@ p{opacity:.9;line-height:1.6;}
     margin: 10px auto;
     display: block;
     font-size: 16px;
-    padding: 16px;
   }
 
-  .btn-primary {
-    box-shadow: 0 20px 50px rgba(255,255,255,.25);
-  }
-
-  /* PRICE */
   .price {
     font-size: 32px;
     text-align: center;
-    letter-spacing: -.5px;
   }
 
-  /* COLOR */
-  .color-btn {
-    font-size: 14px;
-    padding: 10px 20px;
-  }
-
-  /* CARDS */
   .grid {
     grid-template-columns: 1fr;
   }
 
-  .card {
-    border-radius: 26px;
-    background: linear-gradient(180deg,#151515,#090909);
-  }
-
-  /* NAV */
-  .logo-nav {
-    position: static;
-    justify-content: center;
-    margin-bottom: 10px;
-  }
-
-  /* STICKY BAR -> APPLE */
-  .sticky-bar {
-    border-radius: 20px 20px 0 0;
-    padding-bottom: env(safe-area-inset-bottom);
-  }
-
-  /* CART FULLSCREEN */
+  /* CART FULLSCREEN MOBILE */
   #cart {
     width: 100% !important;
     border-radius: 24px 24px 0 0;
   }
+
+  /* STICKY BAR APPLE FEEL */
+  .sticky-bar {
+    border-radius: 20px 20px 0 0;
+    padding-bottom: env(safe-area-inset-bottom);
+  }
 }
 
-/* Smooth tap animation */
-.btn, .color-btn, .card {
-  transition: transform .15s ease;
-}
-
+/* Tap feedback (дорого ощущается) */
 .btn:active,
 .color-btn:active {
-  transform: scale(.97);
+  transform: scale(0.97);
 }
+
 
 </style>/
 
@@ -223,44 +194,32 @@ function openCart(){
 
 function closeCart(){
   const cart = document.getElementById('cart');
-  cart.style.right = '-100%';
-}<script>
+  cart.style.right = '-100%';<script>
 /* =========================
-   AUTO LANGUAGE
+   SAFE AUTO LANGUAGE
+   НЕ ПЕРЕБИВАЕТ ТВОЮ ЛОГИКУ
    ========================= */
-(function(){
-  const lang = navigator.language.startsWith('ru') ? 'ru' : 'cz';
-  setLang(lang);
-})();
+document.addEventListener('DOMContentLoaded', function () {
+  if (typeof setLang === 'function') {
+    const lang = navigator.language && navigator.language.startsWith('ru') ? 'ru' : 'cz';
+    setLang(lang);
+  }
+});
 
 /* =========================
-   SWIPE GALLERY -> HERO
+   SMOOTH HERO SWITCH
    ========================= */
 document.querySelectorAll('.gallery img').forEach(img=>{
   img.addEventListener('click',()=>{
     const heroImg = document.querySelector('.hero img');
+    if(!heroImg) return;
     heroImg.style.opacity = 0;
     setTimeout(()=>{
       heroImg.src = img.src;
       heroImg.style.opacity = 1;
-    },200);
+    },150);
   });
 });
-
-/* =========================
-   APPLE STYLE CART OPEN
-   ========================= */
-function openCart(){
-  const cart = document.getElementById('cart');
-  cart.style.right = '0';
-}
-
-function closeCart(){
-  const cart = document.getElementById('cart');
-  cart.style.right = '-100%';
-}
-</script>
-
 </script>
 
     }
