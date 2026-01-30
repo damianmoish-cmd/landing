@@ -267,7 +267,6 @@ Email: coincama@gmail.com | Tel: +420 702 846 018<br>
 Neznačkový produkt. Není spojen s žádnou ochrannou známkou.
 </footer>
 
-<!-- Добавьте прямо перед закрывающим </body> -->
 <div id="fixed-cart-btn" style="
     position:fixed;
     bottom:20px;
@@ -287,8 +286,16 @@ Neznačkový produkt. Není spojen s žádnou ochrannou známkou.
 </div>
 
 <script>
-document.getElementById('fixed-cart-btn').onclick=openCart;
+window.addEventListener('DOMContentLoaded', function(){
+    const cartBtn = document.getElementById('fixed-cart-btn');
+    if(cartBtn && typeof openCart === 'function'){
+        cartBtn.addEventListener('click', openCart);
+    } else {
+        console.error('Функция openCart не найдена. Проверьте, что cart.js подключен.');
+    }
+});
 </script>
+
 
 
 </body>
