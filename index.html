@@ -147,10 +147,45 @@ function addProToCart(){
 <img src="img/airpods4.jpg" onclick="document.getElementById('mainProImg').src='img/airpods4.jpg'">
 </div>
 
-<div>
-<label style="margin-top:12px;">Množství:</label>
-<input type="number" id="qtyPro" min="1" value="1" style="width:60px;padding:6px;border-radius:6px;background:#111;border:1px solid #222;color:#fff;">
+<div class="qty-selector fade-up" style="margin-top:20px;display:flex;align-items:center;gap:12px;">
+    <span style="font-weight:600;">Množství:</span>
+    <button class="qty-btn" onclick="changeQtyPro(-1)">−</button>
+    <span id="qtyProDisplay">1</span>
+    <button class="qty-btn" onclick="changeQtyPro(1)">+</button>
 </div>
+
+<style>
+.qty-btn{
+    background:#222;
+    color:#fff;
+    border:none;
+    width:40px;
+    height:40px;
+    font-size:22px;
+    border-radius:12px;
+    cursor:pointer;
+    transition:0.2s;
+}
+.qty-btn:hover{background:#fff;color:#000;}
+</style>
+
+<script>
+let qtyPro=1;
+function changeQtyPro(delta){
+    qtyPro=Math.max(1, qtyPro+delta);
+    document.getElementById('qtyProDisplay').innerText=qtyPro;
+}
+function addProToCart(){
+    addToCart(
+        'Bezdrátová sluchátka Pro',
+        1099,
+        'img/airpods1.jpg',
+        qtyPro,
+        'Černá'
+    );
+}
+</script>
+
 
 <div style="margin-top:20px;">
 <button class="btn btn-primary" onclick="addProToCart()">Přidat do košíku</button>
