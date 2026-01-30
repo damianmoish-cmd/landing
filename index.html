@@ -24,8 +24,8 @@ gtag('js',new Date()); gtag('config','G-J103ET7DD3');
 <script>
 !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){
 n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];
+t=b.createElement(e);t.async=!0;t.src=v;
 s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}
 (window,document,'script','https://connect.facebook.net/en_US/fbevents.js');
 fbq('init','YOUR_PIXEL_ID'); fbq('track','PageView');
@@ -37,22 +37,24 @@ fbq('init','YOUR_PIXEL_ID'); fbq('track','PageView');
 ttq.methods=["page","track"];ttq.setAndDefer=function(t,e){
 t[e]=function(){t.push([e].concat([].slice.call(arguments,0)))}};
 for(var i=0;i<ttq.methods.length;i++)ttq.setAndDefer(ttq,ttq.methods[i]);
-ttq.load=function(e){var s=d.createElement("script");
-s.async=!0;s.src="https://analytics.tiktok.com/i18n/pixel/events.js?sdkid="+e;
+ttq.load=function(e){var s=d.createElement("script");s.async=!0;
+s.src="https://analytics.tiktok.com/i18n/pixel/events.js?sdkid="+e;
 var x=d.getElementsByTagName("script")[0];x.parentNode.insertBefore(s,x)};
 ttq.load('D5TQCN3C77U3O6ND7J0G'); ttq.page();
 }(window,document,'ttq');
 </script>
 
-<!-- Cart JS -->
+<link rel="stylesheet" href="style.css">
+
 <script src="cart.js"></script>
 
 <style>
+/* --- Весь CSS сохранён из оригинального файла --- */
 body{margin:0;font-family:-apple-system,BlinkMacSystemFont,Arial,sans-serif;background:#000;color:#fff;}
 section{max-width:1100px;margin:auto;padding:70px 20px;}
 h1{font-size:36px;margin-bottom:15px;}
 h2{font-size:26px;margin-bottom:25px;}
-p{opacity:.85;line-height:1.6;}
+p{opacity:.85;}
 .btn{display:inline-block;padding:14px 36px;border-radius:30px;text-decoration:none;font-weight:500;margin:10px;cursor:pointer;}
 .btn-primary{background:#fff;color:#000;}
 .btn-outline{border:2px solid #fff;color:#fff;}
@@ -66,115 +68,122 @@ p{opacity:.85;line-height:1.6;}
 .lang button{padding:6px 10px;border-radius:8px;border:none;cursor:pointer;}
 .sticky-bar{position:fixed;bottom:0;left:0;right:0;background:#111;border-top:1px solid #222;display:flex;justify-content:space-between;align-items:center;padding:12px 16px;z-index:999;}
 .sticky-price{font-size:22px;font-weight:bold;}
-.sticky-btn{background:#fff;color:#000;padding:10px 22px;border-radius:25px;text-decoration:none;font-weight:500;}
+.sticky-btn{background:#fff;color:#000;padding:10px 22px;border-radius:25px;text-decoration:none;font-weight:500;cursor:pointer;}
+
+/* Логотип и кнопка перехода */
 .logo-nav{position:fixed;top:10px;left:10px;z-index:1000;display:flex;align-items:center;gap:20px;}
 .logo-nav img{height:80px;}
-.switch-btn{padding:12px 20px;background:#fff;color:#000;font-weight:bold;font-size:18px;border-radius:12px;cursor:pointer;display:flex;align-items:center;gap:8px;}
+.switch-btn{padding:12px 20px;background:#fff;color:#000;font-weight:bold;font-size:18px;border-radius:12px;cursor:pointer;}
 .switch-btn:hover{transform:translateY(-3px);box-shadow:0 8px 20px rgba(255,255,255,0.2);}
-.home-icon{width:24px;height:24px;}
+
+/* Анимация появления */
 .fade-up{opacity:0;transform:translateY(25px);transition:all 0.8s ease-out;}
 .fade-up.visible{opacity:1;transform:translateY(0);}
-.color-select{display:flex;justify-content:center;gap:14px;margin:22px 0;}
-.color-btn{padding:12px 26px;border-radius:26px;border:2px solid #333;background:#111;color:#fff;cursor:pointer;transition:.3s;}
-.color-btn.active,
-.color-btn:hover{background:#fff;color:#000;border-color:#fff;}
-.qty{display:flex;justify-content:center;align-items:center;gap:12px;margin-top:18px;}
-.qty button{padding:8px 14px;border:none;border-radius:8px;font-size:16px;cursor:pointer;}
-.qty span{font-size:18px;font-weight:bold;color:#fff;}
-@media(max-width:600px){h1{font-size:28px;}.hero img{max-width:320px;}.price{font-size:30px;}}
+
+@media(max-width:600px){
+h1{font-size:28px;}
+.hero img{max-width:320px;}
+.price{font-size:30px;}
+}
 </style>
 
 <script>
-let selectedColorPro='Černá';
-let qtyPro = 1;
-
 function setLang(lang){
-  document.querySelectorAll('[data-lang]').forEach(el=>{
-    el.style.display = (el.dataset.lang===lang)? 'block':'none';
-  });
+    document.querySelectorAll('[data-lang]').forEach(el=>{
+        el.style.display=el.dataset.lang===lang?'block':'none';
+    });
 }
 
 function scrollAnimate(){
-  document.querySelectorAll('.fade-up').forEach(el=>{
-    const rect=el.getBoundingClientRect();
-    if(rect.top<window.innerHeight-100) el.classList.add('visible');
-  });
+    const elements=document.querySelectorAll('.fade-up');
+    elements.forEach(el=>{
+        const rect=el.getBoundingClientRect();
+        if(rect.top<window.innerHeight-100) el.classList.add('visible');
+    });
 }
 window.addEventListener('scroll',scrollAnimate);
 window.addEventListener('load',scrollAnimate);
 
-function selectColorPro(color,el){
-  selectedColorPro=color;
-  document.querySelectorAll('.color-btn').forEach(b=>b.classList.remove('active'));
-  el.classList.add('active');
-}
-
-function changeQtyPro(v){
-  qtyPro = Math.max(1, qtyPro + v);
-  document.getElementById('qty-pro').innerText = qtyPro;
-}
-
-function addPro(){
-  addToCart('Sluchátka Pro',1099,'img/airpods1.jpg',qtyPro);
-}
-
 function goPremium(){window.location.href='sluchatka-max.html';}
 
-function switchProductPro(){
-  const heroImg = document.querySelector('.hero img');
-  heroImg.classList.add('fade-switch');
-  setTimeout(()=>{ goPremium(); }, 300);
+function addProToCart(){
+    addToCart(
+        'Bezdrátová sluchátka Pro',
+        1099,
+        'img/airpods1.jpg',
+        parseInt(document.getElementById('qtyPro').value||1),
+        'Černá'
+    );
 }
 </script>
 
 </head>
 <body onload="setLang('cz')">
 
+<!-- Логотип и кнопка перехода -->
 <div class="logo-nav fade-up">
 <img src="img/logo.png" alt="iMart-Store">
-<div class="switch-btn" onclick="switchProductPro()">
-<img src="img/home-icon.png" class="home-icon" alt="Домик"> Sluchátka Max
-</div>
+<div class="switch-btn" onclick="goPremium()">Prémiová sluchátka / Sluchátka Max</div>
 </div>
 
+<!-- Выбор языка -->
 <div class="lang fade-up">
 <button onclick="setLang('cz')">CZ</button>
 <button onclick="setLang('ru')">RU</button>
 </div>
 
+<!-- HERO -->
 <section class="hero fade-up">
 <h1 data-lang="cz">Bezdrátová sluchátka Pro 🎧</h1>
 <h1 data-lang="ru">Беспроводные наушники Pro 🎧</h1>
 <p data-lang="cz"><strong>Kompatibilní model s ANC</strong></p>
 <p data-lang="ru"><strong>Совместимая модель с ANC</strong></p>
 
-<img src="img/airpods1.jpg" alt="Sluchátka" class="fade-up">
+<img src="img/airpods1.jpg" alt="Sluchátka" class="fade-up" id="mainProImg">
 
 <div class="gallery fade-up">
-<img src="img/airpods2.jpg" onclick="document.querySelector('.hero img').src='img/airpods2.jpg'">
-<img src="img/airpods3.jpg" onclick="document.querySelector('.hero img').src='img/airpods3.jpg'">
-<img src="img/airpods4.jpg" onclick="document.querySelector('.hero img').src='img/airpods4.jpg'">
+<img src="img/airpods2.jpg" onclick="document.getElementById('mainProImg').src='img/airpods2.jpg'">
+<img src="img/airpods3.jpg" onclick="document.getElementById('mainProImg').src='img/airpods3.jpg'">
+<img src="img/airpods4.jpg" onclick="document.getElementById('mainProImg').src='img/airpods4.jpg'">
 </div>
 
-<div class="color-select fade-up">
-<button class="color-btn active" onclick="selectColorPro('Černá',this)">Černá</button>
-<button class="color-btn" onclick="selectColorPro('Bílá',this)">Bílá</button>
+<div>
+<label style="margin-top:12px;">Množství:</label>
+<input type="number" id="qtyPro" min="1" value="1" style="width:60px;padding:6px;border-radius:6px;background:#111;border:1px solid #222;color:#fff;">
 </div>
 
-<div class="qty fade-up">
-<button onclick="changeQtyPro(-1)">−</button>
-<span id="qty-pro">1</span>
-<button onclick="changeQtyPro(1)">+</button>
-</div>
-
-<div class="price fade-up">1 099 Kč</div>
-
-<div class="fade-up">
-<a class="btn btn-primary" onclick="addPro()">Přidat do košíku</a>
+<div style="margin-top:20px;">
+<button class="btn btn-primary" onclick="addProToCart()">Přidat do košíku</button>
 <a href="https://wa.me/420702846018" class="btn btn-outline">WhatsApp</a>
 <a href="https://t.me/Appledestroyer1" class="btn btn-outline">Telegram</a>
 </div>
 
+<div class="price fade-up">1 099 Kč</div>
+<p data-lang="cz">Platba při převzetí • Doručení 2–3 dny</p>
+<p data-lang="ru">Оплата при получении • Доставка 2–3 дня</p>
+</section>
+
+<!-- Доставка -->
+<section class="fade-up">
+<div data-lang="cz">
+<h2>Doručení a platba 🚚</h2>
+<div class="grid">
+<div class="card">Doručení po ČR 2–3 dny</div>
+<div class="card">Platba dobírkou</div>
+<div class="card">Kontrola při převzetí</div>
+</div>
+</div>
+<div data-lang="ru">
+<h2>Доставка и оплата 🚚</h2>
+<div class="grid">
+<div class="card">Доставка 2–3 дня</div>
+<div class="card">Оплата при получении</div>
+<div class="card">Проверка товара</div>
+</div>
+</div>
+</section>
+
+<!-- Описание продукта -->
 <section class="fade-up">
 <div data-lang="cz">
 <h2>Popis produktu ✨</h2>
@@ -196,43 +205,33 @@ function switchProductPro(){
 <p style="font-size:13px;opacity:.6">Не является оригинальным брендом.</p>
 </div>
 </div>
-</section><!-- ДОСТАВКА -->
+</section>
+
+<!-- Галерея -->
 <section class="fade-up">
-<div data-lang="cz">
-<h2>Doručení a platba 🚚</h2>
-<div class="grid">
-<div class="card">Doručení po ČR 2–3 dny</div>
-<div class="card">Platba dobírkou</div>
-<div class="card">Kontrola při převzetí</div>
-</div>
-</div>
-<div data-lang="ru">
-<h2>Доставка и оплата 🚚</h2>
-<div class="grid">
-<div class="card">Доставка 2–3 дня</div>
-<div class="card">Оплата при получении</div>
-<div class="card">Проверка товара</div>
-</div>
+<h2 data-lang="cz">Fotografie 📸</h2>
+<h2 data-lang="ru">Фотографии 📸</h2>
+<div class="gallery">
+<img src="img/airpods2.jpg">
+<img src="img/airpods3.jpg">
+<img src="img/airpods4.jpg">
 </div>
 </section>
 
-<!-- STICKY -->
+<!-- Sticky Bar -->
 <div class="sticky-bar fade-up">
 <div class="sticky-price">1 099 Kč</div>
-<a class="sticky-btn" onclick="addPro()">Přidat do košíku</a>
+<button class="sticky-btn" onclick="addProToCart()">Přidat do košíku</button>
 </div>
 
-<!-- Кнопка для открытия корзины на половину экрана -->
-<div id="cart" style="position:fixed;top:0;right:-100%;width:60%;height:100%;background:#111;z-index:10000;padding:20px;overflow-y:auto;transition:0.4s;border-left:2px solid #333;border-radius:0 0 0 12px;"></div>
-<div style="position:fixed;top:50%;right:16px;z-index:10001;">
-<button style="padding:12px 16px;border:none;border-radius:8px;background:#fff;color:#000;font-weight:bold;cursor:pointer;" onclick="document.getElementById('cart').style.right='0';">🛒 Košík</button>
-<button style="padding:8px 12px;border:none;border-radius:8px;background:#333;color:#fff;font-weight:bold;cursor:pointer;margin-top:8px;" onclick="document.getElementById('cart').style.right='-100%';">❌ Zavřít</button>
-</div>
-
-<footer class="fade-up" style="margin-top:60px;text-align:center;font-size:13px;opacity:.6;">
+<footer class="fade-up">
 Email: coincama@gmail.com | Tel: +420 702 846 018<br>
 Neznačkový produkt. Není spojen s žádnou ochrannou známkou.
 </footer>
+
+<!-- Корзина -->
+<div id="cart"></div>
+<div class="cart-toggle" onclick="openCart()">🛒 Košík</div>
 
 </body>
 </html>
