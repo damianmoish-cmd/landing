@@ -286,14 +286,23 @@ Neznačkový produkt. Není spojen s žádnou ochrannou známkou.
 </div>
 
 <script>
-window.addEventListener('DOMContentLoaded', function(){
+<!-- Подключение корзины -->
+<script src="cart.js"></script>
+
+<!-- Инициализация кнопки корзины -->
+<script>
+document.addEventListener('DOMContentLoaded', function(){
+    // Проверяем кнопку
     const cartBtn = document.getElementById('fixed-cart-btn');
-    if(cartBtn && typeof openCart === 'function'){
-        cartBtn.addEventListener('click', openCart);
-    } else {
-        console.error('Функция openCart не найдена. Проверьте, что cart.js подключен.');
+    if(cartBtn){
+        cartBtn.addEventListener('click', function(){
+            if(typeof openCart === 'function'){
+                openCart();
+            } else {
+                console.error('Функция openCart не найдена.');
+            }
+        });
     }
-});
 </script>
 
 
