@@ -6,79 +6,96 @@
 <title>Bezdrátová sluchátka Pro | ANC • Rychlé doručení</title>
 <meta name="description" content="Bezdrátová sluchátka s ANC. Platba při převzetí. Doručení 2–3 dny.">
 
-<!-- OpenGraph -->
-<meta property="og:title" content="Bezdrátová sluchátka Pro">
-<meta property="og:description" content="ANC • Platba při převzetí • Doručení 2–3 dny">
-<meta property="og:image" content="img/airpods1.jpg">
-<meta property="og:type" content="website">
-
-<!-- GA -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-J103ET7DD3"></script>
-<script>
-window.dataLayer=window.dataLayer||[];
-function gtag(){dataLayer.push(arguments);}
-gtag('js',new Date()); 
-gtag('config','G-J103ET7DD3');
-</script>
-
-<!-- FB Pixel -->
-<script>
-!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){
-n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];
-t=b.createElement(e);t.async=!0;t.src=v;
-s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}
-(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');
-fbq('init','YOUR_PIXEL_ID'); fbq('track','PageView');
-</script>
-
-<!-- TikTok -->
-<script>
-!function(w,d,t){w.TiktokAnalyticsObject=t;var ttq=w[t]=w[t]||[];
-ttq.methods=["page","track"];ttq.setAndDefer=function(t,e){
-t[e]=function(){t.push([e].concat([].slice.call(arguments,0)))}};
-for(var i=0;i<ttq.methods.length;i++)ttq.setAndDefer(ttq,ttq.methods[i]);
-ttq.load=function(e){var s=d.createElement("script");s.async=!0;
-s.src="https://analytics.tiktok.com/i18n/pixel/events.js?sdkid="+e;
-var x=d.getElementsByTagName("script")[0];x.parentNode.insertBefore(s,x)};
-ttq.load('D5TQCN3C77U3O6ND7J0G'); ttq.page();
-}(window,document,'ttq');
-</script>
-
 <link rel="stylesheet" href="style.css">
 <script src="cart.js"></script>
 
 <style>
-body{margin:0;font-family:-apple-system,BlinkMacSystemFont,Arial,sans-serif;background:#000;color:#fff;}
-section{max-width:1100px;margin:auto;padding:70px 20px;}
+/* Основные стили */
+body {margin:0;font-family:-apple-system,BlinkMacSystemFont,Arial,sans-serif;background:#000;color:#fff;overflow-x:hidden;}
+section {max-width:1100px;margin:auto;padding:70px 20px;}
 h1{font-size:36px;margin-bottom:15px;}
 h2{font-size:26px;margin-bottom:25px;}
 p{opacity:.85;}
-.btn{display:inline-block;padding:14px 36px;border-radius:30px;text-decoration:none;font-weight:500;margin:10px;cursor:pointer;}
+.btn{display:inline-block;padding:14px 36px;border-radius:30px;text-decoration:none;font-weight:500;margin:10px 5px 10px 0;cursor:pointer;}
 .btn-primary{background:#fff;color:#000;}
 .btn-outline{border:2px solid #fff;color:#fff;}
 .price{font-size:38px;font-weight:bold;margin-top:20px;}
 .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:25px;}
 .card{background:#111;padding:25px;border-radius:16px;}
-.gallery{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:20px;}
+.gallery{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:15px;}
 .gallery img{width:100%;border-radius:14px;transition:.3s;cursor:pointer;}
 .gallery img:hover{transform:scale(1.05);}
 .lang{position:fixed;top:15px;right:15px;z-index:5;}
 .lang button{padding:6px 10px;border-radius:8px;border:none;cursor:pointer;}
-.sticky-bar{position:fixed;bottom:0;left:0;right:0;background:#111;border-top:1px solid #222;display:flex;justify-content:space-between;align-items:center;padding:12px 16px;z-index:999;}
-.sticky-price{font-size:22px;font-weight:bold;}
-.sticky-btn{background:#fff;color:#000;padding:10px 22px;border-radius:25px;text-decoration:none;font-weight:500;cursor:pointer;}
-.logo-nav{position:fixed;top:10px;left:10px;z-index:1000;display:flex;align-items:center;gap:20px;}
-.switch-btn{padding:12px 20px;background:#fff;color:#000;font-weight:bold;font-size:18px;border-radius:12px;cursor:pointer;}
-.switch-btn:hover{transform:translateY(-3px);box-shadow:0 8px 20px rgba(255,255,255,0.2);}
 .fade-up{opacity:0;transform:translateY(25px);transition:all 0.8s ease-out;}
 .fade-up.visible{opacity:1;transform:translateY(0);}
-.qty-btn{background:#222;color:#fff;border:none;width:40px;height:40px;font-size:22px;border-radius:12px;cursor:pointer;transition:0.2s;}
+.qty-btn{background:#222;color:#fff;border:none;width:36px;height:36px;font-size:20px;border-radius:12px;cursor:pointer;transition:0.2s;}
 .qty-btn:hover{background:#fff;color:#000;}
-@media(max-width:600px){
-h1{font-size:28px;}
-.hero img{max-width:320px;}
-.price{font-size:30px;}
+
+/* Логотип и кнопка Max сверху */
+.logo-nav{
+  position:fixed;
+  top:10px;
+  left:10px;
+  right:10px;
+  z-index:1000;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:0 10px;
+  flex-wrap:wrap;
+}
+.switch-btn{
+  padding:10px 16px;
+  background:#fff;
+  color:#000;
+  font-weight:bold;
+  font-size:16px;
+  border-radius:12px;
+  cursor:pointer;
+  white-space:nowrap;
+}
+.switch-btn:hover{transform:translateY(-2px);box-shadow:0 6px 16px rgba(255,255,255,0.2);}
+
+/* Sticky bar снизу */
+.sticky-bar{
+  position:fixed;
+  bottom:0;
+  left:0;
+  right:0;
+  background:#111;
+  border-top:1px solid #222;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:12px 16px;
+  z-index:999;
+}
+.sticky-price{font-size:22px;font-weight:bold;}
+.sticky-btn{background:#fff;color:#000;padding:12px 24px;border-radius:25px;text-decoration:none;font-weight:500;cursor:pointer;flex-shrink:0;}
+
+/* Мобильная адаптация */
+@media(max-width:768px){
+  h1{font-size:28px;}
+  h2{font-size:22px;}
+  .price{font-size:28px;}
+  .sticky-price{font-size:20px;}
+  .switch-btn{padding:8px 14px;font-size:14px;}
+  section{padding:50px 15px;}
+  .gallery{grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px;}
+  .btn{padding:10px 24px;font-size:14px;margin:8px 5px 8px 0;}
+}
+
+@media(max-width:480px){
+  h1{font-size:24px;}
+  h2{font-size:20px;}
+  .price{font-size:24px;}
+  .sticky-price{font-size:18px;}
+  .switch-btn{padding:6px 12px;font-size:13px;}
+  .qty-btn{width:32px;height:32px;font-size:18px;}
+  section{padding:40px 10px;}
+  .gallery{grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:8px;}
+  .btn{padding:8px 18px;font-size:13px;margin:6px 5px 6px 0;}
 }
 </style>
 
@@ -102,10 +119,6 @@ function scrollAnimate(){
 window.addEventListener('scroll', scrollAnimate);
 window.addEventListener('load', scrollAnimate);
 
-function goPremium(){
-    window.location.href='sluchatka-max.html';
-}
-
 let qtyPro = 1;
 function changeQtyPro(delta){
     qtyPro = Math.max(1, qtyPro + delta);
@@ -113,13 +126,7 @@ function changeQtyPro(delta){
 }
 
 function addProToCart(){
-    addToCart(
-        'Bezdrátová sluchátka Pro',
-        1099,
-        'img/airpods1.jpg',
-        qtyPro,
-        'Černá'
-    );
+    addToCart('Bezdrátová sluchátka Pro',1099,'img/airpods1.jpg',qtyPro,'Černá');
 }
 
 function goToMax(){
@@ -149,13 +156,8 @@ function goToMax(){
 <p data-lang="cz"><strong>Model s aktivním potlačením hluku (ANC)</strong></p>
 <p data-lang="ru"><strong>Модель с активным шумоподавлением (ANC)</strong></p>
 
-<p data-lang="cz" style="font-size:13px;opacity:.7;">
-Nejedná se o originální výrobek známých značek. Kompatibilní s iOS a Android.
-</p>
-
-<p data-lang="ru" style="font-size:13px;opacity:.7;">
-Не является оригинальным продуктом известных брендов. Совместим с iOS и Android.
-</p>
+<p data-lang="cz" style="font-size:13px;opacity:.7;">Nejedná se o originální výrobek známých značek. Kompatibilní s iOS a Android.</p>
+<p data-lang="ru" style="font-size:13px;opacity:.7;">Не является оригинальным продуктом известных брендов. Совместим с iOS и Android.</p>
 
 <img src="img/airpods1.jpg" alt="Sluchátka" class="fade-up" id="mainProImg">
 
@@ -226,12 +228,14 @@ Nejedná se o originální výrobek známých značek. Kompatibilní s iOS a And
 </div>
 </section>
 
-<section>
+<!-- Отзывы -->
+<section class="fade-up">
 <p data-lang="cz">⭐ Hodnocení 4.8 / 5 — více než 1 200 spokojených zákazníků</p>
 <p data-lang="ru">⭐ Рейтинг 4.8 / 5 — более 1 200 довольных клиентов</p>
 </section>
 
-<section>
+<!-- FAQ -->
+<section class="fade-up">
 <h2 data-lang="cz">Často kladené dotazy</h2>
 <h2 data-lang="ru">Часто задаваемые вопросы</h2>
 <div data-lang="cz">
@@ -244,6 +248,7 @@ Nejedná se o originální výrobek známých značek. Kompatibilní s iOS a And
 </div>
 </section>
 
+<!-- Галерея -->
 <section class="fade-up">
 <h2 data-lang="cz">Fotografie 📸</h2>
 <h2 data-lang="ru">Фотографии 📸</h2>
@@ -254,37 +259,20 @@ Nejedná se o originální výrobek známých značek. Kompatibilní s iOS a And
 </div>
 </section>
 
+<!-- Sticky bar -->
 <div class="sticky-bar fade-up">
 <div class="sticky-price">1 099 Kč</div>
 <button class="sticky-btn" onclick="addProToCart()">objednat nyní</button>
 </div>
 
-<footer class="fade-up">
+<footer class="fade-up" style="padding:20px 15px; text-align:center; font-size:13px;">
 Email: coincama@gmail.com | Tel: +420 702 846 018<br>
 Neznačkový produkt. Není spojen s žádnou ochrannou známkou.
 </footer>
 
-<div id="cart-overlay" style="
-    position:fixed; top:0; left:0; right:0; bottom:0;
-    background:rgba(0,0,0,0.5);
-    opacity:0; visibility:hidden;
-    transition:opacity 0.3s ease; z-index:9998;
-"></div>
-
-<div id="cart" style="
-    position:fixed; top:0; right:-400px; width:360px; height:100%;
-    background:#f1f1f1; transition:right 0.3s ease; padding:16px;
-    overflow-y:auto; z-index:9999;
-"></div>
-
-<div id="fixed-cart-btn" style="
-    position:fixed; bottom:20px; right:20px; width:60px; height:60px;
-    background:#000; border-radius:50%; display:flex; align-items:center;
-    justify-content:center; cursor:pointer; z-index:10000;
-    box-shadow:0 5px 20px rgba(0,0,0,0.4);
-">
-    <span style="font-size:28px;color:#fff;">🛒</span>
-</div>
+<div id="cart-overlay"></div>
+<div id="cart"></div>
+<div id="fixed-cart-btn"><span style="font-size:28px;color:#fff;">🛒</span></div>
 
 <script>
 document.addEventListener('DOMContentLoaded', function(){
