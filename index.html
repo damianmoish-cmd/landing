@@ -257,6 +257,62 @@ document.addEventListener('DOMContentLoaded', function(){
     }
 });
 </script>
+<!-- Вставь это в конец body перед </body> -->
+
+<!-- Кнопка корзины -->
+<div id="fixed-cart-btn" style="
+    position:fixed; bottom:20px; right:20px; width:60px; height:60px;
+    background:#000; border-radius:50%; display:flex; align-items:center;
+    justify-content:center; cursor:pointer; z-index:10000;
+    box-shadow:0 5px 20px rgba(0,0,0,0.4);
+">
+    <span style="font-size:28px;color:#fff;">🛒</span>
+</div>
+
+<script>
+const cartOverlay = document.getElementById('cart-overlay');
+const cartContainer = document.getElementById('cart');
+
+// Функция открытия корзины
+function openCart() {
+    cartContainer.style.right = '0';
+    cartOverlay.style.opacity = '1';
+    cartOverlay.style.visibility = 'visible';
+}
+
+// Функция закрытия корзины
+function closeCart() {
+    cartContainer.style.right = '-400px';
+    cartOverlay.style.opacity = '0';
+    cartOverlay.style.visibility = 'hidden';
+}
+
+// Закрытие по клику на overlay
+cartOverlay.addEventListener('click', closeCart);
+
+// Инициализация кнопки
+document.getElementById('fixed-cart-btn').addEventListener('click', openCart);
+
+// Добавление товара в корзину
+function addToCart(name, price, img, qty, color){
+    let itemHTML = `
+    <div style="display:flex;gap:12px;margin-bottom:15px;align-items:center;">
+        <img src="${img}" style="width:60px;height:60px;border-radius:12px;object-fit:cover;">
+        <div style="flex:1;">
+            <div style="font-weight:bold;color:#000;">${name}</div>
+            <div style="color:#333;">${color} • ${qty} × ${price} Kč</div>
+        </div>
+        <button onclick="removeCartItem(this)" style="background:red;color:#fff;border:none;border-radius:6px;padding:4px 8px;cursor:pointer;">✕</button>
+    </div>`;
+    cartContainer.innerHTML += itemHTML;
+    openCart();
+}
+
+// Удаление товара
+function removeCartItem(btn){
+    btn.parentElement.remove();
+}
+</script>
 
 </body>
 </html>
