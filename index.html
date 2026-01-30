@@ -175,7 +175,7 @@ function goToMax(){
 </div>
 
 <div style="margin-top:20px;">
-<button class="btn btn-primary" onclick="addProToCart()">Přidat do košíku</button>
+<button class="btn btn-primary" onclick="addToCart('Bezdrátová sluchátka Pro', 1099, 'img/airpods1.jpg', qtyPro, 'Černá')">Přidat do košíku</button>
 <a href="https://wa.me/420702846018" class="btn btn-outline">WhatsApp</a>
 <a href="https://t.me/Appledestroyer1" class="btn btn-outline">Telegram</a>
 <a href="sluchatka-max.html" class="switch-btn">Sluchatka Max 🎧</a>
@@ -273,7 +273,53 @@ Neznačkový produkt. Není spojen s žádnou ochrannou známkou.
 <div id="cart-overlay"></div>
 <div id="cart"></div>
 <div id="fixed-cart-btn"><span style="font-size:28px;color:#fff;">🛒</span></div>
+<!-- Кнопка корзины -->
+<div id="fixed-cart-btn" style="
+    position:fixed;
+    bottom:20px;
+    right:20px;
+    width:60px;
+    height:60px;
+    background:#000;
+    border-radius:50%;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    cursor:pointer;
+    z-index:10000;
+    box-shadow:0 5px 20px rgba(0,0,0,0.4);
+    transition:transform 0.2s;
+">
+    <span style="font-size:28px;color:#fff;">🛒</span>
+</div>
 
+<!-- Фон для затемнения -->
+<div id="cart-overlay" style="
+    position:fixed; top:0; left:0; right:0; bottom:0;
+    background:rgba(0,0,0,0.5);
+    opacity:0; visibility:hidden;
+    transition:opacity 0.3s ease;
+    z-index:9998;
+"></div>
+
+<!-- Контейнер корзины -->
+<div id="cart" style="
+    position:fixed; top:0; right:-400px; width:360px; max-width:90%; height:100%;
+    background:#f1f1f1; transition:right 0.3s ease; padding:16px;
+    overflow-y:auto; z-index:9999;
+">
+    <h2>Košík 🛒</h2>
+    <div id="cart-items"></div>
+    <button onclick="closeCart()" style="
+        margin-top:20px;
+        padding:10px 20px;
+        border:none;
+        background:#000;
+        color:#fff;
+        border-radius:8px;
+        cursor:pointer;
+    ">Zavřít</button>
+</div>
 <script>
 document.addEventListener('DOMContentLoaded', function(){
     const cartBtn = document.getElementById('fixed-cart-btn');
@@ -282,6 +328,58 @@ document.addEventListener('DOMContentLoaded', function(){
     }
 });
 </script>
+<script>
+// Открытие корзины
+function openCart(){
+    document.getElementById('cart').style.right = '0';
+    document.getElementById('cart-overlay').style.opacity = '1';
+    document.getElementById('cart-overlay').style.visibility = 'visible';
+}
 
+// Закрытие корзины
+function closeCart(){
+    document.getElementById('cart').style.right = '-400px';
+    document.getElementById('cart-overlay').style.opacity = '0';
+    document.getElementById('cart-overlay').style.visibility = 'hidden';
+}
+
+// Закрытие при клике на фон
+document.getElementById('cart-overlay').addEventListener('click', closeCart);
+
+// Привязка к кнопке
+const cartBtn = document.getElementById('fixed-cart-btn');
+cartBtn.addEventListener('click', openCart);
+
+// Эффект подпрыгивания кнопки
+function animateCartBtn(){
+    cartBtn.style.transform = 'translateY(-10px)';
+    setTimeout(()=>{ cartBtn.style.transform = 'translateY(0)'; }, 200);
+}
+
+// Функция добавления товара в корзину
+function addToCart(name, price, img, qty, color){
+    const cartItems = document.getElementById('cart-items');
+    
+    const item = document.createElement('div');
+    item.style.display = 'flex';
+    item.style.alignItems = 'center';
+    item.style.marginBottom = '12px';
+    item.innerHTML = `
+        <img src="${img}" style="width:50px;height:50px;border-radius:8px;margin-right:10px;">
+        <div>
+            <strong>${name}</strong><br>
+            ${color} | ${qty} ks<br>
+            ${price * qty} Kč
+        </div>
+    `;
+    cartItems.appendChild(item);
+
+    // Подпрыгивание кнопки
+    animateCartBtn();
+
+    // Открыть корзину
+    openCart();
+}
+</script>
 </body>
 </html>
