@@ -276,15 +276,34 @@ document.addEventListener('DOMContentLoaded',()=>{
   document.getElementById('fixed-cart-btn').addEventListener('click',openCart);
   document.getElementById('cart-overlay').addEventListener('click',closeCart);
 });
+  let currentLang = 'cz';
+
+function toggleLang(){
+  currentLang = currentLang === 'cz' ? 'ru' : 'cz';
+  document.querySelectorAll('[data-lang]').forEach(el=>{
+    el.style.display = el.getAttribute('data-lang') === currentLang ? 'block' : 'none';
+  });
+}
+
+// Инициализация при загрузке страницы
+document.addEventListener('DOMContentLoaded',()=>{
+  toggleLang(); // Покажем язык по умолчанию
+});
+
 </script>
+
 </head>
 <body>
-
-<!-- Логотип -->
+  
+<!-- Логотип и кнопки сверху -->
 <div class="logo-nav fade-up">
   <span style="font-size:28px;font-weight:bold;">iMart-Store</span>
-  <div class="switch-btn" onclick="goToMax()">Sluchatka Max 🎧</div>
+  <div style="display:flex;gap:10px;align-items:center;">
+    <div class="switch-btn" onclick="goToMax()">Sluchatka Max 🎧</div>
+    <div class="switch-btn" id="lang-btn" onclick="toggleLang()">CZ / RU</div>
+  </div>
 </div>
+
 
 <!-- Заголовок и описание -->
 <section class="fade-up">
