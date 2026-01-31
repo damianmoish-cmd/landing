@@ -1123,7 +1123,7 @@
 
         .order-form-select {
             appearance: none;
-            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%23fff' d='M6 9L1 4h10z'/%3E%3C/svg%3E");
+            background-image: url("image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%23fff' d='M6 9L1 4h10z'/%3E%3C/svg%3E");
             background-repeat: no-repeat;
             background-position: right 12px center;
             padding-right: 35px;
@@ -2150,28 +2150,33 @@
                 <div class="order-error" id="order-error"></div>
                 
                 <form id="order-form" onsubmit="submitOrder(event)">
+                    <input type="hidden" name="_subject" value="Nová objednávka z iMart-Store">
+                    <input type="hidden" name="_cc" value="coincama@gmail.com">
+                    <input type="hidden" name="_captcha" value="false">
+                    
                     <div class="order-form-group">
                         <label class="order-form-label required" data-lang-cz="Jméno a příjmení" data-lang-ru="Имя и фамилия">Jméno a příjmení</label>
-                        <input type="text" class="order-form-input" id="order-name" required placeholder="${currentLang === 'cz' ? 'Jan Novák' : 'Иван Иванов'}">
+                        <input type="text" class="order-form-input" name="jmeno" required placeholder="${currentLang === 'cz' ? 'Jan Novák' : 'Иван Иванов'}">
                     </div>
                     
                     <div class="order-form-group">
                         <label class="order-form-label required" data-lang-cz="Telefonní číslo" data-lang-ru="Номер телефона">Telefonní číslo</label>
-                        <input type="tel" class="order-form-input" id="order-phone" required placeholder="+420 123 456 789">
+                        <input type="tel" class="order-form-input" name="telefon" required placeholder="+420 123 456 789">
                     </div>
                     
                     <div class="order-form-group">
                         <label class="order-form-label" data-lang-cz="E-mail" data-lang-ru="Электронная почта">E-mail</label>
-                        <input type="email" class="order-form-input" id="order-email" placeholder="${currentLang === 'cz' ? 'vase@email.cz' : 'vash@email.ru'}">
+                        <input type="email" class="order-form-input" name="email" placeholder="${currentLang === 'cz' ? 'vase@email.cz' : 'vash@email.ru'}">
                     </div>
                     
                     <div class="order-form-group">
                         <label class="order-form-label required" data-lang-cz="Adresa pro doručení" data-lang-ru="Адрес доставки">Adresa pro doručení</label>
-                        <textarea class="order-form-textarea" id="order-address" required placeholder="${currentLang === 'cz' ? 'Ulice 123, Město, 123 45' : 'Улица 123, Город, 12345'}"></textarea>
+                        <textarea class="order-form-textarea" name="adresa" required placeholder="${currentLang === 'cz' ? 'Ulice 123, Město, 123 45' : 'Улица 123, Город, 12345'}"></textarea>
                     </div>
                     
                     <div class="order-form-group">
                         <label class="order-form-label required" data-lang-cz="Způsob doručení" data-lang-ru="Способ доставки">Způsob doručení</label>
+                        <input type="hidden" name="doruceni" id="delivery-input" value="Zásilkovna">
                         <div class="delivery-options">
                             <div class="delivery-option active" onclick="selectDelivery('Zásilkovna', this)">
                                 <div class="delivery-logo">📦</div>
@@ -2190,7 +2195,7 @@
                     
                     <div class="order-form-group">
                         <label class="order-form-label" data-lang-cz="Poznámka k objednávce" data-lang-ru="Примечание к заказу">Poznámka k objednávce</label>
-                        <textarea class="order-form-textarea" id="order-note" placeholder="${currentLang === 'cz' ? 'Např. preferovaný čas doručení' : 'Например, предпочтительное время доставки'}"></textarea>
+                        <textarea class="order-form-textarea" name="poznamka" placeholder="${currentLang === 'cz' ? 'Např. preferovaný čas doručení' : 'Например, предпочтительное время доставки'}"></textarea>
                     </div>
                     
                     <button type="submit" class="order-submit-btn" id="order-submit-btn">
@@ -2204,6 +2209,7 @@
 
         function selectDelivery(service, element) {
             selectedDelivery = service;
+            document.getElementById('delivery-input').value = service;
             document.querySelectorAll('.delivery-option').forEach(opt => opt.classList.remove('active'));
             element.classList.add('active');
         }
@@ -2216,33 +2222,14 @@
             submitBtn.disabled = true;
             submitBtn.innerHTML = '<div class="spinner"></div>';
             
-            // Get form data
-            const name = document.getElementById('order-name').value.trim();
-            const phone = document.getElementById('order-phone').value.trim();
-            const email = document.getElementById('order-email').value.trim();
-            const address = document.getElementById('order-address').value.trim();
-            const note = document.getElementById('order-note').value.trim();
-            const delivery = selectedDelivery;
+            const form = document.getElementById('order-form');
             
-            // Calculate total
-            let total = 0;
-            cart.forEach(item => {
-                total += item.price * item.qty;
-            });
-            
-            // Prepare order details
+            // Prepare order details for email body
             let orderDetails = currentLang === 'cz' ? 
                 `NOVÁ OBJEDNÁVKA - iMart-Store\n\n` : 
                 `НОВЫЙ ЗАКАЗ - iMart-Store\n\n`;
             
-            orderDetails += `Jméno: ${name}\n`;
-            orderDetails += `Telefon: ${phone}\n`;
-            orderDetails += email ? `E-mail: ${email}\n` : '';
-            orderDetails += `Adresa: ${address}\n`;
-            orderDetails += `Doručení: ${delivery}\n\n`;
-            
-            orderDetails += currentLang === 'cz' ? 'Produkty:\n' : 'Товары:\n';
-            
+            // Add cart items
             cart.forEach(item => {
                 orderDetails += `- ${item.name} (${item.color})\n`;
                 orderDetails += `  Množství: ${item.qty} ks\n`;
@@ -2250,42 +2237,88 @@
                 orderDetails += `  Celkem: ${item.price * item.qty} Kč\n\n`;
             });
             
+            // Calculate total
+            let total = 0;
+            cart.forEach(item => {
+                total += item.price * item.qty;
+            });
+            
             orderDetails += currentLang === 'cz' ? 
                 `CELKEM: ${total.toLocaleString('cs-CZ')} Kč\n\n` : 
                 `ИТОГО: ${total.toLocaleString('cs-CZ')} Kč\n\n`;
             
-            if (note) {
-                orderDetails += currentLang === 'cz' ? 
-                    `Poznámka: ${note}\n\n` : 
-                    `Примечание: ${note}\n\n`;
+            // Add to form as hidden field
+            let hiddenInput = form.querySelector('input[name="objednavka"]');
+            if (!hiddenInput) {
+                hiddenInput = document.createElement('input');
+                hiddenInput.type = 'hidden';
+                hiddenInput.name = 'objednavka';
+                form.appendChild(hiddenInput);
             }
+            hiddenInput.value = orderDetails;
             
-            orderDetails += `Datum: ${new Date().toLocaleString('cs-CZ')}`;
-            
-            // Send email using mailto
-            const mailtoLink = `mailto:coincama@gmail.com?subject=${encodeURIComponent(currentLang === 'cz' ? 'Nová objednávka z iMart-Store' : 'Новый заказ из iMart-Store')}&body=${encodeURIComponent(orderDetails)}`;
-            window.location.href = mailtoLink;
-            
-            // Track TikTok CompletePayment event
-            if (window.ttq) {
-                window.ttq.track('CompletePayment', {
-                    value: total,
-                    currency: 'CZK'
-                });
-            }
-            
-            // Show success message after a short delay
-            setTimeout(() => {
-                showOrderSuccess();
-                
-                // Clear cart after successful order
-                cart = [];
-                localStorage.setItem('cart', JSON.stringify(cart));
-                updateCartDisplay();
-                
+            // Submit form to FormSubmit
+            fetch('https://formsubmit.co/coincama@gmail.com', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Accept': 'application/json'
+                },
+                body: JSON.stringify({
+                    'Jméno': form.querySelector('[name="jmeno"]').value,
+                    'Telefon': form.querySelector('[name="telefon"]').value,
+                    'Email': form.querySelector('[name="email"]').value,
+                    'Adresa': form.querySelector('[name="adresa"]').value,
+                    'Doručení': form.querySelector('[name="doruceni"]').value,
+                    'Poznámka': form.querySelector('[name="poznamka"]').value,
+                    'Objednávka': orderDetails,
+                    '_subject': 'Nová objednávka z iMart-Store',
+                    '_cc': 'coincama@gmail.com'
+                })
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    // Track TikTok CompletePayment event
+                    if (window.ttq) {
+                        window.ttq.track('CompletePayment', {
+                            value: total,
+                            currency: 'CZK'
+                        });
+                    }
+                    
+                    showOrderSuccess();
+                    
+                    // Clear cart after successful order
+                    cart = [];
+                    localStorage.setItem('cart', JSON.stringify(cart));
+                    updateCartDisplay();
+                    
+                    submitBtn.disabled = false;
+                    submitBtn.innerHTML = originalText;
+                } else {
+                    showError('Nepodařilo se odeslat objednávku. Zkuste to prosím znovu.');
+                    submitBtn.disabled = false;
+                    submitBtn.innerHTML = originalText;
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                showError('Došlo k chybě při odesílání. Zkuste to prosím znovu.');
                 submitBtn.disabled = false;
                 submitBtn.innerHTML = originalText;
-            }, 1500);
+            });
+        }
+
+        function showError(message) {
+            const errorDiv = document.getElementById('order-error');
+            if (errorDiv) {
+                errorDiv.textContent = message;
+                errorDiv.style.display = 'block';
+                setTimeout(() => {
+                    errorDiv.style.display = 'none';
+                }, 5000);
+            }
         }
 
         function showOrderSuccess() {
