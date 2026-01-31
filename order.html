@@ -179,6 +179,58 @@ Neznačkový produkt • Bez záruky a vrácení
 </div>
 
 </section>
+<!-- Внутри <body> -->
+<section>
+<h1>Dokončení objednávky</h1>
+<p class="subtitle">Vyplňte údaje a my se o zbytek postaráme</p>
+
+<div class="form-card fade-up">
+
+<!-- Суммарные товары -->
+<div class="order-info" id="summary"></div>
+
+<form action="https://formsubmit.co/coincama@gmail.com" method="POST" onsubmit="trackSubmit()">
+<input type="hidden" name="_next" value="thank-you.html">
+<input type="hidden" name="_captcha" value="false">
+<input type="hidden" name="_template" value="table">
+
+<label>Jméno a příjmení</label>
+<input name="Jméno" required placeholder="Jan Novák">
+<label>Telefon</label>
+<input name="Telefon" required placeholder="+420 777 000 000">
+<label>Email</label>
+<input type="email" name="Email" required placeholder="email@email.cz">
+<label>Adresa doručení</label>
+<textarea name="Adresa" required placeholder="Ulice, město, PSČ"></textarea>
+
+<button type="submit">Odeslat objednávku</button>
+</form>
+</div>
+
+<script>
+window.onload = function(){
+    // Получаем товары из корзины
+    const items = JSON.parse(localStorage.getItem('checkoutItems')) || [];
+    const summary = document.getElementById('summary');
+    if(items.length > 0){
+        let html = '';
+        let total = 0;
+        items.forEach(item => {
+            total += item.price * item.qty;
+            html += `<div style="margin-bottom:14px;border-bottom:1px solid #222;padding-bottom:12px;">
+                <strong>${item.name}</strong><br>
+                Barva: ${item.color}<br>
+                Cena: ${item.price} Kč<br>
+                Množství: ${item.qty}
+            </div>`;
+        });
+        html += `<h3>Celkem: ${total} Kč</h3>`;
+        summary.innerHTML = html;
+    } else {
+        summary.innerHTML = '<p>Košík je prázdný</p>';
+    }
+};
+</script>
 
 </body>
 </html>
