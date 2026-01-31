@@ -1,325 +1,1683 @@
 <!DOCTYPE html>
 <html lang="cs">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Bezdrátová TWS sluchátka Pro 3 | ANC • Hi-Fi zvuk</title>
-<meta name="description" content="Prémiová bezdrátová sluchátka Pro 3 s ANC, Hi-Fi zvukem a komfortem na celý den. Platba při převzetí.">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>iMart-Store | Bezdrátová sluchátka Pro 3 & Max</title>
+    <meta name="description" content="Prémiová bezdrátová sluchátka s ANC, Hi-Fi zvukem a komfortem. Platba při převzetí.">
+    <style>
+        :root {
+            --primary: #fff;
+            --secondary: #000;
+            --bg-dark: #000;
+            --bg-card: #111;
+            --border: #222;
+            --text: #fff;
+            --text-muted: rgba(255, 255, 255, 0.85);
+            --transition: all 0.3s ease;
+            --shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+            --radius: 16px;
+            --success: #00d97e;
+            --error: #ff4444;
+        }
 
-<style>
-/* Основные стили */
-body {
-  margin:0;
-  font-family:'Segoe UI',Tahoma,Geneva,Verdana,sans-serif;
-  background:#000;
-  color:#fff;
-  overflow-x:hidden;
-  padding-top:100px;
-}
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-section {
-  max-width:1100px;
-  margin:auto;
-  padding:40px 20px;
-}
+        body {
+            margin: 0;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif;
+            background: var(--bg-dark);
+            color: var(--text);
+            overflow-x: hidden;
+            padding-top: 80px;
+            line-height: 1.6;
+        }
 
-h1 {
-  font-size:42px;
-  margin-bottom:20px;
-  font-weight:900;
-  line-height:1.2;
-  text-align:center;
-}
-h2{font-size:28px;margin-bottom:25px;font-weight:700;}
-p{opacity:.85;font-size:16px;line-height:1.6;}
+        /* ========== NAVIGATION ========== */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 20px;
+            background: rgba(0, 0, 0, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--border);
+        }
 
-.btn{
-  display:inline-block;
-  padding:14px 36px;
-  border-radius:30px;
-  text-decoration:none;
-  font-weight:600;
-  margin:10px 5px;
-  cursor:pointer;
-}
-.btn-primary{background:#fff;color:#000;}
-.btn-primary:hover{transform:scale(1.05);}
-.btn-outline{border:2px solid #fff;color:#fff;}
-.btn-outline:hover{background:#fff;color:#000;}
+        .logo {
+            font-size: 24px;
+            font-weight: 800;
+            color: var(--primary);
+        }
 
-.price{font-size:38px;font-weight:bold;margin-top:20px;text-align:center;}
+        .nav-links {
+            display: flex;
+            gap: 20px;
+            align-items: center;
+        }
 
-.grid{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
-  gap:25px;
-}
-.card{background:#111;padding:25px;border-radius:16px;}
+        .nav-btn {
+            padding: 10px 20px;
+            background: transparent;
+            border: 1px solid var(--primary);
+            color: var(--primary);
+            border-radius: 25px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: var(--transition);
+        }
 
-.fade-up{
-  opacity:0;
-  transform:translateY(25px);
-  transition:all .8s ease;
-}
-.fade-up.visible{
-  opacity:1;
-  transform:translateY(0);
-}
+        .nav-btn:hover {
+            background: var(--primary);
+            color: var(--secondary);
+            transform: translateY(-2px);
+        }
 
-/* Логотип */
-.logo-nav{
-  position:fixed;
-  top:10px;
-  left:10px;
-  right:10px;
-  z-index:1000;
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  padding:0 10px;
-}
+        .lang-toggle {
+            padding: 8px 16px;
+            background: transparent;
+            border: 1px solid var(--primary);
+            color: var(--primary);
+            border-radius: 20px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: var(--transition);
+        }
 
-/* HERO */
-.hero-container{
-  display:flex;
-  gap:30px;
-  align-items:flex-start;
-  margin-top:40px;
-}
-.hero-main-img{
-  max-width:280px;
-  border-radius:14px;
-}
-.hero-gallery{
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:10px;
-}
-.hero-gallery img{
-  width:100%;
-  border-radius:10px;
-  cursor:pointer;
-  transition:.3s;
-}
-.hero-gallery img:hover{transform:scale(1.05);}
+        .lang-toggle:hover {
+            background: var(--primary);
+            color: var(--secondary);
+        }
 
-/* QTY */
-.qty-btn{
-  width:36px;
-  height:36px;
-  font-size:20px;
-  border:none;
-  border-radius:8px;
-  background:#fff;
-  color:#000;
-  cursor:pointer;
-}
+        /* ========== CONTAINER ========== */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
 
-/* Sticky */
-.sticky-bar{
-  position:fixed;
-  bottom:0;
-  left:0;
-  right:0;
-  background:#111;
-  border-top:1px solid #222;
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  padding:12px 16px;
-  z-index:999;
-}
-.sticky-price{font-size:22px;font-weight:bold;}
-.sticky-btn{
-  background:#fff;
-  color:#000;
-  padding:12px 24px;
-  border-radius:25px;
-  cursor:pointer;
-}
+        section {
+            padding: 60px 0;
+        }
 
-/* Cart */
-#fixed-cart-btn{
-  position:fixed;
-  bottom:20px;
-  right:20px;
-  width:60px;
-  height:60px;
-  background:#fff;
-  border-radius:50%;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  cursor:pointer;
-  z-index:10000;
-}
+        .section-title {
+            font-size: 36px;
+            margin-bottom: 40px;
+            text-align: center;
+            font-weight: 800;
+            letter-spacing: -0.5px;
+        }
 
-#cart-overlay{
-  position:fixed;
-  inset:0;
-  background:rgba(0,0,0,.6);
-  opacity:0;
-  visibility:hidden;
-  transition:.3s;
-  z-index:9998;
-}
+        /* ========== HERO SECTION ========== */
+        .hero {
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            padding: 80px 0 40px;
+        }
 
-#cart{
-  position:fixed;
-  top:0;
-  right:-400px;
-  width:360px;
-  max-width:90%;
-  height:100%;
-  background:#111;
-  color:#fff;
-  transition:.3s;
-  padding:20px;
-  z-index:9999;
-}
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -200px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 800px;
+            height: 800px;
+            background: radial-gradient(circle, rgba(255, 255, 255, 0.05), transparent 70%);
+            z-index: -1;
+        }
 
-.cart-item{
-  display:flex;
-  gap:10px;
-  border-bottom:1px solid #444;
-  padding-bottom:10px;
-  margin-bottom:10px;
-}
-.cart-item img{width:60px;border-radius:8px;}
-</style>
+        .hero-img {
+            max-width: 350px;
+            border-radius: var(--radius);
+            margin: 30px auto;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
 
-<script>
-/* ===== CART STATE ===== */
-let CART={
-  name:'Bezdrátová sluchátka Pro 3',
-  price:1099,
-  img:'img/airpods1.jpg',
-  color:'Bílá',
-  qty:1
-};
+        .hero-img:hover {
+            transform: scale(1.05);
+        }
 
-/* ===== CART ===== */
-function openCart(){
-  cart.style.right='0';
-  overlay.style.opacity='1';
-  overlay.style.visibility='visible';
-}
-function closeCart(){
-  cart.style.right='-400px';
-  overlay.style.opacity='0';
-  overlay.style.visibility='hidden';
-}
-function renderCart(){
-  document.getElementById('cart-items').innerHTML=`
-    <div class="cart-item">
-      <img src="${CART.img}">
-      <div>
-        <strong>${CART.name}</strong><br>
-        ${CART.qty} × ${CART.price} Kč<br>
-        <strong>${CART.qty*CART.price} Kč</strong>
-      </div>
-    </div>
-    <button onclick="goToOrder()">Oformit objednávku</button>
-  `;
-}
-function addToCart(){
-  renderCart();
-  openCart();
-}
-function goToOrder(){
-  localStorage.setItem('order',JSON.stringify(CART));
-  window.location.href='order.html';
-}
+        .hero-gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+            gap: 12px;
+            margin-top: 20px;
+            max-width: 500px;
+            margin-left: auto;
+            margin-right: auto;
+        }
 
-/* ===== LANG ===== */
-let currentLang='cz';
-function toggleLang(){
-  currentLang=currentLang==='cz'?'ru':'cz';
-  document.querySelectorAll('[data-lang]').forEach(el=>{
-    el.style.display=el.getAttribute('data-lang')===currentLang?'block':'none';
-  });
-}
+        .hero-gallery img {
+            width: 100%;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: var(--transition);
+            border: 2px solid transparent;
+        }
 
-/* ===== MAX ===== */
-function goToMax(){
-  window.location.href='max.html';
-}
+        .hero-gallery img:hover,
+        .hero-gallery img.active {
+            transform: scale(1.05);
+            border-color: var(--primary);
+        }
 
-/* ===== INIT ===== */
-document.addEventListener('DOMContentLoaded',()=>{
-  window.cart=document.getElementById('cart');
-  window.overlay=document.getElementById('cart-overlay');
-  toggleLang();
-  document.querySelectorAll('.fade-up').forEach(el=>el.classList.add('visible'));
-});
-</script>
+        .price {
+            font-size: 42px;
+            font-weight: 800;
+            margin: 30px 0 20px;
+            color: var(--primary);
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 14px 36px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 16px;
+            cursor: pointer;
+            transition: var(--transition);
+            margin: 10px 5px;
+            text-align: center;
+        }
+
+        .btn-primary {
+            background: var(--primary);
+            color: var(--secondary);
+            border: none;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(255, 255, 255, 0.3);
+        }
+
+        .btn-outline {
+            background: transparent;
+            color: var(--primary);
+            border: 2px solid var(--primary);
+        }
+
+        .btn-outline:hover {
+            background: var(--primary);
+            color: var(--secondary);
+            transform: translateY(-3px);
+        }
+
+        .btn-block {
+            display: block;
+            width: 100%;
+            max-width: 350px;
+            margin: 15px auto;
+        }
+
+        .btn-success {
+            background: var(--success);
+            color: var(--secondary);
+        }
+
+        .btn-success:hover {
+            background: #00c86c;
+            transform: translateY(-3px);
+        }
+
+        /* ========== FEATURES GRID ========== */
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
+            margin-top: 40px;
+        }
+
+        .feature-card {
+            background: var(--bg-card);
+            padding: 30px;
+            border-radius: var(--radius);
+            border: 1px solid var(--border);
+            text-align: center;
+            transition: var(--transition);
+        }
+
+        .feature-card:hover {
+            transform: translateY(-10px);
+            border-color: rgba(255, 255, 255, 0.2);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+        }
+
+        .feature-icon {
+            font-size: 32px;
+            margin-bottom: 15px;
+        }
+
+        .feature-title {
+            font-size: 20px;
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+
+        .feature-desc {
+            color: var(--text-muted);
+            font-size: 15px;
+        }
+
+        /* ========== COLOR & QTY SELECTORS ========== */
+        .color-selector {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin: 25px 0;
+            flex-wrap: wrap;
+        }
+
+        .color-btn {
+            padding: 10px 25px;
+            border-radius: 25px;
+            background: var(--bg-card);
+            border: 2px solid var(--border);
+            color: var(--text);
+            cursor: pointer;
+            font-weight: 600;
+            transition: var(--transition);
+        }
+
+        .color-btn.active,
+        .color-btn:hover {
+            background: var(--primary);
+            color: var(--secondary);
+            border-color: var(--primary);
+            transform: translateY(-2px);
+        }
+
+        .qty-selector {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 15px;
+            margin: 20px 0;
+        }
+
+        .qty-btn {
+            width: 45px;
+            height: 45px;
+            border-radius: 10px;
+            background: var(--primary);
+            color: var(--secondary);
+            border: none;
+            font-size: 20px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .qty-btn:hover {
+            background: #e0e0e0;
+            transform: scale(1.1);
+        }
+
+        .qty-display {
+            font-size: 24px;
+            font-weight: 800;
+            min-width: 50px;
+            text-align: center;
+        }
+
+        /* ========== STICKY BAR ========== */
+        .sticky-bar {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: rgba(8, 8, 8, 0.98);
+            backdrop-filter: blur(12px);
+            border-top: 1px solid var(--border);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 16px 20px;
+            z-index: 999;
+            box-shadow: 0 -5px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        .sticky-price {
+            font-size: 24px;
+            font-weight: 800;
+            color: var(--primary);
+        }
+
+        .sticky-btn {
+            background: var(--primary);
+            color: var(--secondary);
+            padding: 14px 30px;
+            border-radius: 30px;
+            font-weight: 700;
+            border: none;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .sticky-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(255, 255, 255, 0.3);
+        }
+
+        /* ========== CART ========== */
+        #cart-btn {
+            position: fixed;
+            bottom: 25px;
+            right: 25px;
+            width: 65px;
+            height: 65px;
+            background: var(--primary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            z-index: 10000;
+            box-shadow: 0 5px 25px rgba(0, 0, 0, 0.5);
+            transition: var(--transition);
+        }
+
+        #cart-btn:hover {
+            transform: scale(1.1) translateY(-5px);
+            box-shadow: 0 8px 35px rgba(0, 0, 0, 0.6);
+        }
+
+        #cart-btn span {
+            font-size: 28px;
+        }
+
+        #cart-btn .cart-count {
+            position: absolute;
+            top: -5px;
+            right: -5px;
+            width: 22px;
+            height: 22px;
+            background: #ff4444;
+            color: white;
+            border-radius: 50%;
+            font-size: 12px;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        #cart-overlay {
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.7);
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.3s ease;
+            z-index: 9998;
+        }
+
+        #cart-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        #cart {
+            position: fixed;
+            top: 0;
+            right: -400px;
+            width: 380px;
+            max-width: 95%;
+            height: 100%;
+            background: var(--bg-dark);
+            color: var(--text);
+            transition: right 0.3s ease;
+            padding: 30px 20px;
+            z-index: 9999;
+            overflow-y: auto;
+            box-shadow: -5px 0 30px rgba(0, 0, 0, 0.5);
+        }
+
+        #cart.active {
+            right: 0;
+        }
+
+        .cart-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .cart-title {
+            font-size: 28px;
+            font-weight: 800;
+        }
+
+        .cart-close {
+            background: transparent;
+            border: none;
+            color: var(--text-muted);
+            font-size: 24px;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .cart-close:hover {
+            color: var(--primary);
+            transform: rotate(90deg);
+        }
+
+        .cart-items {
+            margin-bottom: 30px;
+        }
+
+        .cart-item {
+            display: flex;
+            gap: 15px;
+            padding: 20px 0;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .cart-item:last-child {
+            border-bottom: none;
+        }
+
+        .cart-item-img {
+            width: 80px;
+            height: 80px;
+            border-radius: 10px;
+            object-fit: cover;
+        }
+
+        .cart-item-info {
+            flex: 1;
+        }
+
+        .cart-item-name {
+            font-weight: 700;
+            margin-bottom: 5px;
+            font-size: 16px;
+        }
+
+        .cart-item-color {
+            font-size: 14px;
+            color: var(--text-muted);
+            margin-bottom: 10px;
+        }
+
+        .cart-item-qty {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-top: 8px;
+        }
+
+        .cart-item-qty button {
+            width: 30px;
+            height: 30px;
+            border-radius: 8px;
+            background: var(--primary);
+            color: var(--secondary);
+            border: none;
+            font-weight: 700;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .cart-item-qty button:hover {
+            background: #e0e0e0;
+        }
+
+        .cart-item-qty input {
+            width: 40px;
+            text-align: center;
+            background: var(--bg-card);
+            color: var(--primary);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 5px;
+            font-weight: 700;
+        }
+
+        .cart-item-price {
+            font-weight: 800;
+            font-size: 18px;
+            color: var(--primary);
+            min-width: 80px;
+            text-align: right;
+        }
+
+        .cart-total {
+            padding: 25px 0;
+            border-top: 2px solid var(--border);
+            border-bottom: 2px solid var(--border);
+            margin-bottom: 25px;
+            text-align: right;
+        }
+
+        .cart-total-label {
+            font-size: 18px;
+            color: var(--text-muted);
+            margin-bottom: 10px;
+        }
+
+        .cart-total-amount {
+            font-size: 32px;
+            font-weight: 800;
+            color: var(--primary);
+        }
+
+        .cart-actions {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .cart-btn {
+            width: 100%;
+            padding: 16px;
+            border-radius: 12px;
+            font-weight: 700;
+            font-size: 16px;
+            cursor: pointer;
+            transition: var(--transition);
+            border: none;
+        }
+
+        .cart-btn-primary {
+            background: var(--primary);
+            color: var(--secondary);
+        }
+
+        .cart-btn-primary:hover {
+            background: #e0e0e0;
+            transform: translateY(-2px);
+        }
+
+        .cart-btn-secondary {
+            background: transparent;
+            color: var(--text-muted);
+            border: 1px solid var(--border);
+        }
+
+        .cart-btn-secondary:hover {
+            border-color: var(--primary);
+            color: var(--primary);
+        }
+
+        .cart-empty {
+            text-align: center;
+            padding: 60px 20px;
+            color: var(--text-muted);
+        }
+
+        .cart-empty-icon {
+            font-size: 64px;
+            margin-bottom: 20px;
+            opacity: 0.3;
+        }
+
+        /* ========== ORDER MODAL ========== */
+        #order-modal {
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.85);
+            display: none;
+            align-items: center;
+            justify-content: center;
+            z-index: 10000;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        #order-modal.active {
+            display: flex;
+            opacity: 1;
+        }
+
+        .order-modal-content {
+            background: var(--bg-card);
+            border-radius: var(--radius);
+            padding: 40px;
+            max-width: 500px;
+            width: 90%;
+            max-height: 90vh;
+            overflow-y: auto;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.6);
+        }
+
+        .order-modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .order-modal-title {
+            font-size: 28px;
+            font-weight: 800;
+        }
+
+        .order-modal-close {
+            background: transparent;
+            border: none;
+            color: var(--text-muted);
+            font-size: 24px;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .order-modal-close:hover {
+            color: var(--primary);
+            transform: rotate(90deg);
+        }
+
+        .order-items {
+            margin-bottom: 30px;
+        }
+
+        .order-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 15px 0;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .order-item:last-child {
+            border-bottom: none;
+        }
+
+        .order-item-name {
+            font-weight: 700;
+        }
+
+        .order-item-details {
+            font-size: 14px;
+            color: var(--text-muted);
+            margin-top: 5px;
+        }
+
+        .order-form-group {
+            margin-bottom: 20px;
+        }
+
+        .order-form-label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            font-size: 15px;
+        }
+
+        .order-form-input {
+            width: 100%;
+            padding: 14px;
+            background: rgba(255, 255, 255, 0.08);
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            color: var(--primary);
+            font-size: 16px;
+            font-family: inherit;
+            transition: var(--transition);
+        }
+
+        .order-form-input:focus {
+            outline: none;
+            border-color: var(--primary);
+            background: rgba(255, 255, 255, 0.12);
+        }
+
+        .order-form-textarea {
+            min-height: 100px;
+            resize: vertical;
+            padding: 14px;
+            background: rgba(255, 255, 255, 0.08);
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            color: var(--primary);
+            font-size: 16px;
+            font-family: inherit;
+            transition: var(--transition);
+        }
+
+        .order-form-textarea:focus {
+            outline: none;
+            border-color: var(--primary);
+            background: rgba(255, 255, 255, 0.12);
+        }
+
+        .order-total {
+            padding: 25px 0;
+            border-top: 2px solid var(--border);
+            border-bottom: 2px solid var(--border);
+            margin-bottom: 25px;
+            text-align: right;
+        }
+
+        .order-total-label {
+            font-size: 18px;
+            color: var(--text-muted);
+            margin-bottom: 10px;
+        }
+
+        .order-total-amount {
+            font-size: 32px;
+            font-weight: 800;
+            color: var(--primary);
+        }
+
+        .order-submit-btn {
+            width: 100%;
+            padding: 16px;
+            background: var(--success);
+            color: var(--secondary);
+            border: none;
+            border-radius: 12px;
+            font-weight: 700;
+            font-size: 16px;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .order-submit-btn:hover {
+            background: #00c86c;
+            transform: translateY(-2px);
+        }
+
+        .order-submit-btn:disabled {
+            background: #555;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        .order-success {
+            text-align: center;
+            padding: 40px 20px;
+            color: var(--success);
+        }
+
+        .order-success-icon {
+            font-size: 64px;
+            margin-bottom: 20px;
+        }
+
+        .order-success-title {
+            font-size: 28px;
+            font-weight: 800;
+            margin-bottom: 15px;
+        }
+
+        .order-success-message {
+            color: var(--text-muted);
+            margin-bottom: 25px;
+        }
+
+        .order-error {
+            padding: 15px;
+            background: rgba(255, 68, 68, 0.15);
+            border: 1px solid var(--error);
+            border-radius: 10px;
+            color: var(--error);
+            margin-bottom: 20px;
+            display: none;
+        }
+
+        /* ========== FOOTER ========== */
+        footer {
+            background: var(--bg-card);
+            padding: 40px 0 20px;
+            border-top: 1px solid var(--border);
+            margin-top: 40px;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .footer-section h3 {
+            font-size: 20px;
+            margin-bottom: 20px;
+            font-weight: 700;
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 12px;
+        }
+
+        .footer-links a {
+            color: var(--text-muted);
+            text-decoration: none;
+            transition: var(--transition);
+            display: block;
+        }
+
+        .footer-links a:hover {
+            color: var(--primary);
+            transform: translateX(5px);
+        }
+
+        .footer-contact p {
+            margin-bottom: 10px;
+            color: var(--text-muted);
+        }
+
+        .footer-contact a {
+            color: var(--primary);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .footer-contact a:hover {
+            color: var(--text);
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 30px;
+            margin-top: 30px;
+            border-top: 1px solid var(--border);
+            color: var(--text-muted);
+            font-size: 14px;
+        }
+
+        /* ========== ANIMATIONS ========== */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* ========== LOADING SPINNER ========== */
+        .spinner {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            border: 3px solid rgba(255, 255, 255, 0.3);
+            border-radius: 50%;
+            border-top-color: white;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+
+        /* ========== RESPONSIVE ========== */
+        @media (max-width: 768px) {
+            .section-title {
+                font-size: 28px;
+            }
+
+            .price {
+                font-size: 32px;
+            }
+
+            .hero-img {
+                max-width: 280px;
+            }
+
+            .hero-gallery {
+                grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
+            }
+
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .color-selector {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .color-btn {
+                width: 100%;
+                max-width: 250px;
+            }
+
+            .qty-selector {
+                flex-direction: column;
+                gap: 10px;
+            }
+
+            .qty-btn {
+                width: 50px;
+                height: 50px;
+                font-size: 24px;
+            }
+
+            .qty-display {
+                font-size: 28px;
+            }
+
+            .cart-item {
+                flex-direction: column;
+            }
+
+            .cart-item-price {
+                text-align: left;
+                margin-top: 10px;
+            }
+
+            .cart-total {
+                text-align: left;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .navbar {
+                flex-direction: column;
+                gap: 15px;
+                padding: 15px;
+            }
+
+            .hero-img {
+                max-width: 250px;
+            }
+
+            .price {
+                font-size: 28px;
+            }
+
+            .btn {
+                padding: 12px 28px;
+                font-size: 15px;
+            }
+
+            .btn-block {
+                max-width: 100%;
+            }
+
+            .sticky-bar {
+                flex-direction: column;
+                gap: 15px;
+                padding: 20px;
+            }
+
+            .sticky-price {
+                font-size: 20px;
+            }
+
+            #cart {
+                width: 100%;
+            }
+
+            .order-modal-content {
+                padding: 25px;
+            }
+        }
+    </style>
 </head>
-
 <body>
 
-<div class="logo-nav fade-up">
-  <span style="font-size:28px;font-weight:bold;">iMart-Store</span>
-  <div>
-    <button onclick="goToMax()">Sluchátka Max 🎧</button>
-    <button onclick="toggleLang()">CZ / RU</button>
-  </div>
-</div>
+    <!-- NAVBAR -->
+    <nav class="navbar">
+        <div class="logo">iMart-Store</div>
+        <div class="nav-links">
+            <button class="nav-btn" onclick="showProduct('pro')">Pro 3</button>
+            <button class="nav-btn" onclick="showProduct('max')">Max</button>
+            <button class="lang-toggle" onclick="toggleLanguage()">🇨🇿 / 🇷🇺</button>
+        </div>
+    </nav>
 
-<section class="fade-up">
-  <h1 data-lang="cz">Bezdrátová TWS sluchátka Pro 3 🎧</h1>
-  <h1 data-lang="ru">Беспроводные TWS наушники Pro 3 🎧</h1>
-
-  <div class="hero-container">
-    <img src="img/airpods1.jpg" class="hero-main-img" id="mainProImg">
-    <div class="hero-gallery">
-      <img src="img/airpods2.jpg" onclick="mainProImg.src=this.src">
-      <img src="img/airpods3.jpg" onclick="mainProImg.src=this.src">
-      <img src="img/airpods4.jpg" onclick="mainProImg.src=this.src">
+    <!-- CART BUTTON -->
+    <div id="cart-btn" onclick="openCart()">
+        <span>🛒</span>
+        <div class="cart-count" id="cart-count">0</div>
     </div>
-  </div>
 
-  <div style="text-align:center">
-    <button class="btn btn-primary" onclick="addToCart()">Přidat do košíku</button>
-  </div>
+    <!-- CART OVERLAY -->
+    <div id="cart-overlay" onclick="closeCart()"></div>
 
-  <div class="price">1 099 Kč</div>
-</section>
-
-<!-- DESCRIPTION -->
-<section class="fade-up">
-  <div data-lang="cz">
-    <h2>Pro 3 – detaily, které potěší ✨</h2>
-    <div class="grid">
-      <div class="card">🎵 Výjimečný zvuk</div>
-      <div class="card">🔇 ANC</div>
-      <div class="card">🛋 Komfort</div>
-      <div class="card">🔋 24 hodin</div>
+    <!-- CART -->
+    <div id="cart">
+        <div class="cart-header">
+            <div class="cart-title" data-lang-cz="Košík" data-lang-ru="Корзина">Košík</div>
+            <button class="cart-close" onclick="closeCart()">✕</button>
+        </div>
+        <div class="cart-items" id="cart-items">
+            <div class="cart-empty">
+                <div class="cart-empty-icon">🛒</div>
+                <p data-lang-cz="Košík je prázdný" data-lang-ru="Корзина пуста">Košík je prázdný</p>
+            </div>
+        </div>
+        <div class="cart-total" id="cart-total" style="display:none;">
+            <div class="cart-total-label" data-lang-cz="Celkem" data-lang-ru="Итого">Celkem</div>
+            <div class="cart-total-amount" id="cart-total-amount">0 Kč</div>
+        </div>
+        <div class="cart-actions" id="cart-actions" style="display:none;">
+            <button class="cart-btn cart-btn-primary" onclick="openOrderModal()" data-lang-cz="Objednat" data-lang-ru="Оформить заказ">Objednat</button>
+            <button class="cart-btn cart-btn-secondary" onclick="clearCart()" data-lang-cz="Vyčistit košík" data-lang-ru="Очистить корзину">Vyčistit košík</button>
+        </div>
     </div>
-  </div>
-  <div data-lang="ru">
-    <h2>Pro 3 – детали, которые впечатляют ✨</h2>
-    <div class="grid">
-      <div class="card">🎵 Звук</div>
-      <div class="card">🔇 ANC</div>
-      <div class="card">🛋 Комфорт</div>
-      <div class="card">🔋 24 часа</div>
+
+    <!-- ORDER MODAL -->
+    <div id="order-modal">
+        <div class="order-modal-content">
+            <div class="order-modal-header">
+                <div class="order-modal-title" data-lang-cz="Odeslání objednávky" data-lang-ru="Оформление заказа">Odeslání objednávky</div>
+                <button class="order-modal-close" onclick="closeOrderModal()">✕</button>
+            </div>
+            
+            <div id="order-content">
+                <!-- Order items will be inserted here -->
+            </div>
+        </div>
     </div>
-  </div>
-</section>
 
-<div class="sticky-bar">
-  <div class="sticky-price">1 099 Kč</div>
-  <button class="sticky-btn" onclick="addToCart()">objednat nyní</button>
-</div>
+    <!-- MAIN CONTENT -->
+    <main class="container">
+        <!-- HERO SECTION -->
+        <section class="hero fade-in">
+            <h1 class="section-title" id="product-title" data-lang-cz-pro="Bezdrátová TWS sluchátka Pro 3 🎧" data-lang-ru-pro="Беспроводные TWS наушники Pro 3 🎧" data-lang-cz-max="Sluchátka Max 🎧" data-lang-ru-max="Наушники Max 🎧">
+                Bezdrátová TWS sluchátka Pro 3 🎧
+            </h1>
+            
+            <img src="img/airpods1.jpg" alt="Sluchátka" class="hero-img" id="main-img">
+            
+            <div class="hero-gallery" id="gallery">
+                <img src="img/airpods1.jpg" class="active" onclick="changeImage('img/airpods1.jpg')">
+                <img src="img/airpods2.jpg" onclick="changeImage('img/airpods2.jpg')">
+                <img src="img/airpods3.jpg" onclick="changeImage('img/airpods3.jpg')">
+                <img src="img/airpods4.jpg" onclick="changeImage('img/airpods4.jpg')">
+            </div>
 
-<div id="cart-overlay" onclick="closeCart()"></div>
-<div id="cart">
-  <h2>Košík</h2>
-  <div id="cart-items"></div>
-  <button onclick="closeCart()">Zavřít</button>
-</div>
+            <div class="price" id="product-price">1 099 Kč</div>
 
-<div id="fixed-cart-btn" onclick="openCart()">🛒</div>
+            <div class="color-selector" id="color-selector">
+                <button class="color-btn active" data-color="Bílá" data-lang-cz="Bílá" data-lang-ru="Белый" onclick="selectColor(this, 'Bílá')">Bílá</button>
+                <button class="color-btn" data-color="Černá" data-lang-cz="Černá" data-lang-ru="Черный" onclick="selectColor(this, 'Černá')">Černá</button>
+                <button class="color-btn" data-color="Stříbrná" data-lang-cz="Stříbrná" data-lang-ru="Серебристый" onclick="selectColor(this, 'Stříbrná')">Stříbrná</button>
+            </div>
+
+            <div class="qty-selector">
+                <button class="qty-btn" onclick="changeQty(-1)">−</button>
+                <div class="qty-display" id="qty-display">1</div>
+                <button class="qty-btn" onclick="changeQty(1)">+</button>
+            </div>
+
+            <button class="btn btn-primary btn-block" onclick="addToCart()" id="add-to-cart-btn" data-lang-cz="Přidat do košíku" data-lang-ru="Добавить в корзину">Přidat do košíku</button>
+            
+            <div style="margin-top: 20px;">
+                <a href="https://wa.me/420702846018" class="btn btn-outline" style="margin: 5px;">WhatsApp</a>
+                <a href="https://t.me/Appledestroyer1" class="btn btn-outline" style="margin: 5px;">Telegram</a>
+            </div>
+        </section>
+
+        <!-- FEATURES SECTION -->
+        <section class="fade-in">
+            <h2 class="section-title" id="features-title" data-lang-cz-pro="Pro 3 – detaily, které potěší ✨" data-lang-ru-pro="Pro 3 – детали, которые впечатляют ✨" data-lang-cz-max="Proč si je zamilujete ✨" data-lang-ru-max="Почему вы их полюбите ✨">
+                Pro 3 – detaily, které potěší ✨
+            </h2>
+            
+            <div class="features-grid">
+                <div class="feature-card fade-in">
+                    <div class="feature-icon">🎵</div>
+                    <div class="feature-title" data-lang-cz="Výjimečný zvuk" data-lang-ru="Отличный звук">Výjimečný zvuk</div>
+                    <div class="feature-desc" data-lang-cz="Hi-Fi kvalita s čistými výškami a hlubokými basy" data-lang-ru="Hi-Fi качество с чистыми высокими и глубокими басами">Hi-Fi kvalita s čistými výškami a hlubokými basy</div>
+                </div>
+                
+                <div class="feature-card fade-in">
+                    <div class="feature-icon">🔇</div>
+                    <div class="feature-title" data-lang-cz="ANC" data-lang-ru="ANC">ANC</div>
+                    <div class="feature-desc" data-lang-cz="Aktivní potlačení hluku pro klidné poslechy" data-lang-ru="Активное шумоподавление для спокойного прослушивания">Aktivní potlačení hluku pro klidné poslechy</div>
+                </div>
+                
+                <div class="feature-card fade-in">
+                    <div class="feature-icon">🛋</div>
+                    <div class="feature-title" data-lang-cz="Komfort" data-lang-ru="Комфорт">Komfort</div>
+                    <div class="feature-desc" data-lang-cz="Ergonomický design pro celodenní nošení" data-lang-ru="Эргономичный дизайн для ношения весь день">Ergonomický design pro celodenní nošení</div>
+                </div>
+                
+                <div class="feature-card fade-in">
+                    <div class="feature-icon">🔋</div>
+                    <div class="feature-title" data-lang-cz="24 hodin" data-lang-ru="24 часа">24 hodin</div>
+                    <div class="feature-desc" data-lang-cz="Výdrž baterie na celý den hudby" data-lang-ru="Автономность на весь день музыки">Výdrž baterie na celý den hudby</div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- STICKY BAR -->
+    <div class="sticky-bar">
+        <div class="sticky-price" id="sticky-price">1 099 Kč</div>
+        <button class="sticky-btn" onclick="addToCart()" data-lang-cz="Objednat nyní" data-lang-ru="Заказать сейчас">Objednat nyní</button>
+    </div>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3 data-lang-cz="iMart-Store" data-lang-ru="iMart-Store">iMart-Store</h3>
+                <p data-lang-cz="Prémiová bezdrátová sluchátka s ANC a Hi-Fi zvukem" data-lang-ru="Премиальные беспроводные наушники с ANC и Hi-Fi звуком">
+                    Prémiová bezdrátová sluchátka s ANC a Hi-Fi zvukem
+                </p>
+            </div>
+            
+            <div class="footer-section">
+                <h3 data-lang-cz="Odkazy" data-lang-ru="Ссылки">Odkazy</h3>
+                <ul class="footer-links">
+                    <li><a href="#" onclick="showProduct('pro')" data-lang-cz="Sluchátka Pro 3" data-lang-ru="Наушники Pro 3">Sluchátka Pro 3</a></li>
+                    <li><a href="#" onclick="showProduct('max')" data-lang-cz="Sluchátka Max" data-lang-ru="Наушники Max">Sluchátka Max</a></li>
+                    <li><a href="#" onclick="openCart()" data-lang-cz="Košík" data-lang-ru="Корзина">Košík</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-section">
+                <h3 data-lang-cz="Kontakt" data-lang-ru="Контакты">Kontakt</h3>
+                <div class="footer-contact">
+                    <p>📧 <a href="mailto:coincama@gmail.com">coincama@gmail.com</a></p>
+                    <p>📱 <a href="tel:+420702846018">+420 702 846 018</a></p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="copyright">
+            <p>© 2026 iMart-Store. Neznačkový produkt. Není spojen s žádnou ochrannou známkou.</p>
+        </div>
+    </footer>
+
+    <script>
+        // ========== STATE ==========
+        let currentProduct = 'pro';
+        let currentColor = 'Bílá';
+        let currentQty = 1;
+        let currentLang = 'cz';
+        let cart = JSON.parse(localStorage.getItem('cart')) || [];
+
+        // ========== PRODUCTS DATA ==========
+        const products = {
+            pro: {
+                name: { cz: 'Bezdrátová sluchátka Pro 3', ru: 'Беспроводные наушники Pro 3' },
+                price: 1099,
+                images: ['img/airpods1.jpg', 'img/airpods2.jpg', 'img/airpods3.jpg', 'img/airpods4.jpg'],
+                colors: ['Bílá', 'Černá', 'Stříbrná']
+            },
+            max: {
+                name: { cz: 'Sluchátka Max', ru: 'Наушники Max' },
+                price: 2499,
+                images: ['img/max1.jpg', 'img/max2.jpg', 'img/max3.jpg'],
+                colors: ['Černá', 'Stříbrná']
+            }
+        };
+
+        // ========== LANGUAGE ==========
+        function toggleLanguage() {
+            currentLang = currentLang === 'cz' ? 'ru' : 'cz';
+            updateLanguage();
+        }
+
+        function updateLanguage() {
+            document.querySelectorAll('[data-lang-cz]').forEach(el => {
+                const czText = el.getAttribute(`data-lang-cz${currentProduct ? '-' + currentProduct : ''}`);
+                const ruText = el.getAttribute(`data-lang-ru${currentProduct ? '-' + currentProduct : ''}`);
+                if (czText && ruText) {
+                    el.textContent = currentLang === 'cz' ? czText : ruText;
+                }
+            });
+            
+            document.querySelectorAll('[data-lang-cz]').forEach(el => {
+                if (!el.hasAttribute(`data-lang-cz${currentProduct ? '-' + currentProduct : ''}`)) {
+                    const czText = el.getAttribute('data-lang-cz');
+                    const ruText = el.getAttribute('data-lang-ru');
+                    if (czText && ruText) {
+                        el.textContent = currentLang === 'cz' ? czText : ruText;
+                    }
+                }
+            });
+            
+            document.querySelectorAll('.color-btn').forEach(btn => {
+                const color = btn.getAttribute('data-color');
+                btn.textContent = currentLang === 'cz' ? color : getColorTranslation(color);
+            });
+            
+            updateProductDisplay();
+            
+            // Update order modal if open
+            if (document.getElementById('order-modal').classList.contains('active')) {
+                renderOrderForm();
+            }
+        }
+
+        function getColorTranslation(color) {
+            const translations = {
+                'Bílá': 'Белый',
+                'Černá': 'Черный',
+                'Stříbrná': 'Серебристый'
+            };
+            return translations[color] || color;
+        }
+
+        // ========== PRODUCT SWITCHING ==========
+        function showProduct(product) {
+            currentProduct = product;
+            updateProductDisplay();
+            updateLanguage();
+        }
+
+        function updateProductDisplay() {
+            const product = products[currentProduct];
+            
+            // Update title
+            document.getElementById('product-title').textContent = 
+                product.name[currentLang];
+            
+            // Update features title
+            document.getElementById('features-title').textContent = 
+                currentProduct === 'pro' ? 
+                    (currentLang === 'cz' ? 'Pro 3 – detaily, které potěší ✨' : 'Pro 3 – детали, которые впечатляют ✨') :
+                    (currentLang === 'cz' ? 'Proč si je zamilujete ✨' : 'Почему вы их полюбите ✨');
+            
+            // Update price
+            document.getElementById('product-price').textContent = `${product.price.toLocaleString('cs-CZ')} Kč`;
+            document.getElementById('sticky-price').textContent = `${product.price.toLocaleString('cs-CZ')} Kč`;
+            
+            // Update gallery
+            const gallery = document.getElementById('gallery');
+            gallery.innerHTML = '';
+            product.images.forEach((img, index) => {
+                const imgEl = document.createElement('img');
+                imgEl.src = img;
+                imgEl.onclick = () => changeImage(img);
+                if (index === 0) imgEl.classList.add('active');
+                gallery.appendChild(imgEl);
+            });
+            
+            // Update main image
+            document.getElementById('main-img').src = product.images[0];
+            
+            // Update colors
+            const colorSelector = document.getElementById('color-selector');
+            colorSelector.innerHTML = '';
+            product.colors.forEach((color, index) => {
+                const btn = document.createElement('button');
+                btn.className = `color-btn ${index === 0 ? 'active' : ''}`;
+                btn.setAttribute('data-color', color);
+                btn.setAttribute('data-lang-cz', color);
+                btn.setAttribute('data-lang-ru', getColorTranslation(color));
+                btn.textContent = currentLang === 'cz' ? color : getColorTranslation(color);
+                btn.onclick = () => selectColor(btn, color);
+                colorSelector.appendChild(btn);
+            });
+            
+            currentColor = product.colors[0];
+            currentQty = 1;
+            document.getElementById('qty-display').textContent = currentQty;
+        }
+
+        // ========== IMAGE GALLERY ==========
+        function changeImage(src) {
+            document.getElementById('main-img').src = src;
+            document.querySelectorAll('.hero-gallery img').forEach(img => {
+                img.classList.remove('active');
+                if (img.src.includes(src)) {
+                    img.classList.add('active');
+                }
+            });
+        }
+
+        // ========== COLOR SELECTOR ==========
+        function selectColor(btn, color) {
+            document.querySelectorAll('.color-btn').forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+            currentColor = color;
+        }
+
+        // ========== QUANTITY SELECTOR ==========
+        function changeQty(delta) {
+            currentQty = Math.max(1, currentQty + delta);
+            document.getElementById('qty-display').textContent = currentQty;
+        }
+
+        // ========== CART FUNCTIONS ==========
+        function addToCart() {
+            const product = products[currentProduct];
+            const item = {
+                id: `${currentProduct}-${currentColor}`,
+                name: product.name[currentLang],
+                price: product.price,
+                qty: currentQty,
+                color: currentColor,
+                image: document.getElementById('main-img').src
+            };
+            
+            // Check if item already exists
+            const existingIndex = cart.findIndex(i => i.id === item.id);
+            if (existingIndex > -1) {
+                cart[existingIndex].qty += item.qty;
+            } else {
+                cart.push(item);
+            }
+            
+            localStorage.setItem('cart', JSON.stringify(cart));
+            updateCartDisplay();
+            animateCartButton();
+            openCart();
+        }
+
+        function updateCartDisplay() {
+            const cartItems = document.getElementById('cart-items');
+            const cartTotal = document.getElementById('cart-total');
+            const cartActions = document.getElementById('cart-actions');
+            const cartCount = document.getElementById('cart-count');
+            
+            if (cart.length === 0) {
+                cartItems.innerHTML = `
+                    <div class="cart-empty">
+                        <div class="cart-empty-icon">🛒</div>
+                        <p data-lang-cz="Košík je prázdný" data-lang-ru="Корзина пуста">Košík je prázdný</p>
+                    </div>
+                `;
+                cartTotal.style.display = 'none';
+                cartActions.style.display = 'none';
+                cartCount.textContent = '0';
+                return;
+            }
+            
+            cartCount.textContent = cart.reduce((sum, item) => sum + item.qty, 0);
+            cartTotal.style.display = 'block';
+            cartActions.style.display = 'block';
+            
+            let html = '';
+            let total = 0;
+            
+            cart.forEach((item, index) => {
+                const itemTotal = item.price * item.qty;
+                total += itemTotal;
+                
+                html += `
+                    <div class="cart-item">
+                        <img src="${item.image}" class="cart-item-img">
+                        <div class="cart-item-info">
+                            <div class="cart-item-name">${item.name}</div>
+                            <div class="cart-item-color">${item.color}</div>
+                            <div class="cart-item-qty">
+                                <button onclick="updateCartItemQty(${index}, -1)">−</button>
+                                <input type="number" value="${item.qty}" min="1" onchange="updateCartItemQty(${index}, 0, this.value)">
+                                <button onclick="updateCartItemQty(${index}, 1)">+</button>
+                            </div>
+                        </div>
+                        <div class="cart-item-price">${itemTotal.toLocaleString('cs-CZ')} Kč</div>
+                    </div>
+                `;
+            });
+            
+            cartItems.innerHTML = html;
+            document.getElementById('cart-total-amount').textContent = `${total.toLocaleString('cs-CZ')} Kč`;
+        }
+
+        function updateCartItemQty(index, delta, newValue) {
+            if (newValue !== undefined) {
+                cart[index].qty = Math.max(1, parseInt(newValue) || 1);
+            } else {
+                cart[index].qty = Math.max(1, cart[index].qty + delta);
+            }
+            
+            if (cart[index].qty === 0) {
+                cart.splice(index, 1);
+            }
+            
+            localStorage.setItem('cart', JSON.stringify(cart));
+            updateCartDisplay();
+        }
+
+        function clearCart() {
+            cart = [];
+            localStorage.setItem('cart', JSON.stringify(cart));
+            updateCartDisplay();
+            closeCart();
+        }
+
+        function animateCartButton() {
+            const btn = document.getElementById('cart-btn');
+            btn.style.transform = 'scale(1.2) translateY(-5px)';
+            setTimeout(() => {
+                btn.style.transform = 'scale(1) translateY(0)';
+            }, 300);
+        }
+
+        // ========== CART UI ==========
+        function openCart() {
+            document.getElementById('cart').classList.add('active');
+            document.getElementById('cart-overlay').classList.add('active');
+            updateCartDisplay();
+        }
+
+        function closeCart() {
+            document.getElementById('cart').classList.remove('active');
+            document.getElementById('cart-overlay').classList.remove('active');
+        }
+
+        // ========== ORDER MODAL ==========
+        function openOrderModal() {
+            if (cart.length === 0) {
+                alert(currentLang === 'cz' ? 'Košík je prázdný!' : 'Корзина пуста!');
+                return;
+            }
+            
+            renderOrderForm();
+            document.getElementById('order-modal').classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeOrderModal() {
+            document.getElementById('order-modal').classList.remove('active');
+            document.body.style.overflow = 'auto';
+        }
+
+        function renderOrderForm() {
+            let total = 0;
+            let itemsHtml = '';
+            
+            cart.forEach((item, index) => {
+                const itemTotal = item.price * item.qty;
+                total += itemTotal;
+                
+                itemsHtml += `
+                    <div class="order-item">
+                        <div>
+                            <div class="order-item-name">${item.name}</div>
+                            <div class="order-item-details">${item.color} • ${item.qty} ks • ${item.price} Kč/ks</div>
+                        </div>
+                        <div>${itemTotal.toLocaleString('cs-CZ')} Kč</div>
+                    </div>
+                `;
+            });
+            
+            const content = `
+                <div class="order-items">
+                    ${itemsHtml}
+                </div>
+                
+                <div class="order-total">
+                    <div class="order-total-label" data-lang-cz="Celkem" data-lang-ru="Итого">Celkem</div>
+                    <div class="order-total-amount">${total.toLocaleString('cs-CZ')} Kč</div>
+                </div>
+                
+                <div class="order-error" id="order-error"></div>
+                
+                <form id="order-form" onsubmit="submitOrder(event)">
+                    <div class="order-form-group">
+                        <label class="order-form-label" data-lang-cz="Jméno a příjmení *" data-lang-ru="Имя и фамилия *">Jméno a příjmení *</label>
+                        <input type="text" class="order-form-input" id="order-name" required>
+                    </div>
+                    
+                    <div class="order-form-group">
+                        <label class="order-form-label" data-lang-cz="Telefonní číslo *" data-lang-ru="Номер телефона *">Telefonní číslo *</label>
+                        <input type="tel" class="order-form-input" id="order-phone" required placeholder="+420">
+                    </div>
+                    
+                    <div class="order-form-group">
+                        <label class="order-form-label" data-lang-cz="E-mail" data-lang-ru="Электронная почта">E-mail</label>
+                        <input type="email" class="order-form-input" id="order-email" placeholder="coincama@gmail.com">
+                    </div>
+                    
+                    <div class="order-form-group">
+                        <label class="order-form-label" data-lang-cz="Adresa pro doručení *" data-lang-ru="Адрес доставки *">Adresa pro doručení *</label>
+                        <textarea class="order-form-textarea" id="order-address" required placeholder="${currentLang === 'cz' ? 'Ulice, město, PSČ' : 'Улица, город, почтовый индекс'}"></textarea>
+                    </div>
+                    
+                    <div class="order-form-group">
+                        <label class="order-form-label" data-lang-cz="Poznámka k objednávce" data-lang-ru="Примечание к заказу">Poznámka k objednávce</label>
+                        <textarea class="order-form-textarea" id="order-note" placeholder="${currentLang === 'cz' ? 'Např. preferovaný čas doručení' : 'Например, предпочтительное время доставки'}"></textarea>
+                    </div>
+                    
+                    <button type="submit" class="order-submit-btn" id="order-submit-btn">
+                        <span data-lang-cz="Odeslat objednávku" data-lang-ru="Отправить заказ">Odeslat objednávku</span>
+                    </button>
+                </form>
+            `;
+            
+            document.getElementById('order-content').innerHTML = content;
+            
+            // Set default email
+            document.getElementById('order-email').value = 'coincama@gmail.com';
+        }
+
+        function submitOrder(event) {
+            event.preventDefault();
+            
+            const submitBtn = document.getElementById('order-submit-btn');
+            const originalText = submitBtn.innerHTML;
+            submitBtn.disabled = true;
+            submitBtn.innerHTML = '<div class="spinner"></div>';
+            
+            // Get form data
+            const name = document.getElementById('order-name').value.trim();
+            const phone = document.getElementById('order-phone').value.trim();
+            const email = document.getElementById('order-email').value.trim();
+            const address = document.getElementById('order-address').value.trim();
+            const note = document.getElementById('order-note').value.trim();
+            
+            // Calculate total
+            let total = 0;
+            cart.forEach(item => {
+                total += item.price * item.qty;
+            });
+            
+            // Prepare order details
+            let orderDetails = currentLang === 'cz' ? 
+                `NOVÁ OBJEDNÁVKA - iMart-Store\n\n` : 
+                `НОВЫЙ ЗАКАЗ - iMart-Store\n\n`;
+            
+            orderDetails += `Jméno: ${name}\n`;
+            orderDetails += `Telefon: ${phone}\n`;
+            orderDetails += `E-mail: ${email}\n`;
+            orderDetails += `Adresa: ${address}\n\n`;
+            
+            orderDetails += currentLang === 'cz' ? 'Produkty:\n' : 'Товары:\n';
+            
+            cart.forEach(item => {
+                orderDetails += `- ${item.name} (${item.color})\n`;
+                orderDetails += `  Množství: ${item.qty} ks\n`;
+                orderDetails += `  Cena: ${item.price} Kč/ks\n`;
+                orderDetails += `  Celkem: ${item.price * item.qty} Kč\n\n`;
+            });
+            
+            orderDetails += currentLang === 'cz' ? 
+                `CELKEM: ${total.toLocaleString('cs-CZ')} Kč\n\n` : 
+                `ИТОГО: ${total.toLocaleString('cs-CZ')} Kč\n\n`;
+            
+            if (note) {
+                orderDetails += currentLang === 'cz' ? 
+                    `Poznámka: ${note}\n\n` : 
+                    `Примечание: ${note}\n\n`;
+            }
+            
+            orderDetails += `Datum: ${new Date().toLocaleString('cs-CZ')}`;
+            
+            // Send email using mailto
+            const mailtoLink = `mailto:${email}?subject=${encodeURIComponent(currentLang === 'cz' ? 'Objednávka z iMart-Store' : 'Заказ из iMart-Store')}&body=${encodeURIComponent(orderDetails)}`;
+            
+            // Show success message
+            setTimeout(() => {
+                showOrderSuccess();
+                
+                // Clear cart after successful order
+                cart = [];
+                localStorage.setItem('cart', JSON.stringify(cart));
+                updateCartDisplay();
+                
+                submitBtn.disabled = false;
+                submitBtn.innerHTML = originalText;
+            }, 1000);
+        }
+
+        function showOrderSuccess() {
+            const content = `
+                <div class="order-success">
+                    <div class="order-success-icon">✅</div>
+                    <h2 class="order-success-title" data-lang-cz="Objednávka odeslána!" data-lang-ru="Заказ отправлен!">Objednávka odeslána!</h2>
+                    <p class="order-success-message" data-lang-cz="Děkujeme za vaši objednávku. Brzy vás budeme kontaktovat." data-lang-ru="Спасибо за ваш заказ. Мы скоро свяжемся с вами.">Děkujeme za vaši objednávku. Brzy vás budeme kontaktovat.</p>
+                    <button class="btn btn-success" onclick="closeOrderModal()" data-lang-cz="Zavřít" data-lang-ru="Закрыть">Zavřít</button>
+                </div>
+            `;
+            
+            document.getElementById('order-content').innerHTML = content;
+        }
+
+        // ========== INITIALIZATION ==========
+        document.addEventListener('DOMContentLoaded', () => {
+            // Scroll animation
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                    }
+                });
+            }, { threshold: 0.1 });
+            
+            document.querySelectorAll('.fade-in').forEach(el => {
+                observer.observe(el);
+            });
+            
+            // Initial cart load
+            updateCartDisplay();
+            
+            // Close cart when clicking outside on mobile
+            document.getElementById('cart-overlay').addEventListener('click', (e) => {
+                if (e.target === document.getElementById('cart-overlay')) {
+                    closeCart();
+                }
+            });
+            
+            // Close order modal when clicking overlay
+            document.getElementById('order-modal').addEventListener('click', (e) => {
+                if (e.target === document.getElementById('order-modal')) {
+                    closeOrderModal();
+                }
+            });
+        });
+    </script>
 
 </body>
 </html>
