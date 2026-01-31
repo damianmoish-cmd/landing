@@ -1,186 +1,135 @@
-// ===============================
-// cart.js — универсальный для всех страниц
-// ===============================
+// cart.js
 
-// Основная корзина
-let cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
-let currentLang = 'cs'; // 'cs' или 'ru'
+let qtyPro = 1; // начальное количество
 
-// ---------- Сохранение корзины ----------
-function saveCart() {
-    localStorage.setItem('cartItems', JSON.stringify(cartItems));
-    renderCart();
+function changeQtyPro(delta) {
+    qtyPro = Math.max(1, qtyPro + delta);
+    const display = document.getElementById('qtyProDisplay');
+    if (display) display.innerText = qtyPro;
+    updateCartPrice();
 }
 
-// ---------- Добавление товара ----------
-function addToCart(name, price, img, qty = 1, color = 'Bílá') {
-    const existing = cartItems.find(item => item.name === name && item.color === color);
-    if (existing) {
-        existing.qty += qty;
-    } else {
-        cartItems.push({ name, price, img, qty, color });
-    }
-    saveCart();
-    openCart();
-}
-
-// ---------- Открыть / закрыть корзину ----------
+// ----------------- КОРЗИНА -----------------
 function openCart() {
-    const cart = document.getElementById('cart');
-    const overlay = document.getElementById('cart-overlay');
-    if (!cart) return;
-
-    cart.style.right = '0';
-    if (overlay) {
-        overlay.style.opacity = '1';
-        overlay.style.visibility = 'visible';
-    }
-    renderCart();
+    document.getElementById('cart').style.right = '0';
+    document.getElementById('cart-overlay').style.opacity = '1';
+    document.getElementById('cart-overlay').style.visibility = 'visible';
 }
 
 function closeCart() {
-    const cart = document.getElementById('cart');
-    const overlay = document.getElementById('cart-overlay');
-    if (!cart) return;
+    document.getElementById('cart').style.right = '-400px';
+    document.getElementById('cart-overlay').style.opacity = '0';
+    document.getElementById('cart-overlay').style.visibility = 'hidden';
+}
 
-    cart.style.right = '-100%';
-    if (overlay) {
-        overlay.style.opacity = '0';
-        overlay.style.visibility = 'hidden';
+function animateCartBtn() {
+    const cartBtn = document.getElementById('fixed-cart-btn');
+    if (!cartBtn) return;
+    cartBtn.style.transform = 'translateY(-10px)';
+    setTimeout(() => { cartBtn.style.transform = 'translateY(0)'; }, 200);
+}
+
+// ----------------- ДОБАВЛЕНИЕ В КОРЗИНУ -----------------
+function addToCart(name = 'Bezdrátová sluchátka Pro 3', price = 1099, img = 'img/airpods1.jpg', qty = qtyPro, color = 'Bílá') {
+    const cartItems = document.getElementById('cart-items');
+    if (!cartItems) return;
+    cartItems.innerHTML = '';
+
+    const item = document.createElement('div');
+    item.className = 'cart-item';
+    item.innerHTML = `
+        <img src="${img}">
+        <div class="cart-item-info">
+            <strong>${name}</strong>
+            ${color}
+            <div class="cart-item-qty">
+                <button class="qty-minus">−</button>
+                <input type="number" value="${qty}" min="1">
+                <button class="qty-plus">+</button>
+            </div>
+        </div>
+        <div class="cart-item-price">${price * qty} Kč</div>
+    `;
+    cartItems.appendChild(item);
+
+    animateCartBtn();
+    openCart();
+
+    const qtyInput = item.querySelector('input');
+    const minusBtn = item.querySelector('.qty-minus');
+    const plusBtn = item.querySelector('.qty-plus');
+    const priceEl = item.querySelector('.cart-item-price');
+
+    function updatePrice() {
+        let val = Math.max(1, parseInt(qtyInput.value));
+        qtyInput.value = val;
+        priceEl.innerText = (val * price) + ' Kč';
+        qtyPro = val;
+        const display = document.getElementById('qtyProDisplay');
+        if (display) display.innerText = val;
     }
+
+    minusBtn.addEventListener('click', () => { qtyInput.value = parseInt(qtyInput.value) - 1; updatePrice(); });
+    plusBtn.addEventListener('click', () => { qtyInput.value = parseInt(qtyInput.value) + 1; updatePrice(); });
+    qtyInput.addEventListener('change', updatePrice);
 }
 
-// ---------- Удалить товар ----------
-function removeItem(index) {
-    cartItems.splice(index, 1);
-    saveCart();
-}
-// ---------- Изменение количества ----------
-function changeCartQty(index, delta) {
-    cartItems[index].qty += delta;
-
-    if (cartItems[index].qty < 1) {
-        cartItems[index].qty = 1;
-    }
-
-    saveCart();
+// ----------------- ОБНОВЛЕНИЕ ЦЕНЫ В КОРЗИНЕ -----------------
+function updateCartPrice() {
+    const cartItems = document.querySelectorAll('#cart .cart-item');
+    cartItems.forEach(item => {
+        const pricePerItem = parseInt(item.querySelector('.cart-item-price').innerText) / qtyPro;
+        const qtyInput = item.querySelector('input');
+        item.querySelector('.cart-item-price').innerText = (pricePerItem * parseInt(qtyInput.value)) + ' Kč';
+    });
+    const stickyPrice = document.querySelector('.sticky-price');
+    if (stickyPrice) stickyPrice.innerText = (1099 * qtyPro) + ' Kč';
 }
 
-function setCartQty(index, value) {
-    const qty = parseInt(value);
-    if (qty >= 1) {
-        cartItems[index].qty = qty;
-        saveCart();
-    }
-}
-// ---------- Оформить заказ ----------
-function checkout() {
-    if (cartItems.length === 0) return;
-
-    localStorage.setItem('checkoutItems', JSON.stringify(cartItems));
-    window.location.href = 'order.html';
-}
-}
-
-// ---------- Смена языка ----------
-function toggleLang() {
-    currentLang = currentLang === 'cs' ? 'ru' : 'cs';
-    renderCart();
-}
-
-// ---------- Отрисовка корзины ----------
-function renderCart() {
-    const cart = document.getElementById('cart');
-    if (!cart) return;
-
+// ----------------- ОТПРАВКА НА E-MAIL -----------------
+function sendOrder() {
+    const cartItems = document.querySelectorAll('#cart .cart-item');
     if (cartItems.length === 0) {
-        cart.innerHTML = `
-            <button onclick="closeCart()" style="float:right;">✖</button>
-            <h2>${currentLang === 'cs' ? 'Košík je prázdný' : 'Корзина пуста'}</h2>
-        `;
+        alert('Košík je prázdný!');
         return;
     }
 
-    let total = 0;
-
-    let html = `
-        <button onclick="closeCart()" style="float:right;">✖</button>
-        <h2>${currentLang === 'cs' ? 'Váš košík' : 'Ваша корзina'}</h2>
-    `;
-
-    cartItems.forEach((item, index) => {
-        const itemTotal = item.price * item.qty;
-        total += itemTotal;
-
-        html += `
-        <div style="
-            display:flex;
-            gap:12px;
-            margin-bottom:16px;
-            border-bottom:1px solid #222;
-            padding-bottom:12px;
-            align-items:center;
-        ">
-            <img src="${item.img}" style="width:60px;height:60px;border-radius:12px;">
-
-            <div style="flex:1">
-                <strong>${item.name}</strong><br>
-                ${currentLang === 'cs' ? 'Barva' : 'Цвет'}: ${item.color}
-
-                <div style="display:flex;align-items:center;gap:8px;margin-top:6px;">
-                    <button onclick="changeCartQty(${index}, -1)">−</button>
-
-                    <input type="number"
-                        value="${item.qty}"
-                        min="1"
-                        style="width:50px;text-align:center;"
-                        onchange="setCartQty(${index}, this.value)">
-
-                    <button onclick="changeCartQty(${index}, 1)">+</button>
-                </div>
-            </div>
-
-            <div style="text-align:right">
-                <div>${itemTotal} Kč</div>
-                <button onclick="removeItem(${index})"
-                    style="background:none;border:none;color:#fff;cursor:pointer">
-                    ❌
-                </button>
-            </div>
-        </div>
-        `;
+    let orderDetails = '';
+    cartItems.forEach(item => {
+        const name = item.querySelector('strong').innerText;
+        const qty = item.querySelector('input').value;
+        const price = item.querySelector('.cart-item-price').innerText;
+        orderDetails += `${name} | Množství: ${qty} | Cena: ${price}\n`;
     });
 
-    html += `
-        <h3>${currentLang === 'cs' ? 'Celkem' : 'Итого'}: ${total} Kč</h3>
+    // Форму отправки на e-mail через твой backend
+    const form = document.getElementById('orderForm'); // <form id="orderForm"> в твоем HTML
+    if (!form) {
+        alert('Formulář pro objednávku nenalezen!');
+        return;
+    }
 
-        <button onclick="checkout()" style="
-            display:block;
-            margin-top:20px;
-            width:100%;
-            padding:16px 0;
-            border:none;
-            border-radius:14px;
-            background:#fff;
-            color:#000;
-            font-weight:bold;
-            font-size:16px;
-            cursor:pointer;">
-            ${currentLang === 'cs' ? 'Odeslat objednávku' : 'Оформить заказ'}
-        </button>
-    `;
+    // Добавляем данные корзины в скрытое поле
+    let input = form.querySelector('input[name="cart"]');
+    if (!input) {
+        input = document.createElement('input');
+        input.type = 'hidden';
+        input.name = 'cart';
+        form.appendChild(input);
+    }
+    input.value = orderDetails;
 
-    cart.innerHTML = html;
-}
+    form.submit();
 }
 
-// ---------- Авто-подключение кнопки и overlay ----------
-window.addEventListener('DOMContentLoaded', () => {
-    const btn = document.getElementById('fixed-cart-btn');
-    if (btn) btn.addEventListener('click', openCart);
+// ----------------- ИНИЦИАЛИЗАЦИЯ -----------------
+document.addEventListener('DOMContentLoaded', () => {
+    const fixedBtn = document.getElementById('fixed-cart-btn');
+    if (fixedBtn) fixedBtn.addEventListener('click', openCart);
 
     const overlay = document.getElementById('cart-overlay');
     if (overlay) overlay.addEventListener('click', closeCart);
 
-    renderCart();
+    const stickyBtn = document.querySelector('.sticky-btn');
+    if (stickyBtn) stickyBtn.addEventListener('click', sendOrder);
 });
