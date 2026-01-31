@@ -27,13 +27,13 @@ function openCart() {
     const overlay = document.getElementById('cart-overlay');
     if (!cart) return;
 
+    cart.style.right = '0';
     if (overlay) {
         overlay.style.opacity = '1';
         overlay.style.visibility = 'visible';
     }
 
-    cart.style.right = '0';
-    renderCart();
+    renderCart(); // ⚡ гарантируем, что кнопка отображается
 }
 
 // Закрытие корзины
@@ -42,12 +42,11 @@ function closeCart() {
     const overlay = document.getElementById('cart-overlay');
     if (!cart) return;
 
+    cart.style.right = '-100%';
     if (overlay) {
         overlay.style.opacity = '0';
         overlay.style.visibility = 'hidden';
     }
-
-    cart.style.right = '-100%';
 }
 
 // Рендер корзины
@@ -79,8 +78,20 @@ function renderCart() {
 
         html += `<h3>${lang==='cs'?'Celkem':'Итого'}: ${total} Kč</h3>`;
 
-        // ✅ Кнопка "Оформить заказ / Objednat"
-        html += `<button style="margin-top:10px;padding:14px 0;border:none;border-radius:12px;width:100%;background:#fff;color:#000;font-weight:bold;cursor:pointer;" onclick="checkout()">
+        // ✅ кнопка "Оформить заказ / Objednat"
+        html += `<button style="
+                        display:block;
+                        margin-top:12px;
+                        width:100%;
+                        padding:14px 0;
+                        border:none;
+                        border-radius:14px;
+                        background:#fff;
+                        color:#000;
+                        font-weight:bold;
+                        cursor:pointer;
+                        font-size:16px;"
+                        onclick="checkout()">
                     ${lang==='cs'?'Objednat':'Оформить заказ'}
                  </button>`;
     }
@@ -101,7 +112,7 @@ function checkout() {
     window.location.href = 'order.html';
 }
 
-// Инициализация кнопки открытия корзины
+// Инициализация кнопки корзины
 document.addEventListener('DOMContentLoaded', () => {
     const cartBtn = document.getElementById('fixed-cart-btn');
     if (cartBtn) cartBtn.addEventListener('click', openCart);
@@ -109,5 +120,5 @@ document.addEventListener('DOMContentLoaded', () => {
     const overlay = document.getElementById('cart-overlay');
     if (overlay) overlay.addEventListener('click', closeCart);
 
-    renderCart(); // ⚡ сразу отобразим корзину при загрузке
+    renderCart(); // ⚡ сразу отобразим корзину
 });
