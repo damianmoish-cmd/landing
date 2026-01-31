@@ -209,26 +209,31 @@ Neznačkový produkt • Bez záruky a vrácení
 
 <script>
 window.onload = function(){
-    // Получаем товары из корзины
     const items = JSON.parse(localStorage.getItem('checkoutItems')) || [];
     const summary = document.getElementById('summary');
-    if(items.length > 0){
-        let html = '';
-        let total = 0;
-        items.forEach(item => {
-            total += item.price * item.qty;
-            html += `<div style="margin-bottom:14px;border-bottom:1px solid #222;padding-bottom:12px;">
+
+    if(items.length === 0){
+        summary.innerHTML = '<p>Košík je prázdný</p>';
+        return;
+    }
+
+    let total = 0;
+    let html = '';
+
+    items.forEach(item => {
+        total += item.price * item.qty;
+        html += `
+            <div style="margin-bottom:14px;border-bottom:1px solid #222;padding-bottom:12px;">
                 <strong>${item.name}</strong><br>
                 Barva: ${item.color}<br>
                 Cena: ${item.price} Kč<br>
                 Množství: ${item.qty}
-            </div>`;
-        });
-        html += `<h3>Celkem: ${total} Kč</h3>`;
-        summary.innerHTML = html;
-    } else {
-        summary.innerHTML = '<p>Košík je prázdný</p>';
-    }
+            </div>
+        `;
+    });
+
+    html += `<h3>Celkem: ${total} Kč</h3>`;
+    summary.innerHTML = html;
 };
 </script>
 
