@@ -203,98 +203,155 @@ p{opacity:.85;font-size:16px;line-height:1.6;}
 </style>
 
 <script>
-let qtyPro=1;
+/* =========================
+   GLOBAL CART STATE
+========================= */
+let CART = {
+  name: 'Bezdrátová sluchátka Pro 3',
+  price: 1099,
+  img: 'img/airpods1.jpg',
+  color: 'Bílá',
+  qty: 1
+};
 
-function scrollAnimate(){
-  document.querySelectorAll('.fade-up').forEach(el=>{
-    if(el.getBoundingClientRect().top<window.innerHeight-100) el.classList.add('visible');
-  });
-}
-window.addEventListener('scroll', scrollAnimate);
-window.addEventListener('load', scrollAnimate);
-
-function changeQtyPro(delta){
-  qtyPro = Math.max(1, qtyPro+delta);
-  document.getElementById('qtyProDisplay').innerText=qtyPro;
-}
-
-function goToMax(){window.location.href='sluchatka-max.html';}
-
+/* =========================
+   CART OPEN / CLOSE
+========================= */
 function openCart(){
-  document.getElementById('cart').style.right='0';
-  document.getElementById('cart-overlay').style.opacity='1';
-  document.getElementById('cart-overlay').style.visibility='visible';
-}
-function closeCart(){
-  document.getElementById('cart').style.right='-400px';
-  document.getElementById('cart-overlay').style.opacity='0';
-  document.getElementById('cart-overlay').style.visibility='hidden';
-}
-function animateCartBtn(){
-  const cartBtn=document.getElementById('fixed-cart-btn');
-  cartBtn.style.transform='translateY(-10px)';
-  setTimeout(()=>{cartBtn.style.transform='translateY(0)'},200);
+  const cart = document.getElementById('cart');
+  const overlay = document.getElementById('cart-overlay');
+  if(!cart || !overlay) return;
+
+  cart.style.right = '0';
+  overlay.style.opacity = '1';
+  overlay.style.visibility = 'visible';
 }
 
-function addToCart(name='Bezdrátová sluchátka Pro 3', price=1099, img='img/airpods1.jpg', qty=qtyPro, color='Bílá'){
-  const cartItems=document.getElementById('cart-items');
-  cartItems.innerHTML='';
-  const item=document.createElement('div');
-  item.className='cart-item';
-  item.innerHTML=`
-    <img src="${img}">
-    <div class="cart-item-info">
-      <strong>${name}</strong>
-      ${color}
-      <div class="cart-item-qty">
-        <button class="qty-minus">−</button>
-        <input type="number" value="${qty}" min="1">
-        <button class="qty-plus">+</button>
+function closeCart(){
+  const cart = document.getElementById('cart');
+  const overlay = document.getElementById('cart-overlay');
+  if(!cart || !overlay) return;
+
+  cart.style.right = '-400px';
+  overlay.style.opacity = '0';
+  overlay.style.visibility = 'hidden';
+}
+
+/* =========================
+   RENDER CART
+========================= */
+function renderCart(){
+  const container = document.getElementById('cart-items');
+  if(!container) return;
+
+  container.innerHTML = `
+    <div class="cart-item">
+      <img src="${CART.img}">
+      <div class="cart-item-info">
+        <strong>${CART.name}</strong>
+        <div>${CART.color}</div>
+
+        <div class="cart-item-qty">
+          <button onclick="changeCartQty(-1)">−</button>
+          <input type="number" value="${CART.qty}" min="1" onchange="setCartQty(this.value)">
+          <button onclick="changeCartQty(1)">+</button>
+        </div>
+      </div>
+      <div class="cart-item-price">
+        ${CART.price * CART.qty} Kč
       </div>
     </div>
-    <div class="cart-item-price">${price*qty} Kč</div>
+
+    <button onclick="goToOrder()" style="
+      width:100%;
+      margin-top:20px;
+      padding:14px;
+      font-size:18px;
+      font-weight:bold;
+      border:none;
+      border-radius:12px;
+      background:#fff;
+      color:#000;
+      cursor:pointer;
+    ">
+      Oformit objednávku
+    </button>
   `;
-  cartItems.appendChild(item);
+}
 
-  animateCartBtn();
+/* =========================
+   CART QTY CONTROL
+========================= */
+function changeCartQty(delta){
+  CART.qty = Math.max(1, CART.qty + delta);
+  syncQty();
+}
+
+function setCartQty(val){
+  CART.qty = Math.max(1, parseInt(val) || 1);
+  syncQty();
+}
+
+function syncQty(){
+  renderCart();
+
+  // синхронизация с блоком количества на странице
+  const qtyDisplay = document.getElementById('qtyProDisplay');
+  if(qtyDisplay) qtyDisplay.innerText = CART.qty;
+}
+
+/* =========================
+   ADD TO CART (FIXED)
+========================= */
+function addToCart(
+  name = CART.name,
+  price = CART.price,
+  img = CART.img,
+  qty = CART.qty,
+  color = CART.color
+){
+  CART.name = name;
+  CART.price = price;
+  CART.img = img;
+  CART.color = color;
+  CART.qty = qty;
+
+  renderCart();
   openCart();
-
-  const qtyInput=item.querySelector('input');
-  const minusBtn=item.querySelector('.qty-minus');
-  const plusBtn=item.querySelector('.qty-plus');
-  const priceEl=item.querySelector('.cart-item-price');
-
-  function updatePrice(){
-    let val=Math.max(1,parseInt(qtyInput.value));
-    qtyInput.value=val;
-    priceEl.innerText=(val*price)+' Kč';
-    qtyPro=val;
-    document.getElementById('qtyProDisplay').innerText=val;
-  }
-
-  minusBtn.addEventListener('click',()=>{ qtyInput.value=parseInt(qtyInput.value)-1; updatePrice(); });
-  plusBtn.addEventListener('click',()=>{ qtyInput.value=parseInt(qtyInput.value)+1; updatePrice(); });
-  qtyInput.addEventListener('change',updatePrice);
+  animateCartBtn();
 }
 
-document.addEventListener('DOMContentLoaded',()=>{
-  document.getElementById('fixed-cart-btn').addEventListener('click',openCart);
-  document.getElementById('cart-overlay').addEventListener('click',closeCart);
-});
-  let currentLang = 'cz';
+/* =========================
+   CART BUTTON ANIMATION
+========================= */
+function animateCartBtn(){
+  const btn = document.getElementById('fixed-cart-btn');
+  if(!btn) return;
 
-function toggleLang(){
-  currentLang = currentLang === 'cz' ? 'ru' : 'cz';
-  document.querySelectorAll('[data-lang]').forEach(el=>{
-    el.style.display = el.getAttribute('data-lang') === currentLang ? 'block' : 'none';
-  });
+  btn.style.transform = 'translateY(-10px)';
+  setTimeout(()=>btn.style.transform='translateY(0)',200);
 }
 
-// Инициализация при загрузке страницы
-document.addEventListener('DOMContentLoaded',()=>{
-  toggleLang(); // Покажем язык по умолчанию
-});
+/* =========================
+   ORDER PAGE
+========================= */
+function goToOrder(){
+  localStorage.setItem('order', JSON.stringify(CART));
+  window.location.href = 'order.html';
+}
 
+/* =========================
+   INIT
+========================= */
+document.addEventListener('DOMContentLoaded', ()=>{
+  const cartBtn = document.getElementById('fixed-cart-btn');
+  const overlay = document.getElementById('cart-overlay');
+
+  if(cartBtn) cartBtn.addEventListener('click', openCart);
+  if(overlay) overlay.addEventListener('click', closeCart);
+
+  renderCart();
+});
 </script>
 
 </head>
