@@ -1123,7 +1123,7 @@
 
         .order-form-select {
             appearance: none;
-            background-image: url("image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%23fff' d='M6 9L1 4h10z'/%3E%3C/svg%3E");
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%23fff' d='M6 9L1 4h10z'/%3E%3C/svg%3E");
             background-repeat: no-repeat;
             background-position: right 12px center;
             padding-right: 35px;
@@ -1698,7 +1698,7 @@
                 
                 <div class="feature-card fade-in">
                     <div class="feature-icon">🛋</div>
-                    <div class="feature-title" data-lang-cz="Dlouhodobé pohodlí" data-lang-ru="Долгосрочный комфорт">Dlouhodobé pohodlí</div>
+                    <div class="feature-title" data-lang-cz="Dlouhodobé pohodlí" data-lang-ru="Долгосрочный комфорт">Dlouhodové pohodlí</div>
                     <div class="feature-desc" data-lang-cz="Měkké silikonové náušníky a lehká konstrukce – nositelné celý den bez únavy. Ideální pro práci, sport i každodenní použití." data-lang-ru="Мягкие силиконовые амбушюры и легкая конструкция - удобные для ношения весь день без усталости. Идеальны для работы, спорта и повседневного использования.">Měkké silikonové náušníky a lehká konstrukce – nositelné celý den bez únavy. Ideální pro práci, sport i každodenní použití.</div>
                 </div>
                 
@@ -2153,6 +2153,7 @@
                     <input type="hidden" name="_subject" value="Nová objednávka z iMart-Store">
                     <input type="hidden" name="_cc" value="coincama@gmail.com">
                     <input type="hidden" name="_captcha" value="false">
+                    <input type="hidden" name="_next" value="${window.location.href}">
                     
                     <div class="order-form-group">
                         <label class="order-form-label required" data-lang-cz="Jméno a příjmení" data-lang-ru="Имя и фамилия">Jméno a příjmení</label>
@@ -2160,7 +2161,7 @@
                     </div>
                     
                     <div class="order-form-group">
-                        <label class="order-form-label required" data-lang-cz="Telefonní číslo" data-lang-ru="Номер телефона">Telefonní číslo</label>
+                        <label class="order-form-label required" data-lang-cz="Telefonní číslo" data-lang-ru="Номер телефона">Telefonní čísло</label>
                         <input type="tel" class="order-form-input" name="telefon" required placeholder="+420 123 456 789">
                     </div>
                     
@@ -2224,7 +2225,7 @@
             
             const form = document.getElementById('order-form');
             
-            // Prepare order details for email body
+            // Prepare order details
             let orderDetails = currentLang === 'cz' ? 
                 `NOVÁ OBJEDNÁVKA - iMart-Store\n\n` : 
                 `НОВЫЙ ЗАКАЗ - iMart-Store\n\n`;
@@ -2247,7 +2248,7 @@
                 `CELKEM: ${total.toLocaleString('cs-CZ')} Kč\n\n` : 
                 `ИТОГО: ${total.toLocaleString('cs-CZ')} Kč\n\n`;
             
-            // Add to form as hidden field
+            // Add order details to form
             let hiddenInput = form.querySelector('input[name="objednavka"]');
             if (!hiddenInput) {
                 hiddenInput = document.createElement('input');
@@ -2257,24 +2258,16 @@
             }
             hiddenInput.value = orderDetails;
             
-            // Submit form to FormSubmit
+            // Create FormData object
+            const formData = new FormData(form);
+            
+            // Send to FormSubmit
             fetch('https://formsubmit.co/coincama@gmail.com', {
                 method: 'POST',
+                body: formData,
                 headers: {
-                    'Content-Type': 'application/json',
                     'Accept': 'application/json'
-                },
-                body: JSON.stringify({
-                    'Jméno': form.querySelector('[name="jmeno"]').value,
-                    'Telefon': form.querySelector('[name="telefon"]').value,
-                    'Email': form.querySelector('[name="email"]').value,
-                    'Adresa': form.querySelector('[name="adresa"]').value,
-                    'Doručení': form.querySelector('[name="doruceni"]').value,
-                    'Poznámka': form.querySelector('[name="poznamka"]').value,
-                    'Objednávka': orderDetails,
-                    '_subject': 'Nová objednávka z iMart-Store',
-                    '_cc': 'coincama@gmail.com'
-                })
+                }
             })
             .then(response => response.json())
             .then(data => {
