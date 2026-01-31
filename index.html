@@ -14,10 +14,15 @@ body {
   background:#000;
   color:#fff;
   overflow-x:hidden;
-  padding-top:120px; /* Отступ, чтобы логотип не налезал на заголовок */
+  padding-top:100px; /* чуть меньше, чтобы логотип не давил */
 }
-section {max-width:1100px;margin:auto;padding:70px 20px;}
-h1{
+
+section {
+  max-width:1100px;
+  margin:auto;
+  padding:40px 20px; /* уменьшили отступ сверху и снизу */
+}
+
   font-size:42px;
   margin-bottom:20px;
   font-weight:900;
@@ -305,23 +310,25 @@ document.addEventListener('DOMContentLoaded',()=>{
 </div>
 
 
-<!-- Заголовок и описание -->
-<section class="fade-up">
-<h1 data-lang="cz">Bezdrátová TWS sluchátka Pro 3 🎧</h1>
-<h1 data-lang="ru">Беспроводные TWS наушники Pro 3 🎧</h1>
-<p data-lang="cz"><strong>Prémiový zvuk s aktivním potlačením hluku (ANC)</strong></p>
-<p data-lang="ru"><strong>Премиальный звук с активным шумоподавлением (ANC)</strong></p>
-</section>
-
-<!-- HERO фото и галерея -->
-<section class="hero-container fade-up">
-  <img src="img/airpods1.jpg" class="hero-main-img" id="mainProImg">
-  <div class="hero-gallery">
-    <img src="img/airpods2.jpg" onclick="document.getElementById('mainProImg').src='img/airpods2.jpg'">
-    <img src="img/airpods3.jpg" onclick="document.getElementById('mainProImg').src='img/airpods3.jpg'">
-    <img src="img/airpods4.jpg" onclick="document.getElementById('mainProImg').src='img/airpods4.jpg'">
+<!-- HERO + заголовок -->
+<section class="hero-wrapper fade-up">
+  <div style="text-align:center; margin-bottom:30px;">
+    <h1 data-lang="cz">Bezdrátová TWS sluchátka Pro 3 🎧</h1>
+    <h1 data-lang="ru">Беспроводные TWS наушники Pro 3 🎧</h1>
+    <p data-lang="cz"><strong>Prémiový zvuk s aktivním potlačením hluku (ANC)</strong></p>
+    <p data-lang="ru"><strong>Премиальный звук с активным шумоподавлением (ANC)</strong></p>
+  </div>
+  
+  <div class="hero-container">
+    <img src="img/airpods1.jpg" class="hero-main-img" id="mainProImg">
+    <div class="hero-gallery">
+      <img src="img/airpods2.jpg" onclick="document.getElementById('mainProImg').src='img/airpods2.jpg'">
+      <img src="img/airpods3.jpg" onclick="document.getElementById('mainProImg').src='img/airpods3.jpg'">
+      <img src="img/airpods4.jpg" onclick="document.getElementById('mainProImg').src='img/airpods4.jpg'">
+    </div>
   </div>
 </section>
+
 
 <!-- Количество и кнопки -->
 <div class="qty-selector fade-up" style="margin-top:20px;display:flex;justify-content:center;align-items:center;gap:12px;">
