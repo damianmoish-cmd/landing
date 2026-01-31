@@ -57,7 +57,37 @@ p{opacity:.9;line-height:1.6;}
 .cart-item-qty{display:flex;align-items:center;gap:8px;margin-top:5px;}
 .cart-item-qty button{width:30px;height:30px;font-size:18px;border:none;border-radius:6px;background:#fff;color:#000;cursor:pointer;}
 .cart-item-qty input{width:50px;text-align:center;border-radius:6px;border:1px solid #fff;background:#000;color:#fff;font-weight:bold;font-size:16px;}
-.cart-item-price{font-weight:bold;min-width:70px;text-align:right;}
+.cart-item-price{font-weight:bold;min-width:70px;text-align:right;}/* --- Адаптация под планшеты и мобильные --- */
+@media (max-width:768px){
+  .hero-container{
+    flex-direction:column;
+    align-items:center;
+    gap:20px;
+  }
+  .hero-main-img{
+    max-width:90%;
+  }
+  .hero-gallery{
+    grid-template-columns:repeat(2,1fr);
+    gap:8px;
+  }
+  .btn{padding:14px 28px;font-size:16px;}
+  .sticky-bar{flex-direction:column;gap:10px;padding:12px 20px;}
+  .sticky-price{font-size:20px;text-align:center;}
+  .sticky-btn{width:100%;text-align:center;}
+  .logo-nav{flex-direction:column;gap:10px;}
+  .switch-btn{font-size:16px;padding:8px 14px;}
+  .qty span{font-size:16px;}
+  .cart-item img{width:50px;height:50px;}
+  .cart-item-qty input{width:40px;}
+}
+
+@media (max-width:480px){
+  h1{font-size:32px;}
+  h2{font-size:22px;}
+  .price{font-size:32px;}
+}
+
 </style>
 
 <script>
