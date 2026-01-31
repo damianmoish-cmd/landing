@@ -7,7 +7,7 @@
 <meta name="description" content="Bezdrátová sluchátka s ANC. Platba při převzetí. Doručení 2–3 dny.">
 
 <style>
-/* Основные стили */
+/* Общие стили */
 body {
   margin:0;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -16,13 +16,7 @@ body {
   overflow-x:hidden;
 }
 section {max-width:1100px;margin:auto;padding:70px 20px;}
-h1{
-  font-size:42px;
-  margin-bottom:20px;
-  font-weight:900;
-  line-height:1.2;
-  text-shadow: 0 3px 8px rgba(255,255,255,0.2);
-}
+h1{font-size:42px;margin-bottom:20px;font-weight:900;line-height:1.2;text-shadow:0 3px 8px rgba(255,255,255,0.2);}
 h2{font-size:26px;margin-bottom:25px;font-weight:700;}
 p{opacity:.85;font-size:16px;line-height:1.6;}
 .btn{display:inline-block;padding:14px 36px;border-radius:30px;text-decoration:none;font-weight:600;margin:10px 5px 10px 0;cursor:pointer;}
@@ -74,7 +68,8 @@ p{opacity:.85;font-size:16px;line-height:1.6;}
   bottom:0;
   left:0;
   right:0;
-  background:#111;
+  background:rgba(8,8,8,.95);
+  backdrop-filter:blur(12px);
   border-top:1px solid #222;
   display:flex;
   justify-content:space-between;
@@ -101,6 +96,15 @@ p{opacity:.85;font-size:16px;line-height:1.6;}
     z-index:10000;
     box-shadow:0 5px 20px rgba(255,255,255,0.4);
     transition:transform 0.2s;
+}
+#cart-overlay{
+    position:fixed;
+    top:0;left:0;right:0;bottom:0;
+    background:rgba(0,0,0,0.5);
+    opacity:0;
+    visibility:hidden;
+    transition:0.3s;
+    z-index:9998;
 }
 #cart{
     position:fixed;
@@ -156,13 +160,8 @@ p{opacity:.85;font-size:16px;line-height:1.6;}
     font-weight:bold;
     font-size:16px;
 }
-.cart-item-price{
-    font-weight:bold;
-    min-width:70px;
-    text-align:right;
-}
 
-/* Стили для HERO фото и галереи */
+/* HERO и галерея */
 .hero-container{
     display:flex;
     gap:30px;
@@ -170,7 +169,7 @@ p{opacity:.85;font-size:16px;line-height:1.6;}
     margin-top:40px;
 }
 .hero-main-img{
-    max-width:280px;
+    max-width:300px;
     border-radius:14px;
 }
 .hero-gallery{
@@ -212,6 +211,7 @@ function setLang(lang){
     el.style.display = el.dataset.lang===lang?'block':'none';
   });
 }
+
 function scrollAnimate(){
   document.querySelectorAll('.fade-up').forEach(el=>{
     if(el.getBoundingClientRect().top<window.innerHeight-100) el.classList.add('visible');
@@ -384,10 +384,7 @@ document.addEventListener('DOMContentLoaded',()=>{
 </div>
 </section>
 
-<!-- FAQ, галерея, отзывы и футер (как раньше) -->
-<!-- ... аналогично предыдущему коду ... -->
-
-<!-- Sticky bar -->
+<!-- STICKY BAR -->
 <div class="sticky-bar fade-up">
 <div class="sticky-price">1 099 Kč</div>
 <button class="sticky-btn" onclick="addToCart()">objednat nyní</button>
@@ -401,6 +398,11 @@ document.addEventListener('DOMContentLoaded',()=>{
 <button onclick="closeCart()" style="margin-top:20px;padding:10px 20px;border:none;background:#fff;color:#000;border-radius:8px;cursor:pointer;">Zavřít</button>
 </div>
 <div id="fixed-cart-btn"><span style="font-size:28px;color:#000;">🛒</span></div>
+
+<footer style="margin-top:60px;text-align:center;font-size:13px;opacity:.6;">
+Email: coincama@gmail.com | Tel: +420 702 846 018<br>
+Neznačkový produkt. Není spojen s žádnou ochrannou známkou.
+</footer>
 
 </body>
 </html>
