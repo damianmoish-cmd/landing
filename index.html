@@ -3,8 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>iMart-Store | Bezdrátová sluchátka Pro 3 & Max</title>
-    <meta name="description" content="Prémiová bezdrátová sluchátka s ANC, Hi-Fi zvukem a komfortem. Platba při převzetí.">
+    <title>iMart-Store | Bezdrátová sluchátka Pro 3 & Max 2</title>
+    <meta name="description" content="Prémiová bezdrátová sluchátka s ANC, Hi-Fi zvukem a komfortem. Rychlé nabíjení USB Type-C. Platba při převzetí.">
+    
+    <!-- Google Analytics 4 -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-521920251"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-521920251');
+    </script>
     
     <!-- TikTok Pixel -->
     <script>
@@ -613,6 +622,81 @@
             font-weight: 700;
             font-size: 14px;
             color: var(--text);
+        }
+
+        /* ========== DELIVERY TYPE OPTIONS ========== */
+        .delivery-type-options {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+            gap: 10px;
+            margin-top: 10px;
+        }
+        
+        .delivery-type-option {
+            padding: 12px 10px;
+            border-radius: 10px;
+            background: rgba(255, 255, 255, 0.05);
+            border: 2px solid var(--border);
+            cursor: pointer;
+            text-align: center;
+            transition: var(--transition);
+            font-size: 14px;
+        }
+        
+        .delivery-type-option:hover,
+        .delivery-type-option.active {
+            background: linear-gradient(135deg, var(--accent-blue), var(--accent-purple));
+            border-color: var(--primary);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(77, 144, 254, 0.4);
+        }
+        
+        .delivery-type-option:hover span,
+        .delivery-type-option.active span {
+            color: white !important;
+        }
+        
+        .delivery-type-icon {
+            font-size: 24px;
+            margin-bottom: 6px;
+            display: block;
+        }
+        
+        .address-field {
+            margin-top: 15px;
+            transition: opacity 0.3s ease;
+        }
+        
+        .address-field.hidden {
+            opacity: 0.5;
+            pointer-events: none;
+        }
+        
+        .address-hint-container {
+            margin-top: 8px;
+            background: rgba(77, 144, 254, 0.1);
+            border-left: 3px solid var(--accent-blue);
+            padding: 10px;
+            border-radius: 6px;
+            display: none;
+        }
+        
+        .address-hint-icon {
+            display: flex;
+            align-items: center;
+            margin-bottom: 6px;
+        }
+        
+        .address-hint-icon span {
+            font-size: 18px;
+            margin-right: 8px;
+        }
+        
+        .address-hint-text {
+            font-size: 13px;
+            line-height: 1.5;
+            margin: 0;
+            color: var(--text-muted);
         }
 
         /* ========== STICKY BAR ========== */
@@ -1331,6 +1415,18 @@
             flex-wrap: wrap;
         }
 
+        /* ========== LEGAL DISCLAIMER ========== */
+        .legal-disclaimer {
+            text-align: center;
+            padding: 15px;
+            background: rgba(255, 255, 255, 0.03);
+            border-top: 1px solid var(--border);
+            font-size: 13px;
+            color: var(--text-muted);
+            margin-top: 20px;
+            border-radius: 8px;
+        }
+
         /* ========== MOBILE OPTIMIZATION ========== */
         @media (max-width: 768px) {
             .section-title {
@@ -1535,11 +1631,13 @@
                 padding: 50px 0 25px;
             }
 
-            .delivery-options {
+            .delivery-options,
+            .delivery-type-options {
                 grid-template-columns: 1fr;
             }
 
-            .delivery-option {
+            .delivery-option,
+            .delivery-type-option {
                 padding: 15px;
             }
         }
@@ -1552,7 +1650,7 @@
         <div class="logo">iMart-Store</div>
         <div class="nav-links">
             <button class="nav-btn" id="nav-pro" onclick="showProduct('pro')">Pro 3</button>
-            <button class="nav-btn" id="nav-max" onclick="showProduct('max')">Max</button>
+            <button class="nav-btn" id="nav-max" onclick="showProduct('max')">Max 2</button>
             <button class="lang-toggle" onclick="toggleLanguage()">🇨🇿 / 🇷🇺</button>
         </div>
     </nav>
@@ -1606,12 +1704,20 @@
     <main class="container">
         <!-- HERO SECTION -->
         <section class="hero fade-in">
-            <h1 class="section-title" id="product-title" data-lang-cz-pro="Bezdrátová TWS sluchátka Pro 3 🎧" data-lang-ru-pro="Беспроводные TWS наушники Pro 3 🎧" data-lang-cz-max="Sluchátka Max 🎧" data-lang-ru-max="Наушники Max 🎧">
+            <h1 class="section-title" id="product-title" 
+                data-lang-cz-pro="Bezdrátová TWS sluchátka Pro 3 🎧" 
+                data-lang-ru-pro="Беспроводные TWS наушники Pro 3 🎧" 
+                data-lang-cz-max="Sluchátka Max 2 🎧" 
+                data-lang-ru-max="Наушники Max 2 🎧">
                 Bezdrátová TWS sluchátka Pro 3 🎧
             </h1>
             
-            <p class="section-subtitle" id="product-subtitle" data-lang-cz-pro="Objevte svět čistého zvuku s našimi prémiovými bezdrátovými sluchátky. Aktivní potlačení hluku, Hi-Fi kvalita a až 24 hodin neustálého poslechu pro váš každodenní komfort." data-lang-ru-pro="Откройте мир чистого звука с нашими премиальными беспроводными наушниками. Активное шумоподавление, Hi-Fi качество и до 24 часов непрерывного прослушивания для вашего повседневного комфорта." data-lang-cz-max="Ponořte se do dokonalého zvuku s profesionálními sluchátky Max. Pokročilé ANC, prostorový Hi-Fi zvuk a až 30 hodin výdrže pro nejvyšší nároky posluchačů." data-lang-ru-max="Погрузитесь в совершенный звук с профессиональными наушниками Max. Продвинутое ANC, объемный Hi-Fi звук и до 30 часов автономности для самых высоких требований слушателей.">
-                Objevte svět čistého zvuku s našimi prémiovými bezdrátovými sluchátky. Aktivní potlačení hluku, Hi-Fi kvalita a až 24 hodin neustálého poslechu pro váš každodenní komfort.
+            <p class="section-subtitle" id="product-subtitle" 
+                data-lang-cz-pro="Objevte svět čistého zvuku s našimi prémiovými bezdrátovými sluchátky. Aktivní potlačení hluku, Hi-Fi kvalita, rychlé nabíjení USB Type-C a až 24 hodin neustálého poslechu pro váš každodenní komfort." 
+                data-lang-ru-pro="Откройте мир чистого звука с нашими премиальными беспроводными наушниками. Активное шумоподавление, Hi-Fi качество, быстрая зарядка USB Type-C и до 24 часов непрерывного прослушивания для вашего повседневного комфорта." 
+                data-lang-cz-max="Nejnovější generace profesionálních sluchátek Max 2 s pokročilým ANC, prostorovým Hi-Fi zvukem, rychlým nabíjením USB Type-C a až 30 hodinami výdrže pro nejvyšší nároky posluchačů." 
+                data-lang-ru-max="Новейшее поколение профессиональных наушников Max 2 с продвинутым ANC, объемным Hi-Fi звуком, быстрой зарядкой USB Type-C и до 30 часов автономности для самых высоких требований слушателей.">
+                Objevte svět čistého zvuku s našimi prémiovými bezdrátovými sluchátky. Aktivní potlačení hluku, Hi-Fi kvalita, rychlé nabíjení USB Type-C a až 24 hodin neustálého poslechu pro váš každodenní komfort.
             </p>
             
             <img src="img/airpods1.jpg" alt="Sluchátka" class="hero-img" id="main-img">
@@ -1624,7 +1730,7 @@
             </div>
 
             <div class="price" id="product-price">1 099 Kč</div>
-            <div class="price-badge" data-lang-cz="Platba při převzetí • Doručení 2-3 dny" data-lang-ru="Оплата при получении • Доставка 2-3 дня">Platba při převzetí • Doručení 2-3 dny</div>
+            <div class="price-badge" data-lang-cz="USB Type-C • Platba při převzetí • Doručení 2-3 dny" data-lang-ru="USB Type-C • Оплата при получении • Доставка 2-3 дня">USB Type-C • Platba při převzetí • Doručení 2-3 dny</div>
 
             <!-- Color selector only for Max product -->
             <div class="color-selector" id="color-selector" style="display:none;">
@@ -1642,18 +1748,29 @@
             <button class="btn btn-primary btn-block" onclick="addToCart()" id="add-to-cart-btn" data-lang-cz="Přidat do košíku" data-lang-ru="Добавить в корзину">Přidat do košíku</button>
             
             <div class="product-switcher">
-                <button class="btn btn-switch" onclick="showProduct('max')" data-lang-cz="Podívejte se na Sluchátka Max →" data-lang-ru="Посмотреть Наушники Max →">Podívejte se na Sluchátka Max →</button>
+                <button class="btn btn-switch" onclick="showProduct('max')" 
+                    data-lang-cz="Podívejte se na Sluchátka Max 2 →" 
+                    data-lang-ru="Посмотреть Наушники Max 2 →">
+                    Podívejte se na Sluchátka Max 2 →
+                </button>
             </div>
         </section>
 
         <!-- DETAILED DESCRIPTION -->
         <section class="fade-in">
             <div class="product-description" id="product-description">
-                <h3 data-lang-cz-pro="Proč si zamilujete Bezdrátová sluchátka Pro 3" data-lang-ru-pro="Почему вы полюбите Беспроводные наушники Pro 3" data-lang-cz-max="Proč si zamilujete Sluchátka Max" data-lang-ru-max="Почему вы полюбите Наушники Max">
+                <h3 data-lang-cz-pro="Proč si zamilujete Bezdrátová sluchátka Pro 3" 
+                    data-lang-ru-pro="Почему вы полюбите Беспроводные наушники Pro 3" 
+                    data-lang-cz-max="Proč si zamilujete Sluchátka Max 2" 
+                    data-lang-ru-max="Почему вы полюбите Наушники Max 2">
                     Proč si zamilujete Bezdrátová sluchátka Pro 3
                 </h3>
-                <p id="description-text" data-lang-cz-pro="Představte si ráno bez rušivého hluku města, cestu do práce s hudbou, která vás přenáší do jiného světa, a večer plný klidu a uvolnění. Bezdrátová sluchátka Pro 3 jsou navržena právě pro vás – pro ty, kteří si cení kvality, pohodlí a stylového vzhledu. Díky pokročilé technologii aktivního potlačení hluku (ANC) si užijete čistý zvuk bez okolních rušivých zvuků. Hi-Fi reproduktory s bohatými bassy a křišťálově čistými výškami vám přinesou studiový zážitek přímo do uší. S výdrží baterie až 24 hodin vás tyto sluchátka provází celý den – od ranního probuzení až po noční odpočinek. Ergonomický design a měkké silikonové náušníky zajišťují maximální pohodlí i při dlouhodobém nošení. Ať už posloucháte svou oblíbenou hudbu, sledujete filmy nebo telefonujete, sluchátka Pro 3 vám poskytnou nezapomenutelný zvukový zážitek." data-lang-ru-pro="Представьте утро без шума города, дорогу на работу с музыкой, которая переносит вас в другой мир, и вечер, полный покоя и расслабления. Беспроводные наушники Pro 3 созданы именно для вас - для тех, кто ценит качество, комфорт и стильный внешний вид. Благодаря передовой технологии активного шумоподавления (ANC) вы насладитесь чистым звуком без посторонних шумов. Hi-Fi динамики с насыщенными басами и кристально чистыми высокими частотами принесут вам студийное качество звука прямо в уши. С автономностью до 24 часов эти наушники будут сопровождать вас весь день - от утреннего пробуждения до ночного отдыха. Эргономичный дизайн и мягкие силиконовые амбушюры обеспечивают максимальный комфорт даже при длительном ношении. Независимо от того, слушаете ли вы любимую музыку, смотрите фильмы или разговариваете по телефону, наушники Pro 3 подарят вам незабываемые звуковые ощущения." data-lang-cz-max="Představte si dokonalý zvukový zážitek, který vás pohltí a přenese do světa hudby. Sluchátka Max jsou určena pro ty nejnáročnější posluchače, kteří hledají vrcholné technologie a luxusní design. S pokročilým aktivním potlačením hluku (ANC) vytvoříte dokonalé ticho pro soustředění nebo prohloubené uvolnění. Prostorový zvuk s hlubokými, pulzujícími bassy a křišťálově čistými výškami vás doslova pohltí a přenese do srdce každé skladby. S výdrží baterie až 30 hodin jsou tyto sluchátka ideálním společníkem pro dlouhé cesty, intenzivní pracovní dny nebo noční sezení s hudbou. Luxusní materiály, včetně měkkých proteinových kožených náušníků a odolného hliníkového těla, zajišťují nejen elegantní vzhled, ale také maximální pohodlí i při nosení celý den. Ať už pracujete z domova, cestujete nebo si užíváte klidné chvíle, sluchátka Max vám poskytnou profesionální zvukový zážitek, který si zamilujete." data-lang-ru-max="Представьте идеальное звуковое переживание, которое поглотит вас и перенесет в мир музыки. Наушники Max предназначены для самых требовательных слушателей, которые ищут передовые технологии и роскошный дизайн. С продвинутой системой активного шумоподавления (ANC) вы создадите идеальную тишину для концентрации или глубокого расслабления. Объемный звук с глубокими, пульсирующими басами и кристально чистыми высокими частотами буквально поглотит вас и перенесет в сердце каждой композиции. С автономностью до 30 часов эти наушники станут идеальным спутником для длительных путешествий, интенсивных рабочих дней или ночных сессий с музыкой. Роскошные материалы, включая мягкие белковые кожаные амбушюры и прочный алюминиевый корпус, обеспечивают не только элегантный внешний вид, но и максимальный комфорт даже при ношении весь день. Независимо от того, работаете ли вы из дома, путешествуете или наслаждаетесь спокойными моментами, наушники Max подарят вам профессиональное звуковое переживание, которое вы полюбите.">
-                    Představte si ráno bez rušivého hluku města, cestu do práce s hudbou, která vás přenáší do jiného světa, a večer plný klidu a uvolnění. Bezdrátová sluchátka Pro 3 jsou navržena právě pro vás – pro ty, kteří si cení kvality, pohodlí a stylového vzhledu. Díky pokročilé technologii aktivního potlačení hluku (ANC) si užijete čistý zvuk bez okolních rušivých zvuků. Hi-Fi reproduktory s bohatými bassy a křišťálově čistými výškami vám přinesou studiový zážitek přímo do uší. S výdrží baterie až 24 hodin vás tyto sluchátka provází celý den – od ranního probuzení až po noční odpočinek. Ergonomický design a měkké silikonové náušníky zajišťují maximální pohodlí i při dlouhodobém nošení. Ať už posloucháte svou oblíbenou hudbu, sledujete filmy nebo telefonujete, sluchátka Pro 3 vám poskytnou nezapomenutelný zvukový zážitek.
+                <p id="description-text" 
+                    data-lang-cz-pro="Představte si ráno bez rušivého hluku města, cestu do práce s hudbou, která vás přenáší do jiného světa, a večer plný klidu a uvolnění. Bezdrátová sluchátka Pro 3 jsou navržena právě pro vás – pro ty, kteří si cení kvality, pohodlí a stylového vzhledu. Díky pokročilé technologii aktivního potlačení hluku (ANC) si užijete čistý zvuk bez okolních rušivých zvuků. Hi-Fi reproduktory s bohatými bassy a křišťálově čistými výškami vám přinesou studiový zážitek přímo do uší. S výdrží baterie až 24 hodin a praktickým nabíjením přes moderní USB Type-C port vás tyto sluchátka provází celý den – od ranního probuzení až po noční odpočinek. Ergonomický design a měkké silikonové náušníky zajišťují maximální pohodlí i při dlouhodobém nošení. Ať už posloucháte svou oblíbenou hudbu, sledujete filmy nebo telefonujete, sluchátka Pro 3 vám poskytnou nezapomenutelný zvukový zážitek s pohodlným nabíjením USB Type-C." 
+                    data-lang-ru-pro="Представьте утро без шума города, дорогу на работу с музыкой, которая переносит вас в другой мир, и вечер, полный покоя и расслабления. Беспроводные наушники Pro 3 созданы именно для вас - для тех, кто ценит качество, комфорт и стильный внешний вид. Благодаря передовой технологии активного шумоподавления (ANC) вы насладитесь чистым звуком без посторонних шумов. Hi-Fi динамики с насыщенными басами и кристально чистыми высокими частотами принесут вам студийное качество звука прямо в уши. С автономностью до 24 часов и удобной зарядкой через современный порт USB Type-C эти наушники будут сопровождать вас весь день - от утреннего пробуждения до ночного отдыха. Эргономичный дизайн и мягкие силиконовые амбушюры обеспечивают максимальный комфорт даже при длительном ношении. Независимо от того, слушаете ли вы любимую музыку, смотрите фильмы или разговариваете по телефону, наушники Pro 3 подарят вам незабываемые звуковые ощущения с удобной зарядкой USB Type-C." 
+                    data-lang-cz-max="Objevte revoluční zvukový zážitek s nejnovějšími Sluchátky Max 2! Tyto profesionální over-ear sluchátka představují vrchol technologie s pokročilým ANC nové generace, které eliminuje až 98% okolních hluků. Prostorový Hi-Fi zvuk s hlubokými, pulzujícími basami a křišťálově čistými výškami vás doslova pohltí a přenese do srdce každé skladby. S výdrží baterie až 30 hodin a ultra-rychlým nabíjením přes USB Type-C (10 minut nabíjení = 5 hodin poslechu!) jsou tyto sluchátka ideálním společníkem pro dlouhé cesty, intenzivní pracovní dny nebo noční sezení s hudbou. Luxusní materiály, včetně měkkých proteinových kožených náušníků a odolného hliníkového těla, zajišťují nejen elegantní vzhled, ale také maximální pohodlí i při nosení celý den. Moderní USB Type-C nabíjení zajišťuje rychlou a univerzální kompatibilitu se všemi vašimi zařízeními. Ať už pracujete z domova, cestujete nebo si užíváte klidné chvíle, sluchátka Max 2 vám poskytnou profesionální zvukový zážitek, který si zamilujete." 
+                    data-lang-ru-max="Откройте революционное звуковое переживание с новейшими Наушниками Max 2! Эти профессиональные наушники over-ear представляют вершину технологий с продвинутой системой активного шумоподавления нового поколения, которая устраняет до 98% окружающих шумов. Объемный Hi-Fi звук с глубокими, пульсирующими басами и кристально чистыми высокими частотами буквально поглотит вас и перенесет в сердце каждой композиции. С автономностью до 30 часов и ультрабыстрой зарядкой через USB Type-C (10 минут зарядки = 5 часов прослушивания!) эти наушники станут идеальным спутником для длительных путешествий, интенсивных рабочих дней или ночных сессий с музыкой. Роскошные материалы, включая мягкие белковые кожаные амбушюры и прочный алюминиевый корпус, обеспечивают не только элегантный внешний вид, но и максимальный комфорт даже при ношении весь день. Современная зарядка USB Type-C обеспечивает быструю и универсальную совместимость со всеми вашими устройствами. Независимо от того, работаете ли вы из дома, путешествуете или наслаждаетесь спокойными моментами, наушники Max 2 подарят вам профессиональное звуковое переживание, которое вы полюбите.">
+                    Představte si ráno bez rušivého hluku města, cestu do práce s hudbou, která vás přenáší do jiného světa, a večer plný klidu a uvolnění. Bezdrátová sluchátka Pro 3 jsou navržena právě pro vás – pro ty, kteří si cení kvality, pohodlí a stylového vzhledu. Díky pokročilé technologii aktivního potlačení hluku (ANC) si užijete čistý zvuk bez okolních rušivých zvuků. Hi-Fi reproduktory s bohatými bassy a křišťálově čistými výškami vám přinesou studiový zážitek přímo do uší. S výdrží baterie až 24 hodin a praktickým nabíjením přes moderní USB Type-C port vás tyto sluchátka provází celý den – od ranního probuzení až po noční odpočinek. Ergonomický design a měkké silikonové náušníky zajišťují maximální pohodlí i při dlouhodobém nošení. Ať už posloucháte svou oblíbenou hudbu, sledujete filmy nebo telefonujete, sluchátka Pro 3 vám poskytnou nezapomenutelný zvukový zážitek s pohodlným nabíjením USB Type-C.
                 </p>
                 
                 <div class="specs-grid">
@@ -1670,16 +1787,25 @@
                         <div class="spec-label" data-lang-cz="Kvalita zvuku" data-lang-ru="Качество звука">Kvalita zvuku</div>
                     </div>
                     <div class="spec-item">
-                        <div class="spec-value" data-lang-cz="Ano" data-lang-ru="Да">Ano</div>
-                        <div class="spec-label" data-lang-cz="Voděodolnost" data-lang-ru="Водонепроницаемость">Voděodolnost</div>
+                        <div class="spec-value">Type-C</div>
+                        <div class="spec-label" data-lang-cz="Rychlé nabíjení" data-lang-ru="Быстрая зарядка">Rychlé nabíjení</div>
                     </div>
                 </div>
+            </div>
+            
+            <!-- Юридический текст под описанием -->
+            <div class="legal-disclaimer" data-lang-cz="⚠️ Upozornění: Tento produkt není originálním značkovým produktem. Nejedná se o oficiální produkt žádné registrované značky. Všechna práva a loga patří jejich vlastníkům." data-lang-ru="⚠️ Внимание: Этот продукт не является оригинальным брендовым товаром. Не является официальным продуктом какой-либо зарегистрированной торговой марки. Все права и логотипы принадлежат их владельцам.">
+                ⚠️ Upozornění: Tento produkt není originálním značkovým produktem. Nejedná se o oficiální produkt žádné registrované značky. Všechna práva a loga patří jejich vlastníkům.
             </div>
         </section>
 
         <!-- FEATURES SECTION -->
         <section class="fade-in">
-            <h2 class="section-title" id="features-title" data-lang-cz-pro="Co vás u Pro 3 nadchne ✨" data-lang-ru-pro="Что вас впечатлит в Pro 3 ✨" data-lang-cz-max="Proč si je zamilujete ✨" data-lang-ru-max="Почему вы их полюбите ✨">
+            <h2 class="section-title" id="features-title" 
+                data-lang-cz-pro="Co vás u Pro 3 nadchne ✨" 
+                data-lang-ru-pro="Что вас впечатлит в Pro 3 ✨" 
+                data-lang-cz-max="Proč si zamilujete Max 2 ✨" 
+                data-lang-ru-max="Почему вы полюбите Max 2 ✨">
                 Co vás u Pro 3 nadchne ✨
             </h2>
             
@@ -1697,9 +1823,9 @@
                 </div>
                 
                 <div class="feature-card fade-in">
-                    <div class="feature-icon">🛋</div>
-                    <div class="feature-title" data-lang-cz="Dlouhodové pohodlí" data-lang-ru="Долгосрочный комфорт">Dlouhodové pohodlí</div>
-                    <div class="feature-desc" data-lang-cz="Měkké silikonové náušníky a lehká konstrukce – nositelné celý den bez únavy. Ideální pro práci, sport i každodenní použití." data-lang-ru="Мягкие силиконовые амбушюры и легкая конструкция - удобные для ношения весь день без усталости. Идеальны для работы, спорта и повседневного использования.">Měkké silikonové náušníky a lehká konstrukce – nositelné celý den bez únavy. Ideální pro práci, sport i každodenní použití.</div>
+                    <div class="feature-icon">⚡</div>
+                    <div class="feature-title" data-lang-cz="USB Type-C nabíjení" data-lang-ru="Зарядка USB Type-C">USB Type-C nabíjení</div>
+                    <div class="feature-desc" data-lang-cz="Moderní a univerzální nabíjení. Rychlé a spolehlivé – 10 minut nabíjení = 2 hodiny poslechu. Kompatibilní se všemi vašimi zařízeními." data-lang-ru="Современная и универсальная зарядка. Быстрая и надежная – 10 минут зарядки = 2 часа прослушивания. Совместима со всеми вашими устройствами.">Moderní a univerzální nabíjení. Rychlé a spolehlivé – 10 minut nabíjení = 2 hodiny poslechu. Kompatibilní se všemi vašimi zařízeními.</div>
                 </div>
                 
                 <div class="feature-card fade-in">
@@ -1724,8 +1850,8 @@
         <div class="footer-content">
             <div class="footer-section">
                 <h3 data-lang-cz="iMart-Store" data-lang-ru="iMart-Store">iMart-Store</h3>
-                <p data-lang-cz="Prémiová bezdrátová sluchátka s ANC a Hi-Fi zvukem. Rychlé doručení po ČR. Platba při převzetí." data-lang-ru="Премиальные беспроводные наушники с ANC и Hi-Fi звуком. Быстрая доставка по Чехии. Оплата при получении.">
-                    Prémiová bezdrátová sluchátka s ANC a Hi-Fi zvukem. Rychlé doručení po ČR. Platba při převzetí.
+                <p data-lang-cz="Prémiová bezdrátová sluchátka s ANC a Hi-Fi zvukem. Rychlé doručení po ČR. USB Type-C nabíjení. Platba při převzetí." data-lang-ru="Премиальные беспроводные наушники с ANC и Hi-Fi звуком. Быстрая доставка по Чехии. Зарядка USB Type-C. Оплата при получении.">
+                    Prémiová bezdrátová sluchátka s ANC a Hi-Fi zvukem. Rychlé doručení po ČR. USB Type-C nabíjení. Platba při převzetí.
                 </p>
             </div>
             
@@ -1733,7 +1859,7 @@
                 <h3 data-lang-cz="Odkazy" data-lang-ru="Ссылки">Odkazy</h3>
                 <ul class="footer-links">
                     <li><a href="#" onclick="showProduct('pro')" data-lang-cz="Sluchátka Pro 3" data-lang-ru="Наушники Pro 3">Sluchátka Pro 3</a></li>
-                    <li><a href="#" onclick="showProduct('max')" data-lang-cz="Sluchátka Max" data-lang-ru="Наушники Max">Sluchátka Max</a></li>
+                    <li><a href="#" onclick="showProduct('max')" data-lang-cz="Sluchátka Max 2" data-lang-ru="Наушники Max 2">Sluchátka Max 2</a></li>
                     <li><a href="#" onclick="openCart()" data-lang-cz="Košík" data-lang-ru="Корзина">Košík</a></li>
                 </ul>
             </div>
@@ -1750,6 +1876,7 @@
         
         <div class="copyright">
             <p>© 2026 iMart-Store. Neznačkový produkt. Není spojen s žádnou ochrannou známkou.</p>
+            <p style="font-size:12px;margin-top:8px;color:var(--text-muted);" data-lang-cz="Všechny zmíněné značky a loga jsou vlastnictvím jejich příslušných vlastníků. Tento web není oficiálním obchodem žádné značky." data-lang-ru="Все упомянутые торговые марки и логотипы являются собственностью их соответствующих владельцев. Этот сайт не является официальным магазином какой-либо торговой марки.">Všechny zmíněné značky a loga jsou vlastnictvím jejich příslušných vlastníků. Tento web není oficiálním obchodem žádné značky.</p>
         </div>
     </footer>
 
@@ -1761,6 +1888,7 @@
         let currentLang = 'cz';
         let cart = JSON.parse(localStorage.getItem('cart')) || [];
         let selectedDelivery = 'Zásilkovna';
+        let deliveryType = 'address'; // 'address', 'post_office', 'postomat'
 
         // ========== PRODUCTS DATA ==========
         const products = {
@@ -1771,19 +1899,19 @@
                 colors: ['Bílá'],
                 battery: { cz: '24h', ru: '24ч' },
                 description: {
-                    cz: 'Představte si ráno bez rušivého hluku města, cestu do práce s hudbou, která vás přenáší do jiného světa, a večer plný klidu a uvolnění. Bezdrátová sluchátka Pro 3 jsou navržena právě pro vás – pro ty, kteří si cení kvality, pohodlí a stylového vzhledu. Díky pokročilé technologii aktivního potlačení hluku (ANC) si užijete čistý zvuk bez okolních rušivých zvuků. Hi-Fi reproduktory s bohatými bassy a křišťálově čistými výškami vám přinesou studiový zážitek přímo do uší. S výdrží baterie až 24 hodin vás tyto sluchátka provází celý den – od ranního probuzení až po noční odpočinek. Ergonomický design a měkké silikonové náušníky zajišťují maximální pohodlí i při dlouhodobém nošení. Ať už posloucháte svou oblíbenou hudbu, sledujete filmy nebo telefonujete, sluchátka Pro 3 vám poskytnou nezapomenutelný zvukový zážitek.',
-                    ru: 'Представьте утро без шума города, дорогу на работу с музыкой, которая переносит вас в другой мир, и вечер, полный покоя и расслабления. Беспроводные наушники Pro 3 созданы именно для вас - для тех, кто ценит качество, комфорт и стильный внешний вид. Благодаря передовой технологии активного шумоподавления (ANC) вы насладитесь чистым звуком без посторонних шумов. Hi-Fi динамики с насыщенными басами и кристально чистыми высокими частотами принесут вам студийное качество звука прямо в уши. С автономностью до 24 часов эти наушники будут сопровождать вас весь день - от утреннего пробуждения до ночного отдыха. Эргономичный дизайн и мягкие силиконовые амбушюры обеспечивают максимальный комфорт даже при длительном ношении. Независимо от того, слушаете ли вы любимую музыку, смотрите фильмы или разговариваете по телефону, наушники Pro 3 подарят вам незабываемые звуковые ощущения.'
+                    cz: 'Představte si ráno bez rušivého hluku města, cestu do práce s hudbou, která vás přenáší do jiného světa, a večer plný klidu a uvolnění. Bezdrátová sluchátka Pro 3 jsou navržena právě pro vás – pro ty, kteří si cení kvality, pohodlí a stylového vzhledu. Díky pokročilé technologii aktivního potlačení hluku (ANC) si užijete čistý zvuk bez okolních rušivých zvuků. Hi-Fi reproduktory s bohatými bassy a křišťálově čistými výškami vám přinesou studiový zážitek přímo do uší. S výdrží baterie až 24 hodin a praktickým nabíjením přes moderní USB Type-C port vás tyto sluchátka provází celý den – od ranního probuzení až po noční odpočinek. Ergonomický design a měkké silikonové náušníky zajišťují maximální pohodlí i při dlouhodobém nošení. Ať už posloucháte svou oblíbenou hudbu, sledujete filmy nebo telefonujete, sluchátka Pro 3 vám poskytnou nezapomenutelný zvukový zážitek s pohodlným nabíjením USB Type-C.',
+                    ru: 'Представьте утро без шума города, дорогу на работу с музыкой, которая переносит вас в другой мир, и вечер, полный покоя и расслабления. Беспроводные наушники Pro 3 созданы именно для вас - для тех, кто ценит качество, комфорт и стильный внешний вид. Благодаря передовой технологии активного шумоподавления (ANC) вы насладитесь чистым звуком без посторонних шумов. Hi-Fi динамики с насыщенными басами и кристально чистыми высокими частотами принесут вам студийное качество звука прямо в уши. С автономностью до 24 часов и удобной зарядкой через современный порт USB Type-C эти наушники будут сопровождать вас весь день - от утреннего пробуждения до ночного отдыха. Эргономичный дизайн и мягкие силиконовые амбушюры обеспечивают максимальный комфорт даже при длительном ношении. Независимо от того, слушаете ли вы любимую музыку, смотрите фильмы или разговариваете по телефону, наушники Pro 3 подарят вам незабываемые звуковые ощущения с удобной зарядкой USB Type-C.'
                 }
             },
             max: {
-                name: { cz: 'Sluchátka Max', ru: 'Наушники Max' },
+                name: { cz: 'Sluchátka Max 2', ru: 'Наушники Max 2' },
                 price: 2499,
                 images: ['img/max1.jpg', 'img/max2.jpg', 'img/max3.jpg'],
                 colors: ['Černá', 'Stříbrná'],
                 battery: { cz: '30h', ru: '30ч' },
                 description: {
-                    cz: 'Představte si dokonalý zvukový zážitek, který vás pohltí a přenese do světa hudby. Sluchátka Max jsou určena pro ty nejnáročnější posluchače, kteří hledají vrcholné technologie a luxusní design. S pokročilým aktivním potlačením hluku (ANC) vytvoříte dokonalé ticho pro soustředění nebo prohloubené uvolnění. Prostorový zvuk s hlubokými, pulzujícími bassy a křišťálově čistými výškami vás doslova pohltí a přenese do srdce každé skladby. S výdrží baterie až 30 hodin jsou tyto sluchátka ideálním společníkem pro dlouhé cesty, intenzivní pracovní dny nebo noční sezení s hudbou. Luxusní materiály, včetně měkkých proteinových kožených náušníků a odolného hliníkového těla, zajišťují nejen elegantní vzhled, ale také maximální pohodlí i při nosení celý den. Ať už pracujete z domova, cestujete nebo si užíváte klidné chvíle, sluchátka Max vám poskytnou profesionální zvukový zážitek, který si zamilujete.',
-                    ru: 'Представьте идеальное звуковое переживание, которое поглотит вас и перенесет в мир музыки. Наушники Max предназначены для самых требовательных слушателей, которые ищут передовые технологии и роскошный дизайн. С продвинутой системой активного шумоподавления (ANC) вы создадите идеальную тишину для концентрации или глубокого расслабления. Объемный звук с глубокими, пульсирующими басами и кристально чистыми высокими частотами буквально поглотит вас и перенесет в сердце каждой композиции. С автономностью до 30 часов эти наушники станут идеальным спутником для длительных путешествий, интенсивных рабочих дней или ночных сессий с музыкой. Роскошные материалы, включая мягкие белковые кожаные амбушюры и прочный алюминиевый корпус, обеспечивают не только элегантный внешний вид, но и максимальный комфорт даже при ношении весь день. Независимо от того, работаете ли вы из дома, путешествуете или наслаждаетесь спокойными моментами, наушники Max подарят вам профессиональное звуковое переживание, которое вы полюбите.'
+                    cz: 'Objevte revoluční zvukový zážitek s nejnovějšími Sluchátky Max 2! Tyto profesionální over-ear sluchátka představují vrchol technologie s pokročilým ANC nové generace, které eliminuje až 98% okolních hluků. Prostorový Hi-Fi zvuk s hlubokými, pulzujícími basami a křišťálově čistými výškami vás doslova pohltí a přenese do srdce každé skladby. S výdrží baterie až 30 hodin a ultra-rychlým nabíjením přes USB Type-C (10 minut nabíjení = 5 hodin poslechu!) jsou tyto sluchátka ideálním společníkem pro dlouhé cesty, intenzivní pracovní dny nebo noční sezení s hudbou. Luxusní materiály, včetně měkkých proteinových kožených náušníků a odolného hliníkového těla, zajišťují nejen elegantní vzhled, ale také maximální pohodlí i při nosení celý den. Moderní USB Type-C nabíjení zajišťuje rychlou a univerzální kompatibilitu se všemi vašimi zařízeními. Ať už pracujete z domova, cestujete nebo si užíváte klidné chvíle, sluchátka Max 2 vám poskytnou profesionální zvukový zážitek, který si zamilujete.',
+                    ru: 'Откройте революционное звуковое переживание с новейшими Наушниками Max 2! Эти профессиональные наушники over-ear представляют вершину технологий с продвинутой системой активного шумоподавления нового поколения, которая устраняет до 98% окружающих шумов. Объемный Hi-Fi звук с глубокими, пульсирующими басами и кристально чистыми высокими частотами буквально поглотит вас и перенесет в сердце каждой композиции. С автономностью до 30 часов и ультрабыстрой зарядкой через USB Type-C (10 минут зарядки = 5 часов прослушивания!) эти наушники станут идеальным спутником для длительных путешествий, интенсивных рабочих дней или ночных сессий с музыкой. Роскошные материалы, включая мягкие белковые кожаные амбушюры и прочный алюминиевый корпус, обеспечивают не только элегантный внешний вид, но и максимальный комфорт даже при ношении весь день. Современная зарядка USB Type-C обеспечивает быструю и универсальную совместимость со всеми вашими устройствами. Независимо от того, работаете ли вы из дома, путешествуете или наслаждаетесь спокойными моментами, наушники Max 2 подарят вам профессиональное звуковое переживание, которое вы полюбите.'
                 }
             }
         };
@@ -1859,14 +1987,14 @@
             // Update subtitle
             document.getElementById('product-subtitle').textContent = 
                 currentProduct === 'pro' ? 
-                    (currentLang === 'cz' ? 'Objevte svět čistého zvuku s našimi prémiovými bezdrátovými sluchátky. Aktivní potlačení hluku, Hi-Fi kvalita a až 24 hodin neustálého poslechu pro váš každodenní komfort.' : 'Откройте мир чистого звука с нашими премиальными беспроводными наушниками. Активное шумоподавление, Hi-Fi качество и до 24 часов непрерывного прослушивания для вашего повседневного комфорта.') :
-                    (currentLang === 'cz' ? 'Ponořte se do dokonalého zvuku s profesionálními sluchátky Max. Pokročilé ANC, prostorový Hi-Fi zvuk a až 30 hodin výdrže pro nejvyšší nároky posluchačů.' : 'Погрузитесь в совершенный звук с профессиональными наушниками Max. Продвинутое ANC, объемный Hi-Fi звук и до 30 часов автономности для самых высоких требований слушателей.');
+                    (currentLang === 'cz' ? 'Objevte svět čistého zvuku s našimi prémiovými bezdrátovými sluchátky. Aktivní potlačení hluku, Hi-Fi kvalita, rychlé nabíjení USB Type-C a až 24 hodin neustálého poslechu pro váš každodenní komfort.' : 'Откройте мир чистого звука с нашими премиальными беспроводными наушниками. Активное шумоподавление, Hi-Fi качество, быстрая зарядка USB Type-C и до 24 часов непрерывного прослушивания для вашего повседневного комфорта.') :
+                    (currentLang === 'cz' ? 'Nejnovější generace profesionálních sluchátek Max 2 s pokročilým ANC, prostorovým Hi-Fi zvukem, rychlým nabíjením USB Type-C a až 30 hodinami výdrže pro nejvyšší nároky posluchačů.' : 'Новейшее поколение профессиональных наушников Max 2 с продвинутым ANC, объемным Hi-Fi звуком, быстрой зарядкой USB Type-C и до 30 часов автономности для самых высоких требований слушателей.');
             
-            // Update description
+            // Update description title
             document.getElementById('product-description').querySelector('h3').textContent = 
                 currentProduct === 'pro' ? 
                     (currentLang === 'cz' ? 'Proč si zamilujete Bezdrátová sluchátka Pro 3' : 'Почему вы полюбите Беспроводные наушники Pro 3') :
-                    (currentLang === 'cz' ? 'Proč si zamilujete Sluchátka Max' : 'Почему вы полюбите Наушники Max');
+                    (currentLang === 'cz' ? 'Proč si zamilujete Sluchátka Max 2' : 'Почему вы полюбите Наушники Max 2');
             
             document.getElementById('description-text').textContent = product.description[currentLang];
             
@@ -1874,7 +2002,7 @@
             document.getElementById('features-title').textContent = 
                 currentProduct === 'pro' ? 
                     (currentLang === 'cz' ? 'Co vás u Pro 3 nadchne ✨' : 'Что вас впечатлит в Pro 3 ✨') :
-                    (currentLang === 'cz' ? 'Proč si je zamilujete ✨' : 'Почему вы их полюбите ✨');
+                    (currentLang === 'cz' ? 'Proč si zamilujete Max 2 ✨' : 'Почему вы полюбите Max 2 ✨');
             
             // Update price
             document.getElementById('product-price').textContent = `${product.price.toLocaleString('cs-CZ')} Kč`;
@@ -1965,6 +2093,20 @@
                     quantity: currentQty,
                     value: product.price * currentQty,
                     currency: 'CZK'
+                });
+            }
+            
+            // Track GA4 event
+            if (typeof gtag === 'function') {
+                gtag('event', 'add_to_cart', {
+                    currency: 'CZK',
+                    value: product.price * currentQty,
+                    items: [{
+                        id: item.id,
+                        name: product.name[currentLang],
+                        quantity: currentQty,
+                        price: product.price
+                    }]
                 });
             }
             
@@ -2108,6 +2250,24 @@
                 });
             }
             
+            // Track GA4 event
+            if (typeof gtag === 'function') {
+                let total = 0;
+                cart.forEach(item => {
+                    total += item.price * item.qty;
+                });
+                gtag('event', 'begin_checkout', {
+                    currency: 'CZK',
+                    value: total,
+                    items: cart.map(item => ({
+                        id: item.id,
+                        name: item.name,
+                        quantity: item.qty,
+                        price: item.price
+                    }))
+                });
+            }
+            
             renderOrderForm();
             document.getElementById('order-modal').classList.add('active');
             document.body.style.overflow = 'hidden';
@@ -2171,8 +2331,38 @@
                     </div>
                     
                     <div class="order-form-group">
+                        <label class="order-form-label required" data-lang-cz="Typ doručení" data-lang-ru="Тип доставки">Typ doručení</label>
+                        <input type="hidden" name="typ_doruceni" id="delivery-type-input" value="address">
+                        <div class="delivery-type-options">
+                            <div class="delivery-type-option active" onclick="selectDeliveryType('address', this)">
+                                <span class="delivery-type-icon">🏠</span>
+                                <div data-lang-cz="Na adresu" data-lang-ru="На адрес">Na adresu</div>
+                            </div>
+                            <div class="delivery-type-option" onclick="selectDeliveryType('post_office', this)">
+                                <span class="delivery-type-icon">📬</span>
+                                <div data-lang-cz="Na poštu" data-lang-ru="На почту">Na poštu</div>
+                            </div>
+                            <div class="delivery-type-option" onclick="selectDeliveryType('postomat', this)">
+                                <span class="delivery-type-icon">📦</span>
+                                <div data-lang-cz="Do Zásilkovny" data-lang-ru="В поштомат">Do Zásilkovny</div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="order-form-group address-field" id="address-field">
                         <label class="order-form-label required" data-lang-cz="Adresa pro doručení" data-lang-ru="Адрес доставки">Adresa pro doručení</label>
                         <textarea class="order-form-textarea" name="adresa" required placeholder="${currentLang === 'cz' ? 'Ulice 123, Město, 123 45' : 'Улица 123, Город, 12345'}"></textarea>
+                        <div class="address-hint-container">
+                            <div class="address-hint-icon">
+                                <span>ℹ️</span>
+                                <strong data-lang-cz="Důležité:" data-lang-ru="Важно:">Důležité:</strong>
+                            </div>
+                            <p class="address-hint-text" 
+                                data-lang-cz="Pro doručení na poštu nebo do Zásilkovny zadejte <strong>úplnou adresu</strong> včetně názvu města, ulice a PSČ. Například: Praha, Václavské náměstí 123, 110 00" 
+                                data-lang-ru="Для доставки на почту или в поштомат укажите <strong>полный адрес</strong> включая название города, улицу и почтовый индекс. Например: Прага, Вацлавская площадь 123, 110 00">
+                                Pro doručení na poštu nebo do Zásilkovny zadejte <strong>úplnou adresu</strong> včetně názvu města, ulice a PSČ. Například: Praha, Václavské náměstí 123, 110 00
+                            </p>
+                        </div>
                     </div>
                     
                     <div class="order-form-group">
@@ -2206,6 +2396,46 @@
             `;
             
             document.getElementById('order-content').innerHTML = content;
+            
+            // Set initial delivery type
+            document.querySelectorAll('.delivery-type-option').forEach(opt => {
+                opt.classList.toggle('active', opt.getAttribute('onclick').includes(`'${deliveryType}'`));
+            });
+            updateAddressField();
+        }
+
+        function selectDeliveryType(type, element) {
+            deliveryType = type;
+            document.getElementById('delivery-type-input').value = type;
+            document.querySelectorAll('.delivery-type-option').forEach(opt => opt.classList.remove('active'));
+            element.classList.add('active');
+            updateAddressField();
+        }
+
+        function updateAddressField() {
+            const addressField = document.getElementById('address-field');
+            const hintContainer = addressField.querySelector('.address-hint-container');
+            const hintText = addressField.querySelector('.address-hint-text');
+            const hintIcon = addressField.querySelector('.address-hint-icon strong');
+            
+            if (deliveryType === 'address') {
+                addressField.querySelector('label').textContent = currentLang === 'cz' ? 'Adresa pro doručení' : 'Адрес доставки';
+                addressField.querySelector('textarea').placeholder = currentLang === 'cz' ? 'Ulice 123, Město, 123 45' : 'Улица 123, Город, 12345';
+                hintContainer.style.display = 'none';
+            } else {
+                addressField.querySelector('label').textContent = currentLang === 'cz' ? 'Adresa pobočky / Zásilkovny' : 'Адрес отделения / поштомата';
+                addressField.querySelector('textarea').placeholder = currentLang === 'cz' ? 'Město, ulice, PSČ (např. Praha, Václavské nám. 123, 110 00)' : 'Город, улица, индекс (напр. Прага, Вацлавская пл. 123, 110 00)';
+                hintContainer.style.display = 'block';
+                
+                // Обновляем текст подсказки в соответствии с текущим языком
+                if (currentLang === 'cz') {
+                    hintIcon.textContent = 'Důležité:';
+                    hintText.innerHTML = 'Pro doručení na poštu nebo do Zásilkovny zadejte <strong>úplnou adresu</strong> včetně názvu města, ulice a PSČ. Například: Praha, Václavské náměstí 123, 110 00';
+                } else {
+                    hintIcon.textContent = 'Важно:';
+                    hintText.innerHTML = 'Для доставки на почту или в поштомат укажите <strong>полный адрес</strong> включая название города, улицу и почтовый индекс. Например: Прага, Вацлавская площадь 123, 110 00';
+                }
+            }
         }
 
         function selectDelivery(service, element) {
@@ -2244,6 +2474,21 @@
                 total += item.price * item.qty;
             });
             
+            // Add delivery type
+            const deliveryTypeText = {
+                'address': currentLang === 'cz' ? 'Na domácí adresu' : 'На домашний адрес',
+                'post_office': currentLang === 'cz' ? 'Na poštu' : 'На почту',
+                'postomat': currentLang === 'cz' ? 'Do Zásilkovny' : 'В поштомат'
+            };
+            
+            orderDetails += currentLang === 'cz' ? 
+                `Typ doručení: ${deliveryTypeText[deliveryType]}\n` : 
+                `Тип доставки: ${deliveryTypeText[deliveryType]}\n`;
+            
+            orderDetails += currentLang === 'cz' ? 
+                `Způsob doručení: ${selectedDelivery}\n` : 
+                `Способ доставки: ${selectedDelivery}\n`;
+            
             orderDetails += currentLang === 'cz' ? 
                 `CELKEM: ${total.toLocaleString('cs-CZ')} Kč\n\n` : 
                 `ИТОГО: ${total.toLocaleString('cs-CZ')} Kč\n\n`;
@@ -2278,7 +2523,21 @@
                 }
             })
             .then(data => {
-                // SUCCESS - show success message regardless of JSON content
+                // Track GA4 purchase event
+                if (typeof gtag === 'function') {
+                    gtag('event', 'purchase', {
+                        currency: 'CZK',
+                        value: total,
+                        transaction_id: 'T' + Date.now(),
+                        items: cart.map(item => ({
+                            id: item.id,
+                            name: item.name,
+                            quantity: item.qty,
+                            price: item.price
+                        }))
+                    });
+                }
+                
                 // Track TikTok CompletePayment event
                 if (window.ttq) {
                     window.ttq.track('CompletePayment', {
@@ -2371,9 +2630,17 @@
                 }
             });
             
-            // Track PageView for TikTok
+            // Track PageView for TikTok and GA4
             if (window.ttq) {
                 window.ttq.page();
+            }
+            
+            if (typeof gtag === 'function') {
+                gtag('event', 'page_view', {
+                    page_title: document.title,
+                    page_location: window.location.href,
+                    page_path: window.location.pathname
+                });
             }
         });
     </script>
