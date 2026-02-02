@@ -1,2668 +1,2346 @@
 <!DOCTYPE html>
 <html lang="cs">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>iMart-Store | Bezdrátová sluchátka Pro 3 & Max 2</title>
-    <meta name="description" content="Prémiová bezdrátová sluchátka s ANC, Hi-Fi zvukem a komfortem. Rychlé nabíjení USB Type-C. Platba při převzetí.">
-    
-    <!-- Google Analytics 4 -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-521920251"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'G-521920251');
-    </script>
-    
-    <!-- TikTok Pixel -->
-    <script>
-    !function (w, d, t) {
-      w.TiktokAnalyticsObject=t;
-      var ttq=w[t]=w[t]||[];
-      ttq.methods=["page","track","identify","instances","debug","on","off","once","ready","alias","group","enableCookie","disableCookie"];
-      ttq.setAndDefer=function(t,e){t[e]=function(){t.push([e].concat(Array.prototype.slice.call(arguments,0)))}};
-      for(var i=0;i<ttq.methods.length;i++)ttq.setAndDefer(ttq,ttq.methods[i]);
-      ttq.load=function(e){
-        var i="https://analytics.tiktok.com/i18n/pixel/events.js";
-        var o=d.createElement("script"); o.async=!0;o.src=i+"?sdkid="+e+"&lib="+t;
-        var a=d.getElementsByTagName("script")[0]; a.parentNode.insertBefore(o,a);
-      };
-      ttq.load('D5TQCN3C77U3O6ND7J0G');
-      ttq.page();
-    }(window, document, 'ttq');
-    </script>
-
-    <style>
-        :root {
-            --primary: #fff;
-            --secondary: #000;
-            --bg-dark: #000;
-            --bg-card: #111;
-            --border: #222;
-            --text: #fff;
-            --text-muted: rgba(255, 255, 255, 0.85);
-            --transition: all 0.3s ease;
-            --shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
-            --radius: 16px;
-            --success: #00d97e;
-            --error: #ff4444;
-            --accent-blue: #4d90fe;
-            --accent-purple: #9c27b0;
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            margin: 0;
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif;
-            background: var(--bg-dark);
-            color: var(--text);
-            overflow-x: hidden;
-            padding-top: 70px;
-            line-height: 1.6;
-        }
-
-        /* ========== NAVIGATION ========== */
-        .navbar {
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            z-index: 1000;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 12px 15px;
-            background: rgba(0, 0, 0, 0.95);
-            backdrop-filter: blur(10px);
-            border-bottom: 1px solid var(--border);
-        }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>iMart-Store | Bezdrátová sluchátka Pro 3 & Max 2</title>
+<meta name="description" content="Prémiová bezdrátová sluchátka s ANC, Hi-Fi zvukem a komfortem. Rychlé nabíjení USB Type-C. Platba při převzetí.">
+<!-- Google Analytics 4 -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-521920251"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-521920251');
+</script>
+<!-- TikTok Pixel -->
+<script>
+!function (w, d, t) {
+w.TiktokAnalyticsObject=t;
+var ttq=w[t]=w[t]||[];
+ttq.methods=["page","track","identify","instances","debug","on","off","once","ready","alias","group","enableCookie","disableCookie"];
+ttq.setAndDefer=function(t,e){t[e]=function(){t.push([e].concat(Array.prototype.slice.call(arguments,0)))}};
+for(var i=0;i<ttq.methods.length;i++)ttq.setAndDefer(ttq,ttq.methods[i]);
+ttq.load=function(e){
+var i="https://analytics.tiktok.com/i18n/pixel/events.js";
+var o=d.createElement("script"); o.async=!0;o.src=i+"?sdkid="+e+"&lib="+t;
+var a=d.getElementsByTagName("script")[0]; a.parentNode.insertBefore(o,a);
+};
+ttq.load('D5TQCN3C77U3O6ND7J0G');
+ttq.page();
+}(window, document, 'ttq');
+</script>
+<style>
+:root {
+--primary: #fff;
+--secondary: #000;
+--bg-dark: #000;
+--bg-card: #111;
+--border: #222;
+--text: #fff;
+--text-muted: rgba(255, 255, 255, 0.85);
+--transition: all 0.3s ease;
+--shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+--radius: 16px;
+--success: #00d97e;
+--error: #ff4444;
+--accent-blue: #4d90fe;
+--accent-purple: #9c27b0;
+}
+* {
+margin: 0;
+padding: 0;
+box-sizing: border-box;
+}
+body {
+margin: 0;
+font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif;
+background: var(--bg-dark);
+color: var(--text);
+overflow-x: hidden;
+padding-top: 70px;
+line-height: 1.6;
+}
+/* ========== NAVIGATION ========== */
+.navbar {
+position: fixed;
+top: 0;
+left: 0;
+right: 0;
+z-index: 1000;
+display: flex;
+justify-content: space-between;
+align-items: center;
+padding: 12px 15px;
+background: rgba(0, 0, 0, 0.95);
+backdrop-filter: blur(10px);
+border-bottom: 1px solid var(--border);
+}
+.logo {
+font-size: 24px;
+font-weight: 800;
+color: var(--primary);
+background: linear-gradient(135deg, #fff 0%, #4d90fe 100%);
+-webkit-background-clip: text;
+-webkit-text-fill-color: transparent;
+background-clip: text;
+}
+.nav-links {
+display: flex;
+gap: 10px;
+align-items: center;
+}
+.nav-btn {
+padding: 10px 18px;
+background: transparent;
+border: 2px solid var(--primary);
+color: var(--primary);
+border-radius: 25px;
+cursor: pointer;
+font-weight: 700;
+font-size: 14px;
+transition: var(--transition);
+position: relative;
+overflow: hidden;
+}
+.nav-btn::before {
+content: '';
+position: absolute;
+top: 0;
+left: -100%;
+width: 100%;
+height: 100%;
+background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+transition: left 0.5s;
+}
+.nav-btn:hover::before {
+left: 100%;
+}
+.nav-btn:hover {
+background: var(--primary);
+color: var(--secondary);
+transform: translateY(-2px);
+box-shadow: 0 8px 20px rgba(255, 255, 255, 0.3);
+}
+.nav-btn.active {
+background: var(--primary);
+color: var(--secondary);
+box-shadow: 0 5px 15px rgba(255, 255, 255, 0.4);
+}
+.lang-toggle {
+padding: 8px 16px;
+background: linear-gradient(135deg, var(--accent-blue), var(--accent-purple));
+border: none;
+color: var(--primary);
+border-radius: 20px;
+cursor: pointer;
+font-weight: 700;
+transition: var(--transition);
+box-shadow: 0 4px 12px rgba(77, 144, 254, 0.4);
+}
+.lang-toggle:hover {
+transform: translateY(-2px);
+box-shadow: 0 6px 18px rgba(77, 144, 254, 0.6);
+}
+/* ========== CONTAINER ========== */
+.container {
+max-width: 1200px;
+margin: 0 auto;
+padding: 0 15px;
+}
+section {
+padding: 40px 0;
+}
+.section-title {
+font-size: 36px;
+margin-bottom: 30px;
+text-align: center;
+font-weight: 800;
+letter-spacing: -0.5px;
+background: linear-gradient(135deg, #fff 0%, #4d90fe 100%);
+-webkit-background-clip: text;
+-webkit-text-fill-color: transparent;
+background-clip: text;
+position: relative;
+}
+.section-title::after {
+content: '';
+position: absolute;
+bottom: -12px;
+left: 50%;
+transform: translateX(-50%);
+width: 70px;
+height: 3px;
+background: linear-gradient(90deg, var(--accent-blue), var(--accent-purple));
+border-radius: 2px;
+}
+.section-subtitle {
+text-align: center;
+font-size: 17px;
+color: var(--text-muted);
+margin-bottom: 40px;
+max-width: 650px;
+margin-left: auto;
+margin-right: auto;
+line-height: 1.7;
+}
+/* ========== HERO SECTION ========== */
+.hero {
+text-align: center;
+position: relative;
+overflow: hidden;
+padding: 60px 0 30px;
+}
+.hero::before {
+content: '';
+position: absolute;
+top: -180px;
+left: 50%;
+transform: translateX(-50%);
+width: 700px;
+height: 700px;
+background: radial-gradient(circle, rgba(255, 255, 255, 0.06), transparent 70%);
+z-index: -1;
+}
+.hero-img {
+max-width: 350px;
+border-radius: var(--radius);
+margin: 25px auto;
+box-shadow: var(--shadow);
+transition: var(--transition);
+border: 3px solid rgba(255, 255, 255, 0.1);
+}
+.hero-img:hover {
+transform: scale(1.05);
+box-shadow: 0 18px 50px rgba(0, 0, 0, 0.7);
+}
+.hero-gallery {
+display: grid;
+grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
+gap: 10px;
+margin-top: 18px;
+max-width: 450px;
+margin-left: auto;
+margin-right: auto;
+}
+.hero-gallery img {
+width: 100%;
+border-radius: 8px;
+cursor: pointer;
+transition: var(--transition);
+border: 2px solid transparent;
+box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+.hero-gallery img:hover,
+.hero-gallery img.active {
+transform: scale(1.06);
+border-color: var(--primary);
+box-shadow: 0 6px 20px rgba(255, 255, 255, 0.3);
+}
+.price {
+font-size: 42px;
+font-weight: 800;
+margin: 25px 0 20px;
+color: var(--primary);
+background: linear-gradient(135deg, #fff 0%, #4d90fe 100%);
+-webkit-background-clip: text;
+-webkit-text-fill-color: transparent;
+background-clip: text;
+text-shadow: 0 4px 15px rgba(255, 255, 255, 0.1);
+}
+.price-badge {
+display: inline-block;
+background: linear-gradient(135deg, var(--accent-blue), var(--accent-purple));
+color: white;
+padding: 6px 16px;
+border-radius: 20px;
+font-size: 14px;
+font-weight: 700;
+margin-top: 8px;
+box-shadow: 0 4px 12px rgba(77, 144, 254, 0.4);
+}
+.btn {
+display: inline-block;
+padding: 14px 36px;
+border-radius: 30px;
+text-decoration: none;
+font-weight: 800;
+font-size: 16px;
+cursor: pointer;
+transition: var(--transition);
+margin: 8px 4px;
+text-align: center;
+position: relative;
+overflow: hidden;
+border: none;
+box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+}
+.btn::before {
+content: '';
+position: absolute;
+top: 0;
+left: -100%;
+width: 100%;
+height: 100%;
+background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+transition: left 0.5s;
+}
+.btn:hover::before {
+left: 100%;
+}
+.btn-primary {
+background: linear-gradient(135deg, var(--primary) 0%, #e0e0e0 100%);
+color: var(--secondary);
+border: 2px solid var(--primary);
+}
+.btn-primary:hover {
+transform: translateY(-4px);
+box-shadow: 0 10px 30px rgba(255, 255, 255, 0.4);
+}
+.btn-outline {
+background: transparent;
+color: var(--primary);
+border: 2px solid var(--primary);
+}
+.btn-outline:hover {
+background: var(--primary);
+color: var(--secondary);
+transform: translateY(-4px);
+box-shadow: 0 10px 30px rgba(255, 255, 255, 0.3);
+}
+.btn-block {
+display: block;
+width: 100%;
+max-width: 380px;
+margin: 15px auto;
+}
+.btn-switch {
+background: linear-gradient(135deg, var(--accent-blue), var(--accent-purple));
+color: white;
+padding: 16px 40px;
+font-size: 16px;
+box-shadow: 0 8px 25px rgba(77, 144, 254, 0.5);
+}
+.btn-switch:hover {
+transform: translateY(-4px) scale(1.03);
+box-shadow: 0 12px 35px rgba(77, 144, 254, 0.7);
+}
+.btn-success {
+background: linear-gradient(135deg, var(--success), #00b866);
+color: var(--secondary);
+box-shadow: 0 6px 20px rgba(0, 217, 126, 0.4);
+}
+.btn-success:hover {
+transform: translateY(-4px);
+box-shadow: 0 10px 30px rgba(0, 217, 126, 0.6);
+}
+.btn-delete {
+background: linear-gradient(135deg, var(--error), #cc0000);
+color: white;
+padding: 10px 20px;
+font-size: 14px;
+border-radius: 10px;
+margin-left: 10px;
+box-shadow: 0 4px 12px rgba(255, 68, 68, 0.4);
+}
+.btn-delete:hover {
+transform: translateY(-2px);
+box-shadow: 0 6px 18px rgba(255, 68, 68, 0.6);
+}
+/* ========== FEATURES GRID ========== */
+.features-grid {
+display: grid;
+grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+gap: 25px;
+margin-top: 35px;
+}
+.feature-card {
+background: linear-gradient(180deg, var(--bg-card) 0%, #0a0a0a 100%);
+padding: 30px 25px;
+border-radius: var(--radius);
+border: 1px solid var(--border);
+text-align: center;
+transition: var(--transition);
+position: relative;
+overflow: hidden;
+}
+.feature-card::before {
+content: '';
+position: absolute;
+top: -50%;
+left: -50%;
+width: 200%;
+height: 200%;
+background: radial-gradient(circle, rgba(255, 255, 255, 0.04) 0%, transparent 70%);
+z-index: 0;
+}
+.feature-card:hover {
+transform: translateY(-10px);
+border-color: rgba(255, 255, 255, 0.25);
+box-shadow: 0 12px 35px rgba(0, 0, 0, 0.45);
+}
+.feature-icon {
+font-size: 36px;
+margin-bottom: 18px;
+background: linear-gradient(135deg, var(--accent-blue), var(--accent-purple));
+-webkit-background-clip: text;
+-webkit-text-fill-color: transparent;
+background-clip: text;
+}
+.feature-title {
+font-size: 20px;
+margin-bottom: 12px;
+font-weight: 800;
+color: var(--primary);
+}
+.feature-desc {
+color: var(--text-muted);
+font-size: 15px;
+line-height: 1.7;
+}
+/* ========== COLOR & QTY SELECTORS ========== */
+.color-selector {
+display: flex;
+justify-content: center;
+gap: 12px;
+margin: 20px 0;
+flex-wrap: wrap;
+}
+.color-btn {
+padding: 10px 24px;
+border-radius: 25px;
+background: var(--bg-card);
+border: 2px solid var(--border);
+color: var(--text);
+cursor: pointer;
+font-weight: 700;
+font-size: 15px;
+transition: var(--transition);
+min-width: 110px;
+}
+.color-btn.active,
+.color-btn:hover {
+background: linear-gradient(135deg, var(--primary), #e0e0e0);
+color: var(--secondary);
+border-color: var(--primary);
+transform: translateY(-2px);
+box-shadow: 0 6px 20px rgba(255, 255, 255, 0.3);
+}
+.qty-selector {
+display: flex;
+justify-content: center;
+align-items: center;
+gap: 12px;
+margin: 20px 0;
+background: rgba(255, 255, 255, 0.05);
+padding: 12px 25px;
+border-radius: 18px;
+border: 1px solid var(--border);
+}
+.qty-label {
+font-size: 16px;
+font-weight: 700;
+margin-right: 12px;
+}
+.qty-btn {
+width: 45px;
+height: 45px;
+border-radius: 10px;
+background: linear-gradient(135deg, var(--primary), #e0e0e0);
+color: var(--secondary);
+border: none;
+font-size: 22px;
+font-weight: 800;
+cursor: pointer;
+transition: var(--transition);
+box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+.qty-btn:hover {
+background: linear-gradient(135deg, #e0e0e0, #d0d0d0);
+transform: scale(1.12);
+box-shadow: 0 6px 18px rgba(0, 0, 0, 0.3);
+}
+.qty-btn:disabled {
+opacity: 0.5;
+cursor: not-allowed;
+transform: none;
+}
+.qty-display {
+font-size: 28px;
+font-weight: 800;
+min-width: 55px;
+text-align: center;
+color: var(--primary);
+}
+/* ========== PRODUCT DESCRIPTION ========== */
+.product-description {
+background: linear-gradient(180deg, var(--bg-card) 0%, #0a0a0a 100%);
+padding: 40px 30px;
+border-radius: var(--radius);
+margin: 40px 0;
+border: 1px solid var(--border);
+}
+.product-description h3 {
+font-size: 26px;
+margin-bottom: 20px;
+color: var(--primary);
+text-align: center;
+}
+.product-description p {
+font-size: 16px;
+line-height: 1.8;
+margin-bottom: 18px;
+color: var(--text-muted);
+}
+.specs-grid {
+display: grid;
+grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+gap: 20px;
+margin-top: 25px;
+}
+.spec-item {
+text-align: center;
+padding: 18px;
+background: rgba(255, 255, 255, 0.03);
+border-radius: 10px;
+border: 1px solid var(--border);
+}
+.spec-value {
+font-size: 26px;
+font-weight: 800;
+color: var(--primary);
+margin-bottom: 8px;
+}
+.spec-label {
+font-size: 14px;
+color: var(--text-muted);
+}
+/* ========== DELIVERY OPTIONS ========== */
+.delivery-options {
+display: grid;
+grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+gap: 12px;
+margin-top: 12px;
+}
+.delivery-option {
+padding: 12px;
+border-radius: 10px;
+background: rgba(255, 255, 255, 0.05);
+border: 2px solid var(--border);
+cursor: pointer;
+text-align: center;
+transition: var(--transition);
+}
+.delivery-option:hover,
+.delivery-option.active {
+background: linear-gradient(135deg, var(--accent-blue), var(--accent-purple));
+border-color: var(--primary);
+transform: translateY(-2px);
+box-shadow: 0 6px 20px rgba(77, 144, 254, 0.4);
+}
+.delivery-option:hover span,
+.delivery-option.active span {
+color: white !important;
+}
+.delivery-logo {
+font-size: 28px;
+margin-bottom: 6px;
+}
+.delivery-name {
+font-weight: 700;
+font-size: 14px;
+color: var(--text);
+}
+/* ========== DELIVERY TYPE OPTIONS ========== */
+.delivery-type-options {
+display: grid;
+grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+gap: 10px;
+margin-top: 10px;
+}
+.delivery-type-option {
+padding: 12px 10px;
+border-radius: 10px;
+background: rgba(255, 255, 255, 0.05);
+border: 2px solid var(--border);
+cursor: pointer;
+text-align: center;
+transition: var(--transition);
+font-size: 14px;
+}
+.delivery-type-option:hover,
+.delivery-type-option.active {
+background: linear-gradient(135deg, var(--accent-blue), var(--accent-purple));
+border-color: var(--primary);
+transform: translateY(-2px);
+box-shadow: 0 6px 20px rgba(77, 144, 254, 0.4);
+}
+.delivery-type-option:hover span,
+.delivery-type-option.active span {
+color: white !important;
+}
+.delivery-type-icon {
+font-size: 24px;
+margin-bottom: 6px;
+display: block;
+}
+.address-field {
+margin-top: 15px;
+transition: opacity 0.3s ease;
+}
+.address-field.hidden {
+opacity: 0.5;
+pointer-events: none;
+}
+.address-hint-container {
+margin-top: 8px;
+background: rgba(77, 144, 254, 0.1);
+border-left: 3px solid var(--accent-blue);
+padding: 10px;
+border-radius: 6px;
+display: none;
+}
+.address-hint-icon {
+display: flex;
+align-items: center;
+margin-bottom: 6px;
+}
+.address-hint-icon span {
+font-size: 18px;
+margin-right: 8px;
+}
+.address-hint-text {
+font-size: 13px;
+line-height: 1.5;
+margin: 0;
+color: var(--text-muted);
+}
+/* ========== STICKY BAR ========== */
+.sticky-bar {
+position: fixed;
+bottom: 0;
+left: 0;
+right: 0;
+background: rgba(8, 8, 8, 0.98);
+backdrop-filter: blur(12px);
+border-top: 1px solid var(--border);
+display: flex;
+justify-content: space-between;
+align-items: center;
+padding: 15px 20px;
+z-index: 999;
+box-shadow: 0 -4px 25px rgba(0, 0, 0, 0.35);
+}
+.sticky-info {
+display: flex;
+align-items: center;
+gap: 15px;
+}
+.sticky-price {
+font-size: 24px;
+font-weight: 800;
+color: var(--primary);
+background: linear-gradient(135deg, #fff 0%, #4d90fe 100%);
+-webkit-background-clip: text;
+-webkit-text-fill-color: transparent;
+background-clip: text;
+}
+.sticky-btn-container {
+display: flex;
+gap: 10px;
+width: 100%;
+max-width: 380px;
+margin: 0 auto;
+}
+.sticky-btn {
+background: linear-gradient(135deg, var(--primary) 0%, #e0e0e0 100%);
+color: var(--secondary);
+padding: 14px 30px;
+border-radius: 30px;
+font-weight: 800;
+font-size: 16px;
+border: 2px solid var(--primary);
+cursor: pointer;
+transition: var(--transition);
+box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+flex: 1;
+display: flex;
+align-items: center;
+justify-content: center;
+gap: 8px;
+text-decoration: none;
+}
+.sticky-btn:hover {
+transform: translateY(-4px);
+box-shadow: 0 10px 30px rgba(255, 255, 255, 0.4);
+}
 .btn-telegram {
-  background: linear-gradient(135deg, #2ca7e0, #0088cc);
-  color: white;
-  box-shadow: 0 6px 20px rgba(44, 167, 224, 0.4);
+background: linear-gradient(135deg, #2ca7e0, #0088cc);
+color: white;
+box-shadow: 0 6px 20px rgba(44, 167, 224, 0.4);
 }
 .btn-telegram:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 10px 30px rgba(44, 167, 224, 0.6);
+transform: translateY(-4px);
+box-shadow: 0 10px 30px rgba(44, 167, 224, 0.6);
 }
-        .logo {
-            font-size: 24px;
-            font-weight: 800;
-            color: var(--primary);
-            background: linear-gradient(135deg, #fff 0%, #4d90fe 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-
-        .nav-links {
-            display: flex;
-            gap: 10px;
-            align-items: center;
-        }
-
-        .nav-btn {
-            padding: 10px 18px;
-            background: transparent;
-            border: 2px solid var(--primary);
-            color: var(--primary);
-            border-radius: 25px;
-            cursor: pointer;
-            font-weight: 700;
-            font-size: 14px;
-            transition: var(--transition);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .nav-btn::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
-            transition: left 0.5s;
-        }
-
-        .nav-btn:hover::before {
-            left: 100%;
-        }
-
-        .nav-btn:hover {
-            background: var(--primary);
-            color: var(--secondary);
-            transform: translateY(-2px);
-            box-shadow: 0 8px 20px rgba(255, 255, 255, 0.3);
-        }
-
-        .nav-btn.active {
-            background: var(--primary);
-            color: var(--secondary);
-            box-shadow: 0 5px 15px rgba(255, 255, 255, 0.4);
-        }
-
-        .lang-toggle {
-            padding: 8px 16px;
-            background: linear-gradient(135deg, var(--accent-blue), var(--accent-purple));
-            border: none;
-            color: var(--primary);
-            border-radius: 20px;
-            cursor: pointer;
-            font-weight: 700;
-            transition: var(--transition);
-            box-shadow: 0 4px 12px rgba(77, 144, 254, 0.4);
-        }
-
-        .lang-toggle:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 6px 18px rgba(77, 144, 254, 0.6);
-        }
-
-        /* ========== CONTAINER ========== */
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 15px;
-        }
-
-        section {
-            padding: 40px 0;
-        }
-
-        .section-title {
-            font-size: 36px;
-            margin-bottom: 30px;
-            text-align: center;
-            font-weight: 800;
-            letter-spacing: -0.5px;
-            background: linear-gradient(135deg, #fff 0%, #4d90fe 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            position: relative;
-        }
-
-        .section-title::after {
-            content: '';
-            position: absolute;
-            bottom: -12px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 70px;
-            height: 3px;
-            background: linear-gradient(90deg, var(--accent-blue), var(--accent-purple));
-            border-radius: 2px;
-        }
-
-        .section-subtitle {
-            text-align: center;
-            font-size: 17px;
-            color: var(--text-muted);
-            margin-bottom: 40px;
-            max-width: 650px;
-            margin-left: auto;
-            margin-right: auto;
-            line-height: 1.7;
-        }
-
-        /* ========== HERO SECTION ========== */
-        .hero {
-            text-align: center;
-            position: relative;
-            overflow: hidden;
-            padding: 60px 0 30px;
-        }
-
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: -180px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 700px;
-            height: 700px;
-            background: radial-gradient(circle, rgba(255, 255, 255, 0.06), transparent 70%);
-            z-index: -1;
-        }
-
-        .hero-img {
-            max-width: 350px;
-            border-radius: var(--radius);
-            margin: 25px auto;
-            box-shadow: var(--shadow);
-            transition: var(--transition);
-            border: 3px solid rgba(255, 255, 255, 0.1);
-        }
-
-        .hero-img:hover {
-            transform: scale(1.05);
-            box-shadow: 0 18px 50px rgba(0, 0, 0, 0.7);
-        }
-
-        .hero-gallery {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
-            gap: 10px;
-            margin-top: 18px;
-            max-width: 450px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        .hero-gallery img {
-            width: 100%;
-            border-radius: 8px;
-            cursor: pointer;
-            transition: var(--transition);
-            border: 2px solid transparent;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
-        }
-
-        .hero-gallery img:hover,
-        .hero-gallery img.active {
-            transform: scale(1.06);
-            border-color: var(--primary);
-            box-shadow: 0 6px 20px rgba(255, 255, 255, 0.3);
-        }
-
-        .price {
-            font-size: 42px;
-            font-weight: 800;
-            margin: 25px 0 20px;
-            color: var(--primary);
-            background: linear-gradient(135deg, #fff 0%, #4d90fe 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            text-shadow: 0 4px 15px rgba(255, 255, 255, 0.1);
-        }
-
-        .price-badge {
-            display: inline-block;
-            background: linear-gradient(135deg, var(--accent-blue), var(--accent-purple));
-            color: white;
-            padding: 6px 16px;
-            border-radius: 20px;
-            font-size: 14px;
-            font-weight: 700;
-            margin-top: 8px;
-            box-shadow: 0 4px 12px rgba(77, 144, 254, 0.4);
-        }
-
-        .btn {
-            display: inline-block;
-            padding: 14px 36px;
-            border-radius: 30px;
-            text-decoration: none;
-            font-weight: 800;
-            font-size: 16px;
-            cursor: pointer;
-            transition: var(--transition);
-            margin: 8px 4px;
-            text-align: center;
-            position: relative;
-            overflow: hidden;
-            border: none;
-            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
-        }
-
-        .btn::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
-            transition: left 0.5s;
-        }
-
-        .btn:hover::before {
-            left: 100%;
-        }
-
-        .btn-primary {
-            background: linear-gradient(135deg, var(--primary) 0%, #e0e0e0 100%);
-            color: var(--secondary);
-            border: 2px solid var(--primary);
-        }
-
-        .btn-primary:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 10px 30px rgba(255, 255, 255, 0.4);
-        }
-
-        .btn-outline {
-            background: transparent;
-            color: var(--primary);
-            border: 2px solid var(--primary);
-        }
-
-        .btn-outline:hover {
-            background: var(--primary);
-            color: var(--secondary);
-            transform: translateY(-4px);
-            box-shadow: 0 10px 30px rgba(255, 255, 255, 0.3);
-        }
-
-        .btn-block {
-            display: block;
-            width: 100%;
-            max-width: 380px;
-            margin: 15px auto;
-        }
-
-        .btn-switch {
-            background: linear-gradient(135deg, var(--accent-blue), var(--accent-purple));
-            color: white;
-            padding: 16px 40px;
-            font-size: 16px;
-            box-shadow: 0 8px 25px rgba(77, 144, 254, 0.5);
-        }
-
-        .btn-switch:hover {
-            transform: translateY(-4px) scale(1.03);
-            box-shadow: 0 12px 35px rgba(77, 144, 254, 0.7);
-        }
-
-        .btn-success {
-            background: linear-gradient(135deg, var(--success), #00b866);
-            color: var(--secondary);
-            box-shadow: 0 6px 20px rgba(0, 217, 126, 0.4);
-        }
-
-        .btn-success:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 10px 30px rgba(0, 217, 126, 0.6);
-        }
-
-        .btn-delete {
-            background: linear-gradient(135deg, var(--error), #cc0000);
-            color: white;
-            padding: 10px 20px;
-            font-size: 14px;
-            border-radius: 10px;
-            margin-left: 10px;
-            box-shadow: 0 4px 12px rgba(255, 68, 68, 0.4);
-        }
-
-        .btn-delete:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 6px 18px rgba(255, 68, 68, 0.6);
-        }
-
-        /* ========== FEATURES GRID ========== */
-        .features-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 25px;
-            margin-top: 35px;
-        }
-
-        .feature-card {
-            background: linear-gradient(180deg, var(--bg-card) 0%, #0a0a0a 100%);
-            padding: 30px 25px;
-            border-radius: var(--radius);
-            border: 1px solid var(--border);
-            text-align: center;
-            transition: var(--transition);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .feature-card::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: radial-gradient(circle, rgba(255, 255, 255, 0.04) 0%, transparent 70%);
-            z-index: 0;
-        }
-
-        .feature-card:hover {
-            transform: translateY(-10px);
-            border-color: rgba(255, 255, 255, 0.25);
-            box-shadow: 0 12px 35px rgba(0, 0, 0, 0.45);
-        }
-
-        .feature-icon {
-            font-size: 36px;
-            margin-bottom: 18px;
-            background: linear-gradient(135deg, var(--accent-blue), var(--accent-purple));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-
-        .feature-title {
-            font-size: 20px;
-            margin-bottom: 12px;
-            font-weight: 800;
-            color: var(--primary);
-        }
-
-        .feature-desc {
-            color: var(--text-muted);
-            font-size: 15px;
-            line-height: 1.7;
-        }
-
-        /* ========== COLOR & QTY SELECTORS ========== */
-        .color-selector {
-            display: flex;
-            justify-content: center;
-            gap: 12px;
-            margin: 20px 0;
-            flex-wrap: wrap;
-        }
-
-        .color-btn {
-            padding: 10px 24px;
-            border-radius: 25px;
-            background: var(--bg-card);
-            border: 2px solid var(--border);
-            color: var(--text);
-            cursor: pointer;
-            font-weight: 700;
-            font-size: 15px;
-            transition: var(--transition);
-            min-width: 110px;
-        }
-
-        .color-btn.active,
-        .color-btn:hover {
-            background: linear-gradient(135deg, var(--primary), #e0e0e0);
-            color: var(--secondary);
-            border-color: var(--primary);
-            transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(255, 255, 255, 0.3);
-        }
-
-        .qty-selector {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            gap: 12px;
-            margin: 20px 0;
-            background: rgba(255, 255, 255, 0.05);
-            padding: 12px 25px;
-            border-radius: 18px;
-            border: 1px solid var(--border);
-        }
-
-        .qty-label {
-            font-size: 16px;
-            font-weight: 700;
-            margin-right: 12px;
-        }
-
-        .qty-btn {
-            width: 45px;
-            height: 45px;
-            border-radius: 10px;
-            background: linear-gradient(135deg, var(--primary), #e0e0e0);
-            color: var(--secondary);
-            border: none;
-            font-size: 22px;
-            font-weight: 800;
-            cursor: pointer;
-            transition: var(--transition);
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-        }
-
-        .qty-btn:hover {
-            background: linear-gradient(135deg, #e0e0e0, #d0d0d0);
-            transform: scale(1.12);
-            box-shadow: 0 6px 18px rgba(0, 0, 0, 0.3);
-        }
-
-        .qty-btn:disabled {
-            opacity: 0.5;
-            cursor: not-allowed;
-            transform: none;
-        }
-
-        .qty-display {
-            font-size: 28px;
-            font-weight: 800;
-            min-width: 55px;
-            text-align: center;
-            color: var(--primary);
-        }
-
-        /* ========== PRODUCT DESCRIPTION ========== */
-        .product-description {
-            background: linear-gradient(180deg, var(--bg-card) 0%, #0a0a0a 100%);
-            padding: 40px 30px;
-            border-radius: var(--radius);
-            margin: 40px 0;
-            border: 1px solid var(--border);
-        }
-
-        .product-description h3 {
-            font-size: 26px;
-            margin-bottom: 20px;
-            color: var(--primary);
-            text-align: center;
-        }
-
-        .product-description p {
-            font-size: 16px;
-            line-height: 1.8;
-            margin-bottom: 18px;
-            color: var(--text-muted);
-        }
-
-        .specs-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-            gap: 20px;
-            margin-top: 25px;
-        }
-
-        .spec-item {
-            text-align: center;
-            padding: 18px;
-            background: rgba(255, 255, 255, 0.03);
-            border-radius: 10px;
-            border: 1px solid var(--border);
-        }
-
-        .spec-value {
-            font-size: 26px;
-            font-weight: 800;
-            color: var(--primary);
-            margin-bottom: 8px;
-        }
-
-        .spec-label {
-            font-size: 14px;
-            color: var(--text-muted);
-        }
-
-        /* ========== DELIVERY OPTIONS ========== */
-        .delivery-options {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
-            gap: 12px;
-            margin-top: 12px;
-        }
-
-        .delivery-option {
-            padding: 12px;
-            border-radius: 10px;
-            background: rgba(255, 255, 255, 0.05);
-            border: 2px solid var(--border);
-            cursor: pointer;
-            text-align: center;
-            transition: var(--transition);
-        }
-
-        .delivery-option:hover,
-        .delivery-option.active {
-            background: linear-gradient(135deg, var(--accent-blue), var(--accent-purple));
-            border-color: var(--primary);
-            transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(77, 144, 254, 0.4);
-        }
-
-        .delivery-option:hover span,
-        .delivery-option.active span {
-            color: white !important;
-        }
-
-        .delivery-logo {
-            font-size: 28px;
-            margin-bottom: 6px;
-        }
-
-        .delivery-name {
-            font-weight: 700;
-            font-size: 14px;
-            color: var(--text);
-        }
-
-        /* ========== DELIVERY TYPE OPTIONS ========== */
-        .delivery-type-options {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
-            gap: 10px;
-            margin-top: 10px;
-        }
-        
-        .delivery-type-option {
-            padding: 12px 10px;
-            border-radius: 10px;
-            background: rgba(255, 255, 255, 0.05);
-            border: 2px solid var(--border);
-            cursor: pointer;
-            text-align: center;
-            transition: var(--transition);
-            font-size: 14px;
-        }
-        
-        .delivery-type-option:hover,
-        .delivery-type-option.active {
-            background: linear-gradient(135deg, var(--accent-blue), var(--accent-purple));
-            border-color: var(--primary);
-            transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(77, 144, 254, 0.4);
-        }
-        
-        .delivery-type-option:hover span,
-        .delivery-type-option.active span {
-            color: white !important;
-        }
-        
-        .delivery-type-icon {
-            font-size: 24px;
-            margin-bottom: 6px;
-            display: block;
-        }
-        
-        .address-field {
-            margin-top: 15px;
-            transition: opacity 0.3s ease;
-        }
-        
-        .address-field.hidden {
-            opacity: 0.5;
-            pointer-events: none;
-        }
-        
-        .address-hint-container {
-            margin-top: 8px;
-            background: rgba(77, 144, 254, 0.1);
-            border-left: 3px solid var(--accent-blue);
-            padding: 10px;
-            border-radius: 6px;
-            display: none;
-        }
-        
-        .address-hint-icon {
-            display: flex;
-            align-items: center;
-            margin-bottom: 6px;
-        }
-        
-        .address-hint-icon span {
-            font-size: 18px;
-            margin-right: 8px;
-        }
-        
-        .address-hint-text {
-            font-size: 13px;
-            line-height: 1.5;
-            margin: 0;
-            color: var(--text-muted);
-        }
-
-        /* ========== STICKY BAR ========== */
-        .sticky-bar {
-            position: fixed;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            background: rgba(8, 8, 8, 0.98);
-            backdrop-filter: blur(12px);
-            border-top: 1px solid var(--border);
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 15px 20px;
-            z-index: 999;
-            box-shadow: 0 -4px 25px rgba(0, 0, 0, 0.35);
-        }
-
-        .sticky-info {
-            display: flex;
-            align-items: center;
-            gap: 15px;
-        }
-
-        .sticky-price {
-            font-size: 24px;
-            font-weight: 800;
-            color: var(--primary);
-            background: linear-gradient(135deg, #fff 0%, #4d90fe 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-
-        .sticky-btn {
-            background: linear-gradient(135deg, var(--primary) 0%, #e0e0e0 100%);
-            color: var(--secondary);
-            padding: 14px 30px;
-            border-radius: 30px;
-            font-weight: 800;
-            font-size: 16px;
-            border: 2px solid var(--primary);
-            cursor: pointer;
-            transition: var(--transition);
-            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
-        }
-
-        .sticky-btn:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 10px 30px rgba(255, 255, 255, 0.4);
-        }
-
-        /* ========== CART ========== */
-        #cart-btn {
-            position: fixed;
-            bottom: 25px;
-            right: 25px;
-            width: 65px;
-            height: 65px;
-            background: linear-gradient(135deg, var(--primary), #e0e0e0);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            z-index: 10000;
-            box-shadow: 0 6px 25px rgba(0, 0, 0, 0.55);
-            transition: var(--transition);
-            border: 3px solid var(--secondary);
-        }
-
-        #cart-btn:hover {
-            transform: scale(1.12) translateY(-6px);
-            box-shadow: 0 10px 35px rgba(0, 0, 0, 0.75);
-        }
-
-        #cart-btn span {
-            font-size: 28px;
-        }
-
-        #cart-btn .cart-count {
-            position: absolute;
-            top: -6px;
-            right: -6px;
-            width: 24px;
-            height: 24px;
-            background: linear-gradient(135deg, var(--error), #cc0000);
-            color: white;
-            border-radius: 50%;
-            font-size: 13px;
-            font-weight: 800;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border: 2px solid var(--bg-dark);
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
-        }
-
-        #cart-overlay {
-            position: fixed;
-            inset: 0;
-            background: rgba(0, 0, 0, 0.75);
-            opacity: 0;
-            visibility: hidden;
-            transition: opacity 0.3s ease;
-            z-index: 9998;
-        }
-
-        #cart-overlay.active {
-            opacity: 1;
-            visibility: visible;
-        }
-
-        #cart {
-            position: fixed;
-            top: 0;
-            right: -420px;
-            width: 380px;
-            max-width: 95%;
-            height: 100%;
-            background: var(--bg-dark);
-            color: var(--text);
-            transition: right 0.35s cubic-bezier(0.4, 0, 0.2, 1);
-            padding: 35px 25px;
-            z-index: 9999;
-            overflow-y: auto;
-            box-shadow: -8px 0 40px rgba(0, 0, 0, 0.65);
-            border-left: 1px solid var(--border);
-        }
-
-        #cart.active {
-            right: 0;
-        }
-
-        .cart-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 30px;
-            padding-bottom: 20px;
-            border-bottom: 2px solid var(--border);
-        }
-
-        .cart-title {
-            font-size: 28px;
-            font-weight: 800;
-            background: linear-gradient(135deg, #fff 0%, #4d90fe 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-
-        .cart-close {
-            background: rgba(255, 255, 255, 0.1);
-            border: none;
-            color: var(--text-muted);
-            font-size: 24px;
-            cursor: pointer;
-            transition: var(--transition);
-            width: 36px;
-            height: 36px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .cart-close:hover {
-            background: var(--primary);
-            color: var(--secondary);
-            transform: rotate(90deg) scale(1.08);
-        }
-
-        .cart-items {
-            margin-bottom: 30px;
-        }
-
-        .cart-item {
-            display: flex;
-            gap: 15px;
-            padding: 20px 0;
-            border-bottom: 1px solid var(--border);
-            position: relative;
-        }
-
-        .cart-item:last-child {
-            border-bottom: none;
-        }
-
-        .cart-item-img {
-            width: 80px;
-            height: 80px;
-            border-radius: 10px;
-            object-fit: cover;
-            border: 2px solid var(--border);
-        }
-
-        .cart-item-info {
-            flex: 1;
-        }
-
-        .cart-item-name {
-            font-weight: 800;
-            font-size: 16px;
-            margin-bottom: 6px;
-            color: var(--primary);
-        }
-
-        .cart-item-color {
-            font-size: 14px;
-            color: var(--text-muted);
-            margin-bottom: 10px;
-            display: block;
-        }
-
-        .cart-item-qty {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            margin-top: 8px;
-        }
-
-        .cart-item-qty button {
-            width: 32px;
-            height: 32px;
-            border-radius: 8px;
-            background: linear-gradient(135deg, var(--primary), #e0e0e0);
-            color: var(--secondary);
-            border: none;
-            font-weight: 800;
-            font-size: 16px;
-            cursor: pointer;
-            transition: var(--transition);
-        }
-
-        .cart-item-qty button:hover {
-            background: linear-gradient(135deg, #e0e0e0, #d0d0d0);
-            transform: scale(1.08);
-        }
-
-        .cart-item-qty input {
-            width: 45px;
-            text-align: center;
-            background: rgba(255, 255, 255, 0.08);
-            color: var(--primary);
-            border: 1px solid var(--border);
-            border-radius: 8px;
-            padding: 6px;
-            font-weight: 800;
-            font-size: 15px;
-        }
-
-        .cart-item-price {
-            font-weight: 800;
-            font-size: 18px;
-            color: var(--primary);
-            min-width: 85px;
-            text-align: right;
-            align-self: center;
-        }
-
-        .cart-item-delete {
-            position: absolute;
-            top: 10px;
-            right: 0;
-            background: rgba(255, 68, 68, 0.15);
-            color: var(--error);
-            border: none;
-            width: 30px;
-            height: 30px;
-            border-radius: 50%;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: 800;
-            transition: var(--transition);
-            font-size: 18px;
-        }
-
-        .cart-item-delete:hover {
-            background: var(--error);
-            color: white;
-            transform: scale(1.1);
-        }
-
-        .cart-total {
-            padding: 25px 0;
-            border-top: 2px solid var(--border);
-            border-bottom: 2px solid var(--border);
-            margin-bottom: 25px;
-            text-align: right;
-        }
-
-        .cart-total-label {
-            font-size: 18px;
-            color: var(--text-muted);
-            margin-bottom: 10px;
-        }
-
-        .cart-total-amount {
-            font-size: 32px;
-            font-weight: 800;
-            color: var(--primary);
-            background: linear-gradient(135deg, #fff 0%, #4d90fe 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-
-        .cart-actions {
-            display: flex;
-            flex-direction: column;
-            gap: 15px;
-        }
-
-        .cart-btn {
-            width: 100%;
-            padding: 16px;
-            border-radius: 12px;
-            font-weight: 800;
-            font-size: 16px;
-            cursor: pointer;
-            transition: var(--transition);
-            border: none;
-            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
-        }
-
-        .cart-btn-primary {
-            background: linear-gradient(135deg, var(--primary) 0%, #e0e0e0 100%);
-            color: var(--secondary);
-        }
-
-        .cart-btn-primary:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 10px 30px rgba(255, 255, 255, 0.4);
-        }
-
-        .cart-btn-secondary {
-            background: rgba(255, 255, 255, 0.08);
-            color: var(--text-muted);
-            border: 1px solid var(--border);
-        }
-
-        .cart-btn-secondary:hover {
-            background: rgba(255, 255, 255, 0.12);
-            border-color: var(--primary);
-            color: var(--primary);
-            transform: translateY(-2px);
-        }
-
-        .cart-empty {
-            text-align: center;
-            padding: 70px 20px;
-            color: var(--text-muted);
-        }
-
-        .cart-empty-icon {
-            font-size: 70px;
-            margin-bottom: 20px;
-            opacity: 0.3;
-        }
-
-        /* ========== ORDER MODAL ========== */
-        #order-modal {
-            position: fixed;
-            inset: 0;
-            background: rgba(0, 0, 0, 0.88);
-            display: none;
-            align-items: center;
-            justify-content: center;
-            z-index: 10000;
-            opacity: 0;
-            transition: opacity 0.35s ease;
-        }
-
-        #order-modal.active {
-            display: flex;
-            opacity: 1;
-        }
-
-        .order-modal-content {
-            background: linear-gradient(180deg, var(--bg-card) 0%, #0a0a0a 100%);
-            border-radius: var(--radius);
-            padding: 45px 35px;
-            max-width: 550px;
-            width: 95%;
-            max-height: 90vh;
-            overflow-y: auto;
-            box-shadow: 0 20px 65px rgba(0, 0, 0, 0.75);
-            border: 1px solid var(--border);
-            position: relative;
-        }
-
-        .order-modal-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 30px;
-            padding-bottom: 20px;
-            border-bottom: 2px solid var(--border);
-        }
-
-        .order-modal-title {
-            font-size: 28px;
-            font-weight: 800;
-            background: linear-gradient(135deg, #fff 0%, #4d90fe 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-
-        .order-modal-close {
-            background: rgba(255, 255, 255, 0.1);
-            border: none;
-            color: var(--text-muted);
-            font-size: 24px;
-            cursor: pointer;
-            transition: var(--transition);
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .order-modal-close:hover {
-            background: var(--primary);
-            color: var(--secondary);
-            transform: rotate(90deg) scale(1.08);
-        }
-
-        .order-items {
-            margin-bottom: 30px;
-        }
-
-        .order-item {
-            display: flex;
-            justify-content: space-between;
-            padding: 18px 0;
-            border-bottom: 1px solid var(--border);
-        }
-
-        .order-item:last-child {
-            border-bottom: none;
-        }
-
-        .order-item-name {
-            font-weight: 800;
-            font-size: 16px;
-            color: var(--primary);
-        }
-
-        .order-item-details {
-            font-size: 14px;
-            color: var(--text-muted);
-            margin-top: 6px;
-            line-height: 1.6;
-        }
-
-        .order-form-group {
-            margin-bottom: 20px;
-        }
-
-        .order-form-label {
-            display: block;
-            margin-bottom: 8px;
-            font-weight: 700;
-            font-size: 15px;
-            color: var(--primary);
-        }
-
-        .order-form-label.required::after {
-            content: ' *';
-            color: var(--error);
-        }
-
-        .order-form-input,
-        .order-form-textarea,
-        .order-form-select {
-            width: 100%;
-            padding: 14px;
-            background: rgba(255, 255, 255, 0.08);
-            border: 1px solid var(--border);
-            border-radius: 10px;
-            color: var(--primary);
-            font-size: 15px;
-            font-family: inherit;
-            transition: var(--transition);
-        }
-
-        .order-form-input:focus,
-        .order-form-textarea:focus,
-        .order-form-select:focus {
-            outline: none;
-            border-color: var(--primary);
-            background: rgba(255, 255, 255, 0.12);
-            box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.1);
-        }
-
-        .order-form-textarea {
-            min-height: 100px;
-            resize: vertical;
-            line-height: 1.6;
-        }
-
-        .order-form-select {
-            appearance: none;
-            background-image: url("image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%23fff' d='M6 9L1 4h10z'/%3E%3C/svg%3E");
-            background-repeat: no-repeat;
-            background-position: right 12px center;
-            padding-right: 35px;
-        }
-
-        .order-total {
-            padding: 25px 0;
-            border-top: 2px solid var(--border);
-            border-bottom: 2px solid var(--border);
-            margin-bottom: 25px;
-            text-align: right;
-        }
-
-        .order-total-label {
-            font-size: 18px;
-            color: var(--text-muted);
-            margin-bottom: 10px;
-        }
-
-        .order-total-amount {
-            font-size: 32px;
-            font-weight: 800;
-            color: var(--primary);
-            background: linear-gradient(135deg, #fff 0%, #4d90fe 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-
-        .order-submit-btn {
-            width: 100%;
-            padding: 16px;
-            background: linear-gradient(135deg, var(--success), #00b866);
-            color: var(--secondary);
-            border: none;
-            border-radius: 12px;
-            font-weight: 800;
-            font-size: 16px;
-            cursor: pointer;
-            transition: var(--transition);
-            box-shadow: 0 6px 20px rgba(0, 217, 126, 0.4);
-        }
-
-        .order-submit-btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 10px 30px rgba(0, 217, 126, 0.6);
-        }
-
-        .order-submit-btn:disabled {
-            background: #555;
-            cursor: not-allowed;
-            transform: none;
-            box-shadow: none;
-        }
-
-        .order-success {
-            text-align: center;
-            padding: 45px 25px;
-        }
-
-        .order-success-icon {
-            font-size: 70px;
-            margin-bottom: 20px;
-            color: var(--success);
-        }
-
-        .order-success-title {
-            font-size: 28px;
-            font-weight: 800;
-            margin-bottom: 18px;
-            background: linear-gradient(135deg, var(--success), #00b866);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-
-        .order-success-message {
-            color: var(--text-muted);
-            font-size: 16px;
-            line-height: 1.7;
-            margin-bottom: 25px;
-        }
-
-        .order-error {
-            padding: 16px;
-            background: rgba(255, 68, 68, 0.15);
-            border: 1px solid var(--error);
-            border-radius: 10px;
-            color: var(--error);
-            margin-bottom: 20px;
-            display: none;
-            font-size: 14px;
-            line-height: 1.6;
-        }
-
-        /* ========== FOOTER ========== */
-        footer {
-            background: linear-gradient(180deg, var(--bg-card) 0%, #080808 100%);
-            padding: 40px 0 25px;
-            border-top: 1px solid var(--border);
-            margin-top: 50px;
-        }
-
-        .footer-content {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-            gap: 30px;
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 15px;
-        }
-
-        .footer-section h3 {
-            font-size: 20px;
-            margin-bottom: 20px;
-            font-weight: 800;
-            color: var(--primary);
-        }
-
-        .footer-links {
-            list-style: none;
-        }
-
-        .footer-links li {
-            margin-bottom: 12px;
-        }
-
-        .footer-links a {
-            color: var(--text-muted);
-            text-decoration: none;
-            transition: var(--transition);
-            display: block;
-            font-size: 15px;
-            padding: 6px 0;
-        }
-
-        .footer-links a:hover {
-            color: var(--primary);
-            transform: translateX(6px);
-            padding-left: 8px;
-        }
-
-        .footer-contact p {
-            margin-bottom: 12px;
-            color: var(--text-muted);
-            font-size: 15px;
-            line-height: 1.6;
-        }
-
-        .footer-contact a {
-            color: var(--primary);
-            text-decoration: none;
-            transition: var(--transition);
-            font-weight: 600;
-        }
-
-        .footer-contact a:hover {
-            color: var(--text);
-            text-decoration: underline;
-        }
-
-        .copyright {
-            text-align: center;
-            padding-top: 25px;
-            margin-top: 25px;
-            border-top: 1px solid var(--border);
-            color: var(--text-muted);
-            font-size: 14px;
-            line-height: 1.6;
-        }
-
-        /* ========== ANIMATIONS ========== */
-        .fade-in {
-            opacity: 0;
-            transform: translateY(25px);
-            transition: opacity 0.7s ease, transform 0.7s ease;
-        }
-
-        .fade-in.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        /* ========== LOADING SPINNER ========== */
-        .spinner {
-            display: inline-block;
-            width: 22px;
-            height: 22px;
-            border: 3px solid rgba(255, 255, 255, 0.3);
-            border-radius: 50%;
-            border-top-color: white;
-            animation: spin 1s linear infinite;
-        }
-
-        @keyframes spin {
-            to { transform: rotate(360deg); }
-        }
-
-        /* ========== PRODUCT SWITCHER ========== */
-        .product-switcher {
-            display: flex;
-            justify-content: center;
-            gap: 15px;
-            margin: 35px 0;
-            flex-wrap: wrap;
-        }
-
-        /* ========== LEGAL DISCLAIMER ========== */
-        .legal-disclaimer {
-            text-align: center;
-            padding: 15px;
-            background: rgba(255, 255, 255, 0.03);
-            border-top: 1px solid var(--border);
-            font-size: 13px;
-            color: var(--text-muted);
-            margin-top: 20px;
-            border-radius: 8px;
-        }
-
-        /* ========== MOBILE OPTIMIZATION ========== */
-        @media (max-width: 768px) {
-            .section-title {
-                font-size: 28px;
-            }
-
-            .section-subtitle {
-                font-size: 15px;
-                margin-bottom: 35px;
-            }
-
-            .price {
-                font-size: 34px;
-            }
-
-            .hero-img {
-                max-width: 260px;
-            }
-
-            .hero-gallery {
-                grid-template-columns: repeat(auto-fit, minmax(70px, 1fr));
-            }
-
-            .features-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .color-selector {
-                flex-direction: column;
-                align-items: center;
-            }
-
-            .color-btn {
-                width: 100%;
-                max-width: 220px;
-            }
-
-            .qty-selector {
-                flex-direction: column;
-                gap: 10px;
-                padding: 15px;
-            }
-
-            .qty-btn {
-                width: 55px;
-                height: 55px;
-                font-size: 26px;
-            }
-
-            .qty-display {
-                font-size: 32px;
-            }
-
-            .cart-item {
-                flex-direction: column;
-            }
-
-            .cart-item-price {
-                text-align: left;
-                margin-top: 12px;
-            }
-
-            .cart-total {
-                text-align: left;
-            }
-
-            .footer-content {
-                grid-template-columns: 1fr;
-            }
-
-            .product-description {
-                padding: 25px 20px;
-                margin: 30px 0;
-            }
-
-            .order-modal-content {
-                padding: 30px 20px;
-            }
-
-            .btn {
-                padding: 12px 30px;
-                font-size: 15px;
-                margin: 6px 3px;
-            }
-
-            .btn-block {
-                max-width: 100%;
-            }
-
-            .btn-switch {
-                padding: 14px 35px;
-                font-size: 15px;
-            }
-
-            #cart {
-                width: 100%;
-            }
-
-            .cart-title,
-            .order-modal-title {
-                font-size: 24px;
-            }
-
-            .cart-item-delete {
-                top: 15px;
-            }
-
-            .section-title::after {
-                width: 60px;
-                height: 2px;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .navbar {
-                flex-direction: column;
-                gap: 10px;
-                padding: 10px;
-            }
-
-            .logo {
-                font-size: 20px;
-            }
-
-            .nav-links {
-                flex-wrap: wrap;
-                justify-content: center;
-                gap: 8px;
-            }
-
-            .nav-btn {
-                padding: 8px 14px;
-                font-size: 13px;
-            }
-
-            .hero-img {
-                max-width: 220px;
-            }
-
-            .price {
-                font-size: 28px;
-            }
-
-            .btn {
-                padding: 12px 28px;
-                font-size: 15px;
-                margin: 6px 3px;
-            }
-
-            .btn-block {
-                padding: 14px 25px;
-            }
-
-            .sticky-bar {
-                flex-direction: column;
-                gap: 12px;
-                padding: 18px 15px;
-            }
-
-            .sticky-price {
-                font-size: 22px;
-            }
-
-            #cart-btn {
-                width: 60px;
-                height: 60px;
-            }
-
-            #cart-btn span {
-                font-size: 26px;
-            }
-
-            .cart-count {
-                width: 22px;
-                height: 22px;
-                font-size: 12px;
-            }
-
-            .product-description {
-                padding: 20px 15px;
-                margin: 25px 0;
-            }
-
-            .product-description h3 {
-                font-size: 22px;
-            }
-
-            .product-description p {
-                font-size: 15px;
-            }
-
-            .section-title {
-                font-size: 26px;
-                margin-bottom: 25px;
-            }
-
-            section {
-                padding: 30px 0;
-            }
-
-            .hero {
-                padding: 50px 0 25px;
-            }
-
-            .delivery-options,
-            .delivery-type-options {
-                grid-template-columns: 1fr;
-            }
-
-            .delivery-option,
-            .delivery-type-option {
-                padding: 15px;
-            }
-        }
-    </style>
+/* ========== CART ========== */
+#cart-btn {
+position: fixed;
+bottom: 25px;
+right: 25px;
+width: 65px;
+height: 65px;
+background: linear-gradient(135deg, var(--primary), #e0e0e0);
+border-radius: 50%;
+display: flex;
+align-items: center;
+justify-content: center;
+cursor: pointer;
+z-index: 10000;
+box-shadow: 0 6px 25px rgba(0, 0, 0, 0.55);
+transition: var(--transition);
+border: 3px solid var(--secondary);
+}
+#cart-btn:hover {
+transform: scale(1.12) translateY(-6px);
+box-shadow: 0 10px 35px rgba(0, 0, 0, 0.75);
+}
+#cart-btn span {
+font-size: 28px;
+}
+#cart-btn .cart-count {
+position: absolute;
+top: -6px;
+right: -6px;
+width: 24px;
+height: 24px;
+background: linear-gradient(135deg, var(--error), #cc0000);
+color: white;
+border-radius: 50%;
+font-size: 13px;
+font-weight: 800;
+display: flex;
+align-items: center;
+justify-content: center;
+border: 2px solid var(--bg-dark);
+box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+#cart-overlay {
+position: fixed;
+inset: 0;
+background: rgba(0, 0, 0, 0.75);
+opacity: 0;
+visibility: hidden;
+transition: opacity 0.3s ease;
+z-index: 9998;
+}
+#cart-overlay.active {
+opacity: 1;
+visibility: visible;
+}
+#cart {
+position: fixed;
+top: 0;
+right: -420px;
+width: 380px;
+max-width: 95%;
+height: 100%;
+background: var(--bg-dark);
+color: var(--text);
+transition: right 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+padding: 35px 25px;
+z-index: 9999;
+overflow-y: auto;
+box-shadow: -8px 0 40px rgba(0, 0, 0, 0.65);
+border-left: 1px solid var(--border);
+}
+#cart.active {
+right: 0;
+}
+.cart-header {
+display: flex;
+justify-content: space-between;
+align-items: center;
+margin-bottom: 30px;
+padding-bottom: 20px;
+border-bottom: 2px solid var(--border);
+}
+.cart-title {
+font-size: 28px;
+font-weight: 800;
+background: linear-gradient(135deg, #fff 0%, #4d90fe 100%);
+-webkit-background-clip: text;
+-webkit-text-fill-color: transparent;
+background-clip: text;
+}
+.cart-close {
+background: rgba(255, 255, 255, 0.1);
+border: none;
+color: var(--text-muted);
+font-size: 24px;
+cursor: pointer;
+transition: var(--transition);
+width: 36px;
+height: 36px;
+border-radius: 50%;
+display: flex;
+align-items: center;
+justify-content: center;
+}
+.cart-close:hover {
+background: var(--primary);
+color: var(--secondary);
+transform: rotate(90deg) scale(1.08);
+}
+.cart-items {
+margin-bottom: 30px;
+}
+.cart-item {
+display: flex;
+gap: 15px;
+padding: 20px 0;
+border-bottom: 1px solid var(--border);
+position: relative;
+}
+.cart-item:last-child {
+border-bottom: none;
+}
+.cart-item-img {
+width: 80px;
+height: 80px;
+border-radius: 10px;
+object-fit: cover;
+border: 2px solid var(--border);
+}
+.cart-item-info {
+flex: 1;
+}
+.cart-item-name {
+font-weight: 800;
+font-size: 16px;
+margin-bottom: 6px;
+color: var(--primary);
+}
+.cart-item-color {
+font-size: 14px;
+color: var(--text-muted);
+margin-bottom: 10px;
+display: block;
+}
+.cart-item-qty {
+display: flex;
+align-items: center;
+gap: 10px;
+margin-top: 8px;
+}
+.cart-item-qty button {
+width: 32px;
+height: 32px;
+border-radius: 8px;
+background: linear-gradient(135deg, var(--primary), #e0e0e0);
+color: var(--secondary);
+border: none;
+font-weight: 800;
+font-size: 16px;
+cursor: pointer;
+transition: var(--transition);
+}
+.cart-item-qty button:hover {
+background: linear-gradient(135deg, #e0e0e0, #d0d0d0);
+transform: scale(1.08);
+}
+.cart-item-qty input {
+width: 45px;
+text-align: center;
+background: rgba(255, 255, 255, 0.08);
+color: var(--primary);
+border: 1px solid var(--border);
+border-radius: 8px;
+padding: 6px;
+font-weight: 800;
+font-size: 15px;
+}
+.cart-item-price {
+font-weight: 800;
+font-size: 18px;
+color: var(--primary);
+min-width: 85px;
+text-align: right;
+align-self: center;
+}
+.cart-item-delete {
+position: absolute;
+top: 10px;
+right: 0;
+background: rgba(255, 68, 68, 0.15);
+color: var(--error);
+border: none;
+width: 30px;
+height: 30px;
+border-radius: 50%;
+cursor: pointer;
+display: flex;
+align-items: center;
+justify-content: center;
+font-weight: 800;
+transition: var(--transition);
+font-size: 18px;
+}
+.cart-item-delete:hover {
+background: var(--error);
+color: white;
+transform: scale(1.1);
+}
+.cart-total {
+padding: 25px 0;
+border-top: 2px solid var(--border);
+border-bottom: 2px solid var(--border);
+margin-bottom: 25px;
+text-align: right;
+}
+.cart-total-label {
+font-size: 18px;
+color: var(--text-muted);
+margin-bottom: 10px;
+}
+.cart-total-amount {
+font-size: 32px;
+font-weight: 800;
+color: var(--primary);
+background: linear-gradient(135deg, #fff 0%, #4d90fe 100%);
+-webkit-background-clip: text;
+-webkit-text-fill-color: transparent;
+background-clip: text;
+}
+.cart-actions {
+display: flex;
+flex-direction: column;
+gap: 15px;
+}
+.cart-btn {
+width: 100%;
+padding: 16px;
+border-radius: 12px;
+font-weight: 800;
+font-size: 16px;
+cursor: pointer;
+transition: var(--transition);
+border: none;
+box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+}
+.cart-btn-primary {
+background: linear-gradient(135deg, var(--primary) 0%, #e0e0e0 100%);
+color: var(--secondary);
+}
+.cart-btn-primary:hover {
+transform: translateY(-2px);
+box-shadow: 0 10px 30px rgba(255, 255, 255, 0.4);
+}
+.cart-btn-secondary {
+background: rgba(255, 255, 255, 0.08);
+color: var(--text-muted);
+border: 1px solid var(--border);
+}
+.cart-btn-secondary:hover {
+background: rgba(255, 255, 255, 0.12);
+border-color: var(--primary);
+color: var(--primary);
+transform: translateY(-2px);
+}
+.cart-empty {
+text-align: center;
+padding: 70px 20px;
+color: var(--text-muted);
+}
+.cart-empty-icon {
+font-size: 70px;
+margin-bottom: 20px;
+opacity: 0.3;
+}
+/* ========== ORDER MODAL ========== */
+#order-modal {
+position: fixed;
+inset: 0;
+background: rgba(0, 0, 0, 0.88);
+display: none;
+align-items: center;
+justify-content: center;
+z-index: 10000;
+opacity: 0;
+transition: opacity 0.35s ease;
+}
+#order-modal.active {
+display: flex;
+opacity: 1;
+}
+.order-modal-content {
+background: linear-gradient(180deg, var(--bg-card) 0%, #0a0a0a 100%);
+border-radius: var(--radius);
+padding: 45px 35px;
+max-width: 550px;
+width: 95%;
+max-height: 90vh;
+overflow-y: auto;
+box-shadow: 0 20px 65px rgba(0, 0, 0, 0.75);
+border: 1px solid var(--border);
+position: relative;
+}
+.order-modal-header {
+display: flex;
+justify-content: space-between;
+align-items: center;
+margin-bottom: 30px;
+padding-bottom: 20px;
+border-bottom: 2px solid var(--border);
+}
+.order-modal-title {
+font-size: 28px;
+font-weight: 800;
+background: linear-gradient(135deg, #fff 0%, #4d90fe 100%);
+-webkit-background-clip: text;
+-webkit-text-fill-color: transparent;
+background-clip: text;
+}
+.order-modal-close {
+background: rgba(255, 255, 255, 0.1);
+border: none;
+color: var(--text-muted);
+font-size: 24px;
+cursor: pointer;
+transition: var(--transition);
+width: 40px;
+height: 40px;
+border-radius: 50%;
+display: flex;
+align-items: center;
+justify-content: center;
+}
+.order-modal-close:hover {
+background: var(--primary);
+color: var(--secondary);
+transform: rotate(90deg) scale(1.08);
+}
+.order-items {
+margin-bottom: 30px;
+}
+.order-item {
+display: flex;
+justify-content: space-between;
+padding: 18px 0;
+border-bottom: 1px solid var(--border);
+}
+.order-item:last-child {
+border-bottom: none;
+}
+.order-item-name {
+font-weight: 800;
+font-size: 16px;
+color: var(--primary);
+}
+.order-item-details {
+font-size: 14px;
+color: var(--text-muted);
+margin-top: 6px;
+line-height: 1.6;
+}
+.order-form-group {
+margin-bottom: 20px;
+}
+.order-form-label {
+display: block;
+margin-bottom: 8px;
+font-weight: 700;
+font-size: 15px;
+color: var(--primary);
+}
+.order-form-label.required::after {
+content: ' *';
+color: var(--error);
+}
+.order-form-input,
+.order-form-textarea,
+.order-form-select {
+width: 100%;
+padding: 14px;
+background: rgba(255, 255, 255, 0.08);
+border: 1px solid var(--border);
+border-radius: 10px;
+color: var(--primary);
+font-size: 15px;
+font-family: inherit;
+transition: var(--transition);
+}
+.order-form-input:focus,
+.order-form-textarea:focus,
+.order-form-select:focus {
+outline: none;
+border-color: var(--primary);
+background: rgba(255, 255, 255, 0.12);
+box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.1);
+}
+.order-form-textarea {
+min-height: 100px;
+resize: vertical;
+line-height: 1.6;
+}
+.order-form-select {
+appearance: none;
+background-image: url("image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%23fff' d='M6 9L1 4h10z'/%3E%3C/svg%3E");
+background-repeat: no-repeat;
+background-position: right 12px center;
+padding-right: 35px;
+}
+.order-total {
+padding: 25px 0;
+border-top: 2px solid var(--border);
+border-bottom: 2px solid var(--border);
+margin-bottom: 25px;
+text-align: right;
+}
+.order-total-label {
+font-size: 18px;
+color: var(--text-muted);
+margin-bottom: 10px;
+}
+.order-total-amount {
+font-size: 32px;
+font-weight: 800;
+color: var(--primary);
+background: linear-gradient(135deg, #fff 0%, #4d90fe 100%);
+-webkit-background-clip: text;
+-webkit-text-fill-color: transparent;
+background-clip: text;
+}
+.order-submit-btn {
+width: 100%;
+padding: 16px;
+background: linear-gradient(135deg, var(--success), #00b866);
+color: var(--secondary);
+border: none;
+border-radius: 12px;
+font-weight: 800;
+font-size: 16px;
+cursor: pointer;
+transition: var(--transition);
+box-shadow: 0 6px 20px rgba(0, 217, 126, 0.4);
+}
+.order-submit-btn:hover {
+transform: translateY(-2px);
+box-shadow: 0 10px 30px rgba(0, 217, 126, 0.6);
+}
+.order-submit-btn:disabled {
+background: #555;
+cursor: not-allowed;
+transform: none;
+box-shadow: none;
+}
+.order-success {
+text-align: center;
+padding: 45px 25px;
+}
+.order-success-icon {
+font-size: 70px;
+margin-bottom: 20px;
+color: var(--success);
+}
+.order-success-title {
+font-size: 28px;
+font-weight: 800;
+margin-bottom: 18px;
+background: linear-gradient(135deg, var(--success), #00b866);
+-webkit-background-clip: text;
+-webkit-text-fill-color: transparent;
+background-clip: text;
+}
+.order-success-message {
+color: var(--text-muted);
+font-size: 16px;
+line-height: 1.7;
+margin-bottom: 25px;
+}
+.order-error {
+padding: 16px;
+background: rgba(255, 68, 68, 0.15);
+border: 1px solid var(--error);
+border-radius: 10px;
+color: var(--error);
+margin-bottom: 20px;
+display: none;
+font-size: 14px;
+line-height: 1.6;
+}
+/* ========== FOOTER ========== */
+footer {
+background: linear-gradient(180deg, var(--bg-card) 0%, #080808 100%);
+padding: 40px 0 25px;
+border-top: 1px solid var(--border);
+margin-top: 50px;
+}
+.footer-content {
+display: grid;
+grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+gap: 30px;
+max-width: 1200px;
+margin: 0 auto;
+padding: 0 15px;
+}
+.footer-section h3 {
+font-size: 20px;
+margin-bottom: 20px;
+font-weight: 800;
+color: var(--primary);
+}
+.footer-links {
+list-style: none;
+}
+.footer-links li {
+margin-bottom: 12px;
+}
+.footer-links a {
+color: var(--text-muted);
+text-decoration: none;
+transition: var(--transition);
+display: block;
+font-size: 15px;
+padding: 6px 0;
+}
+.footer-links a:hover {
+color: var(--primary);
+transform: translateX(6px);
+padding-left: 8px;
+}
+.footer-contact p {
+margin-bottom: 12px;
+color: var(--text-muted);
+font-size: 15px;
+line-height: 1.6;
+}
+.footer-contact a {
+color: var(--primary);
+text-decoration: none;
+transition: var(--transition);
+font-weight: 600;
+}
+.footer-contact a:hover {
+color: var(--text);
+text-decoration: underline;
+}
+.copyright {
+text-align: center;
+padding-top: 25px;
+margin-top: 25px;
+border-top: 1px solid var(--border);
+color: var(--text-muted);
+font-size: 14px;
+line-height: 1.6;
+}
+/* ========== ANIMATIONS ========== */
+.fade-in {
+opacity: 0;
+transform: translateY(25px);
+transition: opacity 0.7s ease, transform 0.7s ease;
+}
+.fade-in.visible {
+opacity: 1;
+transform: translateY(0);
+}
+/* ========== LOADING SPINNER ========== */
+.spinner {
+display: inline-block;
+width: 22px;
+height: 22px;
+border: 3px solid rgba(255, 255, 255, 0.3);
+border-radius: 50%;
+border-top-color: white;
+animation: spin 1s linear infinite;
+}
+@keyframes spin {
+to { transform: rotate(360deg); }
+}
+/* ========== PRODUCT SWITCHER ========== */
+.product-switcher {
+display: flex;
+justify-content: center;
+gap: 15px;
+margin: 35px 0;
+flex-wrap: wrap;
+}
+/* ========== LEGAL DISCLAIMER ========== */
+.legal-disclaimer {
+text-align: center;
+padding: 15px;
+background: rgba(255, 255, 255, 0.03);
+border-top: 1px solid var(--border);
+font-size: 13px;
+color: var(--text-muted);
+margin-top: 20px;
+border-radius: 8px;
+}
+/* ========== MOBILE OPTIMIZATION ========== */
+@media (max-width: 768px) {
+.section-title {
+font-size: 28px;
+}
+.section-subtitle {
+font-size: 15px;
+margin-bottom: 35px;
+}
+.price {
+font-size: 34px;
+}
+.hero-img {
+max-width: 260px;
+}
+.hero-gallery {
+grid-template-columns: repeat(auto-fit, minmax(70px, 1fr));
+}
+.features-grid {
+grid-template-columns: 1fr;
+}
+.color-selector {
+flex-direction: column;
+align-items: center;
+}
+.color-btn {
+width: 100%;
+max-width: 220px;
+}
+.qty-selector {
+flex-direction: column;
+gap: 10px;
+padding: 15px;
+}
+.qty-btn {
+width: 55px;
+height: 55px;
+font-size: 26px;
+}
+.qty-display {
+font-size: 32px;
+}
+.cart-item {
+flex-direction: column;
+}
+.cart-item-price {
+text-align: left;
+margin-top: 12px;
+}
+.cart-total {
+text-align: left;
+}
+.footer-content {
+grid-template-columns: 1fr;
+}
+.product-description {
+padding: 25px 20px;
+margin: 30px 0;
+}
+.order-modal-content {
+padding: 30px 20px;
+}
+.btn {
+padding: 12px 30px;
+font-size: 15px;
+margin: 6px 3px;
+}
+.btn-block {
+max-width: 100%;
+}
+.btn-switch {
+padding: 14px 35px;
+font-size: 15px;
+}
+#cart {
+width: 100%;
+}
+.cart-title,
+.order-modal-title {
+font-size: 24px;
+}
+.cart-item-delete {
+top: 15px;
+}
+.section-title::after {
+width: 60px;
+height: 2px;
+}
+}
+@media (max-width: 480px) {
+.navbar {
+flex-direction: column;
+gap: 10px;
+padding: 10px;
+}
+.logo {
+font-size: 20px;
+}
+.nav-links {
+flex-wrap: wrap;
+justify-content: center;
+gap: 8px;
+}
+.nav-btn {
+padding: 8px 14px;
+font-size: 13px;
+}
+.hero-img {
+max-width: 220px;
+}
+.price {
+font-size: 28px;
+}
+.btn {
+padding: 12px 28px;
+font-size: 15px;
+margin: 6px 3px;
+}
+.btn-block {
+padding: 14px 25px;
+}
+.sticky-bar {
+flex-direction: column;
+gap: 12px;
+padding: 18px 15px;
+}
+.sticky-price {
+font-size: 22px;
+}
+.sticky-btn-container {
+flex-direction: column;
+}
+#cart-btn {
+width: 60px;
+height: 60px;
+}
+#cart-btn span {
+font-size: 26px;
+}
+.cart-count {
+width: 22px;
+height: 22px;
+font-size: 12px;
+}
+.product-description {
+padding: 20px 15px;
+margin: 25px 0;
+}
+.product-description h3 {
+font-size: 22px;
+}
+.product-description p {
+font-size: 15px;
+}
+.section-title {
+font-size: 26px;
+margin-bottom: 25px;
+}
+section {
+padding: 30px 0;
+}
+.hero {
+padding: 50px 0 25px;
+}
+.delivery-options,
+.delivery-type-options {
+grid-template-columns: 1fr;
+}
+.delivery-option,
+.delivery-type-option {
+padding: 15px;
+}
+}
+</style>
 </head>
 <body>
-
-    <!-- NAVBAR -->
-    <nav class="navbar">
-        <div class="logo">iMart-Store</div>
-        <div class="nav-links">
-            <button class="nav-btn" id="nav-pro" onclick="showProduct('pro')">Pro 3</button>
-            <button class="nav-btn" id="nav-max" onclick="showProduct('max')">Max 2</button>
-            <button class="lang-toggle" onclick="toggleLanguage()">🇨🇿 / 🇷🇺</button>
-        </div>
-    </nav>
-
-    <!-- CART BUTTON -->
-    <div id="cart-btn" onclick="openCart()">
-        <span>🛒</span>
-        <div class="cart-count" id="cart-count">0</div>
-    </div>
-
-    <!-- CART OVERLAY -->
-    <div id="cart-overlay" onclick="closeCart()"></div>
-
-    <!-- CART -->
-    <div id="cart">
-        <div class="cart-header">
-            <div class="cart-title" data-lang-cz="Košík" data-lang-ru="Корзина">Košík</div>
-            <button class="cart-close" onclick="closeCart()">✕</button>
-        </div>
-        <div class="cart-items" id="cart-items">
-            <div class="cart-empty">
-                <div class="cart-empty-icon">🛒</div>
-                <p data-lang-cz="Košík je prázdný" data-lang-ru="Корзина пуста">Košík je prázdný</p>
-            </div>
-        </div>
-        <div class="cart-total" id="cart-total" style="display:none;">
-            <div class="cart-total-label" data-lang-cz="Celkem" data-lang-ru="Итого">Celkem</div>
-            <div class="cart-total-amount" id="cart-total-amount">0 Kč</div>
-        </div>
-        <div class="cart-actions" id="cart-actions" style="display:none;">
-            <button class="cart-btn cart-btn-primary" onclick="openOrderModal()" data-lang-cz="Objednat" data-lang-ru="Оформить заказ">Objednat</button>
-            <button class="cart-btn cart-btn-secondary" onclick="clearCart()" data-lang-cz="Vyčistit košík" data-lang-ru="Очистить корзину">Vyčistit košík</button>
-        </div>
-    </div>
-
-    <!-- ORDER MODAL -->
-    <div id="order-modal">
-        <div class="order-modal-content">
-            <div class="order-modal-header">
-                <div class="order-modal-title" data-lang-cz="Odeslání objednávky" data-lang-ru="Оформление заказа">Odeslání objednávky</div>
-                <button class="order-modal-close" onclick="closeOrderModal()">✕</button>
-            </div>
-            
-            <div id="order-content">
-                <!-- Order items will be inserted here -->
-            </div>
-        </div>
-    </div>
-
-    <!-- MAIN CONTENT -->
-    <main class="container">
-        <!-- HERO SECTION -->
-        <section class="hero fade-in">
-            <h1 class="section-title" id="product-title" 
-                data-lang-cz-pro="Bezdrátová TWS sluchátka Pro 3 🎧" 
-                data-lang-ru-pro="Беспроводные TWS наушники Pro 3 🎧" 
-                data-lang-cz-max="Sluchátka Max 2 🎧" 
-                data-lang-ru-max="Наушники Max 2 🎧">
-                Bezdrátová TWS sluchátka Pro 3 🎧
-            </h1>
-            
-            <p class="section-subtitle" id="product-subtitle" 
-                data-lang-cz-pro="Objevte svět čistého zvuku s našimi prémiovými bezdrátovými sluchátky. Aktivní potlačení hluku, Hi-Fi kvalita, rychlé nabíjení USB Type-C a až 24 hodin neustálého poslechu pro váš každodenní komfort." 
-                data-lang-ru-pro="Откройте мир чистого звука с нашими премиальными беспроводными наушниками. Активное шумоподавление, Hi-Fi качество, быстрая зарядка USB Type-C и до 24 часов непрерывного прослушивания для вашего повседневного комфорта." 
-                data-lang-cz-max="Nejnovější generace profesionálních sluchátek Max 2 s pokročilým ANC, prostorovým Hi-Fi zvukem, rychlým nabíjením USB Type-C a až 30 hodinami výdrže pro nejvyšší nároky posluchačů." 
-                data-lang-ru-max="Новейшее поколение профессиональных наушников Max 2 с продвинутым ANC, объемным Hi-Fi звуком, быстрой зарядкой USB Type-C и до 30 часов автономности для самых высоких требований слушателей.">
-                Objevte svět čistého zvuku s našimi prémiovými bezdrátovými sluchátky. Aktivní potlačení hluku, Hi-Fi kvalita, rychlé nabíjení USB Type-C a až 24 hodin neustálého poslechu pro váš každodenní komfort.
-            </p>
-            
-            <img src="img/airpods1.jpg" alt="Sluchátka" class="hero-img" id="main-img">
-            
-            <div class="hero-gallery" id="gallery">
-                <img src="img/airpods1.jpg" class="active" onclick="changeImage('img/airpods1.jpg')">
-                <img src="img/airpods2.jpg" onclick="changeImage('img/airpods2.jpg')">
-                <img src="img/airpods3.jpg" onclick="changeImage('img/airpods3.jpg')">
-                <img src="img/airpods4.jpg" onclick="changeImage('img/airpods4.jpg')">
-            </div>
-
-            <div class="price" id="product-price">1 099 Kč</div>
-            <div class="price-badge" data-lang-cz="USB Type-C • Platba při převzetí • Doručení 2-3 dny" data-lang-ru="USB Type-C • Оплата при получении • Доставка 2-3 дня">USB Type-C • Platba při převzetí • Doručení 2-3 dny</div>
-
-            <!-- Color selector only for Max product -->
-            <div class="color-selector" id="color-selector" style="display:none;">
-                <button class="color-btn active" data-color="Černá" data-lang-cz="Černá" data-lang-ru="Черный" onclick="selectColor(this, 'Černá')">Černá</button>
-                <button class="color-btn" data-color="Stříbrná" data-lang-cz="Stříbrná" data-lang-ru="Серебристый" onclick="selectColor(this, 'Stříbrná')">Stříbrná</button>
-            </div>
-
-            <div class="qty-selector">
-                <span class="qty-label" data-lang-cz="Množství:" data-lang-ru="Количество:">Množství:</span>
-                <button class="qty-btn" onclick="changeQty(-1)">−</button>
-                <div class="qty-display" id="qty-display">1</div>
-                <button class="qty-btn" onclick="changeQty(1)">+</button>
-            </div>
-
-            <button class="btn btn-primary btn-block" onclick="addToCart()" id="add-to-cart-btn" data-lang-cz="Přidat do košíku" data-lang-ru="Добавить в корзину">Přidat do košíku</button>
-            
-            <div class="product-switcher">
-                <button class="btn btn-switch" onclick="showProduct('max')" 
-                    data-lang-cz="Podívejte se na Sluchátka Max 2 →" 
-                    data-lang-ru="Посмотреть Наушники Max 2 →">
-                    Podívejte se na Sluchátka Max 2 →
-                </button>
-            </div>
-        </section>
-
-        <!-- DETAILED DESCRIPTION -->
-        <section class="fade-in">
-            <div class="product-description" id="product-description">
-                <h3 data-lang-cz-pro="Proč si zamilujete Bezdrátová sluchátka Pro 3" 
-                    data-lang-ru-pro="Почему вы полюбите Беспроводные наушники Pro 3" 
-                    data-lang-cz-max="Proč si zamilujete Sluchátka Max 2" 
-                    data-lang-ru-max="Почему вы полюбите Наушники Max 2">
-                    Proč si zamilujete Bezdrátová sluchátka Pro 3
-                </h3>
-                <p id="description-text" 
-                    data-lang-cz-pro="Představte si ráno bez rušivého hluku města, cestu do práce s hudbou, která vás přenáší do jiného světa, a večer plný klidu a uvolnění. Bezdrátová sluchátka Pro 3 jsou navržena právě pro vás – pro ty, kteří si cení kvality, pohodlí a stylového vzhledu. Díky pokročilé technologii aktivního potlačení hluku (ANC) si užijete čistý zvuk bez okolních rušivých zvuků. Hi-Fi reproduktory s bohatými bassy a křišťálově čistými výškami vám přinesou studiový zážitek přímo do uší. S výdrží baterie až 24 hodin a praktickým nabíjením přes moderní USB Type-C port vás tyto sluchátka provází celý den – od ranního probuzení až po noční odpočinek. Ergonomický design a měkké silikonové náušníky zajišťují maximální pohodlí i při dlouhodobém nošení. Ať už posloucháte svou oblíbenou hudbu, sledujete filmy nebo telefonujete, sluchátka Pro 3 vám poskytnou nezapomenutelný zvukový zážitek s pohodlným nabíjením USB Type-C." 
-                    data-lang-ru-pro="Представьте утро без шума города, дорогу на работу с музыкой, которая переносит вас в другой мир, и вечер, полный покоя и расслабления. Беспроводные наушники Pro 3 созданы именно для вас - для тех, кто ценит качество, комфорт и стильный внешний вид. Благодаря передовой технологии активного шумоподавления (ANC) вы насладитесь чистым звуком без посторонних шумов. Hi-Fi динамики с насыщенными басами и кристально чистыми высокими частотами принесут вам студийное качество звука прямо в уши. С автономностью до 24 часов и удобной зарядкой через современный порт USB Type-C эти наушники будут сопровождать вас весь день - от утреннего пробуждения до ночного отдыха. Эргономичный дизайн и мягкие силиконовые амбушюры обеспечивают максимальный комфорт даже при длительном ношении. Независимо от того, слушаете ли вы любимую музыку, смотрите фильмы или разговариваете по телефону, наушники Pro 3 подарят вам незабываемые звуковые ощущения с удобной зарядкой USB Type-C." 
-                    data-lang-cz-max="Objevte revoluční zvukový zážitek s nejnovějšími Sluchátky Max 2! Tyto profesionální over-ear sluchátka představují vrchol technologie s pokročilým ANC nové generace, které eliminuje až 98% okolních hluků. Prostorový Hi-Fi zvuk s hlubokými, pulzujícími basami a křišťálově čistými výškami vás doslova pohltí a přenese do srdce každé skladby. S výdrží baterie až 30 hodin a ultra-rychlým nabíjením přes USB Type-C (10 minut nabíjení = 5 hodin poslechu!) jsou tyto sluchátka ideálním společníkem pro dlouhé cesty, intenzivní pracovní dny nebo noční sezení s hudbou. Luxusní materiály, včetně měkkých proteinových kožených náušníků a odolného hliníkového těla, zajišťují nejen elegantní vzhled, ale také maximální pohodlí i při nosení celý den. Moderní USB Type-C nabíjení zajišťuje rychlou a univerzální kompatibilitu se všemi vašimi zařízeními. Ať už pracujete z domova, cestujete nebo si užíváte klidné chvíle, sluchátka Max 2 vám poskytnou profesionální zvukový zážitek, který si zamilujete." 
-                    data-lang-ru-max="Откройте революционное звуковое переживание с новейшими Наушниками Max 2! Эти профессиональные наушники over-ear представляют вершину технологий с продвинутой системой активного шумоподавления нового поколения, которая устраняет до 98% окружающих шумов. Объемный Hi-Fi звук с глубокими, пульсирующими басами и кристально чистыми высокими частотами буквально поглотит вас и перенесет в сердце каждой композиции. С автономностью до 30 часов и ультрабыстрой зарядкой через USB Type-C (10 минут зарядки = 5 часов прослушивания!) эти наушники станут идеальным спутником для длительных путешествий, интенсивных рабочих дней или ночных сессий с музыкой. Роскошные материалы, включая мягкие белковые кожаные амбушюры и прочный алюминиевый корпус, обеспечивают не только элегантный внешний вид, но и максимальный комфорт даже при ношении весь день. Современная зарядка USB Type-C обеспечивает быструю и универсальную совместимость со всеми вашими устройствами. Независимо от того, работаете ли вы из дома, путешествуете или наслаждаетесь спокойными моментами, наушники Max 2 подарят вам профессиональное звуковое переживание, которое вы полюбите.">
-                    Představte si ráno bez rušivého hluku města, cestu do práce s hudbou, která vás přenáší do jiného světa, a večer plný klidu a uvolnění. Bezdrátová sluchátka Pro 3 jsou navržena právě pro vás – pro ty, kteří si cení kvality, pohodlí a stylového vzhledu. Díky pokročilé technologii aktivního potlačení hluku (ANC) si užijete čistý zvuk bez okolních rušivých zvuků. Hi-Fi reproduktory s bohatými bassy a křišťálově čistými výškami vám přinesou studiový zážitek přímo do uší. S výdrží baterie až 24 hodin a praktickým nabíjením přes moderní USB Type-C port vás tyto sluchátka provází celý den – od ranního probuzení až po noční odpočinek. Ergonomický design a měkké silikonové náušníky zajišťují maximální pohodlí i při dlouhodobém nošení. Ať už posloucháte svou oblíbenou hudbu, sledujete filmy nebo telefonujete, sluchátka Pro 3 vám poskytnou nezapomenutelný zvukový zážitek s pohodlným nabíjením USB Type-C.
-                </p>
-                
-                <div class="specs-grid">
-                    <div class="spec-item">
-                        <div class="spec-value" id="spec-battery">24h</div>
-                        <div class="spec-label" data-lang-cz="Výdrž baterie" data-lang-ru="Автономность">Výdrž baterie</div>
-                    </div>
-                    <div class="spec-item">
-                        <div class="spec-value">ANC</div>
-                        <div class="spec-label" data-lang-cz="Potlačení hluku" data-lang-ru="Шумоподавление">Potlačení hluku</div>
-                    </div>
-                    <div class="spec-item">
-                        <div class="spec-value">Hi-Fi</div>
-                        <div class="spec-label" data-lang-cz="Kvalita zvuku" data-lang-ru="Качество звука">Kvalita zvuku</div>
-                    </div>
-                    <div class="spec-item">
-                        <div class="spec-value">Type-C</div>
-                        <div class="spec-label" data-lang-cz="Rychlé nabíjení" data-lang-ru="Быстрая зарядка">Rychlé nabíjení</div>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- Юридический текст под описанием -->
-            <div class="legal-disclaimer" data-lang-cz="⚠️ Upozornění: Tento produkt není originálním značkovým produktem. Nejedná se o oficiální produkt žádné registrované značky. Všechna práva a loga patří jejich vlastníkům." data-lang-ru="⚠️ Внимание: Этот продукт не является оригинальным брендовым товаром. Не является официальным продуктом какой-либо зарегистрированной торговой марки. Все права и логотипы принадлежат их владельцам.">
-                ⚠️ Upozornění: Tento produkt není originálním značkovým produktem. Nejedná se o oficiální produkt žádné registrované značky. Všechna práva a loga patří jejich vlastníkům.
-            </div>
-        </section>
-
-        <!-- FEATURES SECTION -->
-        <section class="fade-in">
-            <h2 class="section-title" id="features-title" 
-                data-lang-cz-pro="Co vás u Pro 3 nadchne ✨" 
-                data-lang-ru-pro="Что вас впечатлит в Pro 3 ✨" 
-                data-lang-cz-max="Proč si zamilujete Max 2 ✨" 
-                data-lang-ru-max="Почему вы полюбите Max 2 ✨">
-                Co vás u Pro 3 nadchne ✨
-            </h2>
-            
-            <div class="features-grid">
-                <div class="feature-card fade-in">
-                    <div class="feature-icon">🎵</div>
-                    <div class="feature-title" data-lang-cz="Studiový Hi-Fi zvuk" data-lang-ru="Студийный Hi-Fi звук">Studiový Hi-Fi zvuk</div>
-                    <div class="feature-desc" data-lang-cz="Ponořte se do světa hudby s křišťálově čistými výškami, hlubokými bassy a dokonale vyváženým středem. Každý detail vaší oblíbené skladby zní tak, jak měl znít." data-lang-ru="Погрузитесь в мир музыки с кристально чистыми высокими частотами, глубокими басами и идеально сбалансированными средними. Каждая деталь вашей любимой композиции звучит так, как и должна звучать.">Ponořte se do světa hudby s křišťálově čistými výškami, hlubokými bassy a dokonale vyváženým středem. Každý detail vaší oblíbené skladby zní tak, jak měl znít.</div>
-                </div>
-                
-                <div class="feature-card fade-in">
-                    <div class="feature-icon">🔇</div>
-                    <div class="feature-title" data-lang-cz="Inteligentní ANC" data-lang-ru="Интеллектуальное ANC">Inteligentní ANC</div>
-                    <div class="feature-desc" data-lang-cz="Zapomeňte na rušivé zvuky okolí. Aktivní potlačení hluku eliminuje až 95% okolních hluků – dokonalé pro cesty, práci nebo klidný odpočinek." data-lang-ru="Забудьте о посторонних звуках. Активное шумоподавление устраняет до 95% окружающих шумов - идеально для путешествий, работы или спокойного отдыха.">Zapomeňte na rušivé zvuky okolí. Aktivní potlačení hluku eliminuje až 95% okolních hluků – dokonalé pro cesty, práci nebo klidný odpočinek.</div>
-                </div>
-                
-                <div class="feature-card fade-in">
-                    <div class="feature-icon">⚡</div>
-                    <div class="feature-title" data-lang-cz="USB Type-C nabíjení" data-lang-ru="Зарядка USB Type-C">USB Type-C nabíjení</div>
-                    <div class="feature-desc" data-lang-cz="Moderní a univerzální nabíjení. Rychlé a spolehlivé – 10 minut nabíjení = 2 hodiny poslechu. Kompatibilní se všemi vašimi zařízeními." data-lang-ru="Современная и универсальная зарядка. Быстрая и надежная – 10 минут зарядки = 2 часа прослушивания. Совместима со всеми вашими устройствами.">Moderní a univerzální nabíjení. Rychlé a spolehlivé – 10 minut nabíjení = 2 hodiny poslechu. Kompatibilní se všemi vašimi zařízeními.</div>
-                </div>
-                
-                <div class="feature-card fade-in">
-                    <div class="feature-icon">🔋</div>
-                    <div class="feature-title" data-lang-cz="Celodenní energie" data-lang-ru="Энергия на весь день">Celodenní energie</div>
-                    <div class="feature-desc" data-lang-cz="Až 24 hodin poslechu na jedno nabití. Rychlé nabíjení: 10 minut = 2 hodiny hudby. Nikdy vás nepodvedou." data-lang-ru="До 24 часов прослушивания от одного заряда. Быстрая зарядка: 10 минут = 2 часа музыки. Они никогда вас не подведут.">Až 24 hodin poslechu na jedno nabití. Rychlé nabíjení: 10 minut = 2 hodiny hudby. Nikdy vás nepodvedou.</div>
-                </div>
-            </div>
-        </section>
-    </main>
-
-    <!-- STICKY BAR -->
-<div class="sticky-bar">
-  <div class="sticky-info">
-    <div class="sticky-price" id="sticky-price">1 099 Kč</div>
-  </div>
-  <div style="display: flex; gap: 10px; width: 100%; max-width: 380px; margin: 0 auto;">
-    <button class="sticky-btn" onclick="addToCart()" data-lang-cz="Objednat nyní" data-lang-ru="Заказать сейчас">Objednat nyní</button>
-    <a href="https://t.me/Appledestroyer1" target="_blank" class="sticky-btn btn-telegram" style="text-decoration: none; display: flex; align-items: center; justify-content: center; gap: 8px;">
-      <span>✈️</span>
-      <span data-lang-cz="Telegram kanál" data-lang-ru="Telegram канал">Telegram kanál</span>
-    </a>
-  </div>
+<!-- NAVBAR -->
+<nav class="navbar">
+<div class="logo">iMart-Store</div>
+<div class="nav-links">
+<button class="nav-btn" id="nav-pro" onclick="showProduct('pro')">Pro 3</button>
+<button class="nav-btn" id="nav-max" onclick="showProduct('max')">Max 2</button>
+<button class="lang-toggle" onclick="toggleLanguage()">🇨🇿 / 🇷🇺</button>
 </div>
-
-    <!-- FOOTER -->
-    <footer>
-        <div class="footer-content">
-            <div class="footer-section">
-                <h3 data-lang-cz="iMart-Store" data-lang-ru="iMart-Store">iMart-Store</h3>
-                <p data-lang-cz="Prémiová bezdrátová sluchátka s ANC a Hi-Fi zvukem. Rychlé doručení po ČR. USB Type-C nabíjení. Platba při převzetí." data-lang-ru="Премиальные беспроводные наушники с ANC и Hi-Fi звуком. Быстрая доставка по Чехии. Зарядка USB Type-C. Оплата при получении.">
-                    Prémiová bezdrátová sluchátka s ANC a Hi-Fi zvukem. Rychlé doručení po ČR. USB Type-C nabíjení. Platba při převzetí.
-                </p>
-            </div>
-            
-            <div class="footer-section">
-                <h3 data-lang-cz="Odkazy" data-lang-ru="Ссылки">Odkazy</h3>
-                <ul class="footer-links">
-                    <li><a href="#" onclick="showProduct('pro')" data-lang-cz="Sluchátka Pro 3" data-lang-ru="Наушники Pro 3">Sluchátka Pro 3</a></li>
-                    <li><a href="#" onclick="showProduct('max')" data-lang-cz="Sluchátka Max 2" data-lang-ru="Наушники Max 2">Sluchátka Max 2</a></li>
-                    <li><a href="#" onclick="openCart()" data-lang-cz="Košík" data-lang-ru="Корзина">Košík</a></li>
-                </ul>
-            </div>
-            
-            <div class="footer-section">
-                <h3 data-lang-cz="Kontakt" data-lang-ru="Контакты">Kontakt</h3>
-                <div class="footer-contact">
-                    <p>📧 <a href="mailto:coincama@gmail.com">coincama@gmail.com</a></p>
-                    <p>📱 <a href="tel:+420702846018">+420 702 846 018</a></p>
-                    <p data-lang-cz="Po-Pá: 9:00-18:00" data-lang-ru="Пн-Пт: 9:00-18:00">Po-Pá: 9:00-18:00</p>
-                </div>
-            </div>
-        </div>
-        
-        <div class="copyright">
-            <p>© 2026 iMart-Store. Neznačkový produkt. Není spojen s žádnou ochrannou známkou.</p>
-            <p style="font-size:12px;margin-top:8px;color:var(--text-muted);" data-lang-cz="Všechny zmíněné značky a loga jsou vlastnictvím jejich příslušných vlastníků. Tento web není oficiálním obchodem žádné značky." data-lang-ru="Все упомянутые торговые марки и логотипы являются собственностью их соответствующих владельцев. Этот сайт не является официальным магазином какой-либо торговой марки.">Všechny zmíněné značky a loga jsou vlastnictvím jejich příslušných vlastníků. Tento web není oficiálním obchodem žádné značky.</p>
-        </div>
-    </footer>
-
-    <script>
-        // ========== STATE ==========
-        let currentProduct = 'pro';
-        let currentColor = 'Bílá';
-        let currentQty = 1;
-        let currentLang = 'cz';
-        let cart = JSON.parse(localStorage.getItem('cart')) || [];
-        let selectedDelivery = 'Zásilkovna';
-        let deliveryType = 'address'; // 'address', 'post_office', 'postomat'
-
-        // ========== PRODUCTS DATA ==========
-        const products = {
-            pro: {
-                name: { cz: 'Bezdrátová sluchátka Pro 3', ru: 'Беспроводные наушники Pro 3' },
-                price: 1099,
-                images: ['img/airpods1.jpg', 'img/airpods2.jpg', 'img/airpods3.jpg', 'img/airpods4.jpg'],
-                colors: ['Bílá'],
-                battery: { cz: '24h', ru: '24ч' },
-                description: {
-                    cz: 'Představte si ráno bez rušivého hluku města, cestu do práce s hudbou, která vás přenáší do jiného světa, a večer plný klidu a uvolnění. Bezdrátová sluchátka Pro 3 jsou navržena právě pro vás – pro ty, kteří si cení kvality, pohodlí a stylového vzhledu. Díky pokročilé technologii aktivního potlačení hluku (ANC) si užijete čistý zvuk bez okolních rušivých zvuků. Hi-Fi reproduktory s bohatými bassy a křišťálově čistými výškami vám přinesou studiový zážitek přímo do uší. S výdrží baterie až 24 hodin a praktickým nabíjením přes moderní USB Type-C port vás tyto sluchátka provází celý den – od ranního probuzení až po noční odpočinek. Ergonomický design a měkké silikonové náušníky zajišťují maximální pohodlí i při dlouhodobém nošení. Ať už posloucháte svou oblíbenou hudbu, sledujete filmy nebo telefonujete, sluchátka Pro 3 vám poskytnou nezapomenutelný zvukový zážitek s pohodlným nabíjením USB Type-C.',
-                    ru: 'Представьте утро без шума города, дорогу на работу с музыкой, которая переносит вас в другой мир, и вечер, полный покоя и расслабления. Беспроводные наушники Pro 3 созданы именно для вас - для тех, кто ценит качество, комфорт и стильный внешний вид. Благодаря передовой технологии активного шумоподавления (ANC) вы насладитесь чистым звуком без посторонних шумов. Hi-Fi динамики с насыщенными басами и кристально чистыми высокими частотами принесут вам студийное качество звука прямо в уши. С автономностью до 24 часов и удобной зарядкой через современный порт USB Type-C эти наушники будут сопровождать вас весь день - от утреннего пробуждения до ночного отдыха. Эргономичный дизайн и мягкие силиконовые амбушюры обеспечивают максимальный комфорт даже при длительном ношении. Независимо от того, слушаете ли вы любимую музыку, смотрите фильмы или разговариваете по телефону, наушники Pro 3 подарят вам незабываемые звуковые ощущения с удобной зарядкой USB Type-C.'
-                }
-            },
-            max: {
-                name: { cz: 'Sluchátka Max 2', ru: 'Наушники Max 2' },
-                price: 2499,
-                images: ['img/max1.jpg', 'img/max2.jpg', 'img/max3.jpg'],
-                colors: ['Černá', 'Stříbrná'],
-                battery: { cz: '30h', ru: '30ч' },
-                description: {
-                    cz: 'Objevte revoluční zvukový zážitek s nejnovějšími Sluchátky Max 2! Tyto profesionální over-ear sluchátka představují vrchol technologie s pokročilým ANC nové generace, které eliminuje až 98% okolních hluků. Prostorový Hi-Fi zvuk s hlubokými, pulzujícími basami a křišťálově čistými výškami vás doslova pohltí a přenese do srdce každé skladby. S výdrží baterie až 30 hodin a ultra-rychlým nabíjením přes USB Type-C (10 minut nabíjení = 5 hodin poslechu!) jsou tyto sluchátka ideálním společníkem pro dlouhé cesty, intenzivní pracovní dny nebo noční sezení s hudbou. Luxusní materiály, včetně měkkých proteinových kožených náušníků a odolného hliníkového těla, zajišťují nejen elegantní vzhled, ale také maximální pohodlí i při nosení celý den. Moderní USB Type-C nabíjení zajišťuje rychlou a univerzální kompatibilitu se všemi vašimi zařízeními. Ať už pracujete z domova, cestujete nebo si užíváte klidné chvíle, sluchátka Max 2 vám poskytnou profesionální zvukový zážitek, který si zamilujete.',
-                    ru: 'Откройте революционное звуковое переживание с новейшими Наушниками Max 2! Эти профессиональные наушники over-ear представляют вершину технологий с продвинутой системой активного шумоподавления нового поколения, которая устраняет до 98% окружающих шумов. Объемный Hi-Fi звук с глубокими, пульсирующими басами и кристально чистыми высокими частотами буквально поглотит вас и перенесет в сердце каждой композиции. С автономностью до 30 часов и ультрабыстрой зарядкой через USB Type-C (10 минут зарядки = 5 часов прослушивания!) эти наушники станут идеальным спутником для длительных путешествий, интенсивных рабочих дней или ночных сессий с музыкой. Роскошные материалы, включая мягкие белковые кожаные амбушюры и прочный алюминиевый корпус, обеспечивают не только элегантный внешний вид, но и максимальный комфорт даже при ношении весь день. Современная зарядка USB Type-C обеспечивает быструю и универсальную совместимость со всеми вашими устройствами. Независимо от того, работаете ли вы из дома, путешествуете или наслаждаетесь спокойными моментами, наушники Max 2 подарят вам профессиональное звуковое переживание, которое вы полюбите.'
-                }
-            }
-        };
-
-        // ========== LANGUAGE ==========
-        function toggleLanguage() {
-            currentLang = currentLang === 'cz' ? 'ru' : 'cz';
-            updateLanguage();
-        }
-
-        function updateLanguage() {
-            document.querySelectorAll('[data-lang-cz]').forEach(el => {
-                const czText = el.getAttribute(`data-lang-cz${currentProduct ? '-' + currentProduct : ''}`);
-                const ruText = el.getAttribute(`data-lang-ru${currentProduct ? '-' + currentProduct : ''}`);
-                if (czText && ruText) {
-                    el.textContent = currentLang === 'cz' ? czText : ruText;
-                }
-            });
-            
-            document.querySelectorAll('[data-lang-cz]').forEach(el => {
-                if (!el.hasAttribute(`data-lang-cz${currentProduct ? '-' + currentProduct : ''}`)) {
-                    const czText = el.getAttribute('data-lang-cz');
-                    const ruText = el.getAttribute('data-lang-ru');
-                    if (czText && ruText) {
-                        el.textContent = currentLang === 'cz' ? czText : ruText;
-                    }
-                }
-            });
-            
-            // Update color buttons if they exist
-            if (document.querySelectorAll('.color-btn').length > 0) {
-                document.querySelectorAll('.color-btn').forEach(btn => {
-                    const color = btn.getAttribute('data-color');
-                    btn.textContent = currentLang === 'cz' ? color : getColorTranslation(color);
-                });
-            }
-            
-            updateProductDisplay();
-            
-            // Update order modal if open
-            if (document.getElementById('order-modal').classList.contains('active')) {
-                renderOrderForm();
-            }
-        }
-
-        function getColorTranslation(color) {
-            const translations = {
-                'Bílá': 'Белый',
-                'Černá': 'Черный',
-                'Stříbrná': 'Серебристый'
-            };
-            return translations[color] || color;
-        }
-
-        // ========== PRODUCT SWITCHING ==========
-        function showProduct(product) {
-            currentProduct = product;
-            
-            // Update nav buttons
-            document.getElementById('nav-pro').classList.toggle('active', product === 'pro');
-            document.getElementById('nav-max').classList.toggle('active', product === 'max');
-            
-            updateProductDisplay();
-            updateLanguage();
-        }
-
-        function updateProductDisplay() {
-            const product = products[currentProduct];
-            
-            // Update title
-            document.getElementById('product-title').textContent = product.name[currentLang];
-            
-            // Update subtitle
-            document.getElementById('product-subtitle').textContent = 
-                currentProduct === 'pro' ? 
-                    (currentLang === 'cz' ? 'Objevte svět čistého zvuku s našimi prémiovými bezdrátovými sluchátky. Aktivní potlačení hluku, Hi-Fi kvalita, rychlé nabíjení USB Type-C a až 24 hodin neustálého poslechu pro váš každodenní komfort.' : 'Откройте мир чистого звука с нашими премиальными беспроводными наушниками. Активное шумоподавление, Hi-Fi качество, быстрая зарядка USB Type-C и до 24 часов непрерывного прослушивания для вашего повседневного комфорта.') :
-                    (currentLang === 'cz' ? 'Nejnovější generace profesionálních sluchátek Max 2 s pokročilým ANC, prostorovým Hi-Fi zvukem, rychlým nabíjením USB Type-C a až 30 hodinami výdrže pro nejvyšší nároky posluchačů.' : 'Новейшее поколение профессиональных наушников Max 2 с продвинутым ANC, объемным Hi-Fi звуком, быстрой зарядкой USB Type-C и до 30 часов автономности для самых высоких требований слушателей.');
-            
-            // Update description title
-            document.getElementById('product-description').querySelector('h3').textContent = 
-                currentProduct === 'pro' ? 
-                    (currentLang === 'cz' ? 'Proč si zamilujete Bezdrátová sluchátka Pro 3' : 'Почему вы полюбите Беспроводные наушники Pro 3') :
-                    (currentLang === 'cz' ? 'Proč si zamilujete Sluchátka Max 2' : 'Почему вы полюбите Наушники Max 2');
-            
-            document.getElementById('description-text').textContent = product.description[currentLang];
-            
-            // Update features title
-            document.getElementById('features-title').textContent = 
-                currentProduct === 'pro' ? 
-                    (currentLang === 'cz' ? 'Co vás u Pro 3 nadchne ✨' : 'Что вас впечатлит в Pro 3 ✨') :
-                    (currentLang === 'cz' ? 'Proč si zamilujete Max 2 ✨' : 'Почему вы полюбите Max 2 ✨');
-            
-            // Update price
-            document.getElementById('product-price').textContent = `${product.price.toLocaleString('cs-CZ')} Kč`;
-            document.getElementById('sticky-price').textContent = `${product.price.toLocaleString('cs-CZ')} Kč`;
-            
-            // Update battery spec
-            document.querySelector('.spec-value').textContent = product.battery[currentLang];
-            
-            // Update gallery
-            const gallery = document.getElementById('gallery');
-            gallery.innerHTML = '';
-            product.images.forEach((img, index) => {
-                const imgEl = document.createElement('img');
-                imgEl.src = img;
-                imgEl.onclick = () => changeImage(img);
-                if (index === 0) imgEl.classList.add('active');
-                gallery.appendChild(imgEl);
-            });
-            
-            // Update main image
-            document.getElementById('main-img').src = product.images[0];
-            
-            // Update colors - only show for Max product
-            const colorSelector = document.getElementById('color-selector');
-            if (currentProduct === 'max') {
-                colorSelector.style.display = 'flex';
-                colorSelector.innerHTML = '';
-                product.colors.forEach((color, index) => {
-                    const btn = document.createElement('button');
-                    btn.className = `color-btn ${index === 0 ? 'active' : ''}`;
-                    btn.setAttribute('data-color', color);
-                    btn.setAttribute('data-lang-cz', color);
-                    btn.setAttribute('data-lang-ru', getColorTranslation(color));
-                    btn.textContent = currentLang === 'cz' ? color : getColorTranslation(color);
-                    btn.onclick = () => selectColor(btn, color);
-                    colorSelector.appendChild(btn);
-                });
-                currentColor = product.colors[0];
-            } else {
-                colorSelector.style.display = 'none';
-                currentColor = 'Bílá';
-            }
-            
-            currentQty = 1;
-            document.getElementById('qty-display').textContent = currentQty;
-        }
-
-        // ========== IMAGE GALLERY ==========
-        function changeImage(src) {
-            document.getElementById('main-img').src = src;
-            document.querySelectorAll('.hero-gallery img').forEach(img => {
-                img.classList.remove('active');
-                if (img.src.includes(src)) {
-                    img.classList.add('active');
-                }
-            });
-        }
-
-        // ========== COLOR SELECTOR ==========
-        function selectColor(btn, color) {
-            document.querySelectorAll('.color-btn').forEach(b => b.classList.remove('active'));
-            btn.classList.add('active');
-            currentColor = color;
-        }
-
-        // ========== QUANTITY SELECTOR ==========
-        function changeQty(delta) {
-            currentQty = Math.max(1, currentQty + delta);
-            document.getElementById('qty-display').textContent = currentQty;
-        }
-
-        // ========== CART FUNCTIONS ==========
-        function addToCart() {
-            const product = products[currentProduct];
-            const item = {
-                id: `${currentProduct}-${currentColor}`,
-                name: product.name[currentLang],
-                price: product.price,
-                qty: currentQty,
-                color: currentColor,
-                image: document.getElementById('main-img').src
-            };
-            
-            // Track TikTok AddToCart event
-            if (window.ttq) {
-                window.ttq.track('AddToCart', {
-                    content_name: product.name[currentLang],
-                    quantity: currentQty,
-                    value: product.price * currentQty,
-                    currency: 'CZK'
-                });
-            }
-            
-            // Track GA4 event
-            if (typeof gtag === 'function') {
-                gtag('event', 'add_to_cart', {
-                    currency: 'CZK',
-                    value: product.price * currentQty,
-                    items: [{
-                        id: item.id,
-                        name: product.name[currentLang],
-                        quantity: currentQty,
-                        price: product.price
-                    }]
-                });
-            }
-            
-            // Check if item already exists
-            const existingIndex = cart.findIndex(i => i.id === item.id);
-            if (existingIndex > -1) {
-                cart[existingIndex].qty += item.qty;
-            } else {
-                cart.push(item);
-            }
-            
-            localStorage.setItem('cart', JSON.stringify(cart));
-            updateCartDisplay();
-            animateCartButton();
-            openCart();
-        }
-
-        function updateCartDisplay() {
-            const cartItems = document.getElementById('cart-items');
-            const cartTotal = document.getElementById('cart-total');
-            const cartActions = document.getElementById('cart-actions');
-            const cartCount = document.getElementById('cart-count');
-            
-            if (cart.length === 0) {
-                cartItems.innerHTML = `
-                    <div class="cart-empty">
-                        <div class="cart-empty-icon">🛒</div>
-                        <p data-lang-cz="Košík je prázdný" data-lang-ru="Корзина пуста">Košík je prázdný</p>
-                    </div>
-                `;
-                cartTotal.style.display = 'none';
-                cartActions.style.display = 'none';
-                cartCount.textContent = '0';
-                return;
-            }
-            
-            cartCount.textContent = cart.reduce((sum, item) => sum + item.qty, 0);
-            cartTotal.style.display = 'block';
-            cartActions.style.display = 'block';
-            
-            let html = '';
-            let total = 0;
-            
-            cart.forEach((item, index) => {
-                const itemTotal = item.price * item.qty;
-                total += itemTotal;
-                
-                html += `
-                    <div class="cart-item">
-                        <img src="${item.image}" class="cart-item-img">
-                        <div class="cart-item-info">
-                            <div class="cart-item-name">${item.name}</div>
-                            <span class="cart-item-color">${item.color}</span>
-                            <div class="cart-item-qty">
-                                <button onclick="updateCartItemQty(${index}, -1)">−</button>
-                                <input type="number" value="${item.qty}" min="1" onchange="updateCartItemQty(${index}, 0, this.value)">
-                                <button onclick="updateCartItemQty(${index}, 1)">+</button>
-                            </div>
-                        </div>
-                        <div class="cart-item-price">${itemTotal.toLocaleString('cs-CZ')} Kč</div>
-                        <button class="cart-item-delete" onclick="removeFromCart(${index})">×</button>
-                    </div>
-                `;
-            });
-            
-            cartItems.innerHTML = html;
-            document.getElementById('cart-total-amount').textContent = `${total.toLocaleString('cs-CZ')} Kč`;
-        }
-
-        function updateCartItemQty(index, delta, newValue) {
-            if (newValue !== undefined) {
-                cart[index].qty = Math.max(1, parseInt(newValue) || 1);
-            } else {
-                cart[index].qty = Math.max(1, cart[index].qty + delta);
-            }
-            
-            if (cart[index].qty === 0) {
-                cart.splice(index, 1);
-            }
-            
-            localStorage.setItem('cart', JSON.stringify(cart));
-            updateCartDisplay();
-        }
-
-        function removeFromCart(index) {
-            cart.splice(index, 1);
-            localStorage.setItem('cart', JSON.stringify(cart));
-            updateCartDisplay();
-            
-            // Show message if cart is empty
-            if (cart.length === 0) {
-                setTimeout(() => {
-                    closeCart();
-                }, 500);
-            }
-        }
-
-        function clearCart() {
-            cart = [];
-            localStorage.setItem('cart', JSON.stringify(cart));
-            updateCartDisplay();
-            closeCart();
-        }
-
-        function animateCartButton() {
-            const btn = document.getElementById('cart-btn');
-            btn.style.transform = 'scale(1.2) translateY(-6px)';
-            setTimeout(() => {
-                btn.style.transform = 'scale(1) translateY(0)';
-            }, 250);
-        }
-
-        // ========== CART UI ==========
-        function openCart() {
-            document.getElementById('cart').classList.add('active');
-            document.getElementById('cart-overlay').classList.add('active');
-            updateCartDisplay();
-        }
-
-        function closeCart() {
-            document.getElementById('cart').classList.remove('active');
-            document.getElementById('cart-overlay').classList.remove('active');
-        }
-
-        // ========== ORDER MODAL ==========
-        function openOrderModal() {
-            if (cart.length === 0) {
-                alert(currentLang === 'cz' ? 'Košík je prázdný!' : 'Корзина пуста!');
-                return;
-            }
-            
-            // Track TikTok InitiateCheckout event
-            if (window.ttq) {
-                let total = 0;
-                cart.forEach(item => {
-                    total += item.price * item.qty;
-                });
-                window.ttq.track('InitiateCheckout', {
-                    value: total,
-                    currency: 'CZK'
-                });
-            }
-            
-            // Track GA4 event
-            if (typeof gtag === 'function') {
-                let total = 0;
-                cart.forEach(item => {
-                    total += item.price * item.qty;
-                });
-                gtag('event', 'begin_checkout', {
-                    currency: 'CZK',
-                    value: total,
-                    items: cart.map(item => ({
-                        id: item.id,
-                        name: item.name,
-                        quantity: item.qty,
-                        price: item.price
-                    }))
-                });
-            }
-            
-            renderOrderForm();
-            document.getElementById('order-modal').classList.add('active');
-            document.body.style.overflow = 'hidden';
-        }
-
-        function closeOrderModal() {
-            document.getElementById('order-modal').classList.remove('active');
-            document.body.style.overflow = 'auto';
-        }
-
-        function renderOrderForm() {
-            let total = 0;
-            let itemsHtml = '';
-            
-            cart.forEach((item, index) => {
-                const itemTotal = item.price * item.qty;
-                total += itemTotal;
-                
-                itemsHtml += `
-                    <div class="order-item">
-                        <div>
-                            <div class="order-item-name">${item.name}</div>
-                            <div class="order-item-details">${item.color} • ${item.qty} ks • ${item.price} Kč/ks</div>
-                        </div>
-                        <div>${itemTotal.toLocaleString('cs-CZ')} Kč</div>
-                    </div>
-                `;
-            });
-            
-            const content = `
-                <div class="order-items">
-                    ${itemsHtml}
-                </div>
-                
-                <div class="order-total">
-                    <div class="order-total-label" data-lang-cz="Celkem" data-lang-ru="Итого">Celkem</div>
-                    <div class="order-total-amount">${total.toLocaleString('cs-CZ')} Kč</div>
-                </div>
-                
-                <div class="order-error" id="order-error"></div>
-                
-                <form id="order-form" onsubmit="submitOrder(event)">
-                    <input type="hidden" name="_subject" value="Nová objednávka z iMart-Store">
-                    <input type="hidden" name="_cc" value="coincama@gmail.com">
-                    <input type="hidden" name="_captcha" value="false">
-                    <input type="hidden" name="_next" value="${window.location.href}">
-                    
-                    <div class="order-form-group">
-                        <label class="order-form-label required" data-lang-cz="Jméno a příjmení" data-lang-ru="Имя и фамилия">Jméno a příjmení</label>
-                        <input type="text" class="order-form-input" name="jmeno" required placeholder="${currentLang === 'cz' ? 'Jan Novák' : 'Иван Иванов'}">
-                    </div>
-                    
-                    <div class="order-form-group">
-                        <label class="order-form-label required" data-lang-cz="Telefonní číslo" data-lang-ru="Номер телефона">Telefonní číslo</label>
-                        <input type="tel" class="order-form-input" name="telefon" required placeholder="+420 123 456 789">
-                    </div>
-                    
-                    <div class="order-form-group">
-                        <label class="order-form-label" data-lang-cz="E-mail" data-lang-ru="Электронная почта">E-mail</label>
-                        <input type="email" class="order-form-input" name="email" placeholder="${currentLang === 'cz' ? 'vase@email.cz' : 'vash@email.ru'}">
-                    </div>
-                    
-                    <div class="order-form-group">
-                        <label class="order-form-label required" data-lang-cz="Typ doručení" data-lang-ru="Тип доставки">Typ doručení</label>
-                        <input type="hidden" name="typ_doruceni" id="delivery-type-input" value="address">
-                        <div class="delivery-type-options">
-                            <div class="delivery-type-option active" onclick="selectDeliveryType('address', this)">
-                                <span class="delivery-type-icon">🏠</span>
-                                <div data-lang-cz="Na adresu" data-lang-ru="На адрес">Na adresu</div>
-                            </div>
-                            <div class="delivery-type-option" onclick="selectDeliveryType('post_office', this)">
-                                <span class="delivery-type-icon">📬</span>
-                                <div data-lang-cz="Na poštu" data-lang-ru="На отделение">Na pobočku</div>
-                            </div>
-                            <div class="delivery-type-option" onclick="selectDeliveryType('postomat', this)">
-                                <span class="delivery-type-icon">📦</span>
-                                <div data-lang-cz="Do Zásilkovny" data-lang-ru="В поштомат">Do Boxu</div>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="order-form-group address-field" id="address-field">
-                        <label class="order-form-label required" data-lang-cz="Adresa pro doručení" data-lang-ru="Адрес доставки">Adresa pro doručení</label>
-                        <textarea class="order-form-textarea" name="adresa" required placeholder="${currentLang === 'cz' ? 'Ulice 123, Město, 123 45' : 'Улица 123, Город, 12345'}"></textarea>
-                        <div class="address-hint-container">
-                            <div class="address-hint-icon">
-                                <span>ℹ️</span>
-                                <strong data-lang-cz="Důležité:" data-lang-ru="Важно:">Důležité:</strong>
-                            </div>
-                            <p class="address-hint-text" 
-                                data-lang-cz="Pro doručení na pobočku nebo do boxu zadejte <strong>úplnou adresu</strong> včetně názvu města, ulice a PSČ. Například: Praha, Václavské náměstí 123, 110 00" 
-                                data-lang-ru="Для доставки на почту или в поштомат укажите <strong>полный адрес</strong> включая название города, улицу и почтовый индекс. Например: Прага, Вацлавская площадь 123, 110 00">
-                                Pro doručení na poštu nebo do Zásilkovny zadejte <strong>úplnou adresu</strong> včetně názvu města, ulice a PSČ. Například: Praha, Václavské náměstí 123, 110 00
-                            </p>
-                        </div>
-                    </div>
-                    
-                    <div class="order-form-group">
-                        <label class="order-form-label required" data-lang-cz="Způsob doručení" data-lang-ru="Способ доставки">Způsob doručení</label>
-                        <input type="hidden" name="doruceni" id="delivery-input" value="Zásilkovna">
-                        <div class="delivery-options">
-                            <div class="delivery-option active" onclick="selectDelivery('Zásilkovna', this)">
-                                <div class="delivery-logo">📦</div>
-                                <div class="delivery-name">Zásilkovna</div>
-                            </div>
-                            <div class="delivery-option" onclick="selectDelivery('PPL', this)">
-                                <div class="delivery-logo">🚚</div>
-                                <div class="delivery-name">PPL</div>
-                            </div>
-                            <div class="delivery-option" onclick="selectDelivery('Balíkovna', this)">
-                                <div class="delivery-logo">📮</div>
-                                <div class="delivery-name">Balíkovna</div>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="order-form-group">
-                        <label class="order-form-label" data-lang-cz="Poznámka k objednávce" data-lang-ru="Примечание к заказу">Poznámka k objednávce</label>
-                        <textarea class="order-form-textarea" name="poznamka" placeholder="${currentLang === 'cz' ? 'Např. preferovaný čas doručení' : 'Например, предпочтительное время доставки'}"></textarea>
-                    </div>
-                    
-                    <button type="submit" class="order-submit-btn" id="order-submit-btn">
-                        <span data-lang-cz="Odeslat objednávku" data-lang-ru="Отправить заказ">Odeslat objednávku</span>
-                    </button>
-                </form>
-            `;
-            
-            document.getElementById('order-content').innerHTML = content;
-            
-            // Set initial delivery type
-            document.querySelectorAll('.delivery-type-option').forEach(opt => {
-                opt.classList.toggle('active', opt.getAttribute('onclick').includes(`'${deliveryType}'`));
-            });
-            updateAddressField();
-        }
-
-        function selectDeliveryType(type, element) {
-            deliveryType = type;
-            document.getElementById('delivery-type-input').value = type;
-            document.querySelectorAll('.delivery-type-option').forEach(opt => opt.classList.remove('active'));
-            element.classList.add('active');
-            updateAddressField();
-        }
-
-        function updateAddressField() {
-            const addressField = document.getElementById('address-field');
-            const hintContainer = addressField.querySelector('.address-hint-container');
-            const hintText = addressField.querySelector('.address-hint-text');
-            const hintIcon = addressField.querySelector('.address-hint-icon strong');
-            
-            if (deliveryType === 'address') {
-                addressField.querySelector('label').textContent = currentLang === 'cz' ? 'Adresa pro doručení' : 'Адрес доставки';
-                addressField.querySelector('textarea').placeholder = currentLang === 'cz' ? 'Ulice 123, Město, 123 45' : 'Улица 123, Город, 12345';
-                hintContainer.style.display = 'none';
-            } else {
-                addressField.querySelector('label').textContent = currentLang === 'cz' ? 'Adresa pobočky / Zásilkovny' : 'Адрес отделения / поштомата';
-                addressField.querySelector('textarea').placeholder = currentLang === 'cz' ? 'Město, ulice, PSČ (např. Praha, Václavské nám. 123, 110 00)' : 'Город, улица, индекс (напр. Прага, Вацлавская пл. 123, 110 00)';
-                hintContainer.style.display = 'block';
-                
-                // Обновляем текст подсказки в соответствии с текущим языком
-                if (currentLang === 'cz') {
-                    hintIcon.textContent = 'Důležité:';
-                    hintText.innerHTML = 'Pro doručení na poštu nebo do Zásilkovny zadejte <strong>úplnou adresu</strong> včetně názvu města, ulice a PSČ. Například: Praha, Václavské náměstí 123, 110 00';
-                } else {
-                    hintIcon.textContent = 'Важно:';
-                    hintText.innerHTML = 'Для доставки на почту или в поштомат укажите <strong>полный адрес</strong> включая название города, улицу и почтовый индекс. Например: Прага, Вацлавская площадь 123, 110 00';
-                }
-            }
-        }
-
-        function selectDelivery(service, element) {
-            selectedDelivery = service;
-            document.getElementById('delivery-input').value = service;
-            document.querySelectorAll('.delivery-option').forEach(opt => opt.classList.remove('active'));
-            element.classList.add('active');
-        }
-
-        function submitOrder(event) {
-            event.preventDefault();
-            
-            const submitBtn = document.getElementById('order-submit-btn');
-            const originalText = submitBtn.innerHTML;
-            submitBtn.disabled = true;
-            submitBtn.innerHTML = '<div class="spinner"></div>';
-            
-            const form = document.getElementById('order-form');
-            
-            // Prepare order details
-            let orderDetails = currentLang === 'cz' ? 
-                `NOVÁ OBJEDNÁVKA - iMart-Store\n\n` : 
-                `НОВЫЙ ЗАКАЗ - iMart-Store\n\n`;
-            
-            // Add cart items
-            cart.forEach(item => {
-                orderDetails += `- ${item.name} (${item.color})\n`;
-                orderDetails += `  Množství: ${item.qty} ks\n`;
-                orderDetails += `  Cena: ${item.price} Kč/ks\n`;
-                orderDetails += `  Celkem: ${item.price * item.qty} Kč\n\n`;
-            });
-            
-            // Calculate total
-            let total = 0;
-            cart.forEach(item => {
-                total += item.price * item.qty;
-            });
-            
-            // Add delivery type
-            const deliveryTypeText = {
-                'address': currentLang === 'cz' ? 'Na domácí adresu' : 'На домашний адрес',
-                'post_office': currentLang === 'cz' ? 'Na poštu' : 'На почту',
-                'postomat': currentLang === 'cz' ? 'Do Zásilkovny' : 'В поштомат'
-            };
-            
-            orderDetails += currentLang === 'cz' ? 
-                `Typ doručení: ${deliveryTypeText[deliveryType]}\n` : 
-                `Тип доставки: ${deliveryTypeText[deliveryType]}\n`;
-            
-            orderDetails += currentLang === 'cz' ? 
-                `Způsob doručení: ${selectedDelivery}\n` : 
-                `Способ доставки: ${selectedDelivery}\n`;
-            
-            orderDetails += currentLang === 'cz' ? 
-                `CELKEM: ${total.toLocaleString('cs-CZ')} Kč\n\n` : 
-                `ИТОГО: ${total.toLocaleString('cs-CZ')} Kč\n\n`;
-            
-            // Add order details to form
-            let hiddenInput = form.querySelector('input[name="objednavka"]');
-            if (!hiddenInput) {
-                hiddenInput = document.createElement('input');
-                hiddenInput.type = 'hidden';
-                hiddenInput.name = 'objednavka';
-                form.appendChild(hiddenInput);
-            }
-            hiddenInput.value = orderDetails;
-            
-            // Create FormData object
-            const formData = new FormData(form);
-            
-            // Send to FormSubmit - FIXED: Correct success handling
-            fetch('https://formsubmit.co/coincama@gmail.com', {
-                method: 'POST',
-                body: formData,
-                headers: {
-                    'Accept': 'application/json'
-                }
-            })
-            .then(response => {
-                // FormSubmit returns 302 redirect on success - we check for any 2xx status
-                if (response.status >= 200 && response.status < 300) {
-                    return response.json().catch(() => ({})); // Try to parse JSON, but don't fail if it fails
-                } else {
-                    throw new Error('Server returned status ' + response.status);
-                }
-            })
-            .then(data => {
-                // Track GA4 purchase event
-                if (typeof gtag === 'function') {
-                    gtag('event', 'purchase', {
-                        currency: 'CZK',
-                        value: total,
-                        transaction_id: 'T' + Date.now(),
-                        items: cart.map(item => ({
-                            id: item.id,
-                            name: item.name,
-                            quantity: item.qty,
-                            price: item.price
-                        }))
-                    });
-                }
-                
-                // Track TikTok CompletePayment event
-                if (window.ttq) {
-                    window.ttq.track('CompletePayment', {
-                        value: total,
-                        currency: 'CZK'
-                    });
-                }
-                
-                showOrderSuccess();
-                
-                // Clear cart after successful order
-                cart = [];
-                localStorage.setItem('cart', JSON.stringify(cart));
-                updateCartDisplay();
-                
-                submitBtn.disabled = false;
-                submitBtn.innerHTML = originalText;
-            })
-            .catch(error => {
-                console.error('Error:', error);
-                // Still show success because email was sent (FormSubmit behavior)
-                showOrderSuccess();
-                
-                // Clear cart anyway since email was delivered
-                cart = [];
-                localStorage.setItem('cart', JSON.stringify(cart));
-                updateCartDisplay();
-                
-                submitBtn.disabled = false;
-                submitBtn.innerHTML = originalText;
-            });
-        }
-
-        function showError(message) {
-            const errorDiv = document.getElementById('order-error');
-            if (errorDiv) {
-                errorDiv.textContent = message;
-                errorDiv.style.display = 'block';
-                setTimeout(() => {
-                    errorDiv.style.display = 'none';
-                }, 5000);
-            }
-        }
-
-        function showOrderSuccess() {
-            const content = `
-                <div class="order-success">
-                    <div class="order-success-icon">✅</div>
-                    <h2 class="order-success-title" data-lang-cz="Objednávka odeslána!" data-lang-ru="Заказ отправлен!">Objednávka odeslána!</h2>
-                    <p class="order-success-message" data-lang-cz="Děkujeme za vaši objednávku! Brzy vás budeme kontaktovat na uvedený telefon nebo e-mail pro potvrzení objednávky." data-lang-ru="Спасибо за ваш заказ! Мы скоро свяжемся с вами по указанному телефону или электронной почте для подтверждения заказа.">Děkujeme za vaši objednávku! Brzy vás budeme kontaktovat na uvedený telefon nebo e-mail pro potvrzení objednávky.</p>
-                    <button class="btn btn-success" onclick="closeOrderModal()" data-lang-cz="Zavřít" data-lang-ru="Закрыть">Zavřít</button>
-                </div>
-            `;
-            
-            document.getElementById('order-content').innerHTML = content;
-        }
-
-        // ========== INITIALIZATION ==========
-        document.addEventListener('DOMContentLoaded', () => {
-            // Set initial active nav button
-            document.getElementById('nav-pro').classList.add('active');
-            
-            // Scroll animation
-            const observer = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.classList.add('visible');
-                    }
-                });
-            }, { threshold: 0.1 });
-            
-            document.querySelectorAll('.fade-in').forEach(el => {
-                observer.observe(el);
-            });
-            
-            // Initial cart load
-            updateCartDisplay();
-            
-            // Close cart when clicking outside
-            document.getElementById('cart-overlay').addEventListener('click', (e) => {
-                if (e.target === document.getElementById('cart-overlay')) {
-                    closeCart();
-                }
-            });
-            
-            // Close order modal when clicking overlay
-            document.getElementById('order-modal').addEventListener('click', (e) => {
-                if (e.target === document.getElementById('order-modal')) {
-                    closeOrderModal();
-                }
-            });
-            
-            // Track PageView for TikTok and GA4
-            if (window.ttq) {
-                window.ttq.page();
-            }
-            
-            if (typeof gtag === 'function') {
-                gtag('event', 'page_view', {
-                    page_title: document.title,
-                    page_location: window.location.href,
-                    page_path: window.location.pathname
-                });
-            }
-        });
-        // Update Telegram button text
+</nav>
+<!-- CART BUTTON -->
+<div id="cart-btn" onclick="openCart()">
+<span>🛒</span>
+<div class="cart-count" id="cart-count">0</div>
+</div>
+<!-- CART OVERLAY -->
+<div id="cart-overlay" onclick="closeCart()"></div>
+<!-- CART -->
+<div id="cart">
+<div class="cart-header">
+<div class="cart-title" data-lang-cz="Košík" data-lang-ru="Корзина">Košík</div>
+<button class="cart-close" onclick="closeCart()">✕</button>
+</div>
+<div class="cart-items" id="cart-items">
+<div class="cart-empty">
+<div class="cart-empty-icon">🛒</div>
+<p data-lang-cz="Košík je prázdný" data-lang-ru="Корзина пуста">Košík je prázdný</p>
+</div>
+</div>
+<div class="cart-total" id="cart-total" style="display:none;">
+<div class="cart-total-label" data-lang-cz="Celkem" data-lang-ru="Итого">Celkem</div>
+<div class="cart-total-amount" id="cart-total-amount">0 Kč</div>
+</div>
+<div class="cart-actions" id="cart-actions" style="display:none;">
+<button class="cart-btn cart-btn-primary" onclick="openOrderModal()" data-lang-cz="Objednat" data-lang-ru="Оформить заказ">Objednat</button>
+<button class="cart-btn cart-btn-secondary" onclick="clearCart()" data-lang-cz="Vyčistit košík" data-lang-ru="Очистить корзину">Vyčistit košík</button>
+</div>
+</div>
+<!-- ORDER MODAL -->
+<div id="order-modal">
+<div class="order-modal-content">
+<div class="order-modal-header">
+<div class="order-modal-title" data-lang-cz="Odeslání objednávky" data-lang-ru="Оформление заказа">Odeslání objednávky</div>
+<button class="order-modal-close" onclick="closeOrderModal()">✕</button>
+</div>
+<div id="order-content">
+<!-- Order items will be inserted here -->
+</div>
+</div>
+</div>
+<!-- MAIN CONTENT -->
+<main class="container">
+<!-- HERO SECTION -->
+<section class="hero fade-in">
+<h1 class="section-title" id="product-title"
+data-lang-cz-pro="Bezdrátová TWS sluchátka Pro 3 🎧"
+data-lang-ru-pro="Беспроводные TWS наушники Pro 3 🎧"
+data-lang-cz-max="Sluchátka Max 2 🎧"
+data-lang-ru-max="Наушники Max 2 🎧">
+Bezdrátová TWS sluchátka Pro 3 🎧
+</h1>
+<p class="section-subtitle" id="product-subtitle"
+data-lang-cz-pro="Objevte svět čistého zvuku s našimi prémiovými bezdrátovými sluchátky. Aktivní potlačení hluku, Hi-Fi kvalita, rychlé nabíjení USB Type-C a až 24 hodin neustálého poslechu pro váš každodenní komfort."
+data-lang-ru-pro="Откройте мир чистого звука с нашими премиальными беспроводными наушниками. Активное шумоподавление, Hi-Fi качество, быстрая зарядка USB Type-C и до 24 часов непрерывного прослушивания для вашего повседневного комфорта."
+data-lang-cz-max="Nejnovější generace profesionálních sluchátek Max 2 s pokročilým ANC, prostorovým Hi-Fi zvukem, rychlým nabíjením USB Type-C a až 30 hodinami výdrže pro nejvyšší nároky posluchačů."
+data-lang-ru-max="Новейшее поколение профессиональных наушников Max 2 с продвинутым ANC, объемным Hi-Fi звуком, быстрой зарядкой USB Type-C и до 30 часов автономности для самых высоких требований слушателей.">
+Objevte svět čistého zvuku s našimi prémiovými bezdrátovými sluchátky. Aktivní potlačení hluku, Hi-Fi kvalita, rychlé nabíjení USB Type-C a až 24 hodin neustálého poslechu pro váš každodenní komfort.
+</p>
+<img src="img/airpods1.jpg" alt="Sluchátka" class="hero-img" id="main-img">
+<div class="hero-gallery" id="gallery">
+<img src="img/airpods1.jpg" class="active" onclick="changeImage('img/airpods1.jpg')">
+<img src="img/airpods2.jpg" onclick="changeImage('img/airpods2.jpg')">
+<img src="img/airpods3.jpg" onclick="changeImage('img/airpods3.jpg')">
+<img src="img/airpods4.jpg" onclick="changeImage('img/airpods4.jpg')">
+</div>
+<div class="price" id="product-price">1 099 Kč</div>
+<div class="price-badge" data-lang-cz="USB Type-C • Platba při převzetí • Doručení 2-3 dny" data-lang-ru="USB Type-C • Оплата при получении • Доставка 2-3 дня">USB Type-C • Platba při převzetí • Doručení 2-3 dny</div>
+<!-- Color selector only for Max product -->
+<div class="color-selector" id="color-selector" style="display:none;">
+<button class="color-btn active" data-color="Černá" data-lang-cz="Černá" data-lang-ru="Черный" onclick="selectColor(this, 'Černá')">Černá</button>
+<button class="color-btn" data-color="Stříbrná" data-lang-cz="Stříbrná" data-lang-ru="Серебристый" onclick="selectColor(this, 'Stříbrná')">Stříbrná</button>
+</div>
+<div class="qty-selector">
+<span class="qty-label" data-lang-cz="Množství:" data-lang-ru="Количество:">Množství:</span>
+<button class="qty-btn" onclick="changeQty(-1)">−</button>
+<div class="qty-display" id="qty-display">1</div>
+<button class="qty-btn" onclick="changeQty(1)">+</button>
+</div>
+<button class="btn btn-primary btn-block" onclick="addToCart()" id="add-to-cart-btn" data-lang-cz="Přidat do košíku" data-lang-ru="Добавить в корзину">Přidat do košíku</button>
+<div class="product-switcher">
+<button class="btn btn-switch" onclick="showProduct('max')"
+data-lang-cz="Podívejte se na Sluchátka Max 2 →"
+data-lang-ru="Посмотреть Наушники Max 2 →">
+Podívejte se na Sluchátka Max 2 →
+</button>
+</div>
+</section>
+<!-- DETAILED DESCRIPTION -->
+<section class="fade-in">
+<div class="product-description" id="product-description">
+<h3 data-lang-cz-pro="Proč si zamilujete Bezdrátová sluchátka Pro 3"
+data-lang-ru-pro="Почему вы полюбите Беспроводные наушники Pro 3"
+data-lang-cz-max="Proč si zamilujete Sluchátka Max 2"
+data-lang-ru-max="Почему вы полюбите Наушники Max 2">
+Proč si zamilujete Bezdrátová sluchátka Pro 3
+</h3>
+<p id="description-text"
+data-lang-cz-pro="Představte si ráno bez rušivého hluku města, cestu do práce s hudbou, která vás přenáší do jiného světa, a večer plný klidu a uvolnění. Bezdrátová sluchátka Pro 3 jsou navržena právě pro vás – pro ty, kteří si cení kvality, pohodlí a stylového vzhledu. Díky pokročilé technologii aktivního potlačení hluku (ANC) si užijete čistý zvuk bez okolních rušivých zvuků. Hi-Fi reproduktory s bohatými bassy a křišťálově čistými výškami vám přinesou studiový zážitek přímo do uší. S výdrží baterie až 24 hodin a praktickým nabíjením přes moderní USB Type-C port vás tyto sluchátka provází celý den – od ranního probuzení až po noční odpočinek. Ergonomický design a měkké silikonové náušníky zajišťují maximální pohodlí i při dlouhodobém nošení. Ať už posloucháte svou oblíbenou hudbu, sledujete filmy nebo telefonujete, sluchátka Pro 3 vám poskytnou nezapomenutelný zvukový zážitek s pohodlným nabíjením USB Type-C."
+data-lang-ru-pro="Представьте утро без шума города, дорогу на работу с музыкой, которая переносит вас в другой мир, и вечер, полный покоя и расслабления. Беспроводные наушники Pro 3 созданы именно для вас - для тех, кто ценит качество, комфорт и стильный внешний вид. Благодаря передовой технологии активного шумоподавления (ANC) вы насладитесь чистым звуком без посторонних шумов. Hi-Fi динамики с насыщенными басами и кристально чистыми высокими частотами принесут вам студийное качество звука прямо в уши. С автономностью до 24 часов и удобной зарядкой через современный порт USB Type-C эти наушники будут сопровождать вас весь день - от утреннего пробуждения до ночного отдыха. Эргономичный дизайн и мягкие силиконовые амбушюры обеспечивают максимальный комфорт даже при длительном ношении. Независимо от того, слушаете ли вы любимую музыку, смотрите фильмы или разговариваете по телефону, наушники Pro 3 подарят вам незабываемые звуковые ощущения с удобной зарядкой USB Type-C."
+data-lang-cz-max="Objevte revoluční zvukový zážitek s nejnovějšími Sluchátky Max 2! Tyto profesionální over-ear sluchátka představují vrchol technologie s pokročilým ANC nové generace, které eliminuje až 98% okolních hluků. Prostorový Hi-Fi zvuk s hlubokými, pulzujícími basami a křišťálově čistými výškami vás doslova pohltí a přenese do srdce každé skladby. S výdrží baterie až 30 hodin a ultra-rychlým nabíjením přes USB Type-C (10 minut nabíjení = 5 hodin poslechu!) jsou tyto sluchátka ideálním společníkem pro dlouhé cesty, intenzivní pracovní dny nebo noční sezení s hudbou. Luxusní materiály, včetně měkkých proteinových kožených náušníků a odolného hliníkového těla, zajišťují nejen elegantní vzhled, ale také maximální pohodlí i při nosení celý den. Moderní USB Type-C nabíjení zajišťuje rychlou a univerzální kompatibilitu se všemi vašimi zařízeními. Ať už pracujete z domova, cestujete nebo si užíváte klidné chvíle, sluchátka Max 2 vám poskytnou profesionální zvukový zážitek, který si zamilujete."
+data-lang-ru-max="Откройте революционное звуковое переживание с новейшими Наушниками Max 2! Эти профессиональные наушники over-ear представляют вершину технологий с продвинутой системой активного шумоподавления нового поколения, которая устраняет до 98% окружающих шумов. Объемный Hi-Fi звук с глубокими, пульсирующими басами и кристально чистыми высокими частотами буквально поглотит вас и перенесет в сердце каждой композиции. С автономностью до 30 часов и ультрабыстрой зарядкой через USB Type-C (10 минут зарядки = 5 часов прослушивания!) эти наушники станут идеальным спутником для длительных путешествий, интенсивных рабочих дней или ночных сессий с музыкой. Роскошные материалы, включая мягкие белковые кожаные амбушюры и прочный алюминиевый корпус, обеспечивают не только элегантный внешний вид, но и максимальный комфорт даже при ношении весь день. Современная зарядка USB Type-C обеспечивает быструю и универсальную совместимость со всеми вашими устройствами. Независимо от того, работаете ли вы из дома, путешествуете или наслаждаетесь спокойными моментами, наушники Max 2 подарят вам профессиональное звуковое переживание, которое вы полюбите.">
+Představte si ráno bez rušivého hluku města, cestu do práce s hudbou, která vás přenáší do jiného světa, a večer plný klidu a uvolnění. Bezdrátová sluchátka Pro 3 jsou navržena právě pro vás – pro ty, kteří si cení kvality, pohodlí a stylového vzhledu. Díky pokročilé technologii aktivního potlačení hluku (ANC) si užijete čistý zvuk bez okolních rušivých zvuků. Hi-Fi reproduktory s bohatými bassy a křišťálově čistými výškami vám přinesou studiový zážitek přímo do uší. S výdrží baterie až 24 hodin a praktickým nabíjením přes moderní USB Type-C port vás tyto sluchátka provází celý den – od ranního probuzení až po noční odpočinek. Ergonomický design a měkké silikonové náušníky zajišťují maximální pohodlí i při dlouhodobém nošení. Ať už posloucháte svou oblíbenou hudbu, sledujete filmy nebo telefonujete, sluchátka Pro 3 vám poskytnou nezapomenutelný zvukový zážitek s pohodlným nabíjením USB Type-C.
+</p>
+<div class="specs-grid">
+<div class="spec-item">
+<div class="spec-value" id="spec-battery">24h</div>
+<div class="spec-label" data-lang-cz="Výdrž baterie" data-lang-ru="Автономность">Výdrž baterie</div>
+</div>
+<div class="spec-item">
+<div class="spec-value">ANC</div>
+<div class="spec-label" data-lang-cz="Potlačení hluku" data-lang-ru="Шумоподавление">Potlačení hluku</div>
+</div>
+<div class="spec-item">
+<div class="spec-value">Hi-Fi</div>
+<div class="spec-label" data-lang-cz="Kvalita zvuku" data-lang-ru="Качество звука">Kvalita zvuku</div>
+</div>
+<div class="spec-item">
+<div class="spec-value">Type-C</div>
+<div class="spec-label" data-lang-cz="Rychlé nabíjení" data-lang-ru="Быстрая зарядка">Rychlé nabíjení</div>
+</div>
+</div>
+</div>
+<!-- Юридический текст под описанием -->
+<div class="legal-disclaimer" data-lang-cz="⚠️ Upozornění: Tento produkt není originálním značkovým produktem. Nejedná se o oficiální produkt žádné registrované značky. Všechna práva a loga patří jejich vlastníkům." data-lang-ru="⚠️ Внимание: Этот продукт не является оригинальным брендовым товаром. Не является официальным продуктом какой-либо зарегистрированной торговой марки. Все права и логотипы принадлежат их владельцам.">
+⚠️ Upozornění: Tento produkt není originálním značkovým produktem. Nejedná se o oficiální produkt žádné registrované značky. Všechna práva a loga patří jejich vlastníkům.
+</div>
+</section>
+<!-- FEATURES SECTION -->
+<section class="fade-in">
+<h2 class="section-title" id="features-title"
+data-lang-cz-pro="Co vás u Pro 3 nadchne ✨"
+data-lang-ru-pro="Что вас впечатлит в Pro 3 ✨"
+data-lang-cz-max="Proč si zamilujete Max 2 ✨"
+data-lang-ru-max="Почему вы полюбите Max 2 ✨">
+Co vás u Pro 3 nadchne ✨
+</h2>
+<div class="features-grid">
+<div class="feature-card fade-in">
+<div class="feature-icon">🎵</div>
+<div class="feature-title" data-lang-cz="Studiový Hi-Fi zvuk" data-lang-ru="Студийный Hi-Fi звук">Studiový Hi-Fi zvuk</div>
+<div class="feature-desc" data-lang-cz="Ponořte se do světa hudby s křišťálově čistými výškami, hlubokými bassy a dokonale vyváženým středem. Každý detail vaší oblíbené skladby zní tak, jak měl znít." data-lang-ru="Погрузитесь в мир музыки с кристально чистыми высокими частотами, глубокими басами и идеально сбалансированными средними. Каждая деталь вашей любимой композиции звучит так, как и должна звучать.">Ponořte se do světa hudby s křišťálově čistými výškami, hlubokými bassy a dokonale vyváženým středem. Každý detail vaší oblíbené skladby zní tak, jak měl znít.</div>
+</div>
+<div class="feature-card fade-in">
+<div class="feature-icon">🔇</div>
+<div class="feature-title" data-lang-cz="Inteligentní ANC" data-lang-ru="Интеллектуальное ANC">Inteligentní ANC</div>
+<div class="feature-desc" data-lang-cz="Zapomeňte na rušivé zvuky okolí. Aktivní potlačení hluku eliminuje až 95% okolních hluků – dokonalé pro cesty, práci nebo klidný odpočinek." data-lang-ru="Забудьте о посторонних звуках. Активное шумоподавление устраняет до 95% окружающих шумов - идеально для путешествий, работы или спокойного отдыха.">Zapomeňte na rušivé zvuky okolí. Aktivní potlačení hluku eliminuje až 95% okolních hluků – dokonalé pro cesty, práci nebo klidný odpočinek.</div>
+</div>
+<div class="feature-card fade-in">
+<div class="feature-icon">⚡</div>
+<div class="feature-title" data-lang-cz="USB Type-C nabíjení" data-lang-ru="Зарядка USB Type-C">USB Type-C nabíjení</div>
+<div class="feature-desc" data-lang-cz="Moderní a univerzální nabíjení. Rychlé a spolehlivé – 10 minut nabíjení = 2 hodiny poslechu. Kompatibilní se všemi vašimi zařízeními." data-lang-ru="Современная и универсальная зарядка. Быстрая и надежная – 10 минут зарядки = 2 часа прослушивания. Совместима со всеми вашими устройствами.">Moderní a univerzální nabíjení. Rychlé a spolehlivé – 10 minut nabíjení = 2 hodiny poslechu. Kompatibilní se všemi vašimi zařízeními.</div>
+</div>
+<div class="feature-card fade-in">
+<div class="feature-icon">🔋</div>
+<div class="feature-title" data-lang-cz="Celodenní energie" data-lang-ru="Энергия на весь день">Celodenní energie</div>
+<div class="feature-desc" data-lang-cz="Až 24 hodin poslechu na jedno nabití. Rychlé nabíjení: 10 minut = 2 hodiny hudby. Nikdy vás nepodvedou." data-lang-ru="До 24 часов прослушивания от одного заряда. Быстрая зарядка: 10 минут = 2 часа музыки. Они никогда вас не подведут.">Až 24 hodin poslechu na jedno nabití. Rychlé nabíjení: 10 minut = 2 hodiny hudby. Nikdy vás nepodvedou.</div>
+</div>
+</div>
+</section>
+</main>
+<!-- STICKY BAR -->
+<div class="sticky-bar">
+<div class="sticky-info">
+<div class="sticky-price" id="sticky-price">1 099 Kč</div>
+</div>
+<div class="sticky-btn-container">
+<button class="sticky-btn" onclick="addToCart()" data-lang-cz="Objednat nyní" data-lang-ru="Заказать сейчас">Objednat nyní</button>
+<a href="https://t.me/Appledestroyer1" target="_blank" class="sticky-btn btn-telegram">
+<span>✈️</span>
+<span data-lang-cz="Telegram kanál" data-lang-ru="Telegram канал">Telegram kanál</span>
+</a>
+</div>
+</div>
+<!-- FOOTER -->
+<footer>
+<div class="footer-content">
+<div class="footer-section">
+<h3 data-lang-cz="iMart-Store" data-lang-ru="iMart-Store">iMart-Store</h3>
+<p data-lang-cz="Prémiová bezdrátová sluchátka s ANC a Hi-Fi zvukem. Rychlé doručení po ČR. USB Type-C nabíjení. Platba při převzetí." data-lang-ru="Премиальные беспроводные наушники с ANC и Hi-Fi звуком. Быстрая доставка по Чехии. Зарядка USB Type-C. Оплата при получении.">
+Prémiová bezdrátová sluchátka s ANC a Hi-Fi zvukem. Rychlé doručení po ČR. USB Type-C nabíjení. Platba při převzetí.
+</p>
+</div>
+<div class="footer-section">
+<h3 data-lang-cz="Odkazy" data-lang-ru="Ссылки">Odkazy</h3>
+<ul class="footer-links">
+<li><a href="#" onclick="showProduct('pro')" data-lang-cz="Sluchátka Pro 3" data-lang-ru="Наушники Pro 3">Sluchátka Pro 3</a></li>
+<li><a href="#" onclick="showProduct('max')" data-lang-cz="Sluchátka Max 2" data-lang-ru="Наушники Max 2">Sluchátka Max 2</a></li>
+<li><a href="#" onclick="openCart()" data-lang-cz="Košík" data-lang-ru="Корзина">Košík</a></li>
+</ul>
+</div>
+<div class="footer-section">
+<h3 data-lang-cz="Kontakt" data-lang-ru="Контакты">Kontakt</h3>
+<div class="footer-contact">
+<p>📧 <a href="mailto:coincama@gmail.com">coincama@gmail.com</a></p>
+<p>📱 <a href="tel:+420702846018">+420 702 846 018</a></p>
+<p data-lang-cz="Po-Pá: 9:00-18:00" data-lang-ru="Пн-Пт: 9:00-18:00">Po-Pá: 9:00-18:00</p>
+</div>
+</div>
+</div>
+<div class="copyright">
+<p>© 2026 iMart-Store. Neznačkový produkt. Není spojen s žádnou ochrannou známkou.</p>
+<p style="font-size:12px;margin-top:8px;color:var(--text-muted);" data-lang-cz="Všechny zmíněné značky a loga jsou vlastnictvím jejich příslušných vlastníků. Tento web není oficiálním obchodem žádné značky." data-lang-ru="Все упомянутые торговые марки и логотипы являются собственностью их соответствующих владельцев. Этот сайт не является официальным магазином какой-либо торговой марки.">Všechny zmíněné značky a loga jsou vlastnictvím jejich příslušných vlastníků. Tento web není oficiálním obchodem žádné značky.</p>
+</div>
+</footer>
+<script>
+// ========== STATE ==========
+let currentProduct = 'pro';
+let currentColor = 'Bílá';
+let currentQty = 1;
+let currentLang = 'cz';
+let cart = JSON.parse(localStorage.getItem('cart')) || [];
+let selectedDelivery = 'Zásilkovna';
+let deliveryType = 'address'; // 'address', 'post_office', 'postomat'
+// ========== PRODUCTS DATA ==========
+const products = {
+pro: {
+name: { cz: 'Bezdrátová sluchátka Pro 3', ru: 'Беспроводные наушники Pro 3' },
+price: 1099,
+images: ['img/airpods1.jpg', 'img/airpods2.jpg', 'img/airpods3.jpg', 'img/airpods4.jpg'],
+colors: ['Bílá'],
+battery: { cz: '24h', ru: '24ч' },
+description: {
+cz: 'Představte si ráno bez rušivého hluku města, cestu do práce s hudbou, která vás přenáší do jiného světa, a večer plný klidu a uvolnění. Bezdrátová sluchátka Pro 3 jsou navržena právě pro vás – pro ty, kteří si cení kvality, pohodlí a stylového vzhledu. Díky pokročilé technologii aktivního potlačení hluku (ANC) si užijete čistý zvuk bez okolních rušivých zvuků. Hi-Fi reproduktory s bohatými bassy a křišťálově čistými výškami vám přinesou studiový zážitek přímo do uší. S výdrží baterie až 24 hodin a praktickým nabíjením přes moderní USB Type-C port vás tyto sluchátka provází celý den – od ranního probuzení až po noční odpočinek. Ergonomický design a měkké silikonové náušníky zajišťují maximální pohodlí i při dlouhodobém nošení. Ať už posloucháte svou oblíbenou hudbu, sledujete filmy nebo telefonujete, sluchátka Pro 3 vám poskytnou nezapomenutelný zvukový zážitek s pohodlným nabíjením USB Type-C.',
+ru: 'Представьте утро без шума города, дорогу на работу с музыкой, которая переносит вас в другой мир, и вечер, полный покоя и расслабления. Беспроводные наушники Pro 3 созданы именно для вас - для тех, кто ценит качество, комфорт и стильный внешний вид. Благодаря передовой технологии активного шумоподавления (ANC) вы насладитесь чистым звуком без посторонних шумов. Hi-Fi динамики с насыщенными басами и кристально чистыми высокими частотами принесут вам студийное качество звука прямо в уши. С автономностью до 24 часов и удобной зарядкой через современный порт USB Type-C эти наушники будут сопровождать вас весь день - от утреннего пробуждения до ночного отдыха. Эргономичный дизайн и мягкие силиконовые амбушюры обеспечивают максимальный комфорт даже при длительном ношении. Независимо от того, слушаете ли вы любимую музыку, смотрите фильмы или разговариваете по телефону, наушники Pro 3 подарят вам незабываемые звуковые ощущения с удобной зарядкой USB Type-C.'
+}
+},
+max: {
+name: { cz: 'Sluchátka Max 2', ru: 'Наушники Max 2' },
+price: 2499,
+images: ['img/max1.jpg', 'img/max2.jpg', 'img/max3.jpg'],
+colors: ['Černá', 'Stříbrná'],
+battery: { cz: '30h', ru: '30ч' },
+description: {
+cz: 'Objevte revoluční zvukový zážitek s nejnovějšími Sluchátky Max 2! Tyto profesionální over-ear sluchátka představují vrchol technologie s pokročilým ANC nové generace, které eliminuje až 98% okolních hluků. Prostorový Hi-Fi zvuk s hlubokými, pulzujícími basami a křišťálově čistými výškami vás doslova pohltí a přenese do srdce každé skladby. S výdrží baterie až 30 hodin a ultra-rychlým nabíjením přes USB Type-C (10 minut nabíjení = 5 hodin poslechu!) jsou tyto sluchátka ideálním společníkem pro dlouhé cesty, intenzivní pracovní dny nebo noční sezení s hudbou. Luxusní materiály, včetně měkkých proteinových kožených náušníků a odolného hliníkového těla, zajišťují nejen elegantní vzhled, ale také maximální pohodlí i při nosení celý den. Moderní USB Type-C nabíjení zajišťuje rychlou a univerzální kompatibilitu se všemi vašimi zařízeními. Ať už pracujete z domova, cestujete nebo si užíváte klidné chvíle, sluchátka Max 2 vám poskytnou profesionální zvukový zážitek, který si zamilujete.',
+ru: 'Откройте революционное звуковое переживание с новейшими Наушниками Max 2! Эти профессиональные наушники over-ear представляют вершину технологий с продвинутой системой активного шумоподавления нового поколения, которая устраняет до 98% окружающих шумов. Объемный Hi-Fi звук с глубокими, пульсирующими басами и кристально чистыми высокими частотами буквально поглотит вас и перенесет в сердце каждой композиции. С автономностью до 30 часов и ультрабыстрой зарядкой через USB Type-C (10 минут зарядки = 5 часов прослушивания!) эти наушники станут идеальным спутником для длительных путешествий, интенсивных рабочих дней или ночных сессий с музыкой. Роскошные материалы, включая мягкие белковые кожаные амбушюры и прочный алюминиевый корпус, обеспечивают не только элегантный внешний вид, но и максимальный комфорт даже при ношении весь день. Современная зарядка USB Type-C обеспечивает быструю и универсальную совместимость со всеми вашими устройствами. Независимо от того, работаете ли вы из дома, путешествуете или наслаждаетесь спокойными моментами, наушники Max 2 подарят вам профессиональное звуковое переживание, которое вы полюбите.'
+}
+}
+};
+// ========== LANGUAGE ==========
+function toggleLanguage() {
+currentLang = currentLang === 'cz' ? 'ru' : 'cz';
+updateLanguage();
+}
+function updateLanguage() {
+document.querySelectorAll('[data-lang-cz]').forEach(el => {
+const czText = el.getAttribute(`data-lang-cz${currentProduct ? '-' + currentProduct : ''}`);
+const ruText = el.getAttribute(`data-lang-ru${currentProduct ? '-' + currentProduct : ''}`);
+if (czText && ruText) {
+el.textContent = currentLang === 'cz' ? czText : ruText;
+}
+});
+document.querySelectorAll('[data-lang-cz]').forEach(el => {
+if (!el.hasAttribute(`data-lang-cz${currentProduct ? '-' + currentProduct : ''}`)) {
+const czText = el.getAttribute('data-lang-cz');
+const ruText = el.getAttribute('data-lang-ru');
+if (czText && ruText) {
+el.textContent = currentLang === 'cz' ? czText : ruText;
+}
+}
+});
+// Update color buttons if they exist
+if (document.querySelectorAll('.color-btn').length > 0) {
+document.querySelectorAll('.color-btn').forEach(btn => {
+const color = btn.getAttribute('data-color');
+btn.textContent = currentLang === 'cz' ? color : getColorTranslation(color);
+});
+}
+// Update Telegram button text
 const telegramBtn = document.querySelector('.btn-telegram span:last-child');
 if (telegramBtn) {
-  telegramBtn.textContent = currentLang === 'cz' ? 'Telegram kanál' : 'Telegram канал';
+telegramBtn.textContent = currentLang === 'cz' ? 'Telegram kanál' : 'Telegram канал';
 }
-    </script>
-
+updateProductDisplay();
+// Update order modal if open
+if (document.getElementById('order-modal').classList.contains('active')) {
+renderOrderForm();
+}
+}
+function getColorTranslation(color) {
+const translations = {
+'Bílá': 'Белый',
+'Černá': 'Черный',
+'Stříbrná': 'Серебристый'
+};
+return translations[color] || color;
+}
+// ========== PRODUCT SWITCHING ==========
+function showProduct(product) {
+currentProduct = product;
+// Update nav buttons
+document.getElementById('nav-pro').classList.toggle('active', product === 'pro');
+document.getElementById('nav-max').classList.toggle('active', product === 'max');
+updateProductDisplay();
+updateLanguage();
+}
+function updateProductDisplay() {
+const product = products[currentProduct];
+// Update title
+document.getElementById('product-title').textContent = product.name[currentLang];
+// Update subtitle
+document.getElementById('product-subtitle').textContent =
+currentProduct === 'pro' ?
+(currentLang === 'cz' ? 'Objevte svět čistého zvuku s našimi prémiovými bezdrátovými sluchátky. Aktivní potlačení hluku, Hi-Fi kvalita, rychlé nabíjení USB Type-C a až 24 hodin neustálého poslechu pro váš každodenní komfort.' : 'Откройте мир чистого звука с нашими премиальными беспроводными наушниками. Активное шумоподавление, Hi-Fi качество, быстрая зарядка USB Type-C и до 24 часов непрерывного прослушивания для вашего повседневного комфорта.') :
+(currentLang === 'cz' ? 'Nejnovější generace profesionálních sluchátek Max 2 s pokročilým ANC, prostorovým Hi-Fi zvukem, rychlým nabíjením USB Type-C a až 30 hodinami výdrže pro nejvyšší nároky posluchačů.' : 'Новейшее поколение профессиональных наушников Max 2 с продвинутым ANC, объемным Hi-Fi звуком, быстрой зарядкой USB Type-C и до 30 часов автономности для самых высоких требований слушателей.');
+// Update description title
+document.getElementById('product-description').querySelector('h3').textContent =
+currentProduct === 'pro' ?
+(currentLang === 'cz' ? 'Proč si zamilujete Bezdrátová sluchátka Pro 3' : 'Почему вы полюбите Беспроводные наушники Pro 3') :
+(currentLang === 'cz' ? 'Proč si zamilujete Sluchátka Max 2' : 'Почему вы полюбите Наушники Max 2');
+document.getElementById('description-text').textContent = product.description[currentLang];
+// Update features title
+document.getElementById('features-title').textContent =
+currentProduct === 'pro' ?
+(currentLang === 'cz' ? 'Co vás u Pro 3 nadchne ✨' : 'Что вас впечатлит в Pro 3 ✨') :
+(currentLang === 'cz' ? 'Proč si zamilujete Max 2 ✨' : 'Почему вы полюбите Max 2 ✨');
+// Update price
+document.getElementById('product-price').textContent = `${product.price.toLocaleString('cs-CZ')} Kč`;
+document.getElementById('sticky-price').textContent = `${product.price.toLocaleString('cs-CZ')} Kč`;
+// Update battery spec
+document.querySelector('.spec-value').textContent = product.battery[currentLang];
+// Update gallery
+const gallery = document.getElementById('gallery');
+gallery.innerHTML = '';
+product.images.forEach((img, index) => {
+const imgEl = document.createElement('img');
+imgEl.src = img;
+imgEl.onclick = () => changeImage(img);
+if (index === 0) imgEl.classList.add('active');
+gallery.appendChild(imgEl);
+});
+// Update main image
+document.getElementById('main-img').src = product.images[0];
+// Update colors - only show for Max product
+const colorSelector = document.getElementById('color-selector');
+if (currentProduct === 'max') {
+colorSelector.style.display = 'flex';
+colorSelector.innerHTML = '';
+product.colors.forEach((color, index) => {
+const btn = document.createElement('button');
+btn.className = `color-btn ${index === 0 ? 'active' : ''}`;
+btn.setAttribute('data-color', color);
+btn.setAttribute('data-lang-cz', color);
+btn.setAttribute('data-lang-ru', getColorTranslation(color));
+btn.textContent = currentLang === 'cz' ? color : getColorTranslation(color);
+btn.onclick = () => selectColor(btn, color);
+colorSelector.appendChild(btn);
+});
+currentColor = product.colors[0];
+} else {
+colorSelector.style.display = 'none';
+currentColor = 'Bílá';
+}
+currentQty = 1;
+document.getElementById('qty-display').textContent = currentQty;
+}
+// ========== IMAGE GALLERY ==========
+function changeImage(src) {
+document.getElementById('main-img').src = src;
+document.querySelectorAll('.hero-gallery img').forEach(img => {
+img.classList.remove('active');
+if (img.src.includes(src)) {
+img.classList.add('active');
+}
+});
+}
+// ========== COLOR SELECTOR ==========
+function selectColor(btn, color) {
+document.querySelectorAll('.color-btn').forEach(b => b.classList.remove('active'));
+btn.classList.add('active');
+currentColor = color;
+}
+// ========== QUANTITY SELECTOR ==========
+function changeQty(delta) {
+currentQty = Math.max(1, currentQty + delta);
+document.getElementById('qty-display').textContent = currentQty;
+}
+// ========== CART FUNCTIONS ==========
+function addToCart() {
+const product = products[currentProduct];
+const item = {
+id: `${currentProduct}-${currentColor}`,
+name: product.name[currentLang],
+price: product.price,
+qty: currentQty,
+color: currentColor,
+image: document.getElementById('main-img').src
+};
+// Track TikTok AddToCart event
+if (window.ttq) {
+window.ttq.track('AddToCart', {
+content_name: product.name[currentLang],
+quantity: currentQty,
+value: product.price * currentQty,
+currency: 'CZK'
+});
+}
+// Track GA4 event
+if (typeof gtag === 'function') {
+gtag('event', 'add_to_cart', {
+currency: 'CZK',
+value: product.price * currentQty,
+items: [{
+id: item.id,
+name: product.name[currentLang],
+quantity: currentQty,
+price: product.price
+}]
+});
+}
+// Check if item already exists
+const existingIndex = cart.findIndex(i => i.id === item.id);
+if (existingIndex > -1) {
+cart[existingIndex].qty += item.qty;
+} else {
+cart.push(item);
+}
+localStorage.setItem('cart', JSON.stringify(cart));
+updateCartDisplay();
+animateCartButton();
+openCart();
+}
+function updateCartDisplay() {
+const cartItems = document.getElementById('cart-items');
+const cartTotal = document.getElementById('cart-total');
+const cartActions = document.getElementById('cart-actions');
+const cartCount = document.getElementById('cart-count');
+if (cart.length === 0) {
+cartItems.innerHTML = `
+<div class="cart-empty">
+<div class="cart-empty-icon">🛒</div>
+<p data-lang-cz="Košík je prázdný" data-lang-ru="Корзина пуста">Košík je prázdný</p>
+</div>
+`;
+cartTotal.style.display = 'none';
+cartActions.style.display = 'none';
+cartCount.textContent = '0';
+return;
+}
+cartCount.textContent = cart.reduce((sum, item) => sum + item.qty, 0);
+cartTotal.style.display = 'block';
+cartActions.style.display = 'block';
+let html = '';
+let total = 0;
+cart.forEach((item, index) => {
+const itemTotal = item.price * item.qty;
+total += itemTotal;
+html += `
+<div class="cart-item">
+<img src="${item.image}" class="cart-item-img">
+<div class="cart-item-info">
+<div class="cart-item-name">${item.name}</div>
+<span class="cart-item-color">${item.color}</span>
+<div class="cart-item-qty">
+<button onclick="updateCartItemQty(${index}, -1)">−</button>
+<input type="number" value="${item.qty}" min="1" onchange="updateCartItemQty(${index}, 0, this.value)">
+<button onclick="updateCartItemQty(${index}, 1)">+</button>
+</div>
+</div>
+<div class="cart-item-price">${itemTotal.toLocaleString('cs-CZ')} Kč</div>
+<button class="cart-item-delete" onclick="removeFromCart(${index})">×</button>
+</div>
+`;
+});
+cartItems.innerHTML = html;
+document.getElementById('cart-total-amount').textContent = `${total.toLocaleString('cs-CZ')} Kč`;
+}
+function updateCartItemQty(index, delta, newValue) {
+if (newValue !== undefined) {
+cart[index].qty = Math.max(1, parseInt(newValue) || 1);
+} else {
+cart[index].qty = Math.max(1, cart[index].qty + delta);
+}
+if (cart[index].qty === 0) {
+cart.splice(index, 1);
+}
+localStorage.setItem('cart', JSON.stringify(cart));
+updateCartDisplay();
+}
+function removeFromCart(index) {
+cart.splice(index, 1);
+localStorage.setItem('cart', JSON.stringify(cart));
+updateCartDisplay();
+// Show message if cart is empty
+if (cart.length === 0) {
+setTimeout(() => {
+closeCart();
+}, 500);
+}
+}
+function clearCart() {
+cart = [];
+localStorage.setItem('cart', JSON.stringify(cart));
+updateCartDisplay();
+closeCart();
+}
+function animateCartButton() {
+const btn = document.getElementById('cart-btn');
+btn.style.transform = 'scale(1.2) translateY(-6px)';
+setTimeout(() => {
+btn.style.transform = 'scale(1) translateY(0)';
+}, 250);
+}
+// ========== CART UI ==========
+function openCart() {
+document.getElementById('cart').classList.add('active');
+document.getElementById('cart-overlay').classList.add('active');
+updateCartDisplay();
+}
+function closeCart() {
+document.getElementById('cart').classList.remove('active');
+document.getElementById('cart-overlay').classList.remove('active');
+}
+// ========== ORDER MODAL ==========
+function openOrderModal() {
+if (cart.length === 0) {
+alert(currentLang === 'cz' ? 'Košík je prázdný!' : 'Корзина пуста!');
+return;
+}
+// Track TikTok InitiateCheckout event
+if (window.ttq) {
+let total = 0;
+cart.forEach(item => {
+total += item.price * item.qty;
+});
+window.ttq.track('InitiateCheckout', {
+value: total,
+currency: 'CZK'
+});
+}
+// Track GA4 event
+if (typeof gtag === 'function') {
+let total = 0;
+cart.forEach(item => {
+total += item.price * item.qty;
+});
+gtag('event', 'begin_checkout', {
+currency: 'CZK',
+value: total,
+items: cart.map(item => ({
+id: item.id,
+name: item.name,
+quantity: item.qty,
+price: item.price
+}))
+});
+}
+renderOrderForm();
+document.getElementById('order-modal').classList.add('active');
+document.body.style.overflow = 'hidden';
+}
+function closeOrderModal() {
+document.getElementById('order-modal').classList.remove('active');
+document.body.style.overflow = 'auto';
+}
+function renderOrderForm() {
+let total = 0;
+let itemsHtml = '';
+cart.forEach((item, index) => {
+const itemTotal = item.price * item.qty;
+total += itemTotal;
+itemsHtml += `
+<div class="order-item">
+<div>
+<div class="order-item-name">${item.name}</div>
+<div class="order-item-details">${item.color} • ${item.qty} ks • ${item.price} Kč/ks</div>
+</div>
+<div>${itemTotal.toLocaleString('cs-CZ')} Kč</div>
+</div>
+`;
+});
+const content = `
+<div class="order-items">
+${itemsHtml}
+</div>
+<div class="order-total">
+<div class="order-total-label" data-lang-cz="Celkem" data-lang-ru="Итого">Celkem</div>
+<div class="order-total-amount">${total.toLocaleString('cs-CZ')} Kč</div>
+</div>
+<div class="order-error" id="order-error"></div>
+<form id="order-form" onsubmit="submitOrder(event)">
+<input type="hidden" name="_subject" value="Nová objednávka z iMart-Store">
+<input type="hidden" name="_cc" value="coincama@gmail.com">
+<input type="hidden" name="_captcha" value="false">
+<input type="hidden" name="_next" value="${window.location.href}">
+<div class="order-form-group">
+<label class="order-form-label required" data-lang-cz="Jméno a příjmení" data-lang-ru="Имя и фамилия">Jméno a příjmení</label>
+<input type="text" class="order-form-input" name="jmeno" required placeholder="${currentLang === 'cz' ? 'Jan Novák' : 'Иван Иванов'}">
+</div>
+<div class="order-form-group">
+<label class="order-form-label required" data-lang-cz="Telefonní číslo" data-lang-ru="Номер телефона">Telefonní číslo</label>
+<input type="tel" class="order-form-input" name="telefon" required placeholder="+420 123 456 789">
+</div>
+<div class="order-form-group">
+<label class="order-form-label" data-lang-cz="E-mail" data-lang-ru="Электронная почта">E-mail</label>
+<input type="email" class="order-form-input" name="email" placeholder="${currentLang === 'cz' ? 'vase@email.cz' : 'vash@email.ru'}">
+</div>
+<div class="order-form-group">
+<label class="order-form-label required" data-lang-cz="Typ doručení" data-lang-ru="Тип доставки">Typ doručení</label>
+<input type="hidden" name="typ_doruceni" id="delivery-type-input" value="address">
+<div class="delivery-type-options">
+<div class="delivery-type-option active" onclick="selectDeliveryType('address', this)">
+<span class="delivery-type-icon">🏠</span>
+<div data-lang-cz="Na adresu" data-lang-ru="На адрес">Na adresu</div>
+</div>
+<div class="delivery-type-option" onclick="selectDeliveryType('post_office', this)">
+<span class="delivery-type-icon">📬</span>
+<div data-lang-cz="Na poštu" data-lang-ru="На отделение">Na pobočku</div>
+</div>
+<div class="delivery-type-option" onclick="selectDeliveryType('postomat', this)">
+<span class="delivery-type-icon">📦</span>
+<div data-lang-cz="Do Zásilkovny" data-lang-ru="В поштомат">Do Boxu</div>
+</div>
+</div>
+</div>
+<div class="order-form-group address-field" id="address-field">
+<label class="order-form-label required" data-lang-cz="Adresa pro doručení" data-lang-ru="Адрес доставки">Adresa pro doručení</label>
+<textarea class="order-form-textarea" name="adresa" required placeholder="${currentLang === 'cz' ? 'Ulice 123, Město, 123 45' : 'Улица 123, Город, 12345'}"></textarea>
+<div class="address-hint-container">
+<div class="address-hint-icon">
+<span>ℹ️</span>
+<strong data-lang-cz="Důležité:" data-lang-ru="Важно:">Důležité:</strong>
+</div>
+<p class="address-hint-text"
+data-lang-cz="Pro doručení na pobočku nebo do boxu zadejte <strong>úplnou adresu</strong> včetně názvu města, ulice a PSČ. Například: Praha, Václavské náměstí 123, 110 00"
+data-lang-ru="Для доставки на почту или в поштомат укажите <strong>полный адрес</strong> включая название города, улицу и почтовый индекс. Например: Прага, Вацлавская площадь 123, 110 00">
+Pro doručení na poštu nebo do Zásilkovny zadejte <strong>úplnou adresu</strong> včetně názvu města, ulice a PSČ. Například: Praha, Václavské náměstí 123, 110 00
+</p>
+</div>
+</div>
+<div class="order-form-group">
+<label class="order-form-label required" data-lang-cz="Způsob doručení" data-lang-ru="Способ доставки">Způsob doručení</label>
+<input type="hidden" name="doruceni" id="delivery-input" value="Zásilkovna">
+<div class="delivery-options">
+<div class="delivery-option active" onclick="selectDelivery('Zásilkovna', this)">
+<div class="delivery-logo">📦</div>
+<div class="delivery-name">Zásilkovna</div>
+</div>
+<div class="delivery-option" onclick="selectDelivery('PPL', this)">
+<div class="delivery-logo">🚚</div>
+<div class="delivery-name">PPL</div>
+</div>
+<div class="delivery-option" onclick="selectDelivery('Balíkovna', this)">
+<div class="delivery-logo">📮</div>
+<div class="delivery-name">Balíkovna</div>
+</div>
+</div>
+</div>
+<div class="order-form-group">
+<label class="order-form-label" data-lang-cz="Poznámka k objednávce" data-lang-ru="Примечание к заказу">Poznámka k objednávce</label>
+<textarea class="order-form-textarea" name="poznamka" placeholder="${currentLang === 'cz' ? 'Např. preferovaný čas doručení' : 'Например, предпочтительное время доставки'}"></textarea>
+</div>
+<button type="submit" class="order-submit-btn" id="order-submit-btn">
+<span data-lang-cz="Odeslat objednávku" data-lang-ru="Отправить заказ">Odeslat objednávku</span>
+</button>
+</form>
+`;
+document.getElementById('order-content').innerHTML = content;
+// Set initial delivery type
+document.querySelectorAll('.delivery-type-option').forEach(opt => {
+opt.classList.toggle('active', opt.getAttribute('onclick').includes(`'${deliveryType}'`));
+});
+updateAddressField();
+}
+function selectDeliveryType(type, element) {
+deliveryType = type;
+document.getElementById('delivery-type-input').value = type;
+document.querySelectorAll('.delivery-type-option').forEach(opt => opt.classList.remove('active'));
+element.classList.add('active');
+updateAddressField();
+}
+function updateAddressField() {
+const addressField = document.getElementById('address-field');
+const hintContainer = addressField.querySelector('.address-hint-container');
+const hintText = addressField.querySelector('.address-hint-text');
+const hintIcon = addressField.querySelector('.address-hint-icon strong');
+if (deliveryType === 'address') {
+addressField.querySelector('label').textContent = currentLang === 'cz' ? 'Adresa pro doručení' : 'Адрес доставки';
+addressField.querySelector('textarea').placeholder = currentLang === 'cz' ? 'Ulice 123, Město, 123 45' : 'Улица 123, Город, 12345';
+hintContainer.style.display = 'none';
+} else {
+addressField.querySelector('label').textContent = currentLang === 'cz' ? 'Adresa pobočky / Zásilkovny' : 'Адрес отделения / поштомата';
+addressField.querySelector('textarea').placeholder = currentLang === 'cz' ? 'Město, ulice, PSČ (např. Praha, Václavské nám. 123, 110 00)' : 'Город, улица, индекс (напр. Прага, Вацлавская пл. 123, 110 00)';
+hintContainer.style.display = 'block';
+// Обновляем текст подсказки в соответствии с текущим языком
+if (currentLang === 'cz') {
+hintIcon.textContent = 'Důležité:';
+hintText.innerHTML = 'Pro doručení na poštu nebo do Zásilkovny zadejte <strong>úplnou adresu</strong> včetně názvu města, ulice a PSČ. Například: Praha, Václavské náměstí 123, 110 00';
+} else {
+hintIcon.textContent = 'Важно:';
+hintText.innerHTML = 'Для доставки на почту или в поштомат укажите <strong>полный адрес</strong> включая название города, улицу и почтовый индекс. Например: Прага, Вацлавская площадь 123, 110 00';
+}
+}
+}
+function selectDelivery(service, element) {
+selectedDelivery = service;
+document.getElementById('delivery-input').value = service;
+document.querySelectorAll('.delivery-option').forEach(opt => opt.classList.remove('active'));
+element.classList.add('active');
+}
+function submitOrder(event) {
+event.preventDefault();
+const submitBtn = document.getElementById('order-submit-btn');
+const originalText = submitBtn.innerHTML;
+submitBtn.disabled = true;
+submitBtn.innerHTML = '<div class="spinner"></div>';
+const form = document.getElementById('order-form');
+// Prepare order details
+let orderDetails = currentLang === 'cz' ?
+`NOVÁ OBJEDNÁVKA - iMart-Store
+` :
+`НОВЫЙ ЗАКАЗ - iMart-Store
+`;
+// Add cart items
+cart.forEach(item => {
+orderDetails += `- ${item.name} (${item.color})
+`;
+orderDetails += `  Množství: ${item.qty} ks
+`;
+orderDetails += `  Cena: ${item.price} Kč/ks
+`;
+orderDetails += `  Celkem: ${item.price * item.qty} Kč
+`;
+});
+// Calculate total
+let total = 0;
+cart.forEach(item => {
+total += item.price * item.qty;
+});
+// Add delivery type
+const deliveryTypeText = {
+'address': currentLang === 'cz' ? 'Na domácí adresu' : 'На домашний адрес',
+'post_office': currentLang === 'cz' ? 'Na poštu' : 'На почту',
+'postomat': currentLang === 'cz' ? 'Do Zásilkovny' : 'В поштомат'
+};
+orderDetails += currentLang === 'cz' ?
+`Typ doručení: ${deliveryTypeText[deliveryType]}
+` :
+`Тип доставки: ${deliveryTypeText[deliveryType]}
+`;
+orderDetails += currentLang === 'cz' ?
+`Způsob doručení: ${selectedDelivery}
+` :
+`Способ доставки: ${selectedDelivery}
+`;
+orderDetails += currentLang === 'cz' ?
+`CELKEM: ${total.toLocaleString('cs-CZ')} Kč
+` :
+`ИТОГО: ${total.toLocaleString('cs-CZ')} Kč
+`;
+// Add order details to form
+let hiddenInput = form.querySelector('input[name="objednavka"]');
+if (!hiddenInput) {
+hiddenInput = document.createElement('input');
+hiddenInput.type = 'hidden';
+hiddenInput.name = 'objednavka';
+form.appendChild(hiddenInput);
+}
+hiddenInput.value = orderDetails;
+// Create FormData object
+const formData = new FormData(form);
+// Send to FormSubmit - FIXED: Correct success handling
+fetch('https://formsubmit.co/coincama@gmail.com', {
+method: 'POST',
+body: formData,
+headers: {
+'Accept': 'application/json'
+}
+})
+.then(response => {
+// FormSubmit returns 302 redirect on success - we check for any 2xx status
+if (response.status >= 200 && response.status < 300) {
+return response.json().catch(() => ({})); // Try to parse JSON, but don't fail if it fails
+} else {
+throw new Error('Server returned status ' + response.status);
+}
+})
+.then(data => {
+// Track GA4 purchase event
+if (typeof gtag === 'function') {
+gtag('event', 'purchase', {
+currency: 'CZK',
+value: total,
+transaction_id: 'T' + Date.now(),
+items: cart.map(item => ({
+id: item.id,
+name: item.name,
+quantity: item.qty,
+price: item.price
+}))
+});
+}
+// Track TikTok CompletePayment event
+if (window.ttq) {
+window.ttq.track('CompletePayment', {
+value: total,
+currency: 'CZK'
+});
+}
+showOrderSuccess();
+// Clear cart after successful order
+cart = [];
+localStorage.setItem('cart', JSON.stringify(cart));
+updateCartDisplay();
+submitBtn.disabled = false;
+submitBtn.innerHTML = originalText;
+})
+.catch(error => {
+console.error('Error:', error);
+// Still show success because email was sent (FormSubmit behavior)
+showOrderSuccess();
+// Clear cart anyway since email was delivered
+cart = [];
+localStorage.setItem('cart', JSON.stringify(cart));
+updateCartDisplay();
+submitBtn.disabled = false;
+submitBtn.innerHTML = originalText;
+});
+}
+function showError(message) {
+const errorDiv = document.getElementById('order-error');
+if (errorDiv) {
+errorDiv.textContent = message;
+errorDiv.style.display = 'block';
+setTimeout(() => {
+errorDiv.style.display = 'none';
+}, 5000);
+}
+}
+function showOrderSuccess() {
+const content = `
+<div class="order-success">
+<div class="order-success-icon">✅</div>
+<h2 class="order-success-title" data-lang-cz="Objednávka odeslána!" data-lang-ru="Заказ отправлен!">Objednávka odeslána!</h2>
+<p class="order-success-message" data-lang-cz="Děkujeme za vaši objednávku! Brzy vás budeme kontaktovat na uvedený telefon nebo e-mail pro potvrzení objednávky." data-lang-ru="Спасибо за ваш заказ! Мы скоро свяжемся с вами по указанному телефону или электронной почте для подтверждения заказа.">Děkujeme za vaši objednávku! Brzy vás budeme kontaktovat na uvedený telefon nebo e-mail pro potvrzení objednávky.</p>
+<button class="btn btn-success" onclick="closeOrderModal()" data-lang-cz="Zavřít" data-lang-ru="Закрыть">Zavřít</button>
+</div>
+`;
+document.getElementById('order-content').innerHTML = content;
+}
+// ========== INITIALIZATION ==========
+document.addEventListener('DOMContentLoaded', () => {
+// Set initial active nav button
+document.getElementById('nav-pro').classList.add('active');
+// Scroll animation
+const observer = new IntersectionObserver((entries) => {
+entries.forEach(entry => {
+if (entry.isIntersecting) {
+entry.target.classList.add('visible');
+}
+});
+}, { threshold: 0.1 });
+document.querySelectorAll('.fade-in').forEach(el => {
+observer.observe(el);
+});
+// Initial cart load
+updateCartDisplay();
+// Close cart when clicking outside
+document.getElementById('cart-overlay').addEventListener('click', (e) => {
+if (e.target === document.getElementById('cart-overlay')) {
+closeCart();
+}
+});
+// Close order modal when clicking overlay
+document.getElementById('order-modal').addEventListener('click', (e) => {
+if (e.target === document.getElementById('order-modal')) {
+closeOrderModal();
+}
+});
+// Track PageView for TikTok and GA4
+if (window.ttq) {
+window.ttq.page();
+}
+if (typeof gtag === 'function') {
+gtag('event', 'page_view', {
+page_title: document.title,
+page_location: window.location.href,
+page_path: window.location.pathname
+});
+}
+});
+</script>
 </body>
 </html>
