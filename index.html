@@ -82,7 +82,15 @@
             backdrop-filter: blur(10px);
             border-bottom: 1px solid var(--border);
         }
-
+.btn-telegram {
+  background: linear-gradient(135deg, #2ca7e0, #0088cc);
+  color: white;
+  box-shadow: 0 6px 20px rgba(44, 167, 224, 0.4);
+}
+.btn-telegram:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 30px rgba(44, 167, 224, 0.6);
+}
         .logo {
             font-size: 24px;
             font-weight: 800;
@@ -1838,12 +1846,18 @@
     </main>
 
     <!-- STICKY BAR -->
-    <div class="sticky-bar">
-        <div class="sticky-info">
-            <div class="sticky-price" id="sticky-price">1 099 Kč</div>
-        </div>
-        <button class="sticky-btn" onclick="addToCart()" data-lang-cz="Objednat nyní" data-lang-ru="Заказать сейчас">Objednat nyní</button>
-    </div>
+<div class="sticky-bar">
+  <div class="sticky-info">
+    <div class="sticky-price" id="sticky-price">1 099 Kč</div>
+  </div>
+  <div style="display: flex; gap: 10px; width: 100%; max-width: 380px; margin: 0 auto;">
+    <button class="sticky-btn" onclick="addToCart()" data-lang-cz="Objednat nyní" data-lang-ru="Заказать сейчас">Objednat nyní</button>
+    <a href="https://t.me/Appledestroyer1" target="_blank" class="sticky-btn btn-telegram" style="text-decoration: none; display: flex; align-items: center; justify-content: center; gap: 8px;">
+      <span>✈️</span>
+      <span data-lang-cz="Telegram kanál" data-lang-ru="Telegram канал">Telegram kanál</span>
+    </a>
+  </div>
+</div>
 
     <!-- FOOTER -->
     <footer>
@@ -2643,6 +2657,11 @@
                 });
             }
         });
+        // Update Telegram button text
+const telegramBtn = document.querySelector('.btn-telegram span:last-child');
+if (telegramBtn) {
+  telegramBtn.textContent = currentLang === 'cz' ? 'Telegram kanál' : 'Telegram канал';
+}
     </script>
 
 </body>
